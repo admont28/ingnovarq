@@ -6,6 +6,22 @@
 		<title>INGNOVARQ</title>
 		<link href="css/style.css" rel="stylesheet" >
 		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<!-- bxSlider Javascript file -->
+            <script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
+            <!-- bxSlider CSS file -->
+            <link type="text/css" href="css/jquery.bxslider.css" rel="stylesheet" />
+		<!-- Slider Javascript file -->
+			<script>
+				$(document).ready(function(){
+					$('.elitePublicidad').bxSlider({
+						auto: true,
+						captions: true,
+						autoControls: true,
+						pager: true,
+						pause: 3000
+					});
+				});
+			</script>
 	</head>
 	<body>
 		<div class="container">
@@ -52,11 +68,48 @@
 				</div>
 
 			</nav>
-		</div>
+			<div id="contenedor">
+			    <div id="myCarousel" class="carousel slide">
+			      <ol class="carousel-indicators">
+			        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			        <li data-target="#myCarousel" data-slide-to="1"></li>
+			        <li data-target="#myCarousel" data-slide-to="2"></li>
+			        <li data-target="#myCarousel" data-slide-to="3"></li>
+			        <li data-target="#myCarousel" data-slide-to="4"></li>
+			      </ol>
+			      <!-- Carousel items -->
+			      <div class="carousel-inner slide-border">
+			        <div class="active item"><img  src="images/slide/1.jpg" alt="banner1" /></div>
+			        <div class="item"><img  src="images/slide/2.jpg" alt="banner2" /></div>
+			        <div class="item"><img  src="images/slide/3.jpg" alt="banner3" /></div>
+			        <div class="item"><img  src="images/slide/4.jpg" alt="banner4" /></div>
+			        <div class="item"><img  src="images/slide/5.jpg" alt="banner5" /></div>
+			      </div>
+			      <!-- Carousel nav -->
+			      <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+			      	<img  class="item-slide item-slide-left" src="images/slide/Previous.png"/>
+			      </a>
+			      <a class="carousel-control right" href="#myCarousel" data-slide="next">
+					<img  class="item-slide item-slide-right" src="images/slide/Next.png"/>
+			      </a>
+			    </div>		
+			</div>
+		
 		<footer>
 		
 		</footer>
+			
+			
+		</div>	
 		<script src="js/jquery.js"></script>
 	  	<script src="js/bootstrap.min.js"></script>
+	  	<script>
+		    $(document).ready(function(){
+		        $('.myCarousel').carousel({
+		        	interval: 3000
+		        });
+
+		    });
+		</script>
 	</body>
 </html>

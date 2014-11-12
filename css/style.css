@@ -53,7 +53,18 @@
 	height: 100%;
 }
 
+.item-slide{
+	margin-top: 200px;
+}
 
-ul li a:active{
-	background: black;
+.item-slide-left{
+	margin-left: 30px;
+}
+
+.item-slide-right{
+	margin-left: 115px;
+}
+
+.slide-border{
+	border-radius: 7px;
 }
