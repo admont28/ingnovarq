@@ -25,7 +25,7 @@
 	</head>
 	<body onload="cargador()">
 		<div class="container">
-			<header class="row">
+			<header class="row" id="contenedorHeader">
 				<div class="large-12 columns">
 					<div class="logo panel-header">
 						<img src="images/logo.jpg" class="img-responsive">
@@ -57,19 +57,18 @@
 				</div>
 			</header>
 			<nav>
-				<div>
+				
 					<ul class="nav nav-pills" role="tablist">
-  						<li id="menu-1"role="presentation"><a href="#">Inicio</a></li>
-						<li id="menu-2"role="presentation"><a href="#">Nosotros</a></li>
-						<li id="menu-3"role="presentation"><a href="#">Servicios</a></li>
-						<li id="menu-2"role="presentation"><a href="#">Nosotros</a></li>
-						<li id="menu-3"role="presentation"><a href="#">Contactenos</a></li>
+  						<li id="menu-1" role="presentation"><a href="#">Inicio</a></li>
+						<li id="menu-2" role="presentation"><a href="#">Nosotros</a></li>
+						<li id="menu-3" role="presentation"><a href="#">Servicios</a></li>
+						<li id="menu-4" role="presentation"><a href="#">Nosotros</a></li>
+						<li id="menu-5" role="presentation"><a href="#">Contactenos</a></li>
 					</ul>
-				</div>
+				
 
 			</nav>
-			<canvas id="lienzo">
-				</canvas>
+			
 				<div id="contenedor" class="contenedor">
 				    <div id="myCarousel" class="carousel slide">
 				      <ol class="carousel-indicators">
@@ -97,13 +96,26 @@
 				    </div>		
 				</div>
 			
-		
+			<article>
+				<section>
+					<h2>Nuestra Empresa</h2>
+				</section>
+				<section>
+					<h2>Nuestros</h2>
+				</section>
+				<section>
+					<h2>Nuestra Empresa</h2>
+				</section>
+				<aside></aside>
+			</article>
 		<footer>
 		
 		</footer>
 			
 			
-		</div>	
+		</div>
+		<canvas id="lienzo">
+		</canvas>	
 		<script src="js/jquery.js"></script>
 	  	<script src="js/bootstrap.min.js"></script>
 	  	<script src="js/canvas.js"></script>
@@ -115,5 +127,33 @@
 
 		    });
 		</script>
+		<!-- Menu pegajoso -->
+			<script>
+			
+			$(document).ready(function(){
+					posicionarMenu();
+				
+				$(window).scroll(function() {    
+				    posicionarMenu();
+				});
+				
+				function posicionarMenu() {
+				    var altura_header = $('#contenedorHeader').outerHeight(true);
+				    
+				    var altura_del_menu = $('nav').outerHeight(true);
+				
+				    if (($(window).scrollTop() >= (altura_header)))
+				    {
+				        $('nav').addClass('fixed');
+				        $('#contenedor').css('margin-top', (altura_del_menu) + 'px');
+				    }
+				     else {
+				        $('nav').removeClass('fixed');
+				        $('#contenedor').css('margin-top', '0');
+				    }
+				}
+				});
+				
+			</script>
 	</body>
 </html>

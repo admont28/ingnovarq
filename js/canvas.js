@@ -19,7 +19,4 @@ function cargador(){
 	lienzo1.lineTo(0,0);
 	lienzo1.closePath();
 	lienzo1.fill();
-	
-
-
 }

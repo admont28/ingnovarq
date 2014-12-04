@@ -69,9 +69,39 @@
 	border-radius: 7px;
 }
 
+.contenedor{
+	position: relative;
+}
+
+nav{
+	background-color: green;
+}
+
+.nav li a{
+	color: white;
+	background-color: rgb(96,160,36);
+}
+
+.nav li a:hover{
+	background-color: white;
+	color: rgb(96,160,36);
+}
+
+.fixed{
+	position:fixed;
+    margin-top:0px;
+    top: 0;
+    background-color: green;
+    /*left:0;
+    /* width: 79%;
+    margin-left: 10.5%;
+    */
+    z-index: 3000;
+}
+
 canvas{
 	width: 100%;
 	height: auto;
-	position: relative;
+	position: absolute;
 }
 
