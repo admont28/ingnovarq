@@ -1,3 +1,7 @@
+#body{
+	background-image: url(../images/background.jpg); 
+}
+
 /*
  * ------------------------------------------------------------------------------------------------------------
  * 
@@ -6,10 +10,15 @@
  * ------------------------------------------------------------------------------------------------------------
  */
 
+.columns{
+	margin-bottom: 10px;
+}
+
 .logo{
 	width: 40%;
 	padding-left: 30px;
 	text-align: left;
+	margin-bottom: 20px;
 }
 
 .panel-header{
@@ -22,7 +31,7 @@
 	width: 40px;
 	height: 40px;
 	margin-right: 10px;
-	margin-top: 140px;
+	margin-top: center;
 }
 
 .item-social-media img{
@@ -53,33 +62,23 @@
 	height: 100%;
 }
 
-.item-slide{
-	margin-top: 200px;
-}
+/*
+ * ------------------------------------------------------------------------------------------------------------
+ * 
+ * ----------------------------------------- MENÚ  ------------------------------------------------------
+ * 
+ * ------------------------------------------------------------------------------------------------------------
+ */
 
-.item-slide-left{
-	margin-left: 30px;
-}
-
-.item-slide-right{
-	margin-left: 115px;
-}
-
-.slide-border{
-	border-radius: 7px;
-}
-
-.contenedor{
-	position: relative;
-}
-
-nav{
-	background-color: green;
+.nav{
+	padding: 5px;
+	
 }
 
 .nav li a{
 	color: white;
-	background-color: rgb(96,160,36);
+	background-color: #81CD00;
+	margin-right: 8px;
 }
 
 .nav li a:hover{
@@ -87,21 +86,118 @@ nav{
 	color: rgb(96,160,36);
 }
 
-.fixed{
-	position:fixed;
-    margin-top:0px;
-    top: 0;
-    background-color: green;
-    /*left:0;
-    /* width: 79%;
-    margin-left: 10.5%;
-    */
-    z-index: 3000;
+.color-nav{
+	background-color: #019831; 
 }
 
-canvas{
+.div-nav{
+	margin: 0px;
+}
+
+.fixed {
+    position:fixed;
+    top:0;
+    opacity: 50%;
+}
+
+.paralelogramo{
+     -webkit-transform: skew(-20deg);
+     -moz-transform: skew(-20deg);
+     -ms-transform: skew(-20deg);
+     -o-transform: skew(-20deg);
+     transform: skew(-20deg);
+ }
+
+.cuadrado{
+	 -webkit-transform: skew(20deg);
+     -moz-transform: skew(20deg);
+     -ms-transform: skew(20deg);
+     -o-transform: skew(20deg);
+     transform: skew(20deg);
+}
+
+/*
+ * ------------------------------------------------------------------------------------------------------------
+ * 
+ * ----------------------------------------- SLIDER  ------------------------------------------------------
+ * 
+ * ------------------------------------------------------------------------------------------------------------
+ */
+
+.item-slide{
+	position:absolute;
+	top:50%;
+}
+
+.item-slide-left{
+	margin-left: 30px;
+}
+
+.item-slide-right{
+	right:50%;
+	/*float: right;*/
+}
+
+.slide-border{
+	border-radius: 7px;
+}
+
+#contenedorSlider{
+	position: absolute;
+	z-index: 2;
+	top:20px;
+	left:90px; 
+	right: 85px;
+}
+
+.contenedorSlider{
+	padding-left: 25px;
+	padding-right: 25px;
+	border-radius: 6px;
+	position: relative;
+}
+
+#lienzo{
 	width: 100%;
 	height: auto;
-	position: absolute;
+	position: relative;
+	z-index: 1;
 }
 
+/*
+ * ------------------------------------------------------------------------------------------------------------
+ * 
+ * ----------------------------------------- CONTENIDO  ------------------------------------------------------
+ * 
+ * ------------------------------------------------------------------------------------------------------------
+ */
+
+.contenido{
+	padding-right: 85px;
+	padding-left: 85px;
+}
+
+.empresa>div.panel-heading , .servicios>div.panel-heading , .clientes>div.panel-heading, .twitter>div.panel-heading{
+background: #9dd53a; /* Old browsers */
+background: -moz-linear-gradient(top,  #9dd53a 1%, #80c217 1%, #80c217 42%, #80c217 61%, #80c217 63%, #a1d54f 79%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#9dd53a), color-stop(1%,#80c217), color-stop(42%,#80c217), color-stop(61%,#80c217), color-stop(63%,#80c217), color-stop(79%,#a1d54f)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #9dd53a 1%,#80c217 1%,#80c217 42%,#80c217 61%,#80c217 63%,#a1d54f 79%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #9dd53a 1%,#80c217 1%,#80c217 42%,#80c217 61%,#80c217 63%,#a1d54f 79%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #9dd53a 1%,#80c217 1%,#80c217 42%,#80c217 61%,#80c217 63%,#a1d54f 79%); /* IE10+ */
+background: linear-gradient(to bottom,  #9dd53a 1%,#80c217 1%,#80c217 42%,#80c217 61%,#80c217 63%,#a1d54f 79%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9dd53a', endColorstr='#a1d54f',GradientType=0 ); /* IE6-9 */
+color: #fff;
+}
+
+/*
+ * ------------------------------------------------------------------------------------------------------------
+ * 
+ * ----------------------------------------- FOOTER  ------------------------------------------------------
+ * 
+ * ------------------------------------------------------------------------------------------------------------
+ */
+
+ .footer{
+ 	background-color: rgba(150,150,150,0.8);
+ 	color: #fff;
+ }
