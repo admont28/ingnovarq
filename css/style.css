@@ -14,24 +14,29 @@
 	margin-bottom: 10px;
 }
 
+.margin{
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
 .logo{
 	width: 40%;
-	padding-left: 30px;
 	text-align: left;
-	margin-bottom: 20px;
 }
 
 .panel-header{
 	width: 48%;
 	float: left;
+
 }
 
 .item-social-media{
 	float: right;
 	width: 40px;
-	height: 40px;
+	height: 50px;
 	margin-right: 10px;
 	margin-top: center;
+	padding-top: 10px;
 }
 
 .item-social-media img{
@@ -78,7 +83,8 @@
 .nav li a{
 	color: white;
 	background-color: #81CD00;
-	margin-right: 8px;
+	margin-right: 5px;
+	padding: 0px
 }
 
 .nav li a:hover{
@@ -145,8 +151,8 @@
 #contenedorSlider{
 	position: absolute;
 	z-index: 2;
-	top:20px;
-	left:90px; 
+	top:10px;
+	left:85px; 
 	right: 85px;
 }
 

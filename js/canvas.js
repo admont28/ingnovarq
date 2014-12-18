@@ -10,12 +10,12 @@ function cargador(){
 		lienzo1.beginPath();
 		lienzo1.moveTo(0,0);
 		lienzo1.lineTo(1300,0);
-		lienzo1.lineTo(1300,600);
-		lienzo1.lineTo(1270,600);
-		lienzo1.lineTo(1230,530);
-		lienzo1.lineTo(70,530);
-		lienzo1.lineTo(30,600);
-		lienzo1.lineTo(0,600);	
+		lienzo1.lineTo(1300,530);
+		lienzo1.lineTo(1270,530);
+		lienzo1.lineTo(1245,490);
+		lienzo1.lineTo(55,490);
+		lienzo1.lineTo(30,530);
+		lienzo1.lineTo(0,530);	
 		lienzo1.closePath();
 		lienzo1.fill();
 }
