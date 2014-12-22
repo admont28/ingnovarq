@@ -2,6 +2,10 @@
 	background-image: url(../images/background.jpg); 
 }
 
+#main
+{
+}
+
 /*
  * ------------------------------------------------------------------------------------------------------------
  * 
@@ -14,20 +18,20 @@
 	margin-bottom: 10px;
 }
 
-.margin{
+.padding{
 	padding-left: 20px;
 	padding-right: 20px;
 }
 
 .logo{
-	width: 40%;
 	text-align: left;
+	float: left;
+	width: 48%;
 }
 
 .panel-header{
 	width: 48%;
 	float: left;
-
 }
 
 .item-social-media{
@@ -75,35 +79,16 @@
  * ------------------------------------------------------------------------------------------------------------
  */
 
-.nav{
-	padding: 5px;
-	
-}
-
-.nav li a{
-	color: white;
-	background-color: #81CD00;
-	margin-right: 5px;
-	padding: 0px
-}
-
-.nav li a:hover{
-	background-color: white;
-	color: rgb(96,160,36);
-}
-
-.color-nav{
-	background-color: #019831; 
-}
-
-.div-nav{
-	margin: 0px;
-}
-
 .fixed {
-    position:fixed;
-    top:0;
-    opacity: 50%;
+    position: fixed;
+    margin-top: 0px;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.fixed ul{
+	margin: 0px auto;
 }
 
 .paralelogramo{
@@ -161,6 +146,11 @@
 	padding-right: 25px;
 	border-radius: 6px;
 	position: relative;
+}
+
+.paddingSlider{
+	padding-left: 20px;
+	padding-right: 20px;
 }
 
 #lienzo{

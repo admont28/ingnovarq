@@ -3,22 +3,73 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<title>INGNOVARQ</title>
+		<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
 		<link href="css/style.css" rel="stylesheet" >
 		<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<!-- bxSlider Javascript file -->
             
             <!-- bxSlider CSS file -->
         <link type="text/css" href="css/jquery.bxslider.css" rel="stylesheet" />
-		<!-- Slider Javascript file -->
-			
+		
+		<!-- Slider CSS Files-->
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/slicebox.css" />
+		<link rel="stylesheet" type="text/css" href="css/custom.css" />
+
+		<!-- Script para slider -->
+		<script type="text/javascript" src="js/modernizr.custom.46884.js"></script>
+
+		<!-- Nav -->
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/nav.css">
+		<script>
+			$(function() {
+				var pull 		= $('#pull');
+					menu 		= $('nav ul');
+					menuHeight	= menu.height();
+
+				$(pull).on('click', function(e) {
+					e.preventDefault();
+					menu.slideToggle();
+				});
+
+				$(window).resize(function(){
+	        		var w = $(window).width();
+	        		if(w > 601 && menu.is(':hidden')) {
+	        			menu.removeAttr('style');
+	        		}
+	        		if(w < 601){
+	        			$('nav').removeClass('paralelogramo');
+	        			$('nav ul li').removeClass('cuadrado');
+	        		}
+	        		else{
+	        			$('nav').addClass('paralelogramo');
+	        			$('nav ul li').addClass('cuadrado');
+
+	        		}
+	    		});
+			});
+		</script>
+
+		<script>
+		$(function (){
+			if (screen.width<601){
+					$('nav').removeClass('paralelogramo');
+	        		$('nav ul li').removeClass('cuadrado');
+				}
+		});
+		</script>
+		
 	</head>
 	<body id="body" onLoad="cargador()">
-		<div class="container">
+		<div class="container" id="main">
 			
-				<header class="row margin" id="contenedorHeader">
-					<div class="col-md-12 columns">
-						<div class="logo panel-header">
+				<header class="row padding">
+					<div class="col-md-12 columns" id="contenedorHeader">
+						<div class="logo">
 							<img src="images/logo.png" class="img-responsive">
 						</div>	
 						<div class="panel-header">
@@ -44,12 +95,24 @@
 									</a>
 								</div>
 							</div>
-						</div>				
+						</div>	
+					</div>			
 				</header>
-						
+
+				<nav class="clearfix paralelogramo">
+					<ul class="clearfix">
+						<li class="cuadrado" ><a href="#">Inicio</a></li>
+						<li class="cuadrado" ><a href="#">Nosotros</a></li>
+						<li class="cuadrado" ><a href="#">Servicios</a></li>
+						<li class="cuadrado" ><a href="#">Proyectos</a></li>
+						<li class="cuadrado" ><a href="#">Contáctenos</a></li>	
+					</ul>
+					<a href="#" id="pull">Menu</a>
+				</nav>
+				<!--		
 				<nav class="navbar navbar-default paralelogramo">
 						<div class="container-fluid color-nav div-nav">
-						    <!-- Brand and toggle get grouped for better mobile display -->
+						    <!-- Brand and toggle get grouped for better mobile display 
 						    <div class="navbar-header">
 						      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 						        <span class="sr-only">Toggle navigation</span>
@@ -60,7 +123,7 @@
 						     
 						    </div>
 
-							 <div class=" container-fluidcollapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							 <div class="container-fluidcollapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav nav-pills" role="tablist">
 			  						<li id="menu-1" class="cuadrado" role="presentation"><a href="#">Inicio</a></li>
 									<li id="menu-2" class="cuadrado" role="presentation"><a href="#">Nosotros</a></li>
@@ -68,119 +131,169 @@
 									<li id="menu-4" class="cuadrado" role="presentation"><a href="#">Proyectos</a></li>
 									<li id="menu-5" class="cuadrado" role="presentation"><a href="#">Contáctenos</a></li>
 								</ul>
-							</div><!-- /.navbar-collapse -->
+							</div><!-- /.navbar-collapse 
 						</div>
 				</nav>
+				-->
 		
-				</div>
+		</div>
+		
+		<div class="row">
+			<div id="slider-content" class="col-xs-12 col-sm-12 col-md-12">			
+				<canvas id="lienzo" width="1300" height="535" > 				
+				</canvas>
+				<div id="contenedorSlider" class="contenedorSlider paddingSlider">
+					   <div class="wrapper">
+							<ul id="sb-slider" class="sb-slider">
+								<li>
+									<img src="images/slide/1.jpg" alt="image1"/>
+									<div class="sb-description"> <h3>Oficina de Ingnovarq S.A.S</h3> </div>
+								</li>
+								<li>
+									<img src="images/slide/2.jpg" alt="image2"/>
+									<div class="sb-description"> <h3>Edificio Torreyana, entrada principal</h3> </div>
+								</li>
+							</ul>
 
-				<div class="row">
-					<div id="slider-content" class="col-xs-12 col-sm-12 col-md-12">			
-						<canvas id="lienzo" width="1300" height="535" >				
-						</canvas>
-					
-						<div id="contenedorSlider" class="contenedorSlider margin">
-							   <div id="myCarousel" class="carousel slide">
-							      <ol class="carousel-indicators">
-							        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-							        <li data-target="#myCarousel" data-slide-to="1"></li>
-							        <li data-target="#myCarousel" data-slide-to="2"></li>
-							        <li data-target="#myCarousel" data-slide-to="3"></li>
-							        <li data-target="#myCarousel" data-slide-to="4"></li>
-							      </ol>
-							      
-							      <div class="carousel-inner slide-border">
-							        <div class="active item"><img  src="images/slide/1.jpg" alt="banner1" /></div>
-							        <div class="item"><img  src="images/slide/2.jpg" alt="banner2" /></div>
-							        <div class="item"><img  src="images/slide/3.jpg" alt="banner3" /></div>
-							        <div class="item"><img  src="images/slide/4.jpg" alt="banner4" /></div>
-							        <div class="item"><img  src="images/slide/5.jpg" alt="banner5" /></div>
-							      </div>
-							      
-							      <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-							      	<img  class="item-slide item-slide-left" src="images/slide/Previous.png"/>
-							      </a>
-							      <a class="carousel-control right" href="#myCarousel" data-slide="next">
-									<img  class="item-slide item-slide-right" src="images/slide/Next.png"/>
-							      </a>
-							   </div>		
-						</div>
-					</div>		
-				</div>
+							<div id="shadow" class="shadow"></div>
 
-				<div class="contenido">
-					<div  class="col-xs-12 col-sm-8 col-md-8">
-							<div class="panel panel-default empresa">
-							  <div class="panel-heading">Nuestra Empresa</div>
-							  <div class="panel-body">
-								SITIO WEB EN CONSTRUCCIÓN
-							  </div>
+							<div id="nav-arrows" class="nav-arrows">
+								<a href="#">Next</a>
+								<a href="#">Previous</a>
 							</div>
 
-							<div class="panel panel-default servicios">
-							  <div class="panel-heading">Nuestros Servicios</div>
-							  <div class="panel-body">
-								SITIO WEB EN CONSTRUCCIÓN
-							  </div>
-							</div>	
-							<div class="panel panel-default clientes">
-							  <div class="panel-heading">Nuestros Clientes</div>
-							  <div class="panel-body">
-								SITIO WEB EN CONSTRUCCIÓN
-							  </div>
-							</div>		
-						</div>
-						<div  class=" col-xs-12 col-sm-4 col-md-4">
-							<div class="panel panel-default twitter">
-							  <div class="panel-heading">TWITTER</div>
-							  <div class="panel-body">
-												    <a class="twitter-timeline" data-theme="dark" href="https://twitter.com/twitter_es" data-widget-id="252531828395753472">Tweets por el @twitter_es.</a>
-							  </div>
-							</div>				
 						</div>
 				</div>
-	    	
-				<footer>
-					<div class="col-xs-12 col-sm-12 col-md-12 footer">
-						<div  class=" col-xs-6 col-sm-6 col-md-6">
-							<div class="panel-heading">SERVICIOS</div>
-							 <div class="panel-body">
-								SITIO WEB EN CONSTRUCCIÓN -
-								SITIO WEB EN CONSTRUCCIÓN -
-								SITIO WEB EN CONSTRUCCIÓN -
-								SITIO WEB EN CONSTRUCCIÓN -
-								SITIO WEB EN CONSTRUCCIÓN -
-								SITIO WEB EN CONSTRUCCIÓN -
-								SITIO WEB EN CONSTRUCCIÓN -
-								SITIO WEB EN CONSTRUCCIÓN -
-								SITIO WEB EN CONSTRUCCIÓN -
-								SITIO WEB EN CONSTRUCCIÓN - 
-							  </div>
-						</div>
-						<div  class=" col-xs-6 col-sm-6 col-md-6">
-							<div class="panel-heading">CONTACTO</div>
-							 <div class="panel-body">
-								SITIO WEB EN CONSTRUCCIÓN -
-								SITIO WEB EN CONSTRUCCIÓN -
-								SITIO WEB EN CONSTRUCCIÓN -
-								SITIO WEB EN CONSTRUCCIÓN -
-								SITIO WEB EN CONSTRUCCIÓN -
-								SITIO WEB EN CONSTRUCCIÓN -
-								SITIO WEB EN CONSTRUCCIÓN -
-								SITIO WEB EN CONSTRUCCIÓN -
-								SITIO WEB EN CONSTRUCCIÓN -
-								
-							  </div>
-						</div>
-					</div>
-				</footer>
-			
+			</div>		
 		</div>
+		
+
+		<div class="contenido">
+			<div  class="col-xs-12 col-sm-8 col-md-8">
+
+					<div class="panel panel-default empresa">
+					  <div class="panel-heading">Conoce nuestro nuevo proyecto</div>
+					  <div class="panel-body">
+						Conoce nuestro nuevo proyecto "Reserva de la colina" ubicada en la ciudad de Tebaida Quindío.
+
+						<br> <br>Para ver las imagenes dirígete a nuestras redes sociales. <br>
+
+						<a href="https://www.facebook.com/media/set/?set=a.780324305373844.1073741828.779868935419381" target="_Blank">Facebook</a>
+
+						<a href="https://plus.google.com/u/0/photos/108218785440706983619/albums/6094699707337871649" target="_Blank">Google Plus</a>
+
+						<a href="" target="_Blank">Twitter</a>
+
+						<br>
+						
+							<img class="img-responsive" src="images/reserva.gif">
+						
+					  </div>
+					</div>
+
+					<div class="panel panel-default empresa">
+					  <div class="panel-heading">Nuestra Empresa</div>
+					  <div class="panel-body">
+						SITIO WEB EN CONSTRUCCIÓN
+					  </div>
+					</div>
+
+					<div class="panel panel-default servicios">
+					  <div class="panel-heading">Nuestros Servicios</div>
+					  <div class="panel-body">
+						SITIO WEB EN CONSTRUCCIÓN
+					  </div>
+					</div>	
+					<div class="panel panel-default clientes">
+					  <div class="panel-heading">Nuestros Clientes</div>
+					  <div class="panel-body">
+						SITIO WEB EN CONSTRUCCIÓN
+					  </div>
+					</div>		
+				</div>
+				<div  class=" col-xs-12 col-sm-4 col-md-4">
+					<div class="panel panel-default twitter">
+					  <div class="panel-heading">TWITTER</div>
+					  <div class="panel-body">
+							<a class="twitter-timeline" href="https://twitter.com/ingnovarqsas" data-widget-id="546104635002728448">Tweets por @ingnovarqsas.
+							</a>
+					  </div>
+					</div>		
+
+
+
+			</div>
+		</div>
+	    	
+		<footer>
+			<div class="col-xs-12 col-sm-12 col-md-12 footer">
+				<div  class=" col-xs-6 col-sm-6 col-md-6">
+					<div class="panel-heading">SERVICIOS</div>
+					 <div class="panel-body">
+						SITIO WEB EN CONSTRUCCIÓN -
+						SITIO WEB EN CONSTRUCCIÓN -
+						SITIO WEB EN CONSTRUCCIÓN -
+						SITIO WEB EN CONSTRUCCIÓN -
+						SITIO WEB EN CONSTRUCCIÓN -
+						SITIO WEB EN CONSTRUCCIÓN -
+						SITIO WEB EN CONSTRUCCIÓN -
+						SITIO WEB EN CONSTRUCCIÓN -
+						SITIO WEB EN CONSTRUCCIÓN -
+						SITIO WEB EN CONSTRUCCIÓN - 
+					  </div>
+				</div>
+				<div  class=" col-xs-6 col-sm-6 col-md-6">
+					<div class="panel-heading">CONTACTO</div>
+					 <div class="panel-body">
+						SITIO WEB EN CONSTRUCCIÓN -
+						SITIO WEB EN CONSTRUCCIÓN -
+						SITIO WEB EN CONSTRUCCIÓN -
+						SITIO WEB EN CONSTRUCCIÓN -
+						SITIO WEB EN CONSTRUCCIÓN -
+						SITIO WEB EN CONSTRUCCIÓN -
+						SITIO WEB EN CONSTRUCCIÓN -
+						SITIO WEB EN CONSTRUCCIÓN -
+						SITIO WEB EN CONSTRUCCIÓN -
+						
+					  </div>
+				</div>
+			</div>
+		</footer>
 	
 		<script src="js/jquery.js"></script>
 	  	<script src="js/bootstrap.min.js"></script>
 	  	<script src="js/canvas.js"></script>
-	  	<script type="text/javascript" src="js/scrolltofixed-min.js"></script>
-	  	<script type="text/javascript" src="js/app.js"></script>	  	
+	  	<!-- <script type="text/javascript" src="js/scrolltofixed-min.js"></script> -->
+	  	<script type="text/javascript" src="js/app.js"></script>
+	  	<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> -->
+		<script type="text/javascript" src="js/jquery.slicebox.js"></script>
+		<!-- Menu pegajoso -->
+			<script>
+			
+			$(document).ready(function(){
+					posicionarMenu();
+				
+				$(window).scroll(function() {    
+				    posicionarMenu();
+				});
+				
+				function posicionarMenu() {
+				    var altura_header = $('#contenedorHeader').outerHeight(true);
+				    
+				    var altura_del_menu = $('nav').outerHeight(true);
+				
+				    if (($(window).scrollTop() >= (altura_header)))
+				    {
+				        $('nav').addClass('fixed');
+				        $('#main').css('margin-top', (altura_del_menu) + 'px');
+				    }
+				     else {
+				        $('nav').removeClass('fixed');
+				        $('#main').css('margin-top', '0');
+				    }
+				}
+				});
+				
+			</script>
 	</body>
 </html>
