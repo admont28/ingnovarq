@@ -82,14 +82,13 @@
 
 .fixed {
     position: fixed;
-    margin-top: 0px;
     top: 0;
     left: 0;
     z-index: 3;
 }
 
 .fixed ul{
-	margin: 0px auto;
+	
 }
 
 .paralelogramo{
@@ -115,23 +114,8 @@
  * 
  * ------------------------------------------------------------------------------------------------------------
  */
-
-.item-slide{
-	position:absolute;
-	top:50%;
-}
-
-.item-slide-left{
-	margin-left: 30px;
-}
-
-.item-slide-right{
-	right:50%;
-	/*float: right;*/
-}
-
-.slide-border{
-	border-radius: 7px;
+#slider-content{
+	padding-right: 0; 
 }
 
 #contenedorSlider{

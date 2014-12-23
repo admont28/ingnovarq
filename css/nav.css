@@ -53,7 +53,7 @@ nav a#pull {
 	display: none;
 }
 
-/*Styles for screen 800px and lower*/
+/*Styles for screen 890px and lower*/
 @media screen and (max-width: 890px){
 	.paddingSlider{
 		padding-left: 5px;
@@ -76,6 +76,28 @@ nav a#pull {
 
 	.logo{
 		width: 60%;
+	}
+
+	.sb-description{
+		padding: 10px;
+		bottom: 5px;
+		left: 5px;
+		right: 5px;
+	}
+
+	.sb-description h3{
+		margin: 5px 0px 5px 0px;
+	}
+
+	.nav-arrows a {
+		width: 42px;
+		height: 42px;
+		top: 40%;
+		left: 10px;
+	}
+
+	.nav-arrows a:first-child{
+		right: 10px;
 	}
 }
 
