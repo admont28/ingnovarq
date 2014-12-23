@@ -1,4 +1,4 @@
-#body{
+#con{
 	background-image: url(../images/background.jpg); 
 }
 
@@ -13,6 +13,7 @@
  * 
  * ------------------------------------------------------------------------------------------------------------
  */
+
 
 .columns{
 	margin-bottom: 10px;
@@ -193,7 +194,34 @@ color: #fff;
  * ------------------------------------------------------------------------------------------------------------
  */
 
- .footer{
- 	background-color: rgba(150,150,150,0.8);
- 	color: #fff;
- }
+
+
+footer {
+  background: url(http://i.imgur.com/VfQdztO.jpg) no-repeat center bottom;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 350px;
+  width: 100%;
+  text-align: center;
+  padding: 70px 5% 0;
+}
+
+.con {
+  background: #f9f9f9;
+  margin-bottom: 350px;
+  z-index:1;
+  box-shadow: -5px 0 10px 8px rgba(0, 0, 0, 0.7);
+  
+
+}
+
+@import url(http://fonts.googleapis.com/css?family=Sansita+One|Tenor+Sans);
+
+
+* {margin: 0; padding: 0; border: 0 none; position: relative;}
+html, body {width: auto; font-size: 1rem; background: #f9f9f9}
+*, *:after, *:before {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
