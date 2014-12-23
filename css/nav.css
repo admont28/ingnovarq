@@ -58,6 +58,17 @@ nav a#pull {
 	display: none;
 }
 
+/*Styles for screen 990px and lower*/
+@media screen and (max-width: 990px){
+	.con{
+		margin-bottom: 483px;
+	}
+
+	.separador{
+		border-right: 0px;
+	}
+}
+
 /*Styles for screen 890px and lower*/
 @media screen and (max-width: 890px){
 	.paddingSlider{
@@ -199,6 +210,10 @@ nav a#pull {
 		width: 33px;
 		height: 40px;
 		margin-right: 10px; 
+	}
+
+	.con{
+		margin-bottom: 525px;
 	}
 
 	.logo{
