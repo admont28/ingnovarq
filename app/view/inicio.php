@@ -46,7 +46,7 @@
 
 			<div class="contenido">
 				<div class="row">
-					<div  class="col-xs-12 col-sm-8 col-md-8">
+					<div class="col-xs-12 col-sm-8 col-md-8">
 
 						<div class="panel panel-default empresa">
 						  <div class="panel-heading">Conoce nuestro nuevo proyecto</div>

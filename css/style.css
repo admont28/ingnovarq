@@ -178,9 +178,7 @@ color: #fff;
  * ------------------------------------------------------------------------------------------------------------
  */
 
-
-
-footer {
+footer{
   background: url(http://i.imgur.com/VfQdztO.jpg) no-repeat center bottom;
   position: fixed;
   left: 0;
@@ -191,13 +189,11 @@ footer {
   padding: 70px 5% 0;
 }
 
-.con {
+.con{
   background: #f9f9f9;
   margin-bottom: 350px;
   z-index:1;
   box-shadow: -5px 0 10px 8px rgba(0, 0, 0, 0.7);
-  
-
 }
 
 @import url(http://fonts.googleapis.com/css?family=Sansita+One|Tenor+Sans);
