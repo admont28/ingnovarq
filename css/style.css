@@ -197,20 +197,20 @@ color: #fff;
  */
 
 footer{
-  background: -moz-linear-gradient(45deg,  rgba(85,140,71,1) 0%, rgba(159,206,72,1) 33%, rgba(159,206,72,1) 40%, rgba(159,206,72,1) 47%, rgba(159,206,72,1) 55%, rgba(159,206,72,1) 58%, rgba(85,140,71,1) 99%, rgba(85,140,71,1) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,rgba(85,140,71,1)), color-stop(33%,rgba(159,206,72,1)), color-stop(40%,rgba(159,206,72,1)), color-stop(47%,rgba(159,206,72,1)), color-stop(55%,rgba(159,206,72,1)), color-stop(58%,rgba(159,206,72,1)), color-stop(99%,rgba(85,140,71,1)), color-stop(100%,rgba(85,140,71,1))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(45deg,  rgba(85,140,71,1) 0%,rgba(159,206,72,1) 33%,rgba(159,206,72,1) 40%,rgba(159,206,72,1) 47%,rgba(159,206,72,1) 55%,rgba(159,206,72,1) 58%,rgba(85,140,71,1) 99%,rgba(85,140,71,1) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(45deg,  rgba(85,140,71,1) 0%,rgba(159,206,72,1) 33%,rgba(159,206,72,1) 40%,rgba(159,206,72,1) 47%,rgba(159,206,72,1) 55%,rgba(159,206,72,1) 58%,rgba(85,140,71,1) 99%,rgba(85,140,71,1) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(45deg,  rgba(85,140,71,1) 0%,rgba(159,206,72,1) 33%,rgba(159,206,72,1) 40%,rgba(159,206,72,1) 47%,rgba(159,206,72,1) 55%,rgba(159,206,72,1) 58%,rgba(85,140,71,1) 99%,rgba(85,140,71,1) 100%); /* IE10+ */
-background: linear-gradient(45deg,  rgba(85,140,71,1) 0%,rgba(159,206,72,1) 33%,rgba(159,206,72,1) 40%,rgba(159,206,72,1) 47%,rgba(159,206,72,1) 55%,rgba(159,206,72,1) 58%,rgba(85,140,71,1) 99%,rgba(85,140,71,1) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#558c47', endColorstr='#558c47',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
-
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  padding: 70px 5% 0;
+	background: -moz-linear-gradient(45deg,  rgba(85,140,71,1) 0%, rgba(159,206,72,1) 33%, rgba(159,206,72,1) 40%, rgba(159,206,72,1) 47%, rgba(159,206,72,1) 55%, rgba(159,206,72,1) 58%, rgba(85,140,71,1) 99%, rgba(85,140,71,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,rgba(85,140,71,1)), color-stop(33%,rgba(159,206,72,1)), color-stop(40%,rgba(159,206,72,1)), color-stop(47%,rgba(159,206,72,1)), color-stop(55%,rgba(159,206,72,1)), color-stop(58%,rgba(159,206,72,1)), color-stop(99%,rgba(85,140,71,1)), color-stop(100%,rgba(85,140,71,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(45deg,  rgba(85,140,71,1) 0%,rgba(159,206,72,1) 33%,rgba(159,206,72,1) 40%,rgba(159,206,72,1) 47%,rgba(159,206,72,1) 55%,rgba(159,206,72,1) 58%,rgba(85,140,71,1) 99%,rgba(85,140,71,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(45deg,  rgba(85,140,71,1) 0%,rgba(159,206,72,1) 33%,rgba(159,206,72,1) 40%,rgba(159,206,72,1) 47%,rgba(159,206,72,1) 55%,rgba(159,206,72,1) 58%,rgba(85,140,71,1) 99%,rgba(85,140,71,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(45deg,  rgba(85,140,71,1) 0%,rgba(159,206,72,1) 33%,rgba(159,206,72,1) 40%,rgba(159,206,72,1) 47%,rgba(159,206,72,1) 55%,rgba(159,206,72,1) 58%,rgba(85,140,71,1) 99%,rgba(85,140,71,1) 100%); /* IE10+ */
+	background: linear-gradient(45deg,  rgba(85,140,71,1) 0%,rgba(159,206,72,1) 33%,rgba(159,206,72,1) 40%,rgba(159,206,72,1) 47%,rgba(159,206,72,1) 55%,rgba(159,206,72,1) 58%,rgba(85,140,71,1) 99%,rgba(85,140,71,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#558c47', endColorstr='#558c47',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	height: 350px;
+	width: 100%;
+	text-align: center;
+	padding: 70px 5% 0;
 }
 
 .con{
@@ -218,13 +218,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#558c47', end
   margin-bottom: 360px;
   z-index:1;
   box-shadow: -5px 0 10px 8px rgba(0, 0, 0, 0.7);
+  position: relative;
 }
 
-@import url(http://fonts.googleapis.com/css?family=Sansita+One|Tenor+Sans);
+html, body {
+	width: auto; 
+	font-size: 1rem; 
+	background: #f9f9f9
+}
 
-
-* {margin: 0; padding: 0; border: 0 none; position: relative;}
-html, body {width: auto; font-size: 1rem; background: #f9f9f9}
 *, *:after, *:before {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
