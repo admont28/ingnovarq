@@ -1,27 +1,26 @@
+# Comprimir archivos html, texto plano, xml, css y javascript para reducir tiempo de carga.
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/x-javascript
+
 Options +FollowSymlinks
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
+# ocultar las extensiones de archivos .php
 RewriteRule ^(.*)$ $1.php
+
+# Redireccionar cuando no posea permisos de ver un directorio
+#ErrorDocument 403 http://www.ingnovarq.com.co/
+
+# Redireccionar cuando no se encuentre una página web
+#ErrorDocument 500 http://www.ingnovarq.com.co/
 
 # Evita que se listen los archivos en los directorios
 # Options -Indexes
 # Evita que se listen los archivos  php, html, js, png, jpg
 # IndexIgnore *.php *.html *.js *.png *.jpg
 
-# Comprimir archivos html, texto plano, xml, css y javascript para reducir tiempo de carga.
-AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/x-javascript
-
-# urls amigables
-RewriteRule ^/inicio/$ /app/view/inicio [L]
-RewriteRule ^/nosotros/$ /app/view/nosotros [L]
-RewriteRule ^/servicios/$ /app/view/servicios [L]
-RewriteRule ^/proyectos/$ /app/view/proyectos [L]
-RewriteRule ^/contactenos/$ /app/view/contacto [L]
-
 # Modulo para gestionar la caché
-
 <ifModule mod_headers.c>
 # Enciende Expires y modifica por defecto que expiren en 3 días
 ExpiresActive On
@@ -46,3 +45,10 @@ Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
 Header set Pragma "no-cache"
 </filesMatch>
 </ifModule>
+
+# (Url Amigables) Configuración para acceder a los sitios principales escribiendo así: ingnovarq.com.co/nosotros 
+RewriteRule ^inicio.*$ http://localhost/ingnovarq/app/view/inicio [R=301,L]
+RewriteRule ^nosotros.*$ http://localhost/ingnovarq/app/view/nosotros [R=301,L]
+RewriteRule ^proyectos.*$ http://localhost/ingnovarq/app/view/proyectos [R=301,L]
+RewriteRule ^servicios.*$ http://localhost/ingnovarq/app/view/servicios [R=301,L]
+RewriteRule ^contacto.*$ http://localhost/ingnovarq/app/view/contacto [R=301,L]
