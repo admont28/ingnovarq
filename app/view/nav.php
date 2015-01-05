@@ -35,4 +35,46 @@
 
 		<?php
 	}
+
+	function getNavAdmin(){
+		?>
+
+		<nav class="clearfix paralelogramo">
+			<ul class="clearfix">
+				<li class="cuadrado">
+					<a href="perfil" id="<?php if(strstr($_SERVER['REQUEST_URI'], 'perfil')){
+						echo 'seleccionado';
+					}?>">Inicio</a>
+				</li>
+				<li class="cuadrado">
+					<a href="agregarUsuario" id="<?php if(strstr($_SERVER['REQUEST_URI'], 'agregarUsuario')){
+						echo 'seleccionado';
+					}?>">Crear usuario</a>
+				</li>
+				<li class="cuadrado" >
+					<a href="agregarServicio" id="<?php if(strstr($_SERVER['REQUEST_URI'], 'agregarServicio')){
+						echo 'seleccionado';
+					}?>">Crear servicio</a>
+				</li>
+				<li class="cuadrado" >
+					<a href="agregarProyecto" id="<?php if(strstr($_SERVER['REQUEST_URI'], 'agregarProyecto')){
+						echo 'seleccionado';
+					}?>">Crear proyecto</a>
+				</li>
+				<li class="cuadrado" >
+					<a href="agregarCliente" id="<?php if(strstr($_SERVER['REQUEST_URI'], 'agregarCliente')){
+						echo 'seleccionado';
+					}?>">Crear cliente</a>
+				</li>
+				<li class="cuadrado" >
+					<a href="../controller/logout" id="<?php if(strstr($_SERVER['REQUEST_URI'], 'agregarCliente')){
+						echo 'seleccionado';
+					}?>">Cerrar Sesión</a>
+				</li>	
+			</ul>
+			<a href="#" id="pull">Menu</a>
+		</nav>
+
+		<?php
+	}
 ?>

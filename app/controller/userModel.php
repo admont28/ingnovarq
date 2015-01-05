@@ -104,8 +104,8 @@
 			while ($fila = $sentencia->fetch()) {
 				$response[] = $fila;
 			}
-
-			return $response;
+			$usuario = $response[0];
+			return $usuario;
 		}
 	}
 ?>

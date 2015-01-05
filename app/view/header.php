@@ -5,7 +5,9 @@
 		<header class="row padding" id="header">
 			<div class="col-md-12 columns" id="contenedorHeader">
 				<div class="logo">
-					<img src="../../images/logo.png" class="img-responsive">
+					<a href="inicio">
+						<img src="../../images/logo.png" class="img-responsive">
+					</a>
 				</div>	
 				<div class="panel-header">
 					<div id="social-media">

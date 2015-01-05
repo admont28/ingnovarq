@@ -3,7 +3,13 @@
 	include_once ("header.php");
 	include_once ("nav.php");
 	include_once ("footer.php"); 
+	require_once "../controller/empresaModel.php";
 	getImportsUp();
+
+	$empresa = new EmpresaModel();
+	$mision = $empresa->get_mision();
+	$vision = $empresa->get_vision();
+	$filosofia = $empresa->get_filosofia();
 ?>
 
 	<body id="body">
@@ -15,8 +21,6 @@
 						getNav();
 					?>
 			</div>
-			
-			
 
 			<div class="contenido">
 				<div class="row">
@@ -25,12 +29,9 @@
 						  <div class="panel-heading">Nuestra Misión</div>
 						  <div class="panel-body">
 							<p> 
-								Ingnovarq S.A.S Es una empresa que tiene como finalidad proporcionar a la sociedad (región, país) soluciones innovadoras, sustentables y eficaces, 
-								mediante la realización de servicios y proyectos de arquitectura, ingeniería y construcción.
-							</p>
-							<p>
-								Ingnovarq S.A.S Está comprometida a lograr un incremento de valor suficiente para satisfacer a sus clientes, así como también contribuir al desarrollo e 
-								impulso de la región.
+								<?php 	
+									echo $mision['misionEmpresa'];
+								?>
 							</p>
 						  </div>
 						</div>
@@ -39,8 +40,9 @@
 						  <div class="panel-heading">Nuestra Visión</div>
 						  <div class="panel-body">
 							<p>
-								Ingnovarq S.A.S Busca ser reconocida como una empresa líder a nivel regional en la prestación de servicios de arquitectura ingeniería y construcción, que 
-								generen mayor seguridad, satisfacción y lealtad por parte de nuestros clientes.
+								<?php
+									echo $vision['visionEmpresa'];
+								?>
 							</p>
 						  </div>
 						</div>
@@ -49,18 +51,9 @@
 						  <div class="panel-heading">Nuestra Filosofía</div>
 						  <div class="panel-body">
 							<p> 
-								La variedad de Servicios ofrecidas por la Constructora  ingnovarq sas abarcadesde la concepción del proyecto hasta que el mismo es finalizado.
-								Esto significa que la constructora desarrolla cada etapa sucesiva de un Proyecto, desde la misma conceptualización de la idea del Cliente hasta su exitosa 
-								ejecución de acuerdo a normas y especificaciones técnicas que cumplen con estándares nacionales e internacionales.
-							</p>
-							<p>
-								Ingnovarq S.A.S desarrolla un sistema de seguimiento y supervisión para cada Proyecto considerando el espectro global de componentes individuales,
-								asegurando como consecuencia su efectiva ejecución  en los rangos de los cronogramas y operación de Costos.
-							</p>
-							<p>
-								Ingnovarq S.A.S se encuentra en capacidad de ejecutar disciplinas relacionadas las diferentes fases de un Proyecto, en las cuales la Constructora dispone 
-								de la mayor parte del equipo de expertos que integran su propio banco de Recursos Humanos, evitando así cualquier inconveniente y garantizando a la 
-								vez la continuidad en la prestación del Servicio.
+								<?php
+									echo $filosofia['filosofiaEmpresa'];
+								?>
 							</p>
 						  </div>
 						</div>
