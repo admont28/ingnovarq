@@ -59,13 +59,17 @@ nav a#pull {
 }
 
 /*Styles for screen 990px and lower*/
-@media screen and (max-width: 990px){
+@media screen and (max-width: 992px){
 	.con{
 		margin-bottom: 483px;
 	}
 
 	.separador{
 		border-right: 0px;
+	}
+
+	.admin-img{
+		display: none;
 	}
 }
 

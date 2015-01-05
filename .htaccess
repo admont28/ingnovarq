@@ -1,5 +1,5 @@
 # Comprimir archivos html, texto plano, xml, css y javascript para reducir tiempo de carga.
-AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/x-javascript
+#AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/x-javascript
 
 Options +FollowSymlinks
 RewriteEngine On
@@ -20,31 +20,7 @@ RewriteRule ^(.*)$ $1.php
 # Evita que se listen los archivos  php, html, js, png, jpg
 # IndexIgnore *.php *.html *.js *.png *.jpg
 
-# Modulo para gestionar la caché
-<ifModule mod_headers.c>
-# Enciende Expires y modifica por defecto que expiren en 3 días
-ExpiresActive On
-ExpiresDefault A259200
- 
-# Configurar el almacenamiento en caché de archivos multimedia por 10 días
-<filesMatch ".(ico|gif|jpg|jpeg|png|flv|pdf|swf|mov|mp3|wmv|ppt)$">
-ExpiresDefault A864000
-Header append Cache-Control "public"
-</filesMatch>
- 
-# Configuración de la caché de 2 horas en los archivos comúnmente actualizados
-<filesMatch ".(xml|txt|html|js|css)$">
-ExpiresDefault A7200
-Header append Cache-Control "private, must-revalidate"
-</filesMatch>
- 
-# Forzar sin almacenamiento en caché de archivos dinámicos
-<filesMatch ".(php|cgi|pl|htm)$">
-ExpiresDefault A0
-Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
-Header set Pragma "no-cache"
-</filesMatch>
-</ifModule>
+
 
 # (Url Amigables) Configuración para acceder a los sitios principales escribiendo así: ingnovarq.com.co/nosotros 
 RewriteRule ^inicio.*$ http://localhost/ingnovarq/app/view/inicio [R=301,L]
