@@ -3,7 +3,10 @@
 	include_once ("header.php");
 	include_once ("nav.php");
 	include_once ("footer.php"); 
+	require_once ("../controller/sliderModel.php");
 	getImportsUp();
+	$sliderModel = new SliderModel();
+	$imagenes = $sliderModel->get_slider_images();
 ?>
 	<body id="body" onLoad="cargador()">
 		<div class="con" id="con">
@@ -22,14 +25,18 @@
 					<div id="contenedorSlider" class="contenedorSlider paddingSlider">
 						   <div class="wrapper">
 								<ul id="sb-slider" class="sb-slider">
-									<li>
-										<img src="../../images/slide/1.jpg" alt="image1"/>
-										<div class="sb-description"> <h3>Oficina de Ingnovarq S.A.S</h3> </div>
-									</li>
-									<li>
-										<img src="../../images/slide/2.jpg" alt="image2"/>
-										<div class="sb-description"> <h3>Edificio Torreyana, entrada principal</h3> </div>
-									</li>
+									<?php
+										foreach ($imagenes as $fila) {
+											$rutaImagen = $fila['rutaImagen'];
+											$tituloImagen = $fila['tituloImagen'];
+										?>
+											<li>
+												<img src="<?php echo $rutaImagen; ?>" alt="<?php echo $tituloImagen?>"/>
+												<div class="sb-description"> <h3><?php echo $tituloImagen?></h3> </div>
+											</li>
+										<?php	
+										}
+									?>
 								</ul>
 
 								<div id="shadow" class="shadow"></div>

@@ -10,10 +10,10 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ $1.php
 
 # Redireccionar cuando no posea permisos de ver un directorio
-#ErrorDocument 403 http://www.ingnovarq.com.co/
+ErrorDocument 403 http://localhost/ingnovarq/app/view/error
 
 # Redireccionar cuando no se encuentre una página web
-#ErrorDocument 500 http://www.ingnovarq.com.co/
+ErrorDocument 500 http://localhost/ingnovarq/app/view/error
 
 # Evita que se listen los archivos en los directorios
 # Options -Indexes
