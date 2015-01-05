@@ -259,34 +259,7 @@
                     move($this, settings);
                 }
             };
-            var inputmove = function(clientX, clientY) {
-                if (!lastMove || new Date() > new Date(lastMove.getTime() + throttleTimeout)) {
-                    lastMove = new Date();
-
-                    if (mouseDown && (xpos || ypos)) {
-                        if (elementFocused) {
-                            $(elementFocused).blur();
-                            elementFocused = null;
-                            $this.focus();
-                        }
-                        settings.decelerate = false;
-                        settings.velocity   = settings.velocityY  = 0;
-                        $this[0].scrollLeft = settings.scrollLeft = settings.x ? $this[0].scrollLeft - (clientX - xpos) : $this[0].scrollLeft;
-                        $this[0].scrollTop  = settings.scrollTop  = settings.y ? $this[0].scrollTop - (clientY - ypos)  : $this[0].scrollTop;
-                        prevXPos = xpos;
-                        prevYPos = ypos;
-                        xpos = clientX;
-                        ypos = clientY;
-
-                        calculateVelocities();
-                        setMoveClasses.call($this, settings, settings.movingClass);
-
-                        if (typeof settings.moved === 'function') {
-                            settings.moved.call($this, settings);
-                        }
-                    }
-                }
-            };
+           
             
             // attach listeners
             if ($.support.touch) {
@@ -299,7 +272,7 @@
                 }, false);
                 this.addEventListener('touchmove', function(e){
                     if (e.preventDefault) {e.preventDefault();}
-                    inputmove(e.touches[0].clientX, e.touches[0].clientY);
+                    
                 }, false);
             }else{
                 $this
@@ -318,7 +291,7 @@
 						end();
                     })
                     .mousemove(function(e){
-                        inputmove(e.clientX, e.clientY);
+                        
 						e.preventDefault();
                     })
                     .css("cursor", "move");

@@ -5,7 +5,7 @@
 					Template	= (function() {
 							
 							// true if dragging the container
-						var kinetic_moving				= false,
+							var kinetic_moving				= false,
 							// current index of the opened item
 							current						= -1,
 							// true if the item is being opened / closed
@@ -183,11 +183,12 @@
 									$('#contentTmpl').tmpl( contentData ).insertAfter( $ibWrapper );
 									
 								//set the returned values and show/animate preview
+
 								$('#ib-content-preview').css({
+									marginTop : $(window).scrollTop(),
 									width	: $item.width(),
 									height	: $item.height(),
 									left	: $item.offset().left,
-									top		: $item.offset().top
 								}).show().animate({
 									width	: $(window).width(),
 									left	: 0
