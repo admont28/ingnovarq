@@ -172,30 +172,11 @@
  */
 
 .contenido{
-	padding-right: 95px;
-	padding-left: 95px;
+	padding-right: 85px;
+	padding-left: 85px;
 }
 
-.administrador>div.panel-heading{
-	padding: 0px;
-	margin-top: 5px;
-}
-
-.administrador>div.panel-body{
-	padding: 9px;
-	margin-bottom: 5px;
-}
-
-.title-admin{
-	padding-top: 20px;
-}
-
-.color-content-admin{
-	background: rgba(130, 177, 75, 0.8);
-}
-
-
-.empresa>div.panel-heading , .servicios>div.panel-heading , .clientes>div.panel-heading, .twitter>div.panel-heading, .administrador>div.panel-heading{
+.empresa>div.panel-heading , .servicios>div.panel-heading , .clientes>div.panel-heading, .twitter>div.panel-heading{
 background: #9dd53a; /* Old browsers */
 background: -moz-linear-gradient(top,  #9dd53a 1%, #80c217 1%, #80c217 42%, #80c217 61%, #80c217 63%, #a1d54f 79%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#9dd53a), color-stop(1%,#80c217), color-stop(42%,#80c217), color-stop(61%,#80c217), color-stop(63%,#80c217), color-stop(79%,#a1d54f)); /* Chrome,Safari4+ */
@@ -301,4 +282,5 @@ input {
 	margin: 0 auto;
 	border-radius: 6px;
 	border:thin #C1C1C1;
+>>>>>>> Stashed changes
 }

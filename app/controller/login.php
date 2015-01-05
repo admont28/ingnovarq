@@ -1,6 +1,5 @@
 <?php
     require_once "userModel.php";
-    //metodo php
     session_start();
 	
 	if (isset($_POST['idUsuario'], $_POST['password'])){
@@ -11,14 +10,11 @@
 		$password = crypt ($_POST['password'], $salt);
 		
 		$usuario = $usuarioModel->view_db_user($idUsuario);
-		/*
-		*hash_equals comparar crypt
-		*/
 		if (hash_equals($password, $usuario['passwordUsuario'])){
 			$_SESSION['idUsuario']=$idUsuario;
 			$_SESSION['nombreUsuario']=$usuario['nombreUsuario'];
 			$_SESSION['apellidoUsuario']=$usuario['apellidoUsuario'];
-			header("location:../view/perfil");
+			header("location:../view/inicio");
 		}
 		else
 		{

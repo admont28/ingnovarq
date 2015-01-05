@@ -27,7 +27,7 @@
 		function insert_db_service($nombre, $descripcion, $fecha, $usuario){
 
 			//Creación de una consulta insertandole parametros para agregar servicios
-			$sentencia = $this->_db->prepare("INSERT INTO Servicio (nombreServicio, descripcionServicio, fechaCreacionServicio, Usuario_idUsuario) VALUES (:nombre, :descripcion, :fecha, :usuario)");
+			$sentencia = $gbd->prepare("INSERT INTO Servicio (nombreServicio, descripcionServicio, fechaCreacionServicio, Usuario_idUsuario) VALUES (:nombre, :descripcion, :fecha, :usuario)");
 			$sentencia->bindParam(':nombre', $nombre);
 			$sentencia->bindParam(':descripcion', $descripcion);
 			$sentencia->bindParam(':fecha', $fecha);
@@ -44,7 +44,7 @@
 		function update_db_service($nombre, $descripcion, $fecha, $usuario){
 
 			//Creación de una consulta insertandole parametros para actualizar servicios
-			$sentencia = $this->_db->prepare("UPDATE Servicio SET nombreServicio = :nombre, descripcionServicio = :descripcion, fechaCreacionServicio = :fecha, Usuario_idUsuario = :usuario");
+			$sentencia = $gbd->prepare("UPDATE Servicio SET nombreServicio = :nombre, descripcionServicio = :descripcion, fechaCreacionServicio = :fecha, Usuario_idUsuario = :usuario");
 			$sentencia->bindParam(':nombre', $nombre);
 			$sentencia->bindParam(':descripcion', $descripcion);
 			$sentencia->bindParam(':fecha', $fecha);
@@ -60,7 +60,7 @@
 		function delete_db_service($iid){
 
 			//Creación de una consulta insertandole parametros para eliminar servicios
-			$sentencia = $this->_db->prepare("DELETE FROM Servicio WHERE idServicio = :id");
+			$sentencia = $gbd->prepare("DELETE FROM Servicio WHERE idServicio = :id");
 			$sentencia->bindParam(':id', $id);
 
 			//Ejecución de la consulta
@@ -73,9 +73,9 @@
 		 */
 		function view_all_db_services(){
 
-			$sentencia = $this->_db->prepare("SELECT * FROM Servicio");
+			$sentencia = $gbd->prepare("SELECT * FROM Servicio");
 			$sentencia->execute();
-			$response = array();
+
 			while ($fila = $sentencia->fetch()) {
 				$response[] = $fila;
 			}
@@ -89,7 +89,7 @@
 		function view_db_service($idServicio){
 
 			//Creación de una consulta insertandole parametros para obtener un servicio en especifico
-			$sentencia = $this->_db->prepare("SELECT * FROM Servicio where idServicio = :id");
+			$sentencia = $gbd->prepare("SELECT * FROM Servicio where idServicio = :id");
 			$sentencia->bindParam(':id', $idServicio);
 
 			$sentencia->execute();
@@ -100,5 +100,4 @@
 
 			return $response;
 		}
-	}
 ?>

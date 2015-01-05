@@ -21,138 +21,47 @@
 			</div>
 			<div class="contenido">
 				<div class="row">
-					<div class="col-xs-12 col-sm-12 col-md-6">
-						<div class="panel panel-default administrador">
-							<div class="panel-heading col-xs-12 col-sm-12 col-md-12">
-								<div class="title-admin col-md-10 col-xs-12 col-sm-12">
-									<h2>Gestión de Usuarios</h2>
-								</div>
-								<div class="col-md-2 admin-img">
-									<a>
-										<img src="../../images/administrador/user.png" class="img-responsive">
-									</a>
-								</div>
+					<div class="col-xs-12 col-sm-8 col-md-8">
+						<?php 
+							if(isset($_SESSION['idUsuario'])){
+						?>
+							<div class="panel panel-default empresa">
+							 	<div class="panel-heading">¡Bienvenido <? echo $_SESSION['nombreUsuario'] ?>!</div>
+							  	<div class="panel-body">
+									<p> Usted ya tiene una sesión activa, para iniciar sesión con otro usuario porfavor cierre está sesión, lo puede hacer dando click <a href="../controller/logout">aquí</a>, de lo contrario puede dirigirse a administrar su sitio web <a href="perfil.php"> aquí</a></p>
+							  	</div>
 							</div>
-							<div class="panel-body col-xs-12 col-sm-12 col-md-12 color-content-admin">
-								<div class="col-md-6 col-xs-6 col-sm-6">
-									<a href="inicio">
-										<img src="../../images/administrador/add.png" class="img-responsive">
-									</a>
-								</div>
-								<div class="col-md-6 col-xs-6 col-sm-6">
-									<a href="inicio">
-										<img src="../../images/administrador/search.png" class="img-responsive">
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-12 col-md-6">
-						<div class="panel panel-default administrador">
-							<div class="panel-heading col-xs-12 col-sm-12 col-md-12">
-								<div class="title-admin col-md-10 col-xs-12 col-sm-12">
-									<h2>Gestión de Clientes</h2>
-								</div>
-								<div class="col-md-2 admin-img">
-									<a>
-										<img src="../../images/administrador/users.png" class="img-responsive">
-									</a>
-								</div>
-							</div>
-							<div class="panel-body col-xs-12 col-sm-12 col-md-12 color-content-admin">
-								<div class="col-md-6 col-xs-6 col-sm-6">
-									<a href="inicio">
-										<img src="../../images/administrador/add.png" class="img-responsive">
-									</a>
-								</div>
-								<div class="col-md-6 col-xs-6 col-sm-6">
-									<a href="inicio">
-										<img src="../../images/administrador/search.png" class="img-responsive">
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-12 col-md-6">
-						<div class="panel panel-default administrador">
-							<div class="panel-heading col-xs-12 col-sm-12 col-md-12">
-								<div class="title-admin col-md-10 col-xs-12 col-sm-12">
-									<h2>Gestión de Proyectos</h2>
-								</div>
-								<div class="col-md-2 admin-img">
-									<a>
-										<img src="../../images/administrador/projects.png" class="img-responsive">
-									</a>
-								</div>
-							</div>
-							<div class="panel-body col-xs-12 col-sm-12 col-md-12 color-content-admin">
-								<div class="col-md-6 col-xs-6 col-sm-6">
-									<a href="inicio">
-										<img src="../../images/administrador/add.png" class="img-responsive">
-									</a>
-								</div>
-								<div class="col-md-6 col-xs-6 col-sm-6">
-									<a href="inicio">
-										<img src="../../images/administrador/search.png" class="img-responsive">
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-12 col-md-6">
-						<div class="panel panel-default administrador">
-							<div class="panel-heading col-xs-12 col-sm-12 col-md-12">
-								<div class="title-admin col-md-10 col-xs-12 col-sm-12">
-									<h2>Gestión de Servicios</h2>
-								</div>
-								<div class="col-md-2 admin-img">
-									<a>
-										<img src="../../images/administrador/services.png" class="img-responsive">
-									</a>
-								</div>
-							</div>
-							<div class="panel-body col-xs-12 col-sm-12 col-md-12 color-content-admin">
-								<div class="col-md-6 col-xs-6 col-sm-6">
-									<a href="inicio">
-										<img src="../../images/administrador/add.png" class="img-responsive">
-									</a>
-								</div>
-								<div class="col-md-6 col-xs-6 col-sm-6">
-									<a href="inicio">
-										<img src="../../images/administrador/search.png" class="img-responsive">
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-12 col-sm-12 col-md-6">
-						<div class="panel panel-default administrador">
-							<div class="panel-heading col-xs-12 col-sm-12 col-md-12">
-								<div class="title-admin col-md-10 col-xs-12 col-sm-12">
-									<h2>Gestión de Empresa</h2>
-								</div>
-								<div class="col-md-2 admin-img">
-									<a>
-										<img src="../../images/administrador/user.png" class="img-responsive">
-									</a>
-								</div>
-							</div>
-							<div class="panel-body col-xs-12 col-sm-12 col-md-12 color-content-admin">
-								<div class="col-md-6 col-xs-6 col-sm-6">
-									<a href="inicio">
-										<img src="../../images/administrador/add.png" class="img-responsive">
-									</a>
-								</div>
-								<div class="col-md-6 col-xs-6 col-sm-6">
-									<a href="inicio">
-										<img src="../../images/administrador/search.png" class="img-responsive">
-									</a>
-								</div>
-							</div>
-						</div>
+						<?php
+							}
+							else{
+								?>
+									<div class="panel panel-default empresa">
+									 	<div class="panel-heading">Inicio de sesión - ¡Bienvenido Administrador!</div>
+									  	<div class="panel-body">
+											<form action="../controller/login.php" method="post">
+												<div class="">
+													<label> Usuario: </label>
+												</div>
+												<div class="">
+													<input class=""type="text" name="idUsuario" required="required" />
+												</div>
+												<div class="">
+													<label> Contraseña: </label>
+												</div>
+												<div class="">
+													<input class="" type="password" name="password" required="required"/>
+												</div>
+												<div style="text-align: center;">
+													<input type="submit" value="Ingresar" />
+												</div>
+											</form>
+									  	</div>
+									</div>
+							<?php		
+							}
+							?>
 					</div>
 				</div>
-
 			</div>
 		</div>
 		<?php
