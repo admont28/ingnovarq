@@ -29,6 +29,17 @@
 					<link rel="stylesheet" href="../../css/nav.css">
 					<script type="text/javascript" src="../../js/navresponsive.js"></script>
 					
+					<!-- CSS Files y Script para el BoxesGrid -->
+					<link rel="stylesheet" type="text/css" href="../../css/styleServicios.css" />					
+			        <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />					
+					<script id="contentTmpl" type="text/x-jquery-tmpl">	
+						<div id="ib-content-preview" class="ib-content-preview">
+			                <div class="ib-teaser" style="display:none;">{{html teaser}}</div>
+			                <div class="ib-content-full" style="display:none;">{{html content}}</div>
+			                <span class="ib-close" style="display:none;">Close Preview</span>
+			            </div>
+					</script>
+					
 				</head>
 		<?php
 	}
@@ -48,6 +59,11 @@
 		<script type="text/javascript" src="../../js/jquery.slicebox.js"></script>
 		<!-- Script para el Menu pegajoso -->
 		<script type="text/javascript" src="../../js/menupegajoso.js"></script>
+		<!-- Script para el BoxesGrid -->
+		<script type="text/javascript" src="../../js/jquery.tmpl.min.js"></script>
+        <script type="text/javascript" src="../../js/jquery.kinetic.js"></script>
+		<script type="text/javascript" src="../../js/jquery.easing.1.3.js"></script>
+        <script type="text/javascript" src="../../js/appServicios.js"></script>
 
 		<?php
 	}
