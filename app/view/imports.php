@@ -8,6 +8,11 @@
 					<meta http-equiv="X-UA-Compatible" content="IE=edge">
 					<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 					<title>INGNOVARQ</title>
+
+					<!-- notificaciones PNotify -->
+			        <script type="text/javascript" src="../../js/pnotify.custom.min.js"></script>
+					<link rel="stylesheet" type="text/css" media="all" href="../../css/pnotify.custom.min.css"/>
+					
 					<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico" />
 					<link rel="stylesheet" type="text/css" href="../../css/style.css">
 					<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"  media="screen">
@@ -23,14 +28,11 @@
 					<script type="text/javascript" src="../../js/jquery.colorbox.js"></script>
 					<script>
 						jQuery(document).ready(function($){
-							
 								$(".group4").colorbox({
 									rel:'group4',
 									slideshow: true,
 									width: '600px'
 								});
-							
-
 						});
 					</script>
 			            
@@ -62,13 +64,36 @@
 					</script>
 
 					<!-- Script para capturar las acciones de los botones en formularios -->
-					<script type="text/javascript" src="../../js/insertions.js"></script>
+					<script type="text/javascript">
+						$(function(){
+						    $("#btn-usuario-ajax").click(function(){
+						 		var url = "../controller/insertarUsuarioAjax"; // El script a dónde se realizará la petición.
+						    	$.ajax({
+						           type: "POST",
+						           url: url,
+						           data: $("#form-ajax").serialize(), // Adjuntar los campos del formulario enviado.
+						           success: function(data)
+						           {
+						               $("#e_nombre").html('');
+						               $("#e_apellido").html('');
+						               $("#e_cedula").html('');
+						               $("#e_password").html('');
+						               $("#e_repetir_password").html('');
+						               $("#mensaje").html(data); // Mostrar la respuestas del script PHP.
+						           }
+						        });
+								return false; // Evitar ejecutar el submit del formulario.
+								});
+						});
+					</script>
 
 					<!-- CSS Files para la presentación de proyectos -->
 					<link rel="stylesheet" type="text/css" href="../../css/demoProyectos.css"/>
 			        <link rel="stylesheet" type="text/css" href="../../css/styleCommonProyectos.css"/>
 			        <link rel="stylesheet" type="text/css" href="../../css/styleProyectos.css"/>
 			        <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Oswald'/>
+
+			        
 				</head>
 		<?php
 	}

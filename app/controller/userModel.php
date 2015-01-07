@@ -28,8 +28,10 @@
 
 			//Obtener la fecha del sistema
 			$fecha= getDate();
-			$fecha_db=$fecha1['year']."-".$fecha1['mon']."-".$fecha1['mday'];
+			$fecha_db=$fecha['year']."-".$fecha['mon']."-".$fecha['mday'];
 
+			$salt = '$2a$07$CryptIngnovarqSASConstructora$';
+			$password = crypt ($password, $salt);
 			//Creación de una consulta insertandole parametros para agregar usuarios
 			$sentencia = $this->_db->prepare("INSERT INTO Usuario (cedulaUsuario, nombreUsuario, apellidoUsuario, passwordUsuario, fechaCreacionUsuario, superAdminUsuario) VALUES (:cedula, :nombre, :apellido, :password, :fecha, :super_admin)");
 			$sentencia->bindParam(':cedula', $cedula);
@@ -40,7 +42,7 @@
 			$sentencia->bindParam(':super_admin', $isSuperAdmin);
 
 			//Ejecución de la consulta
-			$sentencia->execute();
+			return $sentencia->execute();
 		}
 
 		/*

@@ -7,10 +7,8 @@
 			include_once ("header.php");
 			include_once ("nav.php");
 			include_once ("footer.php"); 
-			require_once "../controller/userModel.php";
 
 			getImportsUp();
-			$userModel = new UserModel();
 			?>
 			<body id="body">
 				<div class="con" id="con">
@@ -24,7 +22,7 @@
 						<div class="row">
 							<div class="col-xs-12 col-sm-8 col-md-8">
 								<div id="mensaje"></div>
-								<form class="form-horizontal" id="form-ajax" action="../controller/insertarUsuario" method="post">
+								<form class="form-horizontal" id="form-ajax" action="../controller/insertarUsuarioAjax" method="post">
 								     <div class="form-group">
 								         <label for="inputName" class="control-label col-xs-2">Nombre:</label>
 								         <div class="col-xs-10">
@@ -76,6 +74,14 @@
 								        </div>
 								     </div>
 								</form>
+								<script type='text/javascript'>
+                        			$(function(PNotify){
+                            		new PNotify({
+                                	title: 'Error',
+                                	text: 'No se ha podido ingresar el usuario'
+                            	});
+                        });
+                    </script>
 							</div>
 						</div>
 					</div>

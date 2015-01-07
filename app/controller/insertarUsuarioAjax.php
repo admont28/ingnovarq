@@ -65,9 +65,26 @@
     }
     else{
         //Conectar a la base de datos y realizar la consulta para guardar el registro
+        $tipoUsuario = $_POST['tipoUsuario'];
+
+        require_once "userModel.php";
+        $userModel = new UserModel();
         
+        $respuesta = $userModel->insert_db_user($cedula, $nombre, $apellido, $password, $tipoUsuario);
         //Finalmente, por ejemplo, podrías redireccionarlo a una nueva página
-        $mensaje = "<script>window.location='../controller/insertarUsuario.php';</script>";
+        if($respuesta)
+            $mensaje = "<script> jAlert('Se ha ingresado correctamente el usuario $nombre $apellido con cédula $cedula', 'Acción Exitosa', function(r){
+                window.location='perfil';
+            });</script>";
+        else
+            $mensaje = "<script type='text/javascript'>
+                        $(function(PNotify){
+                            new PNotify({
+                                title: 'Error',
+                                text: 'No se ha podido ingresar el usuario'
+                            });
+                        });
+                    </script>";
     }
 
 
