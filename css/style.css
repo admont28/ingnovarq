@@ -1,19 +1,5 @@
-.etiqueta
-{
-   float: left;
-   width: 25%;
-   margin: 5px;
-   color: #CCCCCC; 
-   display: block;
-   padding: 15px 5px 5px 30px;
-   font-size: 15;
-}
-
-.componente{
-   float: left;
-   width: 60%;
-   margin: 5px;
-   display: block;
+.error-text{
+	color: red;
 }
 
 #con{
@@ -192,6 +178,10 @@
 
 .color-content-admin{
 	background: rgba(130, 177, 75, 0.8);
+}
+
+.center{
+	text-align: center;
 }
 
 

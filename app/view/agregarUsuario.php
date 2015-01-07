@@ -1,72 +1,86 @@
 <?php 
-	
-	include_once ("imports.php");
-	include_once ("header.php");
-	include_once ("nav.php");
-	include_once ("footer.php"); 
-	require_once "../controller/userModel.php";
-
-	getImportsUp();
 	session_start();
-?>
+	if(!isset($_SESSION['idUsuario'],$_SESSION['nombreUsuario'], $_SESSION['apellidoUsuario'], $_SESSION['superAdminUsuario']) || $_SESSION['superAdminUsuario'] == 0){
+		header('location: error');
+	}
+			include_once ("imports.php");
+			include_once ("header.php");
+			include_once ("nav.php");
+			include_once ("footer.php"); 
+			require_once "../controller/userModel.php";
 
-<body id="body">
-		<div class="con" id="con">
-			<div class="container" id="main">
-				
-					<?php 
-						getHeader();
-						getNav();
-					?>
-			</div>
-			<div class="contenido">
-				<div class="row">
-					<div class="col-xs-12 col-sm-8 col-md-8">
-						<?php 
-							if(isset($_SESSION['idUsuario'])){
-						?>
-							<div class="panel panel-default empresa">
-							 	<div class="panel-heading">¡Bienvenido <? echo $_SESSION['nombreUsuario'] ?>!</div>
-							  	<div class="panel-body">
-									<p> Usted ya tiene una sesión activa, para iniciar sesión con otro usuario porfavor cierre está sesión, lo puede hacer dando click <a href="../controller/logout">aquí</a>, de lo contrario puede dirigirse a administrar su sitio web <a href="perfil.php"> aquí</a></p>
-							  	</div>
-							</div>
-						<?php
-							}
-							else{
-								?>
-									<div class="panel panel-default empresa">
-									 	<div class="panel-heading">Inicio de sesión - ¡Bienvenido Administrador!</div>
-									  	<div class="panel-body">
-											<form action="../controller/login.php" method="post">
-												<div class="">
-													<label> Usuario: </label>
-												</div>
-												<div class="">
-													<input class=""type="text" name="idUsuario" required="required" />
-												</div>
-												<div class="">
-													<label> Contraseña: </label>
-												</div>
-												<div class="">
-													<input class="" type="password" name="password" required="required"/>
-												</div>
-												<div style="text-align: center;">
-													<input type="submit" value="Ingresar" />
-												</div>
-											</form>
-									  	</div>
-									</div>
-							<?php		
-							}
+			getImportsUp();
+			$userModel = new UserModel();
+			?>
+			<body id="body">
+				<div class="con" id="con">
+					<div class="container" id="main">
+							<?php 
+								getHeader();
+								getNavAdmin();
 							?>
 					</div>
+					<div class="contenido">
+						<div class="row">
+							<div class="col-xs-12 col-sm-8 col-md-8">
+								<div id="mensaje"></div>
+								<form class="form-horizontal" id="form-ajax" action="../controller/insertarUsuario" method="post">
+								     <div class="form-group">
+								         <label for="inputName" class="control-label col-xs-2">Nombre:</label>
+								         <div class="col-xs-10">
+								            <input type="name" id="nombre" name="nombre" class="form-control" placeholder="Nombre">
+								         	<div class="col-xs-10 error-text" id="e_nombre"></div>
+								         </div>
+								     </div>
+ 								     <div class="form-group">
+								        <label for="inputName" class="control-label col-xs-2">Apellido:</label>
+								        <div class="col-xs-10">
+								            <input type="name" id="apellido" name="apellido" class="form-control" placeholder="Apellido">
+								        	<div class="col-xs-10 error-text" id="e_apellido"></div> 
+								        </div>
+								     </div>
+								     <div class="form-group">
+								        <label for="inputName" class="control-label col-xs-2">Cédula:</label>
+								        <div class="col-xs-10">
+								            <input type="text" id="cedula" name="cedula" class="form-control" placeholder="Cédula" >
+								        	<div class="col-xs-10 error-text" id="e_cedula"></div>
+								        </div>
+								     </div>
+								     <div class="form-group">
+								        <label for="inputPassword" class="control-label col-xs-2">Contraseña:</label>
+								        <div class="col-xs-10">
+								            <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña">
+								        	<div class="col-xs-10 error-text" id="e_password"></div>
+								        </div>
+								     </div>
+								     <div class="form-group">
+								        <label for="inputPassword" class="control-label col-xs-2">Repetir Contraseña:</label>
+								        <div class="col-xs-10">
+								            <input type="password" id="repetir_password" name="repetir_password" class="form-control" placeholder="Repetir Contraseña" >
+								        	<div class="col-xs-10 error-text" id="e_repetir_password"></div>
+								        </div>
+								     </div>
+								     <div class="form-group">
+								     	<label for="tipoUsuario" class="control-label col-xs-2">Tipo de usuario</label>
+								     	<div class="col-xs-10">
+									     	<select class="form-control" id="tipoUsuario" name="tipoUsuario"> 
+												<option value="0">Administrador</option>
+												<option value="1">Super Administrador</option>
+											</select>
+										</div>
+								     </div>
+								     <div class="form-group">
+								        <div class="col-xs-offset-2 col-xs-10">
+								         	<input type="hidden" name="ajax">
+								            <button type="submit" id="btn-usuario-ajax" class="btn btn-success">Crear Usuario</button> 
+								        </div>
+								     </div>
+								</form>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
-		<?php
-			getFooter(); 
-			getImportsDown();
-		?>
-		</body>
-</html>
+				<?php
+					getFooter(); 
+					getImportsDown();
+?>

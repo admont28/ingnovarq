@@ -102,12 +102,12 @@
 
 			$sentencia->execute();
 			$response = array();
-
 			while ($fila = $sentencia->fetch()) {
 				$response[] = $fila;
 			}
-			$usuario = $response[0];
-			return $usuario;
+			if(sizeof($response) != 0)
+				return $usuario = $response[0];
+			return null;
 		}
 	}
 ?>

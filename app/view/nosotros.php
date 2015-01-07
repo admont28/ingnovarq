@@ -65,5 +65,3 @@
 			getFooter(); 
 			getImportsDown();
 		?>
-		</body>
-</html>
