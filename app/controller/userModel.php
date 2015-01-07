@@ -82,6 +82,7 @@
 
 			$sentencia = $this->_db->prepare("SELECT * FROM Usuario");
 			$sentencia->execute();
+			$response = array();
 
 			while ($fila = $sentencia->fetch()) {
 				$response[] = $fila;

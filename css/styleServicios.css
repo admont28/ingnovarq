@@ -29,18 +29,19 @@ a{
 }
 .ib-top h1 span{
     color: #555;
-    font-size: 12px;
+    font-size: 15px;
 }
 .ib-main-wrapper{
     width: 100%;
-    overflow: hidden;
+    /*verflow: scroll;*/
     margin-top: 40px;
     outline: none;
+    height: auto;
     /*height dynamic*/
 }
 .ib-main{
     position: relative;
-    width: 2546px;
+    width: 100%;
 }
 .ib-main a{
     float: left;
@@ -129,7 +130,7 @@ a{
 }
 .ib-teaser h2{
     color: #fff;
-    font-size: 26px;
+    font-size: 19px;
     line-height: 26px;
     padding-top: 40%;
     text-shadow: 1px 0px 2px rgba(0,0,0,0.2);
@@ -168,7 +169,7 @@ a{
 }
 .ib-content-preview .ib-teaser span{
     padding: 20px 0px 0px 5px;
-    font-size: 22px;
+    font-size: 25px;
 }
 .ib-content-full{
     font-family: 'Oswald';

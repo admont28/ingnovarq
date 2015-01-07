@@ -9,17 +9,33 @@
 					<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 					<title>INGNOVARQ</title>
 					<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico" />
-					<link rel="stylesheet" href="../../css/style.css">
-					<link rel="stylesheet" href="../../css/bootstrap.min.css"  media="screen">
+					<link rel="stylesheet" type="text/css" href="../../css/style.css">
+					<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"  media="screen">
 					<!-- CSS File JAlert -->
-					<link href="../../css/jquery.alerts.css" rel="stylesheet" type="text/css" />
+					<link rel="stylesheet" type="text/css" href="../../css/jquery.alerts.css"/>
 					<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 					<!--- Javascript Files JAlert --> 
 					<script src="../../js/jquery.ui.draggable.js" type="text/javascript"></script>
 					<script src="../../js/jquery.alerts.mod.js" type="text/javascript"></script>
+
+					<!-- CSS Files y JS para la galeria de imagenes de los proyectos -->
+					<link rel="stylesheet" type="text/css" href="../../css/colorbox.css" />
+					<script type="text/javascript" src="../../js/jquery.colorbox.js"></script>
+					<script>
+						jQuery(document).ready(function($){
+							
+								$(".group4").colorbox({
+									rel:'group4',
+									slideshow: true,
+									width: '600px'
+								});
+							
+
+						});
+					</script>
 			            
 			        <!-- bxSlider CSS file -->
-			        <link type="text/css" href="../../css/jquery.bxslider.css" rel="stylesheet" />
+			        <link rel="stylesheet" type="text/css" href="../../css/jquery.bxslider.css"/>
 					
 					<!-- Slider CSS Files-->
 					<link rel="stylesheet" type="text/css" href="../../css/demo.css" />
@@ -30,13 +46,13 @@
 					<script type="text/javascript" src="../../js/modernizr.custom.46884.js"></script>
 
 					<!-- CSS Files y Script para el nav responsivo -->
-					<link rel="stylesheet" href="../../css/normalize.css">
-					<link rel="stylesheet" href="../../css/nav.css">
+					<link rel="stylesheet" type='text/css' href="../../css/normalize.css">
+					<link rel="stylesheet" type='text/css' href="../../css/nav.css">
 					<script type="text/javascript" src="../../js/navresponsive.js"></script>
 					
 					<!-- CSS Files y Script para el BoxesGrid -->
-					<link rel="stylesheet" type="text/css" href="../../css/styleServicios.css" />					
-			        <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />					
+					<link rel="stylesheet" type="text/css" href="../../css/styleServicios.css"/>					
+			        <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Oswald'/>					
 					<script id="contentTmpl" type="text/x-jquery-tmpl">	
 						<div id="ib-content-preview" class="ib-content-preview">
 			                <div class="ib-teaser" style="display:none;">{{html teaser}}</div>
@@ -44,7 +60,15 @@
 			                <span class="ib-close" style="display:none;">Close Preview</span>
 			            </div>
 					</script>
+
+					<!-- Script para capturar las acciones de los botones en formularios -->
 					<script type="text/javascript" src="../../js/insertions.js"></script>
+
+					<!-- CSS Files para la presentación de proyectos -->
+					<link rel="stylesheet" type="text/css" href="../../css/demoProyectos.css"/>
+			        <link rel="stylesheet" type="text/css" href="../../css/styleCommonProyectos.css"/>
+			        <link rel="stylesheet" type="text/css" href="../../css/styleProyectos.css"/>
+			        <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Oswald'/>
 				</head>
 		<?php
 	}
@@ -53,11 +77,11 @@
 		?>
 
 		<!-- Script para cargar JQuery -->
-		<script src="../../js/jquery.js"></script>
+		<script type="text/javascript" src="../../js/jquery.js"></script>
 		<!-- Script para cargar el js de bootstrap -->
-	  	<script src="../../js/bootstrap.min.js"></script>
+	  	<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
 	  	<!-- Script para dibujar el canvas que está debajo del slider -->
-	  	<script src="../../js/canvas.js"></script>
+	  	<script type="text/javascript" src="../../js/canvas.js"></script>
 	  	<!-- <script type="text/javascript" src="js/scrolltofixed-min.js"></script> -->
 	  	<script type="text/javascript" src="../../js/app.js"></script>
 	  	<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> -->

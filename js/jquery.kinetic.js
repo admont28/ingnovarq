@@ -294,7 +294,7 @@
                         
 						e.preventDefault();
                     })
-                    .css("cursor", "move");
+                   ;
             }
             $this.click(function(e){
                 if (Math.abs(settings.velocity) > 0) {

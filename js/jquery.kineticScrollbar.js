@@ -41,7 +41,6 @@
 
     var getProperties = function($wrapper) {
         var wrapper       = $wrapper[0]
-        ,   height        = $wrapper.height()
         ,   width         = $wrapper.width()
         ,   left          = wrapper.scrollLeft + width
         ,   top           = wrapper.scrollTop
@@ -55,7 +54,6 @@
             step: step
         ,   barStep: barStep
         ,   stepTop: stepTop
-        ,   height: height
         ,   width: width
         ,   left:  left
         ,   top: top
@@ -65,12 +63,7 @@
 
     };
 
-    var setBar = function($bar, height, left, top) {
-        $bar.height(height - 30)
-            .css('top', (top + 15) + 'px')
-            .css('left', left + 'px');
-    };
-
+   
     $.fn.kineticScrollbar = function(options) {
         var settings = $.extend({}, DEFAULT_SETTINGS, options);
         return this.each(function(){
