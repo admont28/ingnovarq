@@ -9,9 +9,14 @@
 					<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 					<title>INGNOVARQ</title>
 					<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico" />
-					<link href="../../css/style.css" rel="stylesheet" >
-					<link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
+					<link rel="stylesheet" href="../../css/style.css">
+					<link rel="stylesheet" href="../../css/bootstrap.min.css"  media="screen">
+					<!-- CSS File JAlert -->
+					<link href="../../css/jquery.alerts.css" rel="stylesheet" type="text/css" />
 					<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+					<!--- Javascript Files JAlert --> 
+					<script src="../../js/jquery.ui.draggable.js" type="text/javascript"></script>
+					<script src="../../js/jquery.alerts.mod.js" type="text/javascript"></script>
 			            
 			        <!-- bxSlider CSS file -->
 			        <link type="text/css" href="../../css/jquery.bxslider.css" rel="stylesheet" />
@@ -39,7 +44,7 @@
 			                <span class="ib-close" style="display:none;">Close Preview</span>
 			            </div>
 					</script>
-					
+					<script type="text/javascript" src="../../js/insertions.js"></script>
 				</head>
 		<?php
 	}
@@ -64,7 +69,8 @@
         <script type="text/javascript" src="../../js/jquery.kinetic.js"></script>
 		<script type="text/javascript" src="../../js/jquery.easing.1.3.js"></script>
         <script type="text/javascript" src="../../js/appServicios.js"></script>
-
+        </body>
+		</html>
 		<?php
 	}
 ?>

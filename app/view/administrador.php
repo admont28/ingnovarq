@@ -28,7 +28,9 @@
 							<div class="panel panel-default empresa">
 							 	<div class="panel-heading">¡Bienvenido <? echo $_SESSION['nombreUsuario'] ?>!</div>
 							  	<div class="panel-body">
-									<p> Usted ya tiene una sesión activa, para iniciar sesión con otro usuario porfavor cierre está sesión, lo puede hacer dando click <a href="../controller/logout">aquí</a>, de lo contrario puede dirigirse a administrar su sitio web <a href="perfil.php"> aquí</a></p>
+									<p> Usted ya tiene una sesión activa, para iniciar sesión con otro usuario porfavor cierre está sesión,
+									 lo puede hacer dando click <a href="../controller/logout">aquí</a>,
+									 de lo contrario puede dirigirse a administrar su sitio web <a href="perfil"> aquí</a></p>
 							  	</div>
 							</div>
 						<?php
@@ -38,7 +40,7 @@
 									<div class="panel panel-default empresa">
 									 	<div class="panel-heading">Inicio de sesión - ¡Bienvenido Administrador!</div>
 									  	<div class="panel-body">
-											<form action="../controller/login.php" method="post">
+											<form action="../controller/login" method="post">
 												<div class="">
 													<label> Usuario: </label>
 												</div>
@@ -68,5 +70,3 @@
 			getFooter(); 
 			getImportsDown();
 		?>
-		</body>
-</html>
