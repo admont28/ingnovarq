@@ -55,7 +55,7 @@
 	                    <div class="mask">
 	                        <h2>Hover Style #3</h2>
 	                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
-	                        <a href="../../images/reserva.gif" class="info group4">Read More</a>
+	                        <a href="../../images/logo.jpg" class="info group4">Read More</a>
 	                        <a href="../../images/logo.jpg" class="group4"></a>
 	                        <a href="../../images/reserva.gif" class="group4"></a>
 	                        <a href="../../images/logo.jpg" class="group4"></a>
