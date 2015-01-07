@@ -12,6 +12,22 @@
 					<link href="../../css/style.css" rel="stylesheet" >
 					<link href="../../css/bootstrap.min.css" rel="stylesheet" media="screen">
 					<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+					<!-- CSS Files y JS para la galeria de imagenes de los proyectos -->
+					<link rel="stylesheet" href="../../css/colorbox.css" />
+					<script type="text/javascript" src="../../js/jquery.colorbox.js"></script>
+					<script>
+						jQuery(document).ready(function($){
+							
+								$(".group4").colorbox({
+									rel:'group4',
+									slideshow: true,
+									width: '600px'
+								});
+							
+
+						});
+					</script>
 			            
 			        <!-- bxSlider CSS file -->
 			        <link type="text/css" href="../../css/jquery.bxslider.css" rel="stylesheet" />
@@ -39,6 +55,15 @@
 			                <span class="ib-close" style="display:none;">Close Preview</span>
 			            </div>
 					</script>
+
+					
+					
+
+					<!-- CSS Files para la presentación de proyectos -->
+					<link rel="stylesheet" type="text/css" href="../../css/demoProyectos.css" />
+			        <link rel="stylesheet" type="text/css" href="../../css/styleCommonProyectos.css" />
+			        <link rel="stylesheet" type="text/css" href="../../css/styleProyectos.css" />
+			        <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
 					
 				</head>
 		<?php

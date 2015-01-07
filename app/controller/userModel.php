@@ -82,6 +82,7 @@
 
 			$sentencia = $this->_db->prepare("SELECT * FROM Usuario");
 			$sentencia->execute();
+			$response = array();
 
 			while ($fila = $sentencia->fetch()) {
 				$response[] = $fila;
@@ -100,6 +101,7 @@
 			$sentencia->bindParam(':cedula', $cedula);
 
 			$sentencia->execute();
+			$response = array();
 
 			while ($fila = $sentencia->fetch()) {
 				$response[] = $fila;

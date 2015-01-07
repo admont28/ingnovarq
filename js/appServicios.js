@@ -47,7 +47,7 @@
 							setWrapperSize				= function() {
 								
 								var containerMargins	= $('#ib-top').outerHeight(true) + $('#header').outerHeight(true) + parseFloat( $ibItems.css('margin-top') );
-								$ibWrapper.css( 'height', $(window).height() - containerMargins )
+								$ibWrapper.css( 'height', 'auto' )
 								
 							},
 							initEvents					= function() {

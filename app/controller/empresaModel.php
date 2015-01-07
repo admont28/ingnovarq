@@ -30,6 +30,7 @@
 			$idEmpresa = 1;
 			$sentencia->bindParam(':idEmpresa', $idEmpresa);
 			$sentencia->execute();
+			$response = array();
 
 			while ($fila = $sentencia->fetch()) {
 				$response[] = $fila;
@@ -47,6 +48,7 @@
 			$idEmpresa = 1;
 			$sentencia->bindParam(':idEmpresa', $idEmpresa);
 			$sentencia->execute();
+			$response = array();
 
 			while ($fila = $sentencia->fetch()) {
 				$response[] = $fila;
@@ -64,6 +66,7 @@
 			$idEmpresa = 1;
 			$sentencia->bindParam(':idEmpresa', $idEmpresa);
 			$sentencia->execute();
+			$response = array();
 
 			while ($fila = $sentencia->fetch()) {
 				$response[] = $fila;

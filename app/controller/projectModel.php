@@ -75,6 +75,7 @@
 
 			$sentencia = $this->_db->prepare("SELECT * FROM Proyecto");
 			$sentencia->execute();
+			$response= array();
 
 			while ($fila = $sentencia->fetch()) {
 				$response[] = $fila;
@@ -94,10 +95,32 @@
 
 			$sentencia->execute();
 
+			$response= array();
 			while ($fila = $sentencia->fetch()) {
 				$response[] = $fila;
 			}
 
 			return $response;
 		}
+
+		/*
+		* Función para obtener las imagenes de un proyecto
+		*/
+		function view_db_img_project($idProyecto){
+
+			//creación de una consulta para recuperar las imagenes de los proyectos
+			$sentencia = $this->_db->prepare("SELECT i.idImagen, i.rutaImagen, i.tituloImagen FROM Proyecto p INNER JOIN Imagen i ON i.Proyecto_idProyecto = p.idProyecto where idProyecto = :id");
+			$sentencia->bindParam(':id', $idProyecto);
+
+			$sentencia->execute();
+
+			$response= array();
+			while ($fila = $sentencia->fetch()) {
+				$response[] = $fila;
+			}
+
+			return $response;
+
+		}
+	}
 ?>

@@ -1,8 +1,8 @@
 <?php 
-	include_once ("imports.php");
-	include_once ("header.php");
-	include_once ("nav.php");
-	include_once ("footer.php"); 
+	require_once ("imports.php");
+	require_once ("header.php");
+	require_once ("nav.php");
+	require_once ("footer.php"); 
 	require_once ("../controller/serviceModel.php");
 	getImportsUp();
 	$servicioModel = new ServiceModel();

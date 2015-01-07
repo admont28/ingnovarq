@@ -93,6 +93,7 @@
 			$sentencia->bindParam(':id', $idServicio);
 
 			$sentencia->execute();
+			$response = array();
 
 			while ($fila = $sentencia->fetch()) {
 				$response[] = $fila;
