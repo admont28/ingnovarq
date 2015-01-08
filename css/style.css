@@ -158,8 +158,11 @@
  */
 
 .contenido{
-	padding-right: 95px;
-	padding-left: 95px;
+	margin-right: 90px;
+	margin-left: 90px;
+	margin-bottom: 5px;
+	padding: 5px;
+	background: rgba(230, 222, 222, 0.4);
 }
 
 .administrador>div.panel-heading{
