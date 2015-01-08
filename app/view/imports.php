@@ -8,23 +8,24 @@
 					<meta http-equiv="X-UA-Compatible" content="IE=edge">
 					<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 					<title>INGNOVARQ</title>
-
-					<!-- notificaciones PNotify -->
-			        <script type="text/javascript" src="../../js/pnotify.custom.min.js"></script>
-					<link rel="stylesheet" type="text/css" media="all" href="../../css/pnotify.custom.min.css"/>
 					
 					<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico" />
 					<link rel="stylesheet" type="text/css" href="../../css/style.css">
 					<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"  media="screen">
 					<!-- CSS File JAlert -->
 					<link rel="stylesheet" type="text/css" href="../../css/jquery.alerts.css"/>
-					<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-					<!--- Javascript Files JAlert --> 
-					<script src="../../js/jquery.ui.draggable.js" type="text/javascript"></script>
-					<script src="../../js/jquery.alerts.mod.js" type="text/javascript"></script>
+					<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+					<!-- notificaciones PNotify -->
+					<link href="../../css/jquery-ui.css" media="all" rel="stylesheet" type="text/css" />
+					<script type="text/javascript" src="../../js/pnotify.custom.min.js"></script>
+					<link href="../../css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
+
+
+				
 
 					<!-- CSS Files y JS para la galeria de imagenes de los proyectos -->
-					<link rel="stylesheet" type="text/css" href="../../css/colorbox.css" />
+					<link rel="stylesheet" type="text/css" href="../../css/colorbox.css"/>
 					<script type="text/javascript" src="../../js/jquery.colorbox.js"></script>
 					<script>
 						jQuery(document).ready(function($){

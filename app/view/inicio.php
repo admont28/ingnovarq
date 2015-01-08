@@ -107,6 +107,46 @@
 				</div>
 			</div>
 		</div>
+		<script type="text/javascript">
+	PNotify.prototype.options.styling = "bootstrap3";
+	PNotify.prototype.options.styling = "jqueryui";
+	
+    $(function(){
+        new PNotify({
+		    title: 'Regular Success',
+		    text: 'That thing that you were trying to do worked!',
+		    type: 'success',
+		    delay: 6000,
+		    animation: 'show'
+		});
+        new PNotify({
+	    title: 'Oh No!',
+	    text: 'Something terrible happened.',
+	    type: 'error'
+	});
+        (new PNotify({
+    title: 'Confirmation Needed',
+    text: 'Are you sure?',
+    icon: true,
+    addClass: "background-color",
+    hide: false,
+    confirm: {
+        confirm: true
+    },
+    buttons: {
+        closer: false,
+        sticker: false
+    },
+    history: {
+        history: false
+    }
+})).get().on('pnotify.confirm', function() {
+    alert('Ok, cool.');
+}).on('pnotify.cancel', function() {
+    alert('Oh ok. Chicken, I see.');
+});
+    });
+</script>
 		<?php
 			getFooter();
 			getImportsDown();
