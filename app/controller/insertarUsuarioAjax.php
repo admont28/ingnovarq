@@ -66,25 +66,48 @@
     else{
         //Conectar a la base de datos y realizar la consulta para guardar el registro
         $tipoUsuario = $_POST['tipoUsuario'];
-
         require_once "userModel.php";
         $userModel = new UserModel();
-        
-        $respuesta = $userModel->insert_db_user($cedula, $nombre, $apellido, $password, $tipoUsuario);
-        //Finalmente, por ejemplo, podrías redireccionarlo a una nueva página
-        if($respuesta)
-            $mensaje = "<script> jAlert('Se ha ingresado correctamente el usuario $nombre $apellido con cédula $cedula', 'Acción Exitosa', function(r){
-                window.location='perfil';
-            });</script>";
-        else
+        // verifico si hay un usuario con la misma cedula en la bd
+        $respuesta = $userModel->view_db_user($cedula);
+        //Finalmente, si no existe un usuairo en la bd registrado, se ingresará, de lo contrario lanzará un error.
+        if($respuesta == null ){
+            $userModel->insert_db_user($cedula, $nombre, $apellido, $password, $tipoUsuario);
             $mensaje = "<script type='text/javascript'>
-                        $(function(PNotify){
+                        PNotify.prototype.options.styling = 'bootstrap3';
+                        PNotify.prototype.options.styling = 'jqueryui';
+                        
+                        $(function(){
                             new PNotify({
-                                title: 'Error',
-                                text: 'No se ha podido ingresar el usuario'
+                                title: 'Acción Exitosa',
+                                text: 'Se ha agregado al usuario con éxito.',
+                                type: 'success',
+                                delay: 6000,
+                                animation: 'show',
+                                before_close: function() {
+                                    document.location='perfil';
+                                }
                             });
                         });
-                    </script>";
+                        </script>";
+        }
+        else{
+            $mensaje = "<script type='text/javascript'>
+                        PNotify.prototype.options.styling = 'bootstrap3';
+                        PNotify.prototype.options.styling = 'jqueryui';
+                        
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción No Exitosa :(',
+                                text: 'No se ha podido agregar al usuario con éxito, por favor revisa todos los datos e inténtelo de nuevo.',
+                                type: 'error',
+                                delay: 6000,
+                                animation: 'show',
+                            });
+                        });
+                        
+                        </script>";
+        }
     }
 
 

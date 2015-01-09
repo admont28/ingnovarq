@@ -13,10 +13,14 @@
 			<body id="body">
 				<div class="con" id="con">
 					<div class="container" id="main">
-							<?php 
-								getHeader();
+						<?php 
+							getHeader();
+							if($_SESSION['superAdminUsuario'] == 1){
+								getNavSuperAdmin();
+							}
+							else
 								getNavAdmin();
-							?>
+						?>
 					</div>
 					<div class="contenido">
 						<div class="row">
@@ -74,14 +78,6 @@
 								        </div>
 								     </div>
 								</form>
-								<script type='text/javascript'>
-                        			$(function(PNotify){
-                            		new PNotify({
-                                	title: 'Error',
-                                	text: 'No se ha podido ingresar el usuario'
-                            	});
-                        });
-                    </script>
 							</div>
 						</div>
 					</div>

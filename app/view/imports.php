@@ -22,7 +22,9 @@
 					<link href="../../css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
 
 
-				
+					<!--- Javascript Files JAlert --> 
+					<script type="text/javascript"src="../../js/jquery.ui.draggable.js"></script>
+					<script type="text/javascript" src="../../js/jquery.alerts.mod.js"></script>
 
 					<!-- CSS Files y JS para la galeria de imagenes de los proyectos -->
 					<link rel="stylesheet" type="text/css" href="../../css/colorbox.css"/>
@@ -74,8 +76,6 @@
 			        <link rel="stylesheet" type="text/css" href="../../css/styleCommonProyectos.css"/>
 			        <link rel="stylesheet" type="text/css" href="../../css/styleProyectos.css"/>
 			        <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Oswald'/>
-
-			        
 				</head>
 		<?php
 	}

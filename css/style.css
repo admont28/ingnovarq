@@ -4,6 +4,9 @@
 
 #con{
 	background-image: url(../images/background.jpg); 
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-color: #ccc;
 }
 
 #main

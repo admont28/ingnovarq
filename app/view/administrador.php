@@ -1,5 +1,5 @@
 <?php 
-	
+	session_start();
 	include_once ("imports.php");
 	include_once ("header.php");
 	include_once ("nav.php");
@@ -7,7 +7,6 @@
 	require_once "../controller/userModel.php";
 
 	getImportsUp();
-	session_start();
 ?>
 
 <body id="body">
