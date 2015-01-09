@@ -7,6 +7,10 @@
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-color: #ccc;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 #main

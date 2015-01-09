@@ -29,14 +29,14 @@
 								     <div class="form-group">
 								         <label for="inputName" class="control-label col-xs-2">Nombre:</label>
 								         <div class="col-xs-10">
-								            <input type="name" id="nombre" name="nombre" class="form-control" placeholder="Nombre">
+								            <input type="name" id="nombreProyecto" name="nombreProyecto" class="form-control" placeholder="Nombre">
 								         	<div class="col-xs-10 error-text" id="e_nombre"></div>
 								         </div>
 								     </div>
  								     <div class="form-group">
-								        <label for="inputName" class="control-label col-xs-2">Apellido:</label>
+								        <label for="inputName" class="control-label col-xs-2">Descripción:</label>
 								        <div class="col-xs-10">
-								            <input type="name" id="apellido" name="apellido" class="form-control" placeholder="Apellido">
+								            <input type="name" id="descripcionProyecto" name="descripcionProyecto" class="form-control" placeholder="Apellido">
 								        	<div class="col-xs-10 error-text" id="e_apellido"></div> 
 								        </div>
 								     </div>
