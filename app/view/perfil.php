@@ -105,7 +105,7 @@
 							</div>
 							<div class="panel-body col-xs-12 col-sm-12 col-md-12 color-content-admin">
 								<div class="col-md-6 col-xs-6 col-sm-6">
-									<a href="inicio">
+									<a href="agregarProyecto">
 										<img src="../../images/administrador/add.png" class="img-responsive">
 									</a>
 								</div>

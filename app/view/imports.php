@@ -38,7 +38,7 @@
 								});
 						});
 					</script>
-			            
+
 			        <!-- bxSlider CSS file -->
 			        <link rel="stylesheet" type="text/css" href="../../css/jquery.bxslider.css"/>
 					
@@ -49,6 +49,9 @@
 
 					<!-- Script para slider -->
 					<script type="text/javascript" src="../../js/modernizr.custom.46884.js"></script>
+
+					<!-- CSS FILES para subir imagenes draggables-->
+					<link rel="stylesheet" type="text/css" href="../../css/dropzone.css" />
 
 					<!-- CSS Files y Script para el nav responsivo -->
 					<link rel="stylesheet" type='text/css' href="../../css/normalize.css">
@@ -100,6 +103,7 @@
         <script type="text/javascript" src="../../js/jquery.kinetic.js"></script>
 		<script type="text/javascript" src="../../js/jquery.easing.1.3.js"></script>
         <script type="text/javascript" src="../../js/appServicios.js"></script>
+        <script type="text/javascript" src="../../js/dropzone.min.js"></script>
         </body>
 		</html>
 		<?php

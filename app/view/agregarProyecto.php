@@ -19,6 +19,7 @@
 							<?php 
 								getHeader();
 								getNavAdmin();
+								//$direccion = "../controlador/cargarImagenesProductos?idproducto=".$_GET['idproducto'];
 							?>
 					</div>
 					<div class="contenido">
@@ -30,61 +31,39 @@
 								         <label for="inputName" class="control-label col-xs-2">Nombre:</label>
 								         <div class="col-xs-10">
 								            <input type="name" id="nombreProyecto" name="nombreProyecto" class="form-control" placeholder="Nombre">
-								         	<div class="col-xs-10 error-text" id="e_nombre"></div>
+								         	<div class="col-xs-10 error-text" id="e_nombre_proyecto"></div>
 								         </div>
 								     </div>
  								     <div class="form-group">
 								        <label for="inputName" class="control-label col-xs-2">Descripción:</label>
 								        <div class="col-xs-10">
-								            <input type="name" id="descripcionProyecto" name="descripcionProyecto" class="form-control" placeholder="Apellido">
-								        	<div class="col-xs-10 error-text" id="e_apellido"></div> 
+								            <textarea id="descripcionProyecto" name="descripcionProyecto" class="form-control" placeholder="Descripción del Proyecto">
+								            </textarea>
+								        	<div class="col-xs-10 error-text" id="e_descripcion_proyecto"></div> 
 								        </div>
 								     </div>
 								     <div class="form-group">
-								        <label for="inputName" class="control-label col-xs-2">Cédula:</label>
-								        <div class="col-xs-10">
-								            <input type="text" id="cedula" name="cedula" class="form-control" placeholder="Cédula" >
-								        	<div class="col-xs-10 error-text" id="e_cedula"></div>
-								        </div>
-								     </div>
+								         <label for="inputName" class="control-label col-xs-2">Fecha:</label>
+								         <div class="col-xs-10">
+								            <input type="date" id="fecha_proyecto" name="fecha_proyecto" min="2005-01-01" class="form-control" placeholder="dd/mm/aaaa">
+								         	<div class="col-xs-10 error-text" id="e_fecha_proyecto"></div>
+								         </div>
+								     </div>	
 								     <div class="form-group">
-								        <label for="inputPassword" class="control-label col-xs-2">Contraseña:</label>
-								        <div class="col-xs-10">
-								            <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña">
-								        	<div class="col-xs-10 error-text" id="e_password"></div>
-								        </div>
-								     </div>
-								     <div class="form-group">
-								        <label for="inputPassword" class="control-label col-xs-2">Repetir Contraseña:</label>
-								        <div class="col-xs-10">
-								            <input type="password" id="repetir_password" name="repetir_password" class="form-control" placeholder="Repetir Contraseña" >
-								        	<div class="col-xs-10 error-text" id="e_repetir_password"></div>
-								        </div>
-								     </div>
-								     <div class="form-group">
-								     	<label for="tipoUsuario" class="control-label col-xs-2">Tipo de usuario</label>
-								     	<div class="col-xs-10">
-									     	<select class="form-control" id="tipoUsuario" name="tipoUsuario"> 
-												<option value="0">Administrador</option>
-												<option value="1">Super Administrador</option>
-											</select>
-										</div>
-								     </div>
+								         <label for="inputName" class="control-label col-xs-2">Imagen:</label>
+								         <div class="col-xs-10">
+								            <input type="file" id="img_proyecto" name="img_proyecto" class="form-control" maxlength="5" placeholder="imagen inicial proyecto">
+								         	<div class="col-xs-10 error-text" id="e_fecha_proyecto"></div>
+								         </div>
+								     </div>	
 								     <div class="form-group">
 								        <div class="col-xs-offset-2 col-xs-10">
-								         	<input type="hidden" name="ajax">
-								            <button type="submit" id="btn-usuario-ajax" class="btn btn-success">Crear Usuario</button> 
+								         	<input type="hidden" name="ajaxProducto">
+								            <button type="submit" id="btn-producto-ajax" class="btn btn-success">Crear Proyecto</button> 
 								        </div>
-								     </div>
+								    </div>
 								</form>
-								<script type='text/javascript'>
-                        			$(function(PNotify){
-                            		new PNotify({
-                                	title: 'Error',
-                                	text: 'No se ha podido ingresar el usuario'
-                            	});
-                        });
-                    </script>
+								
 							</div>
 						</div>
 					</div>
