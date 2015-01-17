@@ -1,7 +1,8 @@
 <?php
     session_start();
     if(!isset($_POST["ajax"], $_SESSION['idUsuario'],$_SESSION['nombreUsuario'], $_SESSION['apellidoUsuario'], $_SESSION['superAdminUsuario']) || $_SESSION['superAdminUsuario'] == 0){
-            header('location: error');
+            print_r($_SESSION);
+            
     }
 
     $mensaje = null;
@@ -12,7 +13,7 @@
     $imagenProyecto = $_FILES['img_proyecto']['name'];
     $ruta =  "";
     
-    if ($nombreProyecto == null ){
+    if ($nombreProyecto == '' ){
         $mensaje = "<script>document.getElementById('e_nombre').innerHTML='El campo nombre es requerido';</script>";
     }
     else if(!preg_match('/^[a-záéóóúàèìòùäëïöüñ\s]+$/i', $nombreProyecto)){
@@ -24,13 +25,13 @@
     else if(strlen($nombreProyecto) > 45){
         $mensaje = "<script>document.getElementById('e_nombre_proyecto').innerHTML='El m&aacute;ximo permitido son 45 caracteres';</script>";
     }
-    else if ($descripciónProyecto == null || $descripciónProyecto == '' ){
+    else if ($descripcionProyecto == null || $descripcionProyecto == '' ){
         $mensaje = "<script>document.getElementById('e_descripcion_proyecto').innerHTML='El campo Descripción es requerido';</script>";
     }
-    else if(strlen($descripciónProyecto) < 5){
+    else if(strlen($descripcionProyecto) < 5){
         $mensaje = "<script>document.getElementById('e_apellido').innerHTML='El m&iacute;nimo permitido son 5 caracteres';</script>";
     }
-    else if(strlen($descripciónProyecto) > 140){
+    else if(strlen($descripcionProyecto) > 140){
         $mensaje = "<script>document.getElementById('e_apellido').innerHTML='El m&aacute;ximo permitido son 140 caracteres';</script>";
     }
     else if ($fechaProyecto == ''){
@@ -41,14 +42,18 @@
     }
     else{
         //Conectar a la base de datos y realizar la consulta para guardar el registro
-        require_once "projectModel.php";
-        require_once "imagenModel.php"
+        require_once ("projectModel.php");
+        require_once ("imagenModel.php");
 
-        $ProjecModel = new projectModel();
+        $projectModel = new ProjectModel();
+        $imagenModel = new ImagenMondel();
         // guardamos el archivo a la carpeta files
 		$ruta =  "../../images/productos/".$imagenProyecto;
 		if (move_uploaded_file($_FILES['imagenProducto']['tmp_name'], $ruta)) {
+
     		$projectModel->insert_db_project($nombreProyecto, $descripcionProyecto, $fechaProyecto, $_SESSION['idUsuario']);
+            $idProyecto = $projectModel->view_db_last_project();
+            $imagenModel->insert_images_project($ruta, $imagenProyecto, $idProyecto['idProyecto']);
     		$mensaje = "<script type='text/javascript'>
                 PNotify.prototype.options.styling = 'bootstrap3';
                 PNotify.prototype.options.styling = 'jqueryui';

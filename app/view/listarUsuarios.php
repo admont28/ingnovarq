@@ -7,11 +7,11 @@
 			include_once ("header.php");
 			include_once ("nav.php");
 			include_once ("footer.php"); 
-
+			require_once ("../controller/notificaciones.php");
+			require_once ("../controller/userModel.php");
 			getImportsUp();
-			require_once "../controller/userModel.php";
 			$userModel = new UserModel();
-			$usuarios = $userModel->view_all_db_user();
+			$usuarios = $userModel->view_all_db_users();
 			?>
 			<body id="body">
 				<div class="con" id="con">
@@ -27,77 +27,162 @@
 					</div>
 					<div class="contenido">
 						<div class="row">
-							<div class="col-xs-12 col-sm-8 col-md-8">
-								<table  style="border-radius: 5px; border: 1px solid #222; width: 100%;">
-									<thead>
-										<th>Cédula</th>
-										<th>Nombre</th>
-										<th>Apellido</th>
-										<th>Editar</th>
-										<th>Eliminar</th>
-									</thead>
-									<?php
-										foreach ($variable as $key => $value) {
-											# code...
-										}
-									for ($i=0; $i <sizeof($usuarios) ; $i++)
-									{ 
-									?>
-										<tr>
-											
-											<td >
-												<?php echo "".$usuarios[$i]['idusuario']; ?>
-											</td> 
-											<td >
-												<?php echo "".$usuarios[$i]['nombre']; ?>
-											</td> 
-											<td >
-												<?php echo "".$usuarios[$i]['apellido']; ?>
-											</td>
-											<?php 
-												if($_SESSION['idusuario'] == $usuarios[$i]['idusuario'])
-												{
-											?>
-											<td>
-												<a href="<?php echo "editarUsuario?idusuario=".$usuarios[$i]['idusuario']; ?>">
-													<div class="imagenAccion"><img style="width: 50px;" src="../../imagenes/administrador/editar.png" /></div>
-												</a>
-											</td>
-											<td >
-												<a href="#" onclick="validarAccion<?php echo $i; ?>();"><div class="imagenAccion"><img style="width: 50px;" src="../../imagenes/administrador/eliminar.png" /></div></a>
-												<script>
-													function validarAccion<?php echo $i; ?>()
-													{											
-														if(confirm("Estas Seguro de eliminar este Usuario"))
-														{
-															document.location.href= '../controlador/eliminarUsuario?idusuario='+'<?php echo $usuarios[$i]['idusuario']; ?>';										
-														}
-														else
-														{
-															document.location.href= 'listarUsuarios';
-														}										
-													} 
-												</script>
-											</td>
-											<?php 
-												}
-												else {
+							<div class="col-xs-12 col-sm-12 col-md-12">
+								<div class="table-responsive">
+									<table  class="table table-bordered table-hover" style="border-radius: 5px; background-color: rgba(129,205,0,0.4);">
+										<thead>
+											<th>Cédula</th>
+											<th>Nombre</th>
+											<th>Apellido</th>
+											<th>Súper Administrador</th>
+											<th>Fecha de Creación</th>
+											<th>Editar</th>
+											<th>Eliminar</th>
+										</thead>
+										<tbody>
+										<?php
+											foreach ($usuarios as $fila) {
+												?>
+											<tr>
+												
+												<td >
+													<?php echo $fila['cedulaUsuario']; ?>
+												</td> 
+												<td >
+													<?php echo $fila['nombreUsuario']; ?>
+												</td> 
+												<td >
+													<?php echo $fila['apellidoUsuario']; ?>
+												</td>
+												<td >
+													<?php 	if($fila['superAdminUsuario'] == 1)
+																echo "Si";
+															else
+																echo "No"; ?>
+												</td>
+												<td >
+													<?php echo $fila['fechaCreacionUsuario']; ?>
+												</td>
+												<?php 
+													if($_SESSION['superAdminUsuario'] == 1){
+														if($fila['cedulaUsuario'] == $_SESSION['idUsuario'] || $fila['superAdminUsuario'] == 0){
 													?>
-											<td>-----</td>
-											<td>-----</td>
-											<?php
-												}
-											?>								
-										</tr>
-									<?php	
-									}
-									?>
-									
-								</table>	
+														<td>
+															<a href="#sinAccion" class="open" data-toggle="modal" data-target="#myModal" data-id="<?php echo $fila['cedulaUsuario'] ?>" title="Editar usuario">
+																<div><img style="width: 50px;" class="img-responsive" src="../../images/administrador/edit.png"/></div>
+															</a>															
+														</td>
+														<?php 
+														} else{
+														?>
+														<td>
+														<div><img style="width: 50px;" class="img-responsive" src="../../images/administrador/cancel.png" title="No puede efectuar acciones"/></div>
+														</td>
+														<?php } ?>
+														<td >
+															<a href="#sinAccion" onclick="eliminarUsuario(<?php echo $fila['cedulaUsuario'] ?>);">
+																<div><img style="width: 50px;" class="img-responsive" src="../../images/administrador/delete.png" title="Eliminar usuario"/></div>
+															</a>
+															
+														</td>
+													<?php
+													}
+													else{
+														?>
+														<td>-----</td>
+														<td>-----</td>
+														<?php
+													}
+													?>						
+											</tr>
+										<?php	
+										}
+										echo get_confirm_delete_user(); // imprimo el script para eliminar usuarios
+										echo get_script_edit_user(); // imprimo el script para editar los usuarios
+										?>
+										</tbody>
+									</table>
+									<div id="mensaje"></div>
+								</div>	
 							</div>
 						</div>
 					</div>
-				</div>
+					<!-- Ventana Modal para editar los usuarios -->
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h3 class="modal-title" id="myModalLabel">Editar Usuario</h3> 
+					      </div>
+
+					      <div class="modal-body">
+					      	<div id="mensaje"></div>
+					      	<form class="form-horizontal" id="form-editar-usuario-ajax" method="post">
+					      		<input type="hidden" name="idUsuario" id="idUsuario" readonly="readonly">
+							     <div class="form-group">
+							         <label for="inputName" class="control-label col-xs-2">Nombre:</label>
+							         <div class="col-xs-10">
+							            <input type="name" id="nombre" name="nombre" class="form-control" placeholder="Nombre">
+							         	<div class="col-xs-10 error-text" id="e_nombre"></div>
+							         </div>
+							     </div>
+								     <div class="form-group">
+							        <label for="inputName" class="control-label col-xs-2">Apellido:</label>
+							        <div class="col-xs-10">
+							            <input type="name" id="apellido" name="apellido" class="form-control" placeholder="Apellido" value="">
+							        	<div class="col-xs-10 error-text" id="e_apellido"></div> 
+							        </div>
+							     </div>
+							     <div class="form-group">
+							        <label for="inputName" class="control-label col-xs-2">Cédula:</label>
+							        <div class="col-xs-10">
+							            <input type="text" id="cedula" name="cedula" class="form-control" placeholder="Cédula" >
+							        	<div class="col-xs-10 error-text" id="e_cedula"></div>
+							        </div>
+							     </div>
+							     <div class="form-group">
+							        <label for="inputPassword" class="control-label col-xs-2">Contraseña:</label>
+							        <div class="col-xs-10">
+							            <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña">
+							        	<div class="col-xs-10 error-text" id="e_password"></div>
+							        	<h3 class="label label-warning" style="color: black; font-size: 0.9em;">Nota: dejar intacto para conservar la misma contraseña</h3>
+							        </div>
+							     </div>
+							     <div class="form-group">
+							        <label for="inputPassword" class="control-label col-xs-2">Repetir Contraseña:</label>
+							        <div class="col-xs-10">
+							            <input type="password" id="repetir_password" name="repetir_password" class="form-control" placeholder="Repetir Contraseña" >
+							        	<div class="col-xs-10 error-text" id="e_repetir_password"></div>
+							        	<span class="label label-warning" style="color: black; font-size: 0.9em;">Nota: dejar intacto para conservar la misma contraseña</span>
+							        </div>
+							     </div>
+							     <div class="form-group">
+							     	<label for="tipoUsuario" class="control-label col-xs-2">Tipo de usuario</label>
+							     	<div class="col-xs-10">
+								     	<select class="form-control" id="tipoUsuario" name="tipoUsuario"> 
+											<option value="0">Administrador</option>
+											<option value="1">Súper Administrador</option>
+										</select>
+									</div>
+							     </div>
+							     <div class="form-group">
+							        <div class="col-xs-offset-2 col-xs-10">
+							         	<input type="hidden" name="ajax">
+							            <button type="submit" id="btn-editar-usuario-ajax" class="btn btn-success">Guardar Cambios</button> 
+							        </div>
+							     </div>
+							</form> 
+					      </div>
+
+					      <div class="modal-footer">
+					        <button type="button" id="cerrar" class="btn btn-default" data-dismiss="modal">Cerrar</button>   
+					      </div>
+					    </div>
+					  </div>
+					</div> <!-- /- Cierro la ventana Modal de editar usuario-->
+				</div> <!-- cierro el container principal-->
 				<?php
 					getFooter(); 
 					getImportsDown();

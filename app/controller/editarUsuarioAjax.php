@@ -1,10 +1,39 @@
 <?php
     session_start();
-    if(!isset($_POST["ajax"], $_SESSION['idUsuario'],$_SESSION['nombreUsuario'], $_SESSION['apellidoUsuario'], $_SESSION['superAdminUsuario']) || $_SESSION['superAdminUsuario'] == 0){
+    if(!isset($_POST["cedula"], $_SESSION['idUsuario'],$_SESSION['nombreUsuario'], $_SESSION['apellidoUsuario'], $_SESSION['superAdminUsuario']) || $_SESSION['superAdminUsuario'] == 0){
             header('location: error');
     }
+    require_once ("notificaciones.php");
+    require_once ("userModel.php");
+    $mensaje = get_error_edit_user();
 
-    $mensaje = null;
+    if(sizeof($_POST) == 1){
+        $cedulaUsuario = $_POST['cedula'];
+        $userModel = new UserModel();
+        $consulta = $userModel->view_db_user($cedulaUsuario);
+        if($consulta != null){
+            $idUsuario = $consulta['idUsuario'];
+            $nombreUsuario = $consulta['nombreUsuario'];
+            $apellidoUsuario = $consulta['apellidoUsuario'];
+            $passwordUsuario = $consulta['passwordUsuario'];
+            $superAdminUsuario = 1;
+            if($consulta['superAdminUsuario'] == 0)
+                $superAdminUsuario = 0;
+
+            $mensaje = "<script> 
+                            document.getElementById('myModalLabel').innerHTML='Editar usuario: ".$nombreUsuario."';
+                            document.getElementById('nombre').value='".$nombreUsuario."';
+                            document.getElementById('apellido').value='".$apellidoUsuario."';
+                            document.getElementById('cedula').value='".$cedulaUsuario."';
+                            document.getElementById('password').value='".$passwordUsuario."';
+                            document.getElementById('repetir_password').value='".$passwordUsuario."';
+                            document.getElementById('tipoUsuario').value='".$superAdminUsuario."';
+                            document.getElementById('idUsuario').value='".$idUsuario."';
+                        </script>";
+        }
+    }
+    else if(sizeof($_POST) == 8 && isset($_POST['ajax'],$_POST['nombre'], $_POST['apellido'], $_POST['cedula'], $_POST['password'], $_POST['repetir_password'], $_POST['idUsuario'])){
+        
     $nombre = htmlspecialchars($_POST["nombre"]);
     $apellido = htmlspecialchars($_POST["apellido"]);
     $cedula = htmlspecialchars($_POST["cedula"]);
@@ -56,28 +85,36 @@
     else if(strlen($password) < 6){
         $mensaje = "<script>document.getElementById('e_password').innerHTML='El m&iacute;nimo permitido 6 caracteres';</script>";
     }
-    else if(strlen($password) > 16){
-        $mensaje = "<script>document.getElementById('e_password').innerHTML='El m&aacute;ximo permitido 16 caracteres';</script>";
+    else if(strlen($password) > 100){
+        $mensaje = "<script>document.getElementById('e_password').innerHTML='El m&aacute;ximo permitido 100 caracteres';</script>";
     }
     else if ($repetir_password != $password){
         $mensaje = "<script>document.getElementById('e_repetir_password').innerHTML='Los password no coinciden';</script>";
     }
     else{
         //Conectar a la base de datos y realizar la consulta para guardar el registro
+        $idUsuario = $_POST['idUsuario'];
         $tipoUsuario = $_POST['tipoUsuario'];
+
+        // incluyo los archivos necesarios para generar las consultas y las notificaciones
         require_once ("userModel.php");
         require_once ("notificaciones.php");
         $userModel = new UserModel();
-        // verifico si existe el usuario en la bd
-        $respuesta = $userModel->view_db_user($cedula);
+        // verifico si hay un usuario con la misma cedula en la bd
+        $respuesta = $userModel->view_id_user_db_user($idUsuario);
         //Finalmente, si no existe un usuairo en la bd registrado, se ingresará, de lo contrario lanzará un error.
-        if($respuesta == null ){
-            $userModel->insert_db_user($cedula, $nombre, $apellido, $password, $tipoUsuario); // Inserto en la bd
-            $mensaje = get_success_insert_user(); // envio el mensaje 
-        }
-        else{
-            $mensaje = get_error_insert_user();
+        if($respuesta != null ){
+            if(!hash_equals($password, $respuesta['passwordUsuario'])){
+                $salt = '$2a$07$CryptIngnovarqSASConstructora$';
+                $password = crypt ($password, $salt);
+            }
+            
+            $respuesta = $userModel->update_db_user($idUsuario, $cedula, $nombre, $apellido, $password, $tipoUsuario); // Inserto en la bd
+            
+            if($respuesta)
+                $mensaje = get_success_edit_user($cedula); // envio el mensaje 
         }
     }
+}
 echo $mensaje;
 ?>

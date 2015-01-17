@@ -4,7 +4,7 @@
 	 */
 	require_once "model.php";
 
-	class projectModel extends Model{
+	class ProjectModel extends Model{
 
 		/*
 		 * Constructor de la clase projectModel el cual se conectará a la base de datos por medio del constructor del padre.
@@ -112,6 +112,20 @@
 			$sentencia = $this->_db->prepare("SELECT i.idImagen, i.rutaImagen, i.tituloImagen FROM Proyecto p INNER JOIN Imagen i ON i.Proyecto_idProyecto = p.idProyecto where idProyecto = :id");
 			$sentencia->bindParam(':id', $idProyecto);
 
+			$sentencia->execute();
+
+			$response= array();
+			while ($fila = $sentencia->fetch()) {
+				$response[] = $fila;
+			}
+
+			return $response;
+
+		}
+
+		function view_db_last_project(){
+
+			$sentencia = $this->_db->prepare("SELECT idproducto FROM producto ORDER BY idproducto DESC LIMIT 1");
 			$sentencia->execute();
 
 			$response= array();

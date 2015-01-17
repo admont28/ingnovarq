@@ -70,7 +70,7 @@
 
 							<br>
 							
-								<img class="img-responsive" src="../../images/reserva.gif">
+								<img class="img-responsive" src="../../images/reserva.png">
 							
 						  </div>
 						</div>

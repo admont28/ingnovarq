@@ -70,7 +70,7 @@
 					</script>
 
 					<!-- Script para capturar las acciones de los botones en formularios -->
-					<script src="../../js/botones.js" type="text/javascript">
+					<script type="text/javascript" src="../../js/botones.js" >
 						
 					</script>
 
@@ -79,6 +79,7 @@
 			        <link rel="stylesheet" type="text/css" href="../../css/styleCommonProyectos.css"/>
 			        <link rel="stylesheet" type="text/css" href="../../css/styleProyectos.css"/>
 			        <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Oswald'/>
+
 				</head>
 		<?php
 	}
@@ -88,13 +89,21 @@
 
 		<!-- Script para cargar JQuery -->
 		<script type="text/javascript" src="../../js/jquery.js"></script>
+		<!-- AJAX Upload -->
+			        <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+					<!-- <script src="../../js/jquery.ui.widget.js"></script> -->
+					<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+					<!-- <script src="../../js/jquery.iframe-transport.js"></script> -->
+					<!-- The basic File Upload plugin -->
+					<!-- <script src="../../js/jquery.fileupload.js"></script> -->
+		<!-- /AJAX Upload -->
 		<!-- Script para cargar el js de bootstrap -->
 	  	<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
 	  	<!-- Script para dibujar el canvas que está debajo del slider -->
 	  	<script type="text/javascript" src="../../js/canvas.js"></script>
-	  	<!-- <script type="text/javascript" src="js/scrolltofixed-min.js"></script> -->
+	  	
 	  	<script type="text/javascript" src="../../js/app.js"></script>
-	  	<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> -->
+	  	
 		<script type="text/javascript" src="../../js/jquery.slicebox.js"></script>
 		<!-- Script para el Menu pegajoso -->
 		<script type="text/javascript" src="../../js/menupegajoso.js"></script>

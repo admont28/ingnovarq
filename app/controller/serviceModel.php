@@ -4,7 +4,7 @@
 	 */
 	require_once "model.php";
 
-	class serviceModel extends Model{
+	class ServiceModel extends Model{
 
 		/*
 		 * Constructor de la clase serviceModel el cual se conectará a la base de datos por medio del constructor del padre.

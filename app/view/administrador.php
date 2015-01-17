@@ -39,22 +39,29 @@
 									<div class="panel panel-default empresa">
 									 	<div class="panel-heading">Inicio de sesión - ¡Bienvenido Administrador!</div>
 									  	<div class="panel-body">
-											<form action="../controller/login" method="post">
-												<div class="">
-													<label> Usuario: </label>
-												</div>
-												<div class="">
-													<input class=""type="text" name="idUsuario" required="required" />
-												</div>
-												<div class="">
-													<label> Contraseña: </label>
-												</div>
-												<div class="">
-													<input class="" type="password" name="password" required="required"/>
-												</div>
-												<div style="text-align: center;">
-													<input type="submit" value="Ingresar" />
-												</div>
+									  		<div id="mensaje"></div>
+											<form class="form-horizontal" id="form-login-ajax" method="post">
+												<div class="form-group">
+											        <label for="inputIdUsuario" class="control-label col-xs-2">Usuario:</label>
+											        <div class="col-xs-10">
+											        	<input type="name" id="idUsuario" name="idUsuario" class="form-control" placeholder="Usuario">
+											        	<div class="col-xs-10 error-text" id="e_idUsuario"></div>
+											        </div>
+											     </div>
+
+											    <div class="form-group">
+											        <label for="inputPassword" class="control-label col-xs-2">Contraseña:</label>
+											        <div class="col-xs-10">
+											            <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña">
+											        	<div class="col-xs-10 error-text" id="e_password"></div>
+											        </div>
+											    </div>
+												<div class="form-group">
+											        <div class="col-xs-offset-2 col-xs-10">
+											         	<input type="hidden" name="ajax">
+											            <button type="submit" id="btn-login-ajax" class="btn btn-success">Iniciar Sesión</button> 
+											        </div>
+											    </div>
 											</form>
 									  	</div>
 									</div>

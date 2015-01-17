@@ -13,7 +13,7 @@
 			<body id="body">
 				<div class="con" id="con">
 					<div class="container" id="main">
-						<?php 
+						<?php
 							getHeader();
 							if($_SESSION['superAdminUsuario'] == 1){
 								getNavSuperAdmin();
@@ -26,7 +26,10 @@
 						<div class="row">
 							<div class="col-xs-12 col-sm-8 col-md-8">
 								<div id="mensaje"></div>
-								<form class="form-horizontal" id="form-ajax" action="../controller/insertarUsuarioAjax" method="post">
+								<?php
+
+								?>
+								<form class="form-horizontal" id="form-usuario-ajax" method="post">
 								     <div class="form-group">
 								         <label for="inputName" class="control-label col-xs-2">Nombre:</label>
 								         <div class="col-xs-10">
@@ -67,7 +70,7 @@
 								     	<div class="col-xs-10">
 									     	<select class="form-control" id="tipoUsuario" name="tipoUsuario"> 
 												<option value="0">Administrador</option>
-												<option value="1">Super Administrador</option>
+												<option value="1">Súper Administrador</option>
 											</select>
 										</div>
 								     </div>

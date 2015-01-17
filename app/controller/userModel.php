@@ -48,19 +48,19 @@
 		/*
 		 * Función para actualizar un usuario en la base de datos
 		 */
-		function update_db_user($cedula, $nombre, $apellido, $password, $fecha, $isSuperAdmin){
+		function update_db_user($idUsuario, $cedula, $nombre, $apellido, $password, $isSuperAdmin){
 
 			//Creación de una consulta insertandole parametros para actualizar usuarios
-			$sentencia = $this->_db->prepare("UPDATE Usuario SET cedulaUsuario = :cedula, nombreUsuario = :nombre, apellidoUsuario = :apellido, passwordUsuario = :password, fechaCreacionUsuario = :fecha, superAdminUsuario = :super_admin");
+			$sentencia = $this->_db->prepare("UPDATE Usuario SET cedulaUsuario = :cedula, nombreUsuario = :nombre, apellidoUsuario = :apellido, passwordUsuario = :password, superAdminUsuario = :super_admin WHERE idUsuario = :idUsuario" );
 			$sentencia->bindParam(':cedula', $cedula);
 			$sentencia->bindParam(':nombre', $nombre);
 			$sentencia->bindParam(':apellido', $apellido);
 			$sentencia->bindParam(':password', $password);
-			$sentencia->bindParam(':fecha', $fecha_db);
 			$sentencia->bindParam(':super_admin', $isSuperAdmin);
+			$sentencia->bindParam(':idUsuario', $idUsuario);
 
 			//Ejecución de la consulta
-			$sentencia->execute();
+			return $sentencia->execute();
 		}
 
 		/*
@@ -73,8 +73,7 @@
 			$sentencia->bindParam(':cedula', $cedula);
 
 			//Ejecución de la consulta
-			$sentencia->execute();
-
+			return $sentencia->execute();
 		}
 
 		/*
@@ -101,6 +100,25 @@
 			//Creación de una consulta insertandole parametros para obtener un usuario en especifico
 			$sentencia = $this->_db->prepare("SELECT * FROM Usuario where cedulaUsuario = :cedula");
 			$sentencia->bindParam(':cedula', $cedula);
+
+			$sentencia->execute();
+			$response = array();
+			while ($fila = $sentencia->fetch()) {
+				$response[] = $fila;
+			}
+			if(sizeof($response) != 0)
+				return $usuario = $response[0];
+			return null;
+		}
+
+		/*
+		 * Función para devolver un usuario en especifico de la base de datos consultando por su id
+		 */
+		function view_id_user_db_user($idUsuario){
+
+			//Creación de una consulta insertandole parametros para obtener un usuario en especifico
+			$sentencia = $this->_db->prepare("SELECT * FROM Usuario where idUsuario = :idUsuario");
+			$sentencia->bindParam(':idUsuario', $idUsuario);
 
 			$sentencia->execute();
 			$response = array();

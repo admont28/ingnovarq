@@ -15,7 +15,7 @@
 		<meta name="author" content="Andrés Montoya - Sebastian Tabera">
 
 		<meta name="viewport" content="width=device-width; initial-scale=1.0">
-		<meta http-equiv="Refresh" content="5;url=http://www.ingnovarq.com.co">
+		<meta http-equiv="Refresh" content="60;url=http://www.ingnovarq.com.co">
 
 		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico" />
 	</head>
