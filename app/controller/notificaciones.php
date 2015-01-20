@@ -221,4 +221,34 @@
         return $mensaje;
     }
 
+    function get_success_edit_empresa($texto){
+        $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción Exitosa',
+                                text: 'La ".$texto." de la empresa se ha guardado exitosamente.',
+                                type: 'success',
+                                delay: 6000,
+                                animation: 'show',
+                            });
+                        });
+                    </script>";
+        return $mensaje;
+    }
+
+    function get_error_edit_empresa($texto){
+        $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción No Exitosa :(',
+                                text: 'No se ha podido guardar la ".$texto." de la empresa con éxito, por favor revisa todos los datos e inténtelo de nuevo.',
+                                type: 'error',
+                                delay: 6000,
+                                animation: 'show',
+                            });
+                        });
+                    </script>";
+        return $mensaje;
+    }
+
 ?>

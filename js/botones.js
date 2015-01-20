@@ -72,8 +72,62 @@ $(document).ready(function() {
     return false; // Evitar ejecutar el submit del formulario.
   });
 
+      $('#cerrarSesion').click(function(){
+          var url = "../controller/logout"; // El script a dónde se realizará la petición.
+          $.ajax({
+               type: "POST",
+               url: url,
+               success: function(){
+                location.reload();
+               }
+            });
+        return false; // Evitar ejecutar el submit del formulario.
+  });
 
+      $('#btn-editar-mision-ajax').click(function(){
+    var url = "../controller/editarEmpresaAjax"; // El script a dónde se realizará la petición.
+      $.ajax({
+           type: "POST",
+           url: url,
+           data: $("#form-editar-mision-ajax").serialize(), // Adjuntar los campos del formulario enviado.
+           success: function(data)
+           {
+               $("#e_mision").html('');
+               $("#mensajeMision").html(data); // Mostrar la respuestas del script PHP.
+           }
+        });
+    return false; // Evitar ejecutar el submit del formulario.
+  });
 
+      $('#btn-editar-vision-ajax').click(function(){
+    var url = "../controller/editarEmpresaAjax"; // El script a dónde se realizará la petición.
+      $.ajax({
+           type: "POST",
+           url: url,
+           data: $("#form-editar-vision-ajax").serialize(), // Adjuntar los campos del formulario enviado.
+           success: function(data)
+           {
+               $("#e_vision").html('');
+               $("#mensajeVision").html(data); // Mostrar la respuestas del script PHP.
+           }
+        });
+    return false; // Evitar ejecutar el submit del formulario.
+  });
+
+      $('#btn-editar-filosofia-ajax').click(function(){
+    var url = "../controller/editarEmpresaAjax"; // El script a dónde se realizará la petición.
+      $.ajax({
+           type: "POST",
+           url: url,
+           data: $("#form-editar-filosofia-ajax").serialize(), // Adjuntar los campos del formulario enviado.
+           success: function(data)
+           {
+               $("#e_filosofia").html('');
+               $("#mensajeFilosofia").html(data); // Mostrar la respuestas del script PHP.
+           }
+        });
+    return false; // Evitar ejecutar el submit del formulario.
+  });
 
 });
 

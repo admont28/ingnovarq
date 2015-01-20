@@ -24,40 +24,51 @@
 
 			<div class="contenido">
 				<div class="row">
-					<div class="col-xs-12 col-sm-8 col-md-6">
+					<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
 						<div class="panel panel-default empresa">
 						  <div class="panel-heading">Nuestra Misión</div>
 						  <div class="panel-body">
-							<p> 
-								<?php 	
-									echo $mision['misionEmpresa'];
-								?>
-							</p>
+						  	<div class="col-xs-3 col-sm-3 col-md-3"><img src="../../images/administrador/mision.png" class="img-responsive"></div>
+						  	<div class="col-xs-9 col-sm-9 col-md-9">
+								<p class="text-justify"> 
+									<?php 	
+										echo $mision['misionEmpresa'];
+									?>
+								</p>
+							</div>
 						  </div>
 						</div>
 					</div>
-					<div class="col-xs-12 col-sm-8 col-md-6">
+					<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
 						<div class="panel panel-default empresa">
 						  <div class="panel-heading">Nuestra Visión</div>
 						  <div class="panel-body">
-							<p>
-								<?php
-									echo $vision['visionEmpresa'];
-								?>
-							</p>
+						  	<div class="col-xs-3 col-sm-3 col-md-3"><img src="../../images/administrador/vision.png" class="img-responsive"></div>
+						  	<div class="col-xs-9 col-sm-9 col-md-9">
+						  		<p class="text-justify">
+									<?php
+										echo $vision['visionEmpresa'];
+									?>
+								</p>
+						  	</div>
+
+							
 						  </div>
 						</div>
 					</div>
-					<div class="col-xs-12 col-sm-8 col-md-12">
+					<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
 						<div class="panel panel-default empresa">
-						  <div class="panel-heading">Nuestra Filosofía</div>
-						  <div class="panel-body">
-							<p> 
-								<?php
-									echo $filosofia['filosofiaEmpresa'];
-								?>
-							</p>
-						  </div>
+						  	<div class="panel-heading">Nuestra Filosofía</div>
+						  	<div class="panel-body">
+							  	<div class="col-xs-3 col-sm-3 col-md-3"><img src="../../images/administrador/valores.png" class="img-responsive"></div>
+							  	<div class="col-xs-9 col-sm-9 col-md-9">
+									<p class="text-justify"> 
+										<?php
+											echo $filosofia['filosofiaEmpresa'];
+										?>
+									</p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

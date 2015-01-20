@@ -19,17 +19,29 @@
 					?>
 			</div>
 			<div class="contenido">
+				<br>
+				<br>
 				<div class="row">
-					<div class="col-xs-12 col-sm-8 col-md-8">
+					<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
 						<?php 
 							if(isset($_SESSION['idUsuario'])){
 						?>
 							<div class="panel panel-default empresa">
 							 	<div class="panel-heading">¡Bienvenido <? echo $_SESSION['nombreUsuario'] ?>!</div>
 							  	<div class="panel-body">
-									<p> Usted ya tiene una sesión activa, para iniciar sesión con otro usuario porfavor cierre está sesión,
-									 lo puede hacer dando click <a href="../controller/logout">aquí</a>,
-									 de lo contrario puede dirigirse a administrar su sitio web <a href="perfil"> aquí</a></p>
+									<p class="lead text-success">Se ha detectado una sesión activa. </p>
+									
+									<p class="lead">
+										Para iniciar sesión con otro usuario porfavor cierre está sesión, de lo contrario, no podrá tener 2 sesiones activas.
+									</p>
+									<p class="lead">
+										Puede dirigirse a administrar el sitio web de Ingnovarq S.A.S.
+									</p>
+									<br>
+										<div class="col-md-12">
+											<a id="cerrarSesion" class="col-md-5 col-md-offset-1 btn btn-success">Cerrar Sesión</a>
+											<a class="col-md-5 col-md-offset-1 btn btn-success" href="perfil">Administrar Sitio WEB</a>
+							  			</div>
 							  	</div>
 							</div>
 						<?php
@@ -70,6 +82,8 @@
 							?>
 					</div>
 				</div>
+				<br>
+				<br>
 			</div>
 		</div>
 		<?php

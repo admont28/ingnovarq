@@ -22,7 +22,7 @@
 		 */
 
 		/*
-		 * Función para obtener la misión de la empresa
+		 * Función para obtener la misión de la empresa.
 		 */
 		function get_mision(){
 
@@ -30,17 +30,12 @@
 			$idEmpresa = 1;
 			$sentencia->bindParam(':idEmpresa', $idEmpresa);
 			$sentencia->execute();
-			$response = array();
-
-			while ($fila = $sentencia->fetch()) {
-				$response[] = $fila;
-			}
-			$mision = $response[0];
+			$mision = $sentencia->fetch(PDO::FETCH_ASSOC);
 			return $mision;
 		}
 
 		/*
-		 * Función para obtener la visión de la empresa
+		 * Función para obtener la visión de la empresa.
 		 */
 		function get_vision(){
 
@@ -48,17 +43,12 @@
 			$idEmpresa = 1;
 			$sentencia->bindParam(':idEmpresa', $idEmpresa);
 			$sentencia->execute();
-			$response = array();
-
-			while ($fila = $sentencia->fetch()) {
-				$response[] = $fila;
-			}
-			$vision = $response[0];
+			$vision = $sentencia->fetch(PDO::FETCH_ASSOC);
 			return $vision;
 		}
 
 		/*
-		 * Función para obtener la filosofía de la empresa
+		 * Función para obtener la filosofía de la empresa.
 		 */
 		function get_filosofia(){
 
@@ -66,13 +56,44 @@
 			$idEmpresa = 1;
 			$sentencia->bindParam(':idEmpresa', $idEmpresa);
 			$sentencia->execute();
-			$response = array();
-
-			while ($fila = $sentencia->fetch()) {
-				$response[] = $fila;
-			}
-			$filosofia = $response[0];
+			$filosofia = $sentencia->fetch(PDO::FETCH_ASSOC);
 			return $filosofia;
+		}
+
+		/*
+		 * Función para actualizar la misión de la empresa.
+		 */
+		function update_mision($mision){
+
+			$sentencia = $this->_db->prepare("UPDATE Empresa SET misionEmpresa = :mision WHERE idEmpresa = :idEmpresa");
+			$idEmpresa = 1;
+			$sentencia->bindParam(':mision', $mision);
+			$sentencia->bindParam(':idEmpresa', $idEmpresa);
+			return $sentencia->execute();
+		}
+
+		/*
+		 * Función para actualizar la visión de la empresa.
+		 */
+		function update_vision($vision){
+
+			$sentencia = $this->_db->prepare("UPDATE Empresa SET visionEmpresa = :vision WHERE idEmpresa = :idEmpresa");
+			$idEmpresa = 1;
+			$sentencia->bindParam(':vision', $vision);
+			$sentencia->bindParam(':idEmpresa', $idEmpresa);
+			return $sentencia->execute();
+		}
+
+		/*
+		 * Función para actualizar la filosofía de la empresa.
+		 */
+		function update_filosofia($filosofia){
+
+			$sentencia = $this->_db->prepare("UPDATE Empresa SET filosofiaEmpresa = :filosofia WHERE idEmpresa = :idEmpresa");
+			$idEmpresa = 1;
+			$sentencia->bindParam(':filosofia', $filosofia);
+			$sentencia->bindParam(':idEmpresa', $idEmpresa);
+			return $sentencia->execute();
 		}
 	}
 ?>
