@@ -17,4 +17,5 @@
 	define('DB_PASS', '');
 	define('DB_NAME', 'ingnovar_Ingnovarq');
 	define('DB_CHARSET', 'utf-8');
+	
 ?>

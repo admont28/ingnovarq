@@ -245,7 +245,9 @@
 							     <div class="form-group">
 							        <div class="col-xs-offset-2 col-xs-10">
 							         	<input type="hidden" name="ajaxMision">
-							            <button type="submit" id="btn-editar-mision-ajax" class="btn btn-success">Guardar Cambios</button> 
+							         	<button type="submit" id="btn-editar-mision-ajax" class="btn btn-success">
+							            	<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Guardar Cambios
+							            </button>
 							        </div>
 							     </div>
 							</form>   	 
@@ -282,7 +284,9 @@
 							     <div class="form-group">
 							        <div class="col-xs-offset-2 col-xs-10">
 							         	<input type="hidden" name="ajaxVision">
-							            <button type="submit" id="btn-editar-vision-ajax" class="btn btn-success">Guardar Cambios</button> 
+							         	<button type="submit" id="btn-editar-vision-ajax" class="btn btn-success">
+							            	<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Guardar Cambios
+							            </button>
 							        </div>
 							     </div>
 							</form>
@@ -319,7 +323,9 @@
 							     <div class="form-group">
 							        <div class="col-xs-offset-2 col-xs-10">
 							         	<input type="hidden" name="ajaxFilosofia">
-							            <button type="submit" id="btn-editar-filosofia-ajax" class="btn btn-success">Guardar Cambios</button> 
+							         	<button type="submit" id="btn-editar-filosofia-ajax" class="btn btn-success">
+							            	<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Guardar Cambios
+							            </button>
 							        </div>
 							     </div>
 							</form>

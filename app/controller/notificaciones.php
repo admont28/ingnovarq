@@ -251,4 +251,37 @@
         return $mensaje;
     }
 
+    function get_success_send_email(){
+        $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción Exitosa',
+                                text: 'El mensaje ha sido enviado con éxito, pronto nos contactáremos con usted.<br> Gracias por escribirnos...',
+                                type: 'success',
+                                delay: 6000,
+                                animation: 'show',
+                                before_close: function() {
+                                    location.reload();
+                                }
+                            });
+                        });
+                    </script>";
+        return $mensaje;
+    }
+
+    function get_error_send_email(){
+        $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción No Exitosa :(',
+                                text: 'No se ha podido enviar la información con éxito, por favor revisa todos los datos e inténtelo de nuevo.',
+                                type: 'error',
+                                delay: 6000,
+                                animation: 'show',
+                            });
+                        });
+                    </script>";
+        return $mensaje;
+    }
+
 ?>

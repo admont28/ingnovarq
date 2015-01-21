@@ -22,7 +22,7 @@
 			/*
 			 * hash_equals comparar crypt, comparo las dos contraseñas (escrita y consultada)
 			 */
-			if ($usuario != null && hash_equals($password, $usuario['passwordUsuario'])){
+			if ($usuario != null && $password == $usuario['passwordUsuario']){
 				$_SESSION['idUsuario']=$idUsuario;
 				$_SESSION['nombreUsuario']=$usuario['nombreUsuario'];
 				$_SESSION['apellidoUsuario']=$usuario['apellidoUsuario'];

@@ -104,7 +104,7 @@
         $respuesta = $userModel->view_id_user_db_user($idUsuario);
         //Finalmente, si no existe un usuairo en la bd registrado, se ingresará, de lo contrario lanzará un error.
         if($respuesta != null ){
-            if(!hash_equals($password, $respuesta['passwordUsuario'])){
+            if($password != $respuesta['passwordUsuario'] ){
                 $salt = '$2a$07$CryptIngnovarqSASConstructora$';
                 $password = crypt ($password, $salt);
             }

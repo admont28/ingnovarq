@@ -26,17 +26,46 @@
 				<div class="col-md-6 col-xs-12">
 					<h2 class="title-footer color-a">Contáctenos</h2>
 					<div class="footer-container">
+
 						<ul>
 							<li>
-								<a class="color-a" href="http://www.ingnovarq.com.co/" target="_blank">
-									http://www.ingnovarq.com.co/
-								</a>
+								<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+								<strong>Dirección:</strong> Cra. 13 No 21 N-52 Oficina 202 Edificio Torreyana B/ Alameda Armenia-Quindío
 							</li>
-							<li>Cra. 13 No 21 N-52 Oficina 202 Edificio Torreyana B/ Alameda Armenia-Quindío</li>
-							<li><a class="color-a" href="mailto:ventas@ingnovarq.com.co">ventas@ingnovarq.com.co</a></li>
-							<li>320 676 7399</li>	
-							<li>(6) 7497519</li>			
+							
+							<li>
+								<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+								<strong>E-mail:</strong> <a class="color-a" href="mailto:ventas@ingnovarq.com.co">ventas@ingnovarq.com.co</a>
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+								<strong>Tel-Oficina:</strong> (6) 7497519
+							</li>	
+							<li>
+								<span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+								<strong>Móvil:</strong> 320 676 7399
+							</li>	
+							<li>
+								<span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+								<strong>Móvil:</strong> 311 7174393
+							</li>
+							<li>
+								<span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+								<strong>Móvil:</strong> 312 8666938
+							</li>		
 						</ul>
+						<h2 class="title-footer color-a">Hortarios de Atención</h2>
+							<ul>
+								<li>
+									<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+									<strong>Lunes a Viernes:</strong> 8:00am a 12:00pm y 2:00pm a 6:00pm
+								</li>
+								<li>
+									<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+									<strong>Sábados, Domingos y Festivos:</strong>
+									<a class="color-a" href="mailto:ventas@ingnovarq.com.co">ventas@ingnovarq.com.co</a>
+								</li>
+							</ul>
 					</div>
 
 				</div>

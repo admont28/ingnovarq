@@ -27,7 +27,10 @@
 					</div>
 					<div class="contenido">
 						<div class="row">
+							<br>
 							<div class="col-xs-12 col-sm-12 col-md-12">
+								<h2 style="color: #019831; text-align: center;">Lista de usuarios</h2>
+								<br>
 								<div class="table-responsive">
 									<table  class="table table-bordered table-hover" style="border-radius: 5px; background-color: rgba(129,205,0,0.4);">
 										<thead>
