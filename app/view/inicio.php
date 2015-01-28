@@ -20,7 +20,7 @@
 			
 			<div class="row">
 				<div id="slider-content" class="col-xs-12 col-sm-12 col-md-12">			
-					<canvas id="lienzo" width="1300" height="535" > 				
+					<canvas id="lienzo" width="1280" height="535" > 				
 					</canvas>
 					<div id="contenedorSlider" class="contenedorSlider paddingSlider">
 						   <div class="wrapper">
@@ -69,7 +69,8 @@
 							<a href="" target="_Blank">Twitter</a>
 
 							<br>
-							
+							<iframe type="text/html" width="640" height="385" src="http://www.youtube.com/embed/liTip-LTFyY" frameborder="0"></iframe>
+							<br>
 								<img class="img-responsive" src="../../images/reserva.png">
 							
 						  </div>

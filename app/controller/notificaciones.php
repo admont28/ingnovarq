@@ -284,4 +284,254 @@
         return $mensaje;
     }
 
+
+    function get_confirm_delete_project(){
+        $mensaje = "<script type='text/javascript'>
+                    function eliminarProyecto(idProyecto,nombreProyecto){
+                        new PNotify({
+                            title: '¿Eliminar Proyecto?',
+                            text: '¿Está seguro que desea eliminar el proyecto: '+nombreProyecto+'?<br>Recuerde que se eliminarán todas las imágenes relacionadas con el proyecto.',
+                            icon: 'glyphicon glyphicon-question-sign',
+                            hide: false,
+                            animation: 'show',
+                            confirm: {
+                                confirm: true,
+                                buttons: [{
+                                            text: 'Eliminar',
+                                            addClass: 'btn btn-danger',
+                                            click: function(notice) {
+                                                notice.remove();
+                                                var url = '../controller/eliminarProyectoAjax'; 
+                                                var parametros = { 
+                                                    'idProyecto' : idProyecto,
+                                                };
+                                                $.ajax({
+                                                   type: 'POST',
+                                                   url: url,
+                                                   data: parametros,
+                                                   success: function(data)
+                                                   {
+                                                       $('#mensaje').html(data); // Mostrar la respuesta del script PHP.
+                                                   }
+                                                });
+                                            }
+                                        }, {
+                                            text: 'Cancelar',
+                                            click: function(notice) {
+                                                notice.remove();
+                                            }
+                                        }]
+                            },
+                            buttons: {
+                                closer: false,
+                                sticker: false,
+                            },
+                            history: {
+                                history: false
+                            }
+                        })
+                    }
+                </script>";
+        return $mensaje;
+    }
+
+    function get_success_delete_project($nombreProyecto){
+        $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción Exitosa',
+                                text: 'El proyecto: ".$nombreProyecto." ha sido eliminado con éxito. <br> La lista de proyectos será acutalizada al cerrar está notificación.',
+                                type: 'success',
+                                hide: false,
+                                animation: 'show',
+                                before_close: function() {
+                                    document.location='listarProyectos';
+                                }
+                            });
+                        });
+                    </script>";
+        return $mensaje;
+    }
+
+    function get_error_delete_project(){
+        $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción No Exitosa :(',
+                                text: 'No se ha podido eliminar el proyecto con éxito, porfavor recarga la página e inténtalo de nuevo.',
+                                type: 'error',
+                                delay: 6000,
+                                animation: 'show',
+                            });
+                        });
+                    </script>";
+        return $mensaje;
+    }
+
+    function get_confirm_delete_service(){
+        $mensaje = "<script type='text/javascript'>
+                    function eliminarServicio(idServicio,nombreServicio){
+                        new PNotify({
+                            title: '¿Eliminar Servicio?',
+                            text: '¿Está seguro que desea eliminar el servicio: '+nombreServicio+'?<br>Recuerde que se eliminarán todas las imágenes relacionadas con el servicio.',
+                            icon: 'glyphicon glyphicon-question-sign',
+                            hide: false,
+                            animation: 'show',
+                            confirm: {
+                                confirm: true,
+                                buttons: [{
+                                            text: 'Eliminar',
+                                            addClass: 'btn btn-danger',
+                                            click: function(notice) {
+                                                notice.remove();
+                                                var url = '../controller/eliminarServicioAjax'; 
+                                                var parametros = { 
+                                                    'idServicio' : idServicio,
+                                                };
+                                                $.ajax({
+                                                   type: 'POST',
+                                                   url: url,
+                                                   data: parametros,
+                                                   success: function(data)
+                                                   {
+                                                       $('#mensaje').html(data); // Mostrar la respuesta del script PHP.
+                                                   }
+                                                });
+                                            }
+                                        }, {
+                                            text: 'Cancelar',
+                                            click: function(notice) {
+                                                notice.remove();
+                                            }
+                                        }]
+                            },
+                            buttons: {
+                                closer: false,
+                                sticker: false,
+                            },
+                            history: {
+                                history: false
+                            }
+                        })
+                    }
+                </script>";
+        return $mensaje;
+    }
+
+    function get_success_delete_service($nombreServicio){
+        $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción Exitosa',
+                                text: 'El servicio: ".$nombreServicio." ha sido eliminado con éxito. <br> La lista de servicios será acutalizada al cerrar está notificación.',
+                                type: 'success',
+                                hide: false,
+                                animation: 'show',
+                                before_close: function() {
+                                    document.location='listarServicios';
+                                }
+                            });
+                        });
+                    </script>";
+        return $mensaje;
+    }
+
+    function get_error_delete_service(){
+        $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción No Exitosa :(',
+                                text: 'No se ha podido eliminar el servicio con éxito, porfavor recarga la página e inténtalo de nuevo.',
+                                type: 'error',
+                                delay: 6000,
+                                animation: 'show',
+                            });
+                        });
+                    </script>";
+        return $mensaje;
+    }
+
+    function get_confirm_delete_client(){
+        $mensaje = "<script type='text/javascript'>
+                    function eliminarCliente(idCliente,nombreCliente){
+                        new PNotify({
+                            title: '¿Eliminar Cliente?',
+                            text: '¿Está seguro que desea eliminar el cliente: '+nombreCliente+'?',
+                            icon: 'glyphicon glyphicon-question-sign',
+                            hide: false,
+                            animation: 'show',
+                            confirm: {
+                                confirm: true,
+                                buttons: [{
+                                            text: 'Eliminar',
+                                            addClass: 'btn btn-danger',
+                                            click: function(notice) {
+                                                notice.remove();
+                                                var url = '../controller/eliminarClienteAjax'; 
+                                                var parametros = { 
+                                                    'idCliente' : idCliente,
+                                                };
+                                                $.ajax({
+                                                   type: 'POST',
+                                                   url: url,
+                                                   data: parametros,
+                                                   success: function(data)
+                                                   {
+                                                       $('#mensaje').html(data); // Mostrar la respuesta del script PHP.
+                                                   }
+                                                });
+                                            }
+                                        }, {
+                                            text: 'Cancelar',
+                                            click: function(notice) {
+                                                notice.remove();
+                                            }
+                                        }]
+                            },
+                            buttons: {
+                                closer: false,
+                                sticker: false,
+                            },
+                            history: {
+                                history: false
+                            }
+                        })
+                    }
+                </script>";
+        return $mensaje;
+    }
+
+    function get_success_delete_client($nombreCliente){
+        $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción Exitosa',
+                                text: 'El cliente: ".$nombreCliente." ha sido eliminado con éxito. <br> La lista de clientes será acutalizada al cerrar está notificación.',
+                                type: 'success',
+                                hide: false,
+                                animation: 'show',
+                                before_close: function() {
+                                    document.location='listarClientes';
+                                }
+                            });
+                        });
+                    </script>";
+        return $mensaje;
+    }
+
+    function get_error_delete_client(){
+        $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción No Exitosa :(',
+                                text: 'No se ha podido eliminar el cliente con éxito, porfavor recarga la página e inténtalo de nuevo.',
+                                type: 'error',
+                                delay: 6000,
+                                animation: 'show',
+                            });
+                        });
+                    </script>";
+        return $mensaje;
+    }
+
 ?>

@@ -57,14 +57,14 @@
 		/*
 		 * Función para eliminar un servicios en la base de datos
 		 */
-		function delete_db_service($iid){
+		function delete_db_service($idServicio){
 
 			//Creación de una consulta insertandole parametros para eliminar servicios
-			$sentencia = $this->_db->prepare("DELETE FROM Servicio WHERE idServicio = :id");
-			$sentencia->bindParam(':id', $id);
+			$sentencia = $this->_db->prepare("DELETE FROM Servicio WHERE idServicio = :idServicio");
+			$sentencia->bindParam(':idServicio', $idServicio);
 
 			//Ejecución de la consulta
-			$sentencia->execute();
+			return $sentencia->execute();
 
 		}
 
@@ -98,8 +98,29 @@
 			while ($fila = $sentencia->fetch()) {
 				$response[] = $fila;
 			}
+			if(sizeof($response) != 0)
+				return $servicio = $response[0];
+			return null;
+		}
+
+		/*
+		* Función para obtener las imagenes de un Servicio
+		*/
+		function view_db_img_service($idServicio){
+
+			//creación de una consulta para recuperar las imagenes de los servicio
+			$sentencia = $this->_db->prepare("SELECT i.idImagen, i.rutaImagen, i.tituloImagen FROM Servicio s INNER JOIN Imagen i ON i.Servicio_idServicio = s.idServicio where idServicio = :id");
+			$sentencia->bindParam(':id', $idServicio);
+
+			$sentencia->execute();
+
+			$response= array();
+			while ($fila = $sentencia->fetch()) {
+				$response[] = $fila;
+			}
 
 			return $response;
+
 		}
 	}
 ?>

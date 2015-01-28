@@ -9,8 +9,8 @@ function cargador(){
 	    lienzo1.fillStyle = gradienteLineal;
 		lienzo1.beginPath();
 		lienzo1.moveTo(0,0);
-		lienzo1.lineTo(1300,0);
-		lienzo1.lineTo(1300,530);
+		lienzo1.lineTo(1280,0);
+		lienzo1.lineTo(1280,530);
 		lienzo1.lineTo(1270,530);
 		lienzo1.lineTo(1245,490);
 		lienzo1.lineTo(55,490);

@@ -5,7 +5,7 @@
 	require_once ("footer.php"); 
 	require_once ("../controller/projectModel.php");
 	getImportsUp();
-	$proyectoModel = new projectModel();
+	$proyectoModel = new ProjectModel();
 	$proyectos = $proyectoModel->view_all_db_projects();
 ?>
 

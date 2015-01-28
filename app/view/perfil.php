@@ -35,7 +35,7 @@
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12">
 						<h3 class="h3 center" style="color: #000; margin-bottom: 30px;" >
-							¡Bienvenido <?php echo $nombre." ".$apellido ?>! Aquí puede administrar el sitio web de Ingnovarq S.A.S
+							¡Bienvenido <?php echo $nombre." ".$apellido ?>! <br> Aquí puede administrar el sitio web de Ingnovarq S.A.S
 						</h3>
 					</div>
 				</div>
@@ -89,7 +89,7 @@
 									</a>
 								</div>
 								<div class="col-md-6 col-xs-6 col-sm-6">
-									<a href="inicio">
+									<a href="listarClientes">
 										<img src="../../images/administrador/search.png" class="img-responsive">
 									</a>
 								</div>
@@ -115,7 +115,7 @@
 									</a>
 								</div>
 								<div class="col-md-6 col-xs-6 col-sm-6">
-									<a href="inicio">
+									<a href="listarProyectos">
 										<img src="../../images/administrador/search.png" class="img-responsive">
 									</a>
 								</div>
@@ -144,7 +144,7 @@
 									</a>
 								</div>
 								<div class="col-md-6 col-xs-6 col-sm-6">
-									<a href="inicio">
+									<a href="listarServicios">
 										<img src="../../images/administrador/search.png" class="img-responsive">
 									</a>
 								</div>

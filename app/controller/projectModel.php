@@ -57,14 +57,14 @@
 		/*
 		 * Función para eliminar un proyecto de la base de datos
 		 */
-		function delete_db_project($iid){
+		function delete_db_project($idProyecto){
 
 			//Creación de una consulta insertandole parametros para eliminar proyectos
-			$sentencia = $this->_db->prepare("DELETE FROM Proyecto WHERE idProyecto = :id");
-			$sentencia->bindParam(':id', $id);
+			$sentencia = $this->_db->prepare("DELETE FROM Proyecto WHERE idProyecto = :idProyecto");
+			$sentencia->bindParam(':idProyecto', $idProyecto);
 
 			//Ejecución de la consulta
-			$sentencia->execute();
+			return $sentencia->execute();
 
 		}
 
@@ -99,8 +99,9 @@
 			while ($fila = $sentencia->fetch()) {
 				$response[] = $fila;
 			}
-
-			return $response;
+			if(sizeof($response) != 0)
+				return $proyecto = $response[0];
+			return null;
 		}
 
 		/*
