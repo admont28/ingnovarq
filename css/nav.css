@@ -30,7 +30,6 @@ nav a {
 	background-color: #81CD00;
 	display: inline-block;
 	padding: 10px;
-	text-align: center;
 	text-decoration: none;
 	border-radius: 5px;
 }
@@ -58,10 +57,14 @@ nav a#pull {
 	display: none;
 }
 
-/*Styles for screen 990px and lower*/
+/*Styles for screen 992px and lower*/
 @media screen and (max-width: 992px){
 	.con{
 		margin-bottom: 483px;
+	}
+
+	.logo-footer{
+		width: 25%;
 	}
 
 	.separador{
@@ -99,7 +102,7 @@ nav a#pull {
 	}
 
 	.con{
-		margin-bottom: 625px;
+		margin-bottom: 460px;
 	}
 
 	.logo-footer{
@@ -129,6 +132,19 @@ nav a#pull {
 	}
 }
 
+/*Styles for screen 767px and lower*/
+@media screen and (max-width: 767px) {
+
+	#servicios-footer{
+		display: none;
+	}
+
+	.con{
+		margin-bottom: 400px;
+	}
+
+}
+
 /*Styles for screen 600px and lower*/
 @media screen and (max-width: 600px) {
 
@@ -138,6 +154,13 @@ nav a#pull {
 
 	.contenedorSlider{
 		display: none;
+	}
+
+	.container{
+		padding-right: 0;
+		padding-left: 0;
+		margin-right: 0;
+		margin-left: 0;
 	}
 
 	.item-social-media{
@@ -157,7 +180,7 @@ nav a#pull {
 	}
 
 	.con{
-		margin-bottom: 645px;
+		margin-bottom: 400px;
 	}
 
 	nav { 
@@ -173,12 +196,12 @@ nav a#pull {
   		position: relative;
 		display: block;
 		float: none;
-		width: 70%;
+		width: 100%;
 		margin-bottom: 5px;
 	}
   	nav a {
 	  	text-align: left;
-	  	width: 70%;
+	  	width: 100%;
 	  	text-indent: 25px;
   	}
 
@@ -228,10 +251,6 @@ nav a#pull {
 		margin-right: 10px; 
 	}
 
-	.con{
-		margin-bottom: 645px;
-	}
-
 	.logo{
 		width: 85%;
 	}
@@ -247,12 +266,24 @@ nav a#pull {
 
 }	
 
+/*Styles for screen 498px and lower*/
+@media only screen and (max-width : 498px) {
+
+	.con{
+		margin-bottom: 430px;
+	}
+}
+
 /*Styles for screen 480px and lower*/
 @media only screen and (max-width : 480px) {
 
 	.contenido{
 		padding: 0;
 		margin: 0;
+	}
+
+	.con{
+		margin-bottom: 450px;
 	}
 
 	nav {

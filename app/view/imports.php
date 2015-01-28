@@ -14,7 +14,7 @@
 					<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"  media="screen">
 					<!-- CSS File JAlert -->
 					<link rel="stylesheet" type="text/css" href="../../css/jquery.alerts.css"/>
-					<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+					<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
 					<!-- notificaciones PNotify -->
 					<link href="../../css/jquery-ui.css" media="all" rel="stylesheet" type="text/css" />

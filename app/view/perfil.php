@@ -47,7 +47,7 @@
 						<div class="panel panel-default administrador">
 							<div class="panel-heading col-xs-12 col-sm-12 col-md-12">
 								<div class="title-admin col-md-10 col-xs-12 col-sm-12">
-									<h2>Gestión de Usuarios</h2>
+									<h2 style="color: white;">Gestión de Usuarios</h2>
 								</div>
 								<div class="col-md-2 admin-img">
 									<a>
@@ -74,7 +74,7 @@
 						<div class="panel panel-default administrador">
 							<div class="panel-heading col-xs-12 col-sm-12 col-md-12">
 								<div class="title-admin col-md-10 col-xs-12 col-sm-12">
-									<h2>Gestión de Clientes</h2>
+									<h2 style="color: white;">Gestión de Clientes</h2>
 								</div>
 								<div class="col-md-2 admin-img">
 									<a>
@@ -100,7 +100,7 @@
 						<div class="panel panel-default administrador">
 							<div class="panel-heading col-xs-12 col-sm-12 col-md-12">
 								<div class="title-admin col-md-10 col-xs-12 col-sm-12">
-									<h2>Gestión de Proyectos</h2>
+									<h2 style="color: white;">Gestión de Proyectos</h2>
 								</div>
 								<div class="col-md-2 admin-img">
 									<a>
@@ -129,7 +129,7 @@
 						<div class="panel panel-default administrador">
 							<div class="panel-heading col-xs-12 col-sm-12 col-md-12">
 								<div class="title-admin col-md-10 col-xs-12 col-sm-12">
-									<h2>Gestión de Servicios</h2>
+									<h2 style="color: white;">Gestión de Servicios</h2>
 								</div>
 								<div class="col-md-2 admin-img">
 									<a>
@@ -156,7 +156,7 @@
 						<div class="panel panel-default administrador">
 							<div class="panel-heading col-xs-12 col-sm-12 col-md-12">
 								<div class="title-admin col-md-10 col-xs-12 col-sm-12">
-									<h2>Gestión de Empresa</h2>
+									<h2 style="color: white;">Gestión de Empresa</h2>
 								</div>
 								<div class="col-md-2 admin-img">
 									<a>
@@ -187,7 +187,7 @@
 						<div class="panel panel-default administrador">
 							<div class="panel-heading col-xs-12 col-sm-12 col-md-12">
 								<div class="title-admin col-md-10 col-xs-12 col-sm-12">
-									<h2>Gestión del Slider</h2>
+									<h2 style="color: white;">Gestión del Slider</h2>
 								</div>
 								<div class="col-md-2 admin-img">
 									<a>

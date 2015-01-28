@@ -5,7 +5,7 @@
 		<footer>
 			
 			<div class="row footer-contenedor fondo-cont-footer color-a">
-				<div class="col-md-6 col-xs-12 separador">
+				<div id="servicios-footer" class="col-xs-12 col-sm-6 col-md-6 separador">
 					<h2 class="title-footer color-a">Servicios</h2>
 					<div class="footer-container">
 						<ul>
@@ -23,7 +23,7 @@
 						</ul>
 					</div>
 				</div>				
-				<div class="col-md-6 col-xs-12">
+				<div class="col-xs-12 col-sm-6 col-md-6">
 					<h2 class="title-footer color-a">Contáctenos</h2>
 					<div class="footer-container">
 

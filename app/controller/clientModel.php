@@ -54,7 +54,7 @@
 		 */
 		function view_all_db_clients(){
 
-			$sentencia = $this->_db->prepare("SELECT * FROM Cliente");
+			$sentencia = $this->_db->prepare("SELECT * FROM Cliente c, Imagen i WHERE i.Cliente_idCliente = c.idCliente");
 			$sentencia->execute();
 			$response = array();
 

@@ -4,8 +4,10 @@
 	include_once ("nav.php");
 	include_once ("footer.php"); 
 	require_once ("../controller/sliderModel.php");
+	require_once ("../controller/clientModel.php");
 	getImportsUp();
 	$sliderModel = new SliderModel();
+	$clientModel = new ClientModel();
 	$imagenes = $sliderModel->get_slider_images();
 ?>
 	<body id="body" onLoad="cargador()">
@@ -89,12 +91,6 @@
 							SITIO WEB EN CONSTRUCCIÓN
 						  </div>
 						</div>	
-						<div class="panel panel-default clientes">
-						  <div class="panel-heading">Nuestros Clientes</div>
-						  <div class="panel-body">
-							SITIO WEB EN CONSTRUCCIÓN
-						  </div>
-						</div>		
 					</div>
 					<div  class=" col-xs-12 col-sm-4 col-md-4">
 						<div class="panel panel-default twitter">
@@ -104,6 +100,32 @@
 								</a>
 						  </div>
 						</div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						<div class="panel panel-default clientes">
+						  <div class="panel-heading">Nuestros Clientes</div>
+						  <div class="panel-body">
+							  <h3>
+							  	Trabajamos para que nuestros clientes siempre regresen.
+							  </h3>
+							  <br>
+						  	<?php
+						  		$clientes = $clientModel->view_all_db_clients();
+						  		//print_r($clientes);
+						  		foreach ($clientes as $fila) {
+						  			//print_r($fila);
+						  			?>
+						  			<div class="col-xs-12 col-sm-2 col-md-2">
+						  			<br>
+						  				<h3 class="text-center"><?php echo $fila['nombreCliente']?></h3>
+						  				<br>
+						  				<img class="img-responsive center-block" src="<?php echo $fila['rutaImagen'] ?>" alt="<?php echo $fila['nombreCliente'] ?>" title="<?php echo $fila['nombreCliente'] ?>">
+									</div>
+									<?php
+						  		}
+							?>
+						  </div>
+						</div>		
 					</div>
 				</div>
 			</div>

@@ -30,7 +30,7 @@
 					}?>">Contáctenos</a>
 				</li>	
 			</ul>
-			<a href="#" id="pull">Menu</a>
+			<a href="#" id="pull">Menú</a>
 		</nav>
 
 		<?php
@@ -72,7 +72,7 @@
 					}?>">Cerrar Sesión</a>
 				</li>	
 			</ul>
-			<a href="#" id="pull">Menu</a>
+			<a href="#" id="pull">Menú</a>
 		</nav>
 
 		<?php
@@ -109,7 +109,7 @@
 					}?>">Cerrar Sesión</a>
 				</li>	
 			</ul>
-			<a href="#" id="pull">Menu</a>
+			<a href="#" id="pull">Menú</a>
 		</nav>
 
 		<?php
