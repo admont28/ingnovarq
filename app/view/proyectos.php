@@ -38,11 +38,11 @@
 							$contador = 1;
 							foreach ($imagenes as $columna) {
 								if($contador == 1){?>
-								<a href="<?php echo $columna['rutaImagen'] ?>" class="info group4" title="<?php echo $columna['tituloImagen'] ?>">Read More</a>
+								<a href="<?php echo $columna['rutaImagen'] ?>" class="info group4" title="<?php echo $columna['tituloImagen'] ?>">Ver imágenes</a>
 							<?php
 									}
 								else{?>
-								<a href="<?php echo $columna['rutaImagen'] ?>" class="group4" title="<?php echo $columna['tituloImagen'] ?>">Read More</a>
+								<a href="<?php echo $columna['rutaImagen'] ?>" class="group4" title="<?php echo $columna['tituloImagen'] ?>">Ver imágenes</a>
 							<?php
 								}
 							}
@@ -54,7 +54,7 @@
 	                    <div class="mask">
 	                        <h2>Hover Style #3</h2>
 	                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
-	                        <a href="#" class="info">Read More</a>
+	                        <a href="#" class="info">Ver imágenes</a>
 	                    </div>
 	                </div>
 	               <div class="view view-third col-xs-12 col-sm-4 col-md-4">
@@ -62,7 +62,7 @@
 	                    <div class="mask">
 	                        <h2>Hover Style #3</h2>
 	                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
-	                        <a href="../../images/logo.jpg" class="info group4">Read More</a>
+	                        <a href="../../images/logo.jpg" class="info group4">Ver imágenes</a>
 	                        <a href="../../images/logo.jpg" class="group4"></a>
 	                        <a href="../../images/reserva.png" class="group4"></a>
 	                        <a href="../../images/logo.jpg" class="group4"></a>
@@ -73,7 +73,7 @@
 	                    <div class="mask">
 	                        <h2>Hover Style #3</h2>
 	                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
-	                        <a href="#" class="info">Read More</a>
+	                        <a href="#" class="info">Ver imágenes</a>
 	                    </div>
 	                </div>
 	                <div class="view view-third col-xs-12 col-sm-4 col-md-4">
@@ -81,7 +81,7 @@
 	                    <div class="mask">
 	                        <h2>Hover Style #3</h2>
 	                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
-	                        <a href="#" class="info">Read More</a>
+	                        <a href="#" class="info">Ver imágenes</a>
 	                    </div>
 	                </div>
 	                

@@ -67,6 +67,11 @@
 					}?>">Crear cliente</a>
 				</li>
 				<li class="cuadrado" >
+					<a href="agregarImagenSlider" id="<?php if(strstr($_SERVER['REQUEST_URI'], 'agregarImagenSlider')){
+						echo 'seleccionado';
+					}?>">Crear imagen del slider</a>
+				</li>
+				<li class="cuadrado" >
 					<a href="../controller/logout" id="<?php if(strstr($_SERVER['REQUEST_URI'], 'agregarCliente')){
 						echo 'seleccionado';
 					}?>">Cerrar Sesión</a>
@@ -102,6 +107,11 @@
 					<a href="agregarCliente" id="<?php if(strstr($_SERVER['REQUEST_URI'], 'agregarCliente')){
 						echo 'seleccionado';
 					}?>">Crear cliente</a>
+				</li>
+				<li class="cuadrado" >
+					<a href="agregarImagenSlider" id="<?php if(strstr($_SERVER['REQUEST_URI'], 'agregarImagenSlider')){
+						echo 'seleccionado';
+					}?>">Crear imagen del slider</a>
 				</li>
 				<li class="cuadrado" >
 					<a href="../controller/logout" id="<?php if(strstr($_SERVER['REQUEST_URI'], 'agregarCliente')){

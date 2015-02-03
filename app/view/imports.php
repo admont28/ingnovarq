@@ -7,23 +7,33 @@
 					<meta charset="utf-8">
 					<meta http-equiv="X-UA-Compatible" content="IE=edge">
 					<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-					<title>INGNOVARQ</title>
+					<title>INGNOVARQ S.A.S</title>
 					
-					<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico" />
+					<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico"/>
 					<link rel="stylesheet" type="text/css" href="../../css/style.css">
 					<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"  media="screen">
 					<!-- CSS File JAlert -->
-					<link rel="stylesheet" type="text/css" href="../../css/jquery.alerts.css"/>
+					<!-- <link rel="stylesheet" type="text/css" href="../../css/jquery.alerts.css"/> -->
+
+					<!-- CSS File JQuery Upload File Plugin -->
+					<link rel="stylesheet" type="text/css" href="../../css/jquery.uploadfile.css">
+
+					<!-- JavaScript Jquery -->
 					<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
+					<!-- JavaScript JQuery Upload File Plugin -->
+					<script type="text/javascript" src="../../js/jquery.uploadfile.js"></script>
+					
+
+
 					<!-- notificaciones PNotify -->
-					<link href="../../css/jquery-ui.css" media="all" rel="stylesheet" type="text/css" />
+					<link rel="stylesheet" type="text/css" href="../../css/jquery-ui.css" media="all"/>
 					<script type="text/javascript" src="../../js/pnotify.custom.min.js"></script>
-					<link href="../../css/pnotify.custom.min.css" media="all" rel="stylesheet" type="text/css" />
+					<link rel="stylesheet" type="text/css" href="../../css/pnotify.custom.min.css" media="all"/>
 
 
 					<!--- Javascript Files JAlert --> 
-					<script type="text/javascript"src="../../js/jquery.ui.draggable.js"></script>
+					<script type="text/javascript" src="../../js/jquery.ui.draggable.js"></script>
 					<script type="text/javascript" src="../../js/jquery.alerts.mod.js"></script>
 
 					<!-- CSS Files y JS para la galeria de imagenes de los proyectos -->
@@ -70,16 +80,13 @@
 					</script>
 
 					<!-- Script para capturar las acciones de los botones en formularios -->
-					<script type="text/javascript" src="../../js/botones.js" >
-						
-					</script>
+					<script type="text/javascript" src="../../js/botones.js" ></script>
 
 					<!-- CSS Files para la presentación de proyectos -->
 					<link rel="stylesheet" type="text/css" href="../../css/demoProyectos.css"/>
 			        <link rel="stylesheet" type="text/css" href="../../css/styleCommonProyectos.css"/>
 			        <link rel="stylesheet" type="text/css" href="../../css/styleProyectos.css"/>
 			        <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Oswald'/>
-
 				</head>
 		<?php
 	}
@@ -88,7 +95,7 @@
 		?>
 
 		<!-- Script para cargar JQuery -->
-		<script type="text/javascript" src="../../js/jquery.js"></script>
+		<!-- <script type="text/javascript" src="../../js/jquery.js"></script> -->
 		<!-- AJAX Upload -->
 			        <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
 					<!-- <script src="../../js/jquery.ui.widget.js"></script> -->
@@ -113,6 +120,7 @@
 		<script type="text/javascript" src="../../js/jquery.easing.1.3.js"></script>
         <script type="text/javascript" src="../../js/appServicios.js"></script>
         <script type="text/javascript" src="../../js/dropzone.min.js"></script>
+       
         </body>
 		</html>
 		<?php

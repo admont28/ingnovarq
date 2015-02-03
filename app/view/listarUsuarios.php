@@ -125,45 +125,45 @@
 					      	<form class="form-horizontal" id="form-editar-usuario-ajax" method="post">
 					      		<input type="hidden" name="idUsuario" id="idUsuario" readonly="readonly">
 							     <div class="form-group">
-							         <label for="inputName" class="control-label col-xs-2">Nombre:</label>
-							         <div class="col-xs-10">
+							         <label for="inputName" class="control-label col-xs-3">Nombre:</label>
+							         <div class="col-xs-9">
 							            <input type="name" id="nombre" name="nombre" class="form-control" placeholder="Nombre">
-							         	<div class="col-xs-10 error-text" id="e_nombre"></div>
+							         	<div class="col-xs-9 error-text" id="e_nombre"></div>
 							         </div>
 							     </div>
 								     <div class="form-group">
-							        <label for="inputName" class="control-label col-xs-2">Apellido:</label>
-							        <div class="col-xs-10">
+							        <label for="inputName" class="control-label col-xs-3">Apellido:</label>
+							        <div class="col-xs-9">
 							            <input type="name" id="apellido" name="apellido" class="form-control" placeholder="Apellido" value="">
-							        	<div class="col-xs-10 error-text" id="e_apellido"></div> 
+							        	<div class="col-xs-9 error-text" id="e_apellido"></div> 
 							        </div>
 							     </div>
 							     <div class="form-group">
-							        <label for="inputName" class="control-label col-xs-2">Cédula:</label>
-							        <div class="col-xs-10">
+							        <label for="inputName" class="control-label col-xs-3">Cédula:</label>
+							        <div class="col-xs-9">
 							            <input type="text" id="cedula" name="cedula" class="form-control" placeholder="Cédula" >
-							        	<div class="col-xs-10 error-text" id="e_cedula"></div>
+							        	<div class="col-xs-9 error-text" id="e_cedula"></div>
 							        </div>
 							     </div>
 							     <div class="form-group">
-							        <label for="inputPassword" class="control-label col-xs-2">Contraseña:</label>
-							        <div class="col-xs-10">
+							        <label for="inputPassword" class="control-label col-xs-3">Contraseña:</label>
+							        <div class="col-xs-9">
 							            <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña">
-							        	<div class="col-xs-10 error-text" id="e_password"></div>
-							        	<h3 class="label label-warning" style="color: black; font-size: 0.9em;">Nota: dejar intacto para conservar la misma contraseña</h3>
+							        	<div class="col-xs-9 error-text" id="e_password"></div>
+							        	<p class="col-xs-12 text-info">Nota: dejar intacto para conservar la misma contraseña</p>
 							        </div>
 							     </div>
 							     <div class="form-group">
-							        <label for="inputPassword" class="control-label col-xs-2">Repetir Contraseña:</label>
-							        <div class="col-xs-10">
+							        <label for="inputPassword" class="control-label col-xs-3">Repetir Contraseña:</label>
+							        <div class="col-xs-9">
 							            <input type="password" id="repetir_password" name="repetir_password" class="form-control" placeholder="Repetir Contraseña" >
-							        	<div class="col-xs-10 error-text" id="e_repetir_password"></div>
-							        	<span class="label label-warning" style="color: black; font-size: 0.9em;">Nota: dejar intacto para conservar la misma contraseña</span>
+							        	<div class="col-xs-9 error-text" id="e_repetir_password"></div>
+							        	<p class="col-xs-12 text-info">Nota: dejar intacto para conservar la misma contraseña</p>
 							        </div>
 							     </div>
 							     <div class="form-group">
-							     	<label for="tipoUsuario" class="control-label col-xs-2">Tipo de usuario</label>
-							     	<div class="col-xs-10">
+							     	<label for="tipoUsuario" class="control-label col-xs-3">Tipo de usuario</label>
+							     	<div class="col-xs-9">
 								     	<select class="form-control" id="tipoUsuario" name="tipoUsuario"> 
 											<option value="0">Administrador</option>
 											<option value="1">Súper Administrador</option>
@@ -171,7 +171,7 @@
 									</div>
 							     </div>
 							     <div class="form-group">
-							        <div class="col-xs-offset-2 col-xs-10">
+							        <div class="col-xs-offset-3 col-xs-6">
 							         	<input type="hidden" name="ajax">
 							            <button type="submit" id="btn-editar-usuario-ajax" class="btn btn-success">Guardar Cambios</button> 
 							        </div>

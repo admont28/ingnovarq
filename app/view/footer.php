@@ -26,7 +26,6 @@
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<h2 class="title-footer color-a">Contáctenos</h2>
 					<div class="footer-container">
-
 						<ul>
 							<li>
 								<span class="glyphicon glyphicon-home" aria-hidden="true"></span>

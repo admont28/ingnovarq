@@ -534,4 +534,112 @@
         return $mensaje;
     }
 
+    function get_confirm_delete_image_slider(){
+        $mensaje = "<script type='text/javascript'>
+                    function eliminarImagen(idImagen, tituloImagen){
+                        new PNotify({
+                            title: '¿Eliminar Imagen del Slider?',
+                            text: '¿Está seguro que desea eliminar la imagen con titulo: '+tituloImagen+'?',
+                            icon: 'glyphicon glyphicon-question-sign',
+                            hide: false,
+                            animation: 'show',
+                            confirm: {
+                                confirm: true,
+                                buttons: [{
+                                            text: 'Eliminar',
+                                            addClass: 'btn btn-danger',
+                                            click: function(notice) {
+                                                notice.remove();
+                                                var url = '../controller/eliminarImagenSliderAjax'; 
+                                                var parametros = { 
+                                                    'idImagen' : idImagen,
+                                                };
+                                                $.ajax({
+                                                   type: 'POST',
+                                                   url: url,
+                                                   data: parametros,
+                                                   success: function(data)
+                                                   {
+                                                       $('#mensaje').html(data); // Mostrar la respuesta del script PHP.
+                                                   }
+                                                });
+                                            }
+                                        }, {
+                                            text: 'Cancelar',
+                                            click: function(notice) {
+                                                notice.remove();
+                                            }
+                                        }]
+                            },
+                            buttons: {
+                                closer: false,
+                                sticker: false,
+                            },
+                            history: {
+                                history: false
+                            }
+                        })
+                    }
+                </script>";
+        return $mensaje;
+    }
+
+    function get_script_edit_image_slider(){
+        $mensaje = "<script type='text/javascript'>
+                        $('.open').click(function(){
+                            //$('#e_titulo').html(''); limpio los campos de los errores.
+                            //$('#e_imagen').html('');
+                            var id = $(this).data('id');
+                            var parametros = {
+                                'idImagen' : id,
+                            };
+                            var url = '../controller/editarSliderAjax'; // El script a dónde se realizará la petición.
+                            $.ajax({
+                               type: 'POST',
+                               url: url,
+                               data: parametros, // Adjuntar los campos a enviar
+                               success: function(data)
+                               {
+                                   $('#mensaje').html(data); // Mostrar la respuestas del script PHP.
+                               }
+                            });
+                        });
+                    </script>";
+        return $mensaje;
+    }
+
+    function get_success_edit_image_slider(){
+        $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción Exitosa',
+                                text: 'La imagen se ha editado con éxito.<br>La página será recargada en 7 segundos.',
+                                type: 'success',
+                                delay: 6500,
+                                animation: 'show',
+                            });
+                        });
+
+                    setTimeout(function(){
+                        location.reload();
+                    }, 7000);
+                </script>";
+        return $mensaje;
+    }
+
+    function get_error_edit_image_slider(){
+        $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción No Exitosa :(',
+                                text: 'No se ha podido editar la imagen con éxito, porfavor recarga la página e inténtalo de nuevo.',
+                                type: 'error',
+                                delay: 6000,
+                                animation: 'show',
+                            });
+                        });
+                    </script>";
+        return $mensaje;
+    }
+
 ?>
