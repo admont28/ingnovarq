@@ -148,20 +148,6 @@ $(document).ready(function() {
             });
         return false; // Evitar ejecutar el submit del formulario.
       });
-
-      $('#btn-editar-slider-ajax').click(function(){
-        var url = "../controller/editarSliderAjax"; // El script a dónde se realizará la petición.
-          $.ajax({
-               type: "POST",
-               url: url,
-               data: $("#form-editar-slider-ajax").serialize(), // Adjuntar los campos del formulario enviado.
-               success: function(data)
-               {
-                   $("#mensaje").html(data); // Mostrar la respuestas del script PHP.
-               }
-            });
-        return false; // Evitar ejecutar el submit del formulario.
-      });
   
   // variable que contendrá todas las opciones del archivo a subir.
   // plugin obtenido de https://github.com/hayageek/jquery-upload-file/
@@ -170,7 +156,7 @@ $(document).ready(function() {
         multiple: false, //defino que no se puedan arrastrar y soltar mas de 1 archivo
         allowedTypes: "png,jpg,jpeg", // extensiones permitidas
         fileName: "myfile", //nombre del archivo a enviar por $_Files
-        showDelete: false, //mostrar botón eliminar
+        showDelete: false, //ocultar botón eliminar
         showDone: false, //ocultar botón de Hecho
         showProgress: true, //mostrar barra de progreso
         showPreview: true, //mostrar previsualización de las imagenes a cargar
@@ -216,28 +202,57 @@ $(document).ready(function() {
         {
             $("#contenedor-upload-file").show(); //muestro de nuevo la funcionalidad de cargar imagenes.
         },
-        onSuccess:function()
-        {
-
-        },
-        afterUploadAll:function(data) //funcion que es llamada despues de haber cargado todos los archivos o todo el formulario
+        onSuccess:function(files,data,xhr,pd)
         {
             $("#mensaje").html(data); // Mostrar la respuestas del script PHP.
+        },
+        afterUploadAll:function(obj)
+        {
+            $("#mensaje").html(obj); // Mostrar la respuestas del script PHP.
         }
     });
 
     // al dar clic en guardar cambios al momento de editar una imagen del slider
     // ejecuto el plugin uploadFile.
-    $('#btn-editar-slider-ajax').click(function(){    
-        uploadObj.startUpload();
+    $('#btn-editar-slider-ajax').click(function(){  
+        if($('#contenedor-upload-file').is(':visible')){ 
+            var url = "../controller/editarSliderAjax"; // El script a dónde se realizará la petición.
+            var id = $("#idImagen").val(); //capturo el id de la imagen cargado en el input oculto
+            var titulo =  $("#tituloImagen").val(); //capturo el titulo cargado en el input.
+            // los datos que se van a enviar
+            var data = {
+              idImagen: id, //id de la imagen
+              tituloImagen: titulo //titulo de la imagen
+            };
+              $.ajax({
+                   type: "POST",
+                   url: url,
+                   data: data, // Adjuntar los campos del formulario enviado.
+                   success: function(data)
+                   {
+                       $("#mensaje").html(data); // Mostrar la respuestas del script PHP.
+                   }
+                });
+            return false; // Evitar ejecutar el submit del formulario.
+        }else
+            uploadObj.startUpload();
     });
 
     // si existe el botón btn-agregar-slider-ajax es porque se trata de que el usuario está agregando
     // una nueva imagen del slider, así que modifico la url a donde se enviará la petición
-    if ($('#btn-agregar-slider-ajax').length){
+    if($('#btn-agregar-slider-ajax').length){
         //Ejecutar si existe el elemento
         uploadObj.update({
             url: "../controller/insertarSliderAjax",
+            dynamicFormData:function()
+            {
+                var titulo =  $("#tituloImagen").val(); //capturo el titulo cargado en el input.
+                // los datos que se van a enviar
+                var data = {
+                  tituloImagen: titulo //titulo de la imagen
+                };
+                return data; //debo retornar data para poder que se envien junto con las imagenes.
+            }
         });
     }
 
@@ -248,10 +263,3 @@ $(document).ready(function() {
     });
 
 });
-
-
-
-
-
-
-

@@ -550,7 +550,7 @@
                                             addClass: 'btn btn-danger',
                                             click: function(notice) {
                                                 notice.remove();
-                                                var url = '../controller/eliminarImagenSliderAjax'; 
+                                                var url = '../controller/eliminarSliderAjax'; 
                                                 var parametros = { 
                                                     'idImagen' : idImagen,
                                                 };
@@ -587,8 +587,6 @@
     function get_script_edit_image_slider(){
         $mensaje = "<script type='text/javascript'>
                         $('.open').click(function(){
-                            //$('#e_titulo').html(''); limpio los campos de los errores.
-                            //$('#e_imagen').html('');
                             var id = $(this).data('id');
                             var parametros = {
                                 'idImagen' : id,
@@ -633,6 +631,86 @@
                             new PNotify({
                                 title: 'Acción No Exitosa :(',
                                 text: 'No se ha podido editar la imagen con éxito, porfavor recarga la página e inténtalo de nuevo.',
+                                type: 'error',
+                                delay: 6000,
+                                animation: 'show',
+                            });
+                        });
+                    </script>";
+        return $mensaje;
+    }
+
+    function get_success_insert_image_slider($nombreArchivo){
+       $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción Exitosa',
+                                text: 'La imagen: ".$nombreArchivo." ha sido agregada con éxito.<br>Si desea agregar una nueva imagen presione el botón Agregar.',
+                                type: 'success',
+                                animation: 'show',
+                                confirm: {
+                                    confirm: true,
+                                    buttons: [{
+                                            text: 'Agregar',
+                                            addClass: 'btn btn-success',
+                                            click: function(notice) {
+                                                notice.remove();
+                                                document.location='agregarImagenSlider';
+                                            }
+                                        }, {
+                                            text: 'Volver',
+                                            click: function(notice) {
+                                                notice.remove();
+                                                document.location='perfil';
+                                            }
+                                        }]
+                                }   
+                            });
+                        });
+                    </script>";
+        return $mensaje;
+    }
+
+    function get_error_insert_image_slider(){
+        $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción No Exitosa :(',
+                                text: 'No se ha podido agregar la imagen con éxito, por favor revisa todos los datos e inténtelo de nuevo.',
+                                type: 'error',
+                                delay: 6000,
+                                animation: 'show',
+                            });
+                        });
+                        
+                    </script>";
+        return $mensaje;
+    }
+
+    function get_success_delete_image_slider($tituloImagen){
+        $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción Exitosa',
+                                text: 'La imagen: ".$tituloImagen." se ha eliminado con éxito<br>La lista de imagenes será acutalizada al cerrar está notificación.',
+                                type: 'success',
+                                hide: false,
+                                animation: 'show',
+                                before_close: function() {
+                                    document.location='listarSlider';
+                                }
+                            });
+                        });
+                    </script>";
+        return $mensaje;
+    }
+
+    function get_error_delete_image_slider(){
+        $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción No Exitosa :(',
+                                text: 'No se ha podido eliminar la imagen con éxito, porfavor recarga la página e inténtalo de nuevo.',
                                 type: 'error',
                                 delay: 6000,
                                 animation: 'show',

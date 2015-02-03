@@ -67,7 +67,19 @@
 			$sentencia->bindParam(":rutaImagen",$rutaImagen);
 			$sentencia->bindParam(":idImagen",$idImagen);
 			return $sentencia->execute();
+		}
 
+		function insert_db_image_slider($tituloImagen, $rutaImagen){
+			$sentencia = $this->_db->prepare("INSERT INTO Imagen (tituloImagen, rutaImagen, sliderImagen) VALUES (:tituloImagen, :rutaImagen, true)");
+			$sentencia->bindParam(":tituloImagen",$tituloImagen);
+			$sentencia->bindParam("rutaImagen",$rutaImagen);
+			return $sentencia->execute();
+		}
+
+		function delete_db_image_slider($idImagen){
+			$sentencia = $this->_db->prepare("DELETE FROM Imagen WHERE idImagen = :idImagen");
+			$sentencia->bindParam("idImagen",$idImagen);
+			return $sentencia->execute();
 		}
 	}
 ?>

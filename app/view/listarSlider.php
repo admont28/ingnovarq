@@ -74,7 +74,6 @@
 										echo get_confirm_delete_image_slider(); // imprimo el script para eliminar imagenes del slider
 										echo get_script_edit_image_slider();
 									?>
-									
 								</div>	
 							</div>
 						</div>

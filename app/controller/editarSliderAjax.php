@@ -3,11 +3,12 @@
     if(!isset($_SESSION['idUsuario'],$_SESSION['nombreUsuario'], $_SESSION['apellidoUsuario'], $_SESSION['superAdminUsuario'])){
             header('location: error');
     }
+    if(empty($_SERVER['HTTP_X_REQUESTED_WITH']) ||  strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest') {
+        die('bad request');
+    }
     require_once ("notificaciones.php");
     require_once ("sliderModel.php");
     $mensaje = get_error_edit_image_slider();
-    print_r($_POST);
-    print_r($_FILES);
     if(sizeof($_POST) == 1 && isset($_POST['idImagen'])){
         $idImagen = $_POST['idImagen'];
         $sliderModel = new SliderModel();
