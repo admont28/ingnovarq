@@ -254,11 +254,37 @@ $(document).ready(function() {
                 return data; //debo retornar data para poder que se envien junto con las imagenes.
             }
         });
+        alert("Actualicé plugin slider");
+    } else if($('#btn-agregar-cliente-ajax').length){ 
+        // Si existe este botón, el usuario estará agregando un cliente
+        // Ejecutar si existe el elemento
+        uploadObj.update({
+            url: "../controller/insertarClienteAjax",
+            maxFileSize: 2097152, // 2MB escritos en bytes
+            dynamicFormData:function()
+            {
+                var nombre =  $("#nombreCliente").val(); //capturo el nombre del cliente cargado en el input.
+                // los datos que se van a enviar
+                var data = {
+                  nombreCliente: nombre //nombre del cliente
+                };
+                return data;
+            }
+        });
+        alert("Actualicé plugin cliente");
     }
+
 
     // al dar clic en crear imagen slider cambios al momento de crear una imagen del slider
     // ejecuto el plugin uploadFile.
     $('#btn-agregar-slider-ajax').click(function(){
+        uploadObj.startUpload();
+    });
+
+    
+
+    // al dar clic en agregar cliente ajax ejecuto el plugin uploadFile.
+    $('#btn-agregar-cliente-ajax').click(function(){
         uploadObj.startUpload();
     });
 

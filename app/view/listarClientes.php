@@ -71,7 +71,7 @@
 													</a>	
 												</td>	
 												<td>
-													<a href="#sinAccion" onclick="eliminarCliente(<?php echo $fila['idCliente'] ?>, '<?php echo $fila['nombreCliente'] ?>');">
+													<a href="#sinAccion" onclick="eliminarCliente(<?php echo $fila['idCliente'] ?>, '<?php echo htmlspecialchars($fila['nombreCliente'], ENT_NOQUOTES); ?>');">
 														<div><img style="width: 50px;" class="img-responsive" src="../../images/administrador/delete.png" title="Eliminar cliente"/></div>
 													</a>
 												</td>						

@@ -720,4 +720,51 @@
         return $mensaje;
     }
 
+    function get_success_insert_client($nombreCliente){
+       $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción Exitosa',
+                                text: 'El cliente: ".$nombreCliente." ha sido agregado con éxito.<br>Si desea agregar un nuev cliente presione el botón Agregar.',
+                                type: 'success',
+                                animation: 'show',
+                                confirm: {
+                                    confirm: true,
+                                    buttons: [{
+                                            text: 'Agregar',
+                                            addClass: 'btn btn-success',
+                                            click: function(notice) {
+                                                notice.remove();
+                                                document.location='agregarCliente';
+                                            }
+                                        }, {
+                                            text: 'Volver',
+                                            click: function(notice) {
+                                                notice.remove();
+                                                document.location='perfil';
+                                            }
+                                        }]
+                                }   
+                            });
+                        });
+                    </script>";
+        return $mensaje;
+    }
+
+    function get_error_insert_client(){
+        $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción No Exitosa :(',
+                                text: 'No se ha podido agregar el cliente con éxito, por favor revisa todos los datos e inténtelo de nuevo.',
+                                type: 'error',
+                                delay: 6000,
+                                animation: 'show',
+                            });
+                        });
+                        
+                    </script>";
+        return $mensaje;
+    }
+
 ?>

@@ -40,7 +40,7 @@
 		}
 
 		/*
-		 * Función para insertar imagenes de un proyecto
+		 * Función para insertar imagenes de un servicio
 		 */
 		function insert_image_service($ruta, $titulo, $idServicio){
 
@@ -58,21 +58,16 @@
 		}
 
 		/*
-		 * Función para insertar imagenes de un proyecto
+		 * Función para insertar imagenes de un cliente
 		 */
-		function insert_images($ruta, $titulo, $idCliente){
+		function insert_image_client($ruta, $titulo, $idCliente){
 
 			$sentencia = $this->_db->prepare("INSERT INTO Imagen (rutaImagen, tituloImagen, sliderImagen, Cliente_idCliente) VALUES (:ruta, :titulo, false, :idCliente)");
 			$sentencia->bindParam(':ruta', $ruta);
-			$sentencia->bindParam(':tituloImagen', $titulo);
-			$sentencia->bindParam(':idProyecto', $idCliente);
+			$sentencia->bindParam(':titulo', $titulo);
+			$sentencia->bindParam(':idCliente', $idCliente);
 			//Ejecución de la consulta
-			$sentencia->execute();
-			$response = array();
-			while ($fila = $sentencia->fetch()) {
-				$response[] = $fila;
-			}
-			return $response;
+			return $sentencia->execute();
 		}
 
 		function delete_db_images_service($idServicio){

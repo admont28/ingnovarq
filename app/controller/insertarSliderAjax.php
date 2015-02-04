@@ -14,6 +14,7 @@
         if (! file_exists($fullPath)){ //verifico que no exista la imagen anterior
             $sliderModel = new SliderModel();
             $tituloImagen = $_POST['tituloImagen'];
+            $tituloImagen = htmlspecialchars($tituloImagen, ENT_NOQUOTES); //evito ataques XSS
             move_uploaded_file($_FILES["myfile"]["tmp_name"], $fullPath); //muevo el archivo cargado
             $resultado = $sliderModel->insert_db_image_slider($tituloImagen, $fullPath);
             if($resultado){

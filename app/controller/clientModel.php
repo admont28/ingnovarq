@@ -83,5 +83,22 @@
 				return $cliente = $response[0];
 			return null;
 		}
+
+		/*
+		 * Función para obtener el ultimo cliente insertado
+		 */
+		function view_db_last_client(){
+
+			$sentencia = $this->_db->prepare("SELECT * FROM Cliente ORDER BY idCliente DESC LIMIT 1");
+			$sentencia->execute();
+
+			$response = array();
+			while ($fila = $sentencia->fetch()) {
+				$response[] = $fila;
+			}
+			if(sizeof($response) != 0)
+				return $cliente = $response[0];
+			return null;
+		}
 	}
 ?>

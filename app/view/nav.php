@@ -72,9 +72,7 @@
 					}?>">Crear imagen del slider</a>
 				</li>
 				<li class="cuadrado" >
-					<a href="../controller/logout" id="<?php if(strstr($_SERVER['REQUEST_URI'], 'agregarCliente')){
-						echo 'seleccionado';
-					}?>">Cerrar Sesión</a>
+					<a href="../controller/logout">Cerrar Sesión</a>
 				</li>	
 			</ul>
 			<a href="#" id="pull">Menú</a>
@@ -114,9 +112,7 @@
 					}?>">Crear imagen del slider</a>
 				</li>
 				<li class="cuadrado" >
-					<a href="../controller/logout" id="<?php if(strstr($_SERVER['REQUEST_URI'], 'agregarCliente')){
-						echo 'seleccionado';
-					}?>">Cerrar Sesión</a>
+					<a href="../controller/logout">Cerrar Sesión</a>
 				</li>	
 			</ul>
 			<a href="#" id="pull">Menú</a>

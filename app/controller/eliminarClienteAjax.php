@@ -23,7 +23,7 @@
             }
             $resultado = $clientModel->delete_db_client($idCliente);
             if($resultado){
-                $mensaje =  get_success_delete_client($idCliente); // envio el mensaje alojado en notificaciones
+                $mensaje =  get_success_delete_client($existente['nombreCliente']); // envio el mensaje alojado en notificaciones
             }
         }
     }

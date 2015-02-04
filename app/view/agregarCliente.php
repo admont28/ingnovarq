@@ -9,7 +9,6 @@
 			include_once ("footer.php"); 
 			getImportsUp();
 			?>
-
 			<body id="body">
 				<div class="con" id="con">
 					<div class="container" id="main">
@@ -19,7 +18,7 @@
 									getNavSuperAdmin();
 								}
 								else
-									getNavAdmin();
+								getNavAdmin();
 							?>
 					</div>
 					<div class="contenido">
@@ -28,17 +27,17 @@
 							<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
 								<div class="panel panel-default empresa">
 									<div class="panel-heading">
-										Crear Imagen del Slider.
+										Crear cliente
 									</div>
 									<div class="panel-body">
 										<div id="mensaje"></div>
-										<h2 style="color: #019831; text-align: center;">Formulario para agregar una imagen al slider</h2>
+										<h2 style="color: #019831; text-align: center;">Formulario para agregar un nuevo cliente de Ingnovarq S.A.S</h2>
 										<br>								
 										<div class="form-horizontal">
 										     <div class="form-group">
-										         <label for="inputName" class="control-label col-xs-2">Titulo:</label>
+										         <label for="name" class="control-label col-xs-2">Nombre:</label>
 										         <div class="col-xs-10">
-										            <input type="name" id="tituloImagen" name="tituloImagen" class="form-control" placeholder="Titulo">
+										            <input type="name" id="nombreCliente" name="nombreCliente" class="form-control" placeholder="Nombre">
 										         </div>
 										     </div>
 										     <div class="form-group">
@@ -49,9 +48,8 @@
 										     </div>    
 										     <div class="form-group">
 										        <div class="col-xs-offset-2 col-xs-8">
-										            <div id="btn-agregar-slider-ajax" class="btn btn-success">
-										            	<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Crear imagen del slider
-										            </div> 
+										            <div id="btn-agregar-cliente-ajax" class="btn btn-success">
+										            	<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Crear nuevo cliente</div> 
 										        </div>
 										     </div>
 										</div>
