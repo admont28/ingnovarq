@@ -45,7 +45,7 @@
 										     	 <label class="control-label col-xs-2">Imagen:</label>
 										         <div class="col-xs-10" id="cargador">
 										            <div id="fileuploader">Cargar imagen</div>
-										            <div class="col-xs-10 error-text" id="e_imagen"></div>
+										            <div class="col-xs-10 error-text" id="e_imagen_cliente"></div>
 										         </div>
 										     </div>    
 										     <div class="form-group">

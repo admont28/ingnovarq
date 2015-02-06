@@ -531,7 +531,7 @@
 
 
         function createProgressDiv(obj, s) {
-            this.statusbar = $("<div class='ajax-file-upload-statusbar'></div>").width(s.statusBarWidth);
+            this.statusbar = $("<div class='ajax-file-upload-statusbar' style='width: 100%;'></div>");
             this.preview = $("<img class='ajax-file-upload-preview' />").width(s.previewWidth).height(s.previewHeight).appendTo(this.statusbar).hide();
             this.filename = $("<div class='ajax-file-upload-filename'></div>").appendTo(this.statusbar);
             this.progressDiv = $("<div class='ajax-file-upload-progress'>").appendTo(this.statusbar).hide();

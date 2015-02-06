@@ -43,7 +43,7 @@
 									    <div class="form-group">
 								        <label for="inputName" class="control-label col-xs-2">Descripción:</label>
 								        <div class="col-xs-10">
-								            <textarea id="descripcionProyecto" name="descripcionProyecto" class="form-control" placeholder="Descripción del Proyecto"></textarea>
+								        	<textarea id="descripcionProyecto" name="descripcionProyecto" class="form-control" placeholder="Descripción del Proyecto" rows="7"></textarea>
 								        	<div class="col-xs-10 error-text" id="e_descripcion_proyecto"></div> 
 								        </div>
 								    </div>
@@ -58,9 +58,7 @@
 							     	 <label class="control-label col-xs-2">Imagen:</label>
 							         <div class="col-xs-10" id="cargador">
 							            <div id="fileuploader">Cargar imagen</div>
-							            <div class="col-xs-10 error-text" id="e_imagenes_proyecto"></div> 
-							            <p id="nota" class="col-xs-12 text-info">debe seleccionar por lo menos una imagen para poder que el proyecto sea creado
-							            </p>
+							            <div class="col-xs-10 error-text" id="e_imagen_proyecto"></div> 
 							         </div>
 							     	</div> 							     
 								    <div class="form-group">

@@ -28,11 +28,11 @@
 							<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
 								<div class="panel panel-default empresa">
 									<div class="panel-heading">
-										Crear Usuario.
+										Crear usuario.
 									</div>
 									<div class="panel-body">
 										<div id="mensaje"></div>
-										<h2 style="color: #019831; text-align: center;">Formulario para crear un usuario</h2>
+										<h2 style="color: #019831; text-align: center;">Formulario para crear un usuario de Ingnovarq S.A.S</h2>
 										<br>								
 										<form class="form-horizontal" id="form-usuario-ajax" method="post">
 										     <div class="form-group">

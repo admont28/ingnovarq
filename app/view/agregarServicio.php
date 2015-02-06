@@ -25,7 +25,7 @@
 					<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
 						<div class="panel panel-default empresa">
 							<div class="panel-heading">
-								Crear Imagen del Slider.
+								Crear servicio.
 							</div>
 							<div class="panel-body">
 								<div id="mensaje"></div>
@@ -42,7 +42,7 @@
 								    <div class="form-group">
 								        <label class="control-label col-xs-2">Descripción:</label>
 								        <div class="col-xs-10">
-								            <textarea id="descripcionServicio" name="descripcionServicio" class="form-control" placeholder="Descripción del Servicio"></textarea>
+								            <textarea id="descripcionServicio" name="descripcionServicio" class="form-control" placeholder="Descripción del Servicio" rows="7"></textarea>
 								        	<div class="col-xs-10 error-text" id="e_descripcion_servicio"></div> 
 								        </div>
 								    </div>
@@ -57,12 +57,12 @@
 							     		<label class="control-label col-xs-2">Imagen:</label>
 							         	<div class="col-xs-10" id="cargador">
 							            	<div id="fileuploader">Cargar imagen</div>
-							            	<div class="col-xs-10 error-text" id="e_imagenes_servicio"></div> 
+							            	<div class="col-xs-10 error-text" id="e_imagen_servicio"></div> 
 							         	</div>
 							     	</div> 							     
 								    <div class="form-group">
 								        <div class="col-xs-offset-2 col-xs-8">
-								            <div id="btn-crear-proyecto-ajax" class="btn btn-success">
+								            <div id="btn-crear-servicio-ajax" class="btn btn-success">
 								            	<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Crear Servicio
 								            </div> 
 								        </div>

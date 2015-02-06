@@ -28,7 +28,7 @@
 							<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
 								<div class="panel panel-default empresa">
 									<div class="panel-heading">
-										Crear Imagen del Slider.
+										Crear imagen del slider.
 									</div>
 									<div class="panel-body">
 										<div id="mensaje"></div>
@@ -39,14 +39,14 @@
 										         <label for="inputName" class="control-label col-xs-2">Titulo:</label>
 										         <div class="col-xs-10">
 										            <input type="name" id="tituloImagen" name="tituloImagen" class="form-control" placeholder="Titulo">
-										            <div class="col-xs-10 error-text" id="e_nombre"></div>
+										            <div class="col-xs-10 error-text" id="e_titulo_slider"></div>
 										         </div>
 										     </div>
 										     <div class="form-group">
 										     	 <label class="control-label col-xs-2">Imagen:</label>
 										         <div class="col-xs-10" id="cargador">
 										            <div id="fileuploader">Cargar imagen</div>
-										            <div class="col-xs-10 error-text" id="e_imagen"></div>
+										            <div class="col-xs-10 error-text" id="e_imagen_slider"></div>
 										         </div>
 										     </div>    
 										     <div class="form-group">

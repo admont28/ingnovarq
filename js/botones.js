@@ -170,8 +170,6 @@ $(document).ready(function() {
         extErrorStr: "Acción no permitida, las extensiones válidas son: ", //string que aparece cuando existe un error en las extensiones de los archivos a cargar
         cancelStr: "Cancelar", //string del botón cancelar
         uploadButtonClass:"btn btn-info", //clase del botón de carga, se definió una clase de bootstrap
-        dragdropWidth: "100%", //defino el ancho del area donde se arrastra y sueltan los archivos
-        statusBarWidth: "100%", //defino el acho de la barra de estado.
         //Datos del formulario dinámico, estos son los datos que se envian además de las imagenes, se recuperan con
         // $_POST['ID_ESPECIFICADO']
         dynamicFormData:function()
@@ -311,37 +309,37 @@ $(document).ready(function() {
          uploadObj.startUpload(); // si carga imagenes y modifica el titulo.
    });
 
-    // al dar clic en crear imagen slider cambios al momento de crear una imagen del slider
-    // ejecuto el plugin uploadFile.
-    $('#btn-agregar-slider-ajax').click(function(){
-        var error = false;
-      $('#e_nombre').text("");
-      $('#e_imagen').text("");
+   // al dar clic en crear imagen slider cambios al momento de crear una imagen del slider
+   // ejecuto el plugin uploadFile.
+   $('#btn-agregar-slider-ajax').click(function(){
+      var error = false;
+      $('#e_titulo_slider').text("");
+      $('#e_imagen_slider').text("");
       var nombre =  $("#tituloImagen").val(); //capturo el nombre del cliente cargado en el input.
-          if(nombre  == ''){
-            $('#e_nombre').text("El campo titulo es necesario.");
-            error = true;
-          }
-          if ($("#contenedor-upload-file").is(":visible")) {
-            $('#e_imagen').text("La imagen es necesaria.");
-            error = true;
-          }
-        if(!error)
-          uploadObj.startUpload();
-    });
+      if(nombre  == ''){
+         $('#e_titulo_slider').text("El titulo de la imagen del slider es obligatorio.");
+         error = true;
+      }
+      if ($("#contenedor-upload-file").is(":visible")) {
+         $('#e_imagen_slider').text("La imagen del slider es obligatoria.");
+         error = true;
+      }
+      if(!error)
+         uploadObj.startUpload();
+   });
 
    // al dar clic en agregar cliente ajax ejecuto el plugin uploadFile.
    $('#btn-agregar-cliente-ajax').click(function(){
       var error = false;
       $('#e_nombre').text("");
-      $('#e_imagen').text("");
+      $('#e_imagen_cliente').text("");
       var nombre =  $("#nombreCliente").val(); //capturo el nombre del cliente cargado en el input.
       if(nombre  == ''){
-         $('#e_nombre').text("El campo nombre es necesario.");
+         $('#e_nombre').text("El nombre del cliente es obligatorio.");
          error = true;
       }
       if ($("#contenedor-upload-file").is(":visible")) {
-         $('#e_imagen').text("La imagen es necesaria.");
+         $('#e_imagen_cliente').text("La imagen del cliente es obligatoria.");
          error = true;
       }
       if(!error)
@@ -354,21 +352,56 @@ $(document).ready(function() {
       $('#e_nombre_proyecto').text("");
       $('#e_descripcion_proyecto').text("");
       $('#e_fecha_proyecto').text("");
+      $('#e_imagen_proyecto').text("");
       var nombre = $('#nombreProyecto').val();
       var descripcion = $('#descripcionProyecto').val();
       var fecha = $('#fecha').val();
       if(nombre == ''){
-         $('#e_nombre_proyecto').text("El nombre del proyecto es obligatorio");
+         $('#e_nombre_proyecto').text("El nombre del proyecto es obligatorio.");
          error = true;
       }
       if (descripcion == '') {
-         $('#e_descripcion_proyecto').text("La descripción del proyecto es obligatoria");
+         $('#e_descripcion_proyecto').text("La descripción del proyecto es obligatoria.");
          error = true;
       }
       if (fecha == '') {
-         $('#e_fecha_proyecto').text("La fecha del proyecto es obligatoria");
+         $('#e_fecha_proyecto').text("La fecha del proyecto es obligatoria.");
          error = true;
       } 
+      if ($("#contenedor-upload-file").is(":visible")) {
+        $('#e_imagen_proyecto').text("La imagen del proyecto es obligatoria.");
+        error = true;
+      }
+      if (!error)          
+         uploadObj.startUpload();
+   });
+
+   // al dar clic en crear servicio ajax ejecuto el plugin uploadFile
+   $('#btn-crear-servicio-ajax').click(function(){   
+      var error = false;
+      $('#e_nombre_servicio').text("");
+      $('#e_descripcion_servicio').text("");
+      $('#e_fecha_servicio').text("");
+      $('#e_imagen_servicio').text("");
+      var nombre = $('#nombreServicio').val();
+      var descripcion = $('#descripcionServicio').val();
+      var fecha = $('#fecha').val();
+      if(nombre == ''){
+         $('#e_nombre_servicio').text("El nombre del servicio es obligatorio.");
+         error = true;
+      }
+      if (descripcion == '') {
+         $('#e_descripcion_servicio').text("La descripción del servicio es obligatoria.");
+         error = true;
+      }
+      if (fecha == '') {
+         $('#e_fecha_servicio').text("La fecha del servicio es obligatoria.");
+         error = true;
+      } 
+      if ($("#contenedor-upload-file").is(":visible")) {
+        $('#e_imagen_servicio').text("La imagen del servicio es obligatoria.");
+        error = true;
+      }
       if (!error)          
          uploadObj.startUpload();
    });
