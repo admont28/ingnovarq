@@ -24,7 +24,11 @@
 					<!-- JavaScript JQuery Upload File Plugin -->
 					<script type="text/javascript" src="../../js/jquery.uploadfile.js"></script>
 					
-
+					<!-- Bootstrap-datatimepicker.js -->
+					<script type="text/javascript" src="../../js/bootstrap-datepicker.js"></script>
+					<link rel="stylesheet" type="text/css" href="../../css/bootstrap-datepicker.css">
+					
+					
 
 					<!-- notificaciones PNotify -->
 					<link rel="stylesheet" type="text/css" href="../../css/jquery-ui.css" media="all"/>

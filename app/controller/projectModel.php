@@ -105,8 +105,8 @@
 		}
 
 		/*
-		* Función para obtener las imagenes de un proyecto
-		*/
+		 * Función para obtener las imagenes de un proyecto
+		 */
 		function view_db_img_project($idProyecto){
 
 			//creación de una consulta para recuperar las imagenes de los proyectos
@@ -121,21 +121,24 @@
 			}
 
 			return $response;
-
 		}
 
+		/*
+		 * Función para obtener el ultimo proyecto insertado
+		 */
 		function view_db_last_project(){
 
-			$sentencia = $this->_db->prepare("SELECT idproducto FROM producto ORDER BY idproducto DESC LIMIT 1");
+			$sentencia = $this->_db->prepare("SELECT * FROM Proyecto ORDER BY idProyecto DESC LIMIT 1");
 			$sentencia->execute();
 
 			$response= array();
 			while ($fila = $sentencia->fetch()) {
 				$response[] = $fila;
 			}
-
-			return $response;
-
+			if(sizeof($response) != 0){
+				return $response[0];
+			}
+			return null;
 		}
 	}
 ?>

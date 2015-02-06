@@ -27,7 +27,7 @@
 							<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
 								<div class="panel panel-default empresa">
 									<div class="panel-heading">
-										Crear cliente
+										Crear cliente.
 									</div>
 									<div class="panel-body">
 										<div id="mensaje"></div>
@@ -38,12 +38,14 @@
 										         <label for="name" class="control-label col-xs-2">Nombre:</label>
 										         <div class="col-xs-10">
 										            <input type="name" id="nombreCliente" name="nombreCliente" class="form-control" placeholder="Nombre">
+										         	<div class="col-xs-10 error-text" id="e_nombre"></div>
 										         </div>
 										     </div>
 										     <div class="form-group">
 										     	 <label class="control-label col-xs-2">Imagen:</label>
 										         <div class="col-xs-10" id="cargador">
 										            <div id="fileuploader">Cargar imagen</div>
+										            <div class="col-xs-10 error-text" id="e_imagen"></div>
 										         </div>
 										     </div>    
 										     <div class="form-group">

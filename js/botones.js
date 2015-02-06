@@ -195,6 +195,7 @@ $(document).ready(function() {
                   }
                   else{
                     $("#contenedor-upload-file").hide();
+                    $('#e_imagen').text("");
                   }
              }, 300);
         },
@@ -209,83 +210,167 @@ $(document).ready(function() {
         afterUploadAll:function(obj)
         {
             $("#mensaje").html(obj); // Mostrar la respuestas del script PHP.
+        },
+        onError: function(files,status,errMsg,pd)
+        {
+            alert("Surgio error");
+            alert(files);
+            alert(status);
+            alert(errMsg);
+            alert(pd);
+            //status: error status
+            //errMsg: error message
         }
-    });
-
-    // al dar clic en guardar cambios al momento de editar una imagen del slider
-    // ejecuto el plugin uploadFile.
-    $('#btn-editar-slider-ajax').click(function(){  
-        if($('#contenedor-upload-file').is(':visible')){ 
-            var url = "../controller/editarSliderAjax"; // El script a dónde se realizará la petición.
-            var id = $("#idImagen").val(); //capturo el id de la imagen cargado en el input oculto
-            var titulo =  $("#tituloImagen").val(); //capturo el titulo cargado en el input.
-            // los datos que se van a enviar
-            var data = {
-              idImagen: id, //id de la imagen
-              tituloImagen: titulo //titulo de la imagen
-            };
-              $.ajax({
-                   type: "POST",
-                   url: url,
-                   data: data, // Adjuntar los campos del formulario enviado.
-                   success: function(data)
-                   {
-                       $("#mensaje").html(data); // Mostrar la respuestas del script PHP.
-                   }
-                });
-            return false; // Evitar ejecutar el submit del formulario.
-        }else
-            uploadObj.startUpload();
     });
 
     // si existe el botón btn-agregar-slider-ajax es porque se trata de que el usuario está agregando
     // una nueva imagen del slider, así que modifico la url a donde se enviará la petición
-    if($('#btn-agregar-slider-ajax').length){
-        //Ejecutar si existe el elemento
-        uploadObj.update({
-            url: "../controller/insertarSliderAjax",
-            dynamicFormData:function()
-            {
-                var titulo =  $("#tituloImagen").val(); //capturo el titulo cargado en el input.
-                // los datos que se van a enviar
-                var data = {
-                  tituloImagen: titulo //titulo de la imagen
-                };
-                return data; //debo retornar data para poder que se envien junto con las imagenes.
-            }
-        });
-        alert("Actualicé plugin slider");
-    } else if($('#btn-agregar-cliente-ajax').length){ 
-        // Si existe este botón, el usuario estará agregando un cliente
-        // Ejecutar si existe el elemento
-        uploadObj.update({
-            url: "../controller/insertarClienteAjax",
-            maxFileSize: 2097152, // 2MB escritos en bytes
-            dynamicFormData:function()
-            {
-                var nombre =  $("#nombreCliente").val(); //capturo el nombre del cliente cargado en el input.
-                // los datos que se van a enviar
-                var data = {
-                  nombreCliente: nombre //nombre del cliente
-                };
-                return data;
-            }
-        });
-        alert("Actualicé plugin cliente");
-    }
+   if($('#btn-agregar-slider-ajax').length){
+      //Ejecutar si existe el elemento
+      uploadObj.update({
+         url: "../controller/insertarSliderAjax",
+         dynamicFormData:function()
+         {
+            var titulo =  $("#tituloImagen").val(); //capturo el titulo cargado en el input.
+            // los datos que se van a enviar
+            var data = {
+              tituloImagen: titulo //titulo de la imagen
+            };
+            return data; //debo retornar data para poder que se envien junto con las imagenes.
+         }
+     });
+   }else if($('#btn-crear-proyecto-ajax').length){ 
+      uploadObj.update({
+         url: "../controller/insertarProyectoAjax",
+         multiple:false,
+         maxFileCount:1,
+         maxFileSize: 5145728,
+         dynamicFormData:function()
+         {
+           var nombre = $("#nombreProyecto").val(); //capturo el nombre del proyecto a crear
+           var descripcion = $("#descripcionProyecto").val(); //capturo la descripcion del proyecto a crear
+           var fecha = $("#fecha").val(); //capturo la fecha de creacion del proyecto a crear                                  
+           // los datos que se van a enviar
+           var data = {
+             nombreProyecto: nombre, //nombre del proyecto
+             descripcionProyecto: descripcion, //descripcion del proyecto
+             fechaProyecto: fecha //fecha de creacion del proyecto
+           };                
+           return data; //debo retornar data para poder que se envien junto con las imagenes.
+         }
+      });
+   }else if($('#btn-agregar-cliente-ajax').length){ 
+     // Si existe este botón, el usuario estará agregando un cliente
+     // Ejecutar si existe el elemento
+     uploadObj.update({
+         url: "../controller/insertarClienteAjax",
+         maxFileSize: 2097152, // 2MB escritos en bytes
+         dynamicFormData:function()
+         {
+           var nombre =  $("#nombreCliente").val(); //capturo el nombre del cliente cargado en el input.
+           // los datos que se van a enviar
+           var data = {
+             nombreCliente: nombre //nombre del cliente
+           };
+           return data;
+         }
+     });
+   }
 
+    // Datapicker para las fechas en general.
+    $('#fecha').datepicker({
+      format: "dd/mm/yyyy",
+      todayBtn: "linked",
+      clearBtn: true,
+      todayHighlight: true
+    });
+
+    // al dar clic en guardar cambios al momento de editar una imagen del slider
+    // ejecuto el plugin uploadFile.
+   $('#btn-editar-slider-ajax').click(function(){  
+      if($('#contenedor-upload-file').is(':visible')){ // si solo cambia el titulo y no carga ninguna imagen.
+         var url = "../controller/editarSliderAjax"; // El script a dónde se realizará la petición.
+         var id = $("#idImagen").val(); //capturo el id de la imagen cargado en el input oculto
+         var titulo =  $("#tituloImagen").val(); //capturo el titulo cargado en el input.
+         // los datos que se van a enviar
+         var data = {
+           idImagen: id, //id de la imagen
+           tituloImagen: titulo //titulo de la imagen
+         };
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data, // Adjuntar los campos del formulario enviado.
+            success: function(data)
+            {
+                 $("#mensaje").html(data); // Mostrar la respuestas del script PHP.
+            }
+          });
+         return false; // Evitar ejecutar el submit del formulario.
+      }else
+         uploadObj.startUpload(); // si carga imagenes y modifica el titulo.
+   });
 
     // al dar clic en crear imagen slider cambios al momento de crear una imagen del slider
     // ejecuto el plugin uploadFile.
     $('#btn-agregar-slider-ajax').click(function(){
-        uploadObj.startUpload();
+        var error = false;
+      $('#e_nombre').text("");
+      $('#e_imagen').text("");
+      var nombre =  $("#tituloImagen").val(); //capturo el nombre del cliente cargado en el input.
+          if(nombre  == ''){
+            $('#e_nombre').text("El campo titulo es necesario.");
+            error = true;
+          }
+          if ($("#contenedor-upload-file").is(":visible")) {
+            $('#e_imagen').text("La imagen es necesaria.");
+            error = true;
+          }
+        if(!error)
+          uploadObj.startUpload();
     });
 
-    
+   // al dar clic en agregar cliente ajax ejecuto el plugin uploadFile.
+   $('#btn-agregar-cliente-ajax').click(function(){
+      var error = false;
+      $('#e_nombre').text("");
+      $('#e_imagen').text("");
+      var nombre =  $("#nombreCliente").val(); //capturo el nombre del cliente cargado en el input.
+      if(nombre  == ''){
+         $('#e_nombre').text("El campo nombre es necesario.");
+         error = true;
+      }
+      if ($("#contenedor-upload-file").is(":visible")) {
+         $('#e_imagen').text("La imagen es necesaria.");
+         error = true;
+      }
+      if(!error)
+         uploadObj.startUpload();
+   });
 
-    // al dar clic en agregar cliente ajax ejecuto el plugin uploadFile.
-    $('#btn-agregar-cliente-ajax').click(function(){
-        uploadObj.startUpload();
-    });
+   // al dar clic en crear proyecto ajax ejecuto el plugin uploadFile
+   $('#btn-crear-proyecto-ajax').click(function(){   
+      var error = false;
+      $('#e_nombre_proyecto').text("");
+      $('#e_descripcion_proyecto').text("");
+      $('#e_fecha_proyecto').text("");
+      var nombre = $('#nombreProyecto').val();
+      var descripcion = $('#descripcionProyecto').val();
+      var fecha = $('#fecha').val();
+      if(nombre == ''){
+         $('#e_nombre_proyecto').text("El nombre del proyecto es obligatorio");
+         error = true;
+      }
+      if (descripcion == '') {
+         $('#e_descripcion_proyecto').text("La descripción del proyecto es obligatoria");
+         error = true;
+      }
+      if (fecha == '') {
+         $('#e_fecha_proyecto').text("La fecha del proyecto es obligatoria");
+         error = true;
+      } 
+      if (!error)          
+         uploadObj.startUpload();
+   });
 
 });

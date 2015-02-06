@@ -39,12 +39,14 @@
 										         <label for="inputName" class="control-label col-xs-2">Titulo:</label>
 										         <div class="col-xs-10">
 										            <input type="name" id="tituloImagen" name="tituloImagen" class="form-control" placeholder="Titulo">
+										            <div class="col-xs-10 error-text" id="e_nombre"></div>
 										         </div>
 										     </div>
 										     <div class="form-group">
 										     	 <label class="control-label col-xs-2">Imagen:</label>
 										         <div class="col-xs-10" id="cargador">
 										            <div id="fileuploader">Cargar imagen</div>
+										            <div class="col-xs-10 error-text" id="e_imagen"></div>
 										         </div>
 										     </div>    
 										     <div class="form-group">
