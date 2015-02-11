@@ -237,25 +237,27 @@ $(document).ready(function() {
             return data; //debo retornar data para poder que se envien junto con las imagenes.
          }
      });
-   }else if($('#btn-crear-proyecto-ajax').length){ 
+   }else if($('#btn-agregar-proyecto-ajax').length){ 
       uploadObj.update({
          url: "../controller/insertarProyectoAjax",
-         multiple:false,
-         maxFileCount:1,
+         multiple:true,
+         maxFileCount:30,
          maxFileSize: 5145728,
-         dynamicFormData:function()
-         {
-           var nombre = $("#nombreProyecto").val(); //capturo el nombre del proyecto a crear
-           var descripcion = $("#descripcionProyecto").val(); //capturo la descripcion del proyecto a crear
-           var fecha = $("#fecha").val(); //capturo la fecha de creacion del proyecto a crear                                  
-           // los datos que se van a enviar
-           var data = {
-             nombreProyecto: nombre, //nombre del proyecto
-             descripcionProyecto: descripcion, //descripcion del proyecto
-             fechaProyecto: fecha //fecha de creacion del proyecto
-           };                
-           return data; //debo retornar data para poder que se envien junto con las imagenes.
-         }
+         onSelect:function(files,data,xhr){},   
+         onCancel:function(files,pd){},
+         onSuccess:function(files,data,xhr,pd){},
+         afterUploadAll:function(obj){},
+      });
+   }else if($('#btn-agregar-servicio-ajax').length){ 
+      uploadObj.update({
+         url: "../controller/insertarServicioAjax",
+         multiple:true,
+         maxFileCount:30,
+         maxFileSize: 5145728,
+         onSelect:function(files,data,xhr){},   
+         onCancel:function(files,pd){},
+         onSuccess:function(files,data,xhr,pd){},
+         afterUploadAll:function(obj){},
       });
    }else if($('#btn-agregar-cliente-ajax').length){ 
      // Si existe este botón, el usuario estará agregando un cliente
@@ -277,10 +279,21 @@ $(document).ready(function() {
 
     // Datapicker para las fechas en general.
     $('#fecha').datepicker({
-      format: "dd/mm/yyyy",
+      format: "yyyy-mm-dd",
       todayBtn: "linked",
       clearBtn: true,
       todayHighlight: true
+    });
+
+    // oculto o muestro las imagenes que esten cargadas.
+    $('#previsualizacion').click(function(){
+      if ($(this).is(':checked')) {
+            $('.ajax-file-upload-preview').hide();
+        }
+        else{
+            $('.ajax-file-upload-preview').show();
+        }
+
     });
 
     // al dar clic en guardar cambios al momento de editar una imagen del slider
@@ -346,8 +359,8 @@ $(document).ready(function() {
          uploadObj.startUpload();
    });
 
-   // al dar clic en crear proyecto ajax ejecuto el plugin uploadFile
-   $('#btn-crear-proyecto-ajax').click(function(){   
+   // al dar clic en agregar proyecto ajax ejecuto el plugin uploadFile
+   $('#btn-agregar-proyecto-ajax').click(function(){   
       var error = false;
       $('#e_nombre_proyecto').text("");
       $('#e_descripcion_proyecto').text("");
@@ -367,25 +380,43 @@ $(document).ready(function() {
       if (fecha == '') {
          $('#e_fecha_proyecto').text("La fecha del proyecto es obligatoria.");
          error = true;
-      } 
-      if ($("#contenedor-upload-file").is(":visible")) {
-        $('#e_imagen_proyecto').text("La imagen del proyecto es obligatoria.");
-        error = true;
       }
-      if (!error)          
-         uploadObj.startUpload();
+      if (!error){          
+         var data = {
+            nombreProyecto: nombre, //nombre del Proyecto
+            descripcionProyecto: descripcion, //descripcion del Proyecto
+            fechaProyecto: fecha //fecha de creacion del Proyecto
+         };                
+         $.ajax({
+            type: "POST",
+            url: "../controller/insertarProyectoAjax",
+            dataType: 'json',
+            data: data, // Adjuntar los campos del formulario enviado.
+            success: function(data)
+            {
+                  if(data.estado == "fail"){
+                     uploadObj.stopUpload();
+                  }
+                  else if(data.estado == "success"){
+                     uploadObj.startUpload();
+                  }
+                  $("#mensaje").html(data.mensaje);
+            }
+          });
+         return false; // Evitar ejecutar el submit del formulario.    
+      }
    });
 
-   // al dar clic en crear servicio ajax ejecuto el plugin uploadFile
-   $('#btn-crear-servicio-ajax').click(function(){   
+   // al dar clic en agregar servicio ajax ejecuto el plugin uploadFile
+   $('#btn-agregar-servicio-ajax').click(function(){   
       var error = false;
-      $('#e_nombre_servicio').text("");
+      $('#e_nombre_servicio').text(""); 
       $('#e_descripcion_servicio').text("");
       $('#e_fecha_servicio').text("");
       $('#e_imagen_servicio').text("");
-      var nombre = $('#nombreServicio').val();
-      var descripcion = $('#descripcionServicio').val();
-      var fecha = $('#fecha').val();
+      var nombre = $('#nombreServicio').val();//capturo el nombre del servicio a crear
+      var descripcion = $('#descripcionServicio').val();//capturo la descripcion del servicio a crear
+      var fecha = $('#fecha').val();//capturo la fecha de creacion del servicio a crear
       if(nombre == ''){
          $('#e_nombre_servicio').text("El nombre del servicio es obligatorio.");
          error = true;
@@ -398,12 +429,30 @@ $(document).ready(function() {
          $('#e_fecha_servicio').text("La fecha del servicio es obligatoria.");
          error = true;
       } 
-      if ($("#contenedor-upload-file").is(":visible")) {
-        $('#e_imagen_servicio').text("La imagen del servicio es obligatoria.");
-        error = true;
-      }
-      if (!error)          
-         uploadObj.startUpload();
+      if (!error){
+         var data = {
+            nombreServicio: nombre, //nombre del servicio
+            descripcionServicio: descripcion, //descripcion del servicio
+            fechaServicio: fecha //fecha de creacion del servicio
+         };                
+         $.ajax({
+            type: "POST",
+            url: "../controller/insertarServicioAjax",
+            dataType: 'json',
+            data: data, // Adjuntar los campos del formulario enviado.
+            success: function(data)
+            {
+                  if(data.estado == "fail"){
+                     uploadObj.stopUpload();
+                  }
+                  else if(data.estado == "success"){
+                     uploadObj.startUpload();
+                  }
+                  $("#mensaje").html(data.mensaje);
+            }
+          });
+         return false; // Evitar ejecutar el submit del formulario.    
+      }   
    });
 
 });

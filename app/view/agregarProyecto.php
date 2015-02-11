@@ -34,38 +34,41 @@
 								<br>
 								<div class="form-horizontal" id="form-proyecto-ajax" method="post" enctype="multipart/form-data">
 								    <div class="form-group">
-								         <label for="inputName" class="control-label col-xs-2">Nombre:</label>
-								         <div class="col-xs-10">
+								         <label for="inputName" class="control-label col-xs-3">Nombre:</label>
+								         <div class="col-xs-9">
 								            <input type="name" id="nombreProyecto" name="nombreProyecto" class="form-control" placeholder="Nombre">
-								         	<div class="col-xs-10 error-text" id="e_nombre_proyecto"></div>
+								         	<div class="col-xs-9 error-text" id="e_nombre_proyecto"></div>
 								         </div>
 								    </div>
 									    <div class="form-group">
-								        <label for="inputName" class="control-label col-xs-2">Descripción:</label>
-								        <div class="col-xs-10">
+								        <label for="inputName" class="control-label col-xs-3">Descripción:</label>
+								        <div class="col-xs-9">
 								        	<textarea id="descripcionProyecto" name="descripcionProyecto" class="form-control" placeholder="Descripción del Proyecto" rows="7"></textarea>
-								        	<div class="col-xs-10 error-text" id="e_descripcion_proyecto"></div> 
+								        	<div class="col-xs-9 error-text" id="e_descripcion_proyecto"></div> 
 								        </div>
 								    </div>
 								    <div class="form-group">
-								        <label for="inputName" class="control-label col-xs-2">Fecha:</label>
-								         <div class="col-xs-10">
-								         	<input type="text" type="text" id="fecha" class="form-control" placeholder="dd/mm/aaaa">
-								         	<div class="col-xs-10 error-text" id="e_fecha_proyecto"></div>
+								        <label for="inputName" class="control-label col-xs-3">Fecha:</label>
+								         <div class="col-xs-9">
+								         	<input type="text" id="fecha" class="form-control" placeholder="aaaa-mm-dd" data-date-language="es" readonly="readonly">
+								         	<div class="col-xs-9 error-text" id="e_fecha_proyecto"></div>
 								         </div>
 								    </div>	
 								    <div class="form-group">
-							     	 <label class="control-label col-xs-2">Imagen:</label>
-							         <div class="col-xs-10" id="cargador">
+							     	 <label class="control-label col-xs-3">Imagen:</label>
+							         <div class="col-xs-9" id="cargador">
 							            <div id="fileuploader">Cargar imagen</div>
-							            <div class="col-xs-10 error-text" id="e_imagen_proyecto"></div> 
+							            <div class="col-xs-9 error-text" id="e_imagen_proyecto"></div> 
 							         </div>
 							     	</div> 							     
 								    <div class="form-group">
-								        <div class="col-xs-offset-2 col-xs-8">
-								            <div id="btn-crear-proyecto-ajax" class="btn btn-success">
+								        <div class="col-xs-offset-3 col-xs-9">
+								            <div id="btn-agregar-proyecto-ajax" class="btn btn-success">
 								            	<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Crear Proyecto
 								            </div> 
+								            <label>
+								            	<input type="checkbox" id="previsualizacion"> Ocultar Previsualización
+								            </label>
 								        </div>
 							     	</div>
 								</div>

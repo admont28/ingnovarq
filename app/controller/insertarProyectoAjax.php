@@ -1,20 +1,20 @@
 <?php
     session_start();
     if(!isset($_SESSION['idUsuario'],$_SESSION['nombreUsuario'], $_SESSION['apellidoUsuario'], $_SESSION['superAdminUsuario'])){
-           header('location: error');
-            
-    }       
+            header('location: error');
+    }      
+    require_once ("notificaciones.php");
+    $mensaje =  "";
+    if (sizeof($_POST) == 3 && isset($_POST['nombreProyecto'], $_POST['descripcionProyecto'], $_POST['fechaProyecto'])) {
         $nombreProyecto = htmlspecialchars($_POST["nombreProyecto"]);
         $descripcionProyecto = htmlspecialchars($_POST["descripcionProyecto"]);
         $fechaProyecto=$_POST['fechaProyecto'];
-        
-        
-        
+         
         if ($nombreProyecto == '' ){
             $mensaje = "<script>document.getElementById('e_nombre_proyecto').innerHTML='El campo nombre es requerido';</script>";
         }
-        else if(!preg_match('/^[a-záéóóúàèìòùäëïöüñ\s]+$/i', $nombreProyecto)){
-            $mensaje = "<script>document.getElementById('e_nombre_proyecto').innerHTML='Error, s&oacute;lo se permiten letras';</script>";
+        else if(!preg_match('/^[0-9a-záéóóúàèìòùäëïöüñ\s]+$/i', $nombreProyecto)){
+            $mensaje = "<script>document.getElementById('e_nombre_proyecto').innerHTML='Error, s&oacute;lo se permiten letras, n&uacute;meros y acentos latinos';</script>";
         }
         else if(strlen($nombreProyecto) < 3){
             $mensaje = "<script>document.getElementById('e_nombre_proyecto').innerHTML='El m&iacute;nimo permitido son 3 caracteres';</script>";
@@ -34,122 +34,48 @@
         else if ($fechaProyecto == ''){
             $mensaje = "<script>document.getElementById('e_fecha_proyecto').innerHTML='El campo Fecha es requerido';</script>";
         }
-        else if(!isset($_FILES)){
-           $mensaje = "<script>document.getElementById('e_imagenes_proyecto').innerHTML='Debe seleccionar como minimo una imagen';</script>";
-        }
-        else{
+        else{ // Validaciones correctas.
             //Conectar a la base de datos y realizar la consulta para guardar el registro
             require_once ("projectModel.php");
-            require_once ("imagenModel.php");
             require_once ("userModel.php");
-
             $usuarioModel = new UserModel();
             $projectModel = new ProjectModel();
-            $imagenModel = new ImagenModel(); 
             $usuarioCompleto = $usuarioModel->view_db_user($_SESSION['idUsuario']);
-
             $projectModel->insert_db_project($nombreProyecto, $descripcionProyecto, $fechaProyecto, $usuarioCompleto['idUsuario']);
             $ultimoProyecto = $projectModel->view_db_last_project(); 
             $idProyecto = $ultimoProyecto['idProyecto'];
-            $fileCount = count($_FILES["myfile"]["name"]);  
-            
-            $ruta =  "../../images/proyectos/";         
-
-            if(!is_array($_FILES["myfile"]["name"])) //single file
-            {
-                $fileName = $_FILES["myfile"]["name"];
-                if(move_uploaded_file($_FILES["myfile"]["tmp_name"],$ruta.$fileName)){
-                    $imagenModel->insert_images_project($ruta.$fileName, $fileName, $idProyecto);
-                    $mensaje = "<script type='text/javascript'>
-                        PNotify.prototype.options.styling = 'bootstrap3';
-                        PNotify.prototype.options.styling = 'jqueryui';
-                        
-                        $(function(){
-                            new PNotify({
-                                title: 'Acción Exitosa',
-                                text: 'Se ha agregado el Proyecto con éxito.',
-                                type: 'success',
-                                delay: 6000,
-                                animation: 'show',
-                                before_close: function() {
-                                    document.location='perfil';
-                                }
-                            });
-                        });
-                        </script>";
-                    $ret[]= $fileName;
-                }
-                else{
-                    $mensaje = "<script type='text/javascript'>
-                                PNotify.prototype.options.styling = 'bootstrap3';
-                                PNotify.prototype.options.styling = 'jqueryui';
-                                
-                                $(function(){
-                                    new PNotify({
-                                        title: 'Acción No Exitosa :(',
-                                        text: 'No se ha podido agregar la imagen $fileName con éxito, por favor los requerimientos e inténtelo de nuevo.',
-                                        type: 'error',
-                                        delay: 6000,
-                                        animation: 'show',
-                                    });
-                                });
-                                
-                                </script>";
-                }  
+            $ruta =  "../../images/proyectos/".$ultimoProyecto['nombreProyecto']."/"; // ruta donde se almacenarán las imagenes del proyecto
+            if(mkdir($ruta, 0777)){ // creo el directorio para el proyecto con permisos 0777
+                $mensaje = get_success_insert_project($nombreProyecto);
+                $respuesta = array('mensaje' => $mensaje, 'estado' => 'success');
+                echo json_encode($respuesta);
+                die();
             }
-            else  //Multiple files, file[]
-            {
-
-              $fileCount = count($_FILES["myfile"]["name"]);
-              for($i=0; $i < $fileCount; $i++)
-              {
-                 
-                $fileName = $_FILES["myfile"]["name"][$i];
-                if (move_uploaded_file($_FILES["myfile"]["tmp_name"][$i],$ruta.$fileName)){
-                    $imagenModel->insert_images_project($ruta.$fileName, $fileName, $idProyecto);
-                    $ret[]= $fileName;
-                }
-                else{
-                $mensaje = "<script type='text/javascript'>
-                            PNotify.prototype.options.styling = 'bootstrap3';
-                            PNotify.prototype.options.styling = 'jqueryui';
-                            
-                            $(function(){
-                                new PNotify({
-                                    title: 'Acción No Exitosa :(',
-                                    text: 'No se ha podido agregar la imagen $fileName con éxito, por favor revisa los requerimientos datos e inténtelo de nuevo.',
-                                    type: 'error',
-                                    delay: 6000,
-                                    animation: 'show',
-                                });
-                            });
-                            
-                            </script>";
-                }   
-              }
-              $mensaje = "<script type='text/javascript'>
-                    PNotify.prototype.options.styling = 'bootstrap3';
-                    PNotify.prototype.options.styling = 'jqueryui';
-                    
-                    $(function(){
-                        new PNotify({
-                            title: 'Acción Exitosa',
-                            text: 'Se ha agregado el Proyecto con éxito.',
-                            type: 'success',
-                            delay: 6000,
-                            animation: 'show',
-                            before_close: function() {
-                                document.location='perfil';
-                            }
-                        });
-                    });
-                    </script>";
-            
-            }
-
         }
-    
-echo $mensaje;
-
+    }
+    else if(isset($_FILES)){
+        require_once ("imagenModel.php");
+        require_once ("projectModel.php");
+        $imagenModel = new ImagenModel(); 
+        $projectModel = new ProjectModel();
+        $ultimoProyecto = $projectModel->view_db_last_project(); 
+        $idProyecto = $ultimoProyecto['idProyecto'];
+        $ruta =  "../../images/proyectos/".$ultimoProyecto['nombreProyecto']."/"; // ruta donde se almacenarán las imagenes del proyecto
+        if(is_dir($ruta)){
+            $fileName = $_FILES["myfile"]["name"];
+            if (move_uploaded_file($_FILES["myfile"]["tmp_name"],$ruta.$fileName)){
+                $respuesta = $imagenModel->insert_images_project($ruta.$fileName, $fileName, $idProyecto);
+                echo $respuesta;
+                die();
+            }
+            else{
+                $mensaje = get_error_insert_image($fileName);
+                echo $mensaje;
+                die();
+            }
+        }        
+    }
+$respuesta = array('mensaje' => $mensaje, 'estado' => 'fail');
+echo json_encode($respuesta);
+die();
 ?>
-

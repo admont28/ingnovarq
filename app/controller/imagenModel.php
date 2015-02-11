@@ -26,35 +26,25 @@
 		 */
 		function insert_images_project($ruta, $titulo, $idProyecto){
 
-			$sentencia = $this->_db->prepare("INSERT INTO Imgane (rutaImagen, tituloImagen, sliderImagen, Proyecto_idProyecto) VALUES (:ruta, :titulo, false, :idProyecto)");
+			$sentencia = $this->_db->prepare("INSERT INTO Imagen (rutaImagen, tituloImagen, sliderImagen, Proyecto_idProyecto) VALUES (:ruta, :titulo, false, :idProyecto)");
 			$sentencia->bindParam(':ruta', $ruta);
-			$sentencia->bindParam(':tituloImagen', $titulo);
+			$sentencia->bindParam(':titulo', $titulo);
 			$sentencia->bindParam(':idProyecto', $idProyecto);
 			//Ejecución de la consulta
-			$sentencia->execute();
-			$response = array();
-			while ($fila = $sentencia->fetch()) {
-				$response[] = $fila;
-			}
-			return $response;
+			return $sentencia->execute();
 		}
 
 		/*
 		 * Función para insertar imagenes de un servicio
 		 */
-		function insert_image_service($ruta, $titulo, $idServicio){
+		function insert_images_service($ruta, $titulo, $idServicio){
 
 			$sentencia = $this->_db->prepare("INSERT INTO Imagen (rutaImagen, tituloImagen, sliderImagen, Servicio_idServicio) VALUES (:ruta, :titulo, false, :idServicio)");
 			$sentencia->bindParam(':ruta', $ruta);
-			$sentencia->bindParam(':tituloImagen', $titulo);
+			$sentencia->bindParam(':titulo', $titulo);
 			$sentencia->bindParam(':idServicio', $idServicio);
 			//Ejecución de la consulta
-			$sentencia->execute();
-			$response = array();
-			while ($fila = $sentencia->fetch()) {
-				$response[] = $fila;
-			}
-			return $response;
+			return $sentencia->execute();
 		}
 
 		/*
@@ -106,7 +96,7 @@
 		function delete_db_image_project($idProyecto, $idImagen){
 
 			//Creación de una consulta insertandole parametros para eliminar
-			$sentencia = $this->_db->prepare("DELETE FROM Imagen WHERE Proyecto_idProyecto = :idproyecto AND idImagen = :idImagen");
+			$sentencia = $this->_db->prepare("DELETE FROM Imagen WHERE Proyecto_idProyecto = :idProyecto AND idImagen = :idImagen");
 			$sentencia->bindParam(':idProyecto', $idProyecto);
 			$sentencia->bindParam(':idImagen', $idImagen);
 
