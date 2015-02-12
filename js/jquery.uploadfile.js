@@ -116,7 +116,7 @@
             if($.fn.ajaxForm) {
 
                 if(s.dragDrop) {
-                    var dragDrop = $('<div id="contenedor-upload-file" class="' + s.dragDropContainerClass + '" style="vertical-align:top;height:55px;width:100%;"></div>');
+                    var dragDrop = $('<div id="contenedor-upload-file" class="' + s.dragDropContainerClass + '" style="vertical-align:top;height:100%;width:100%;"></div>');
                     $(obj).before(dragDrop);
                     $(dragDrop).append(uploadLabel);
                     $(dragDrop).append($(s.dragDropStr));
@@ -169,11 +169,13 @@
             pd.filename.html(fileNameStr);
             obj.fileCounter++;
             obj.selectedFiles++;
+            pd.preview.attr('src',s.uploadFolder+filename);
             if(s.showPreview)
             {
                 pd.preview.attr('src',s.uploadFolder+filename);
                 pd.preview.show();
             }
+            
             
             if(s.showDownload) {
                 pd.download.show();

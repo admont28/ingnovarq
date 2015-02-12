@@ -12,8 +12,6 @@
 					<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico"/>
 					<link rel="stylesheet" type="text/css" href="../../css/style.css">
 					<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"  media="screen">
-					<!-- CSS File JAlert -->
-					<!-- <link rel="stylesheet" type="text/css" href="../../css/jquery.alerts.css"/> -->
 
 					<!-- CSS File JQuery Upload File Plugin -->
 					<link rel="stylesheet" type="text/css" href="../../css/jquery.uploadfile.css">
@@ -24,11 +22,10 @@
 					<!-- JavaScript JQuery Upload File Plugin -->
 					<script type="text/javascript" src="../../js/jquery.uploadfile.js"></script>
 					
-					<!-- Bootstrap-datatimepicker.js -->
+					<!-- Fechas Bootstrap-datatimepicker.js -->
 					<script type="text/javascript" src="../../js/bootstrap-datepicker.js"></script>
+					<script type="text/javascript" src="../../js/bootstrap-datepicker.es.js" charset="UTF-8"></script>
 					<link rel="stylesheet" type="text/css" href="../../css/bootstrap-datepicker.css">
-					
-					
 
 					<!-- notificaciones PNotify -->
 					<link rel="stylesheet" type="text/css" href="../../css/jquery-ui.css" media="all"/>
@@ -36,9 +33,8 @@
 					<link rel="stylesheet" type="text/css" href="../../css/pnotify.custom.min.css" media="all"/>
 
 
-					<!--- Javascript Files JAlert --> 
+					<!--- Javascript Draggable --> 
 					<script type="text/javascript" src="../../js/jquery.ui.draggable.js"></script>
-					<script type="text/javascript" src="../../js/jquery.alerts.mod.js"></script>
 
 					<!-- CSS Files y JS para la galeria de imagenes de los proyectos -->
 					<link rel="stylesheet" type="text/css" href="../../css/colorbox.css"/>
@@ -90,14 +86,12 @@
 					<link rel="stylesheet" type="text/css" href="../../css/demoProyectos.css"/>
 			        <link rel="stylesheet" type="text/css" href="../../css/styleCommonProyectos.css"/>
 			        <link rel="stylesheet" type="text/css" href="../../css/styleProyectos.css"/>
-			        <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Oswald'/>
 				</head>
 		<?php
 	}
 
 	function getImportsDown(){
 		?>
-
 		<!-- Script para cargar JQuery -->
 		<!-- <script type="text/javascript" src="../../js/jquery.js"></script> -->
 		<!-- AJAX Upload -->

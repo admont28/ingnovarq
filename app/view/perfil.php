@@ -3,33 +3,31 @@
 	if(!isset($_SESSION['idUsuario'],$_SESSION['nombreUsuario'], $_SESSION['apellidoUsuario'], $_SESSION['superAdminUsuario'])){
 		header('location: error');
 	}
-		include_once ("imports.php");
-		include_once ("header.php");
-		include_once ("nav.php");
-		include_once ("footer.php"); 
-		require_once ("../controller/notificaciones.php");
-		require_once ("../controller/userModel.php");
-		require_once ("../controller/empresaModel.php");
-		getImportsUp();
-		$nombre = $_SESSION['nombreUsuario'];
-		$apellido = $_SESSION['apellidoUsuario'];
-		if($_SESSION['primer_inicio'] == 1){
-			$_SESSION['primer_inicio'] = null;
-			echo get_success_login();
-		}
+	include_once ("imports.php");
+	include_once ("header.php");
+	include_once ("nav.php");
+	include_once ("footer.php"); 
+	require_once ("../controller/notificaciones.php");
+	require_once ("../controller/userModel.php");
+	require_once ("../controller/empresaModel.php");
+	getImportsUp();
+	$nombre = $_SESSION['nombreUsuario'];
+	$apellido = $_SESSION['apellidoUsuario'];
+	if($_SESSION['primer_inicio'] == 1){
+		$_SESSION['primer_inicio'] = null;
+		echo get_success_login();
+	}
 ?>
-
 <body id="body">
 		<div class="con" id="con">
 			<div class="container" id="main">
-					<?php 
-						getHeader();
-						if($_SESSION['superAdminUsuario'] == 1){
-							getNavSuperAdmin();
-						}
-						else
-							getNavAdmin();
-					?>
+				<?php 
+					getHeader();
+					if($_SESSION['superAdminUsuario'] == 1)
+						getNavSuperAdmin();
+					else
+						getNavAdmin();
+				?>
 			</div>
 			<div class="contenido">
 				<div class="row">

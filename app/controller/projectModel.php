@@ -111,7 +111,7 @@
 		function view_db_img_project($idProyecto){
 
 			//creación de una consulta para recuperar las imagenes de los proyectos
-			$sentencia = $this->_db->prepare("SELECT i.idImagen, i.rutaImagen, i.tituloImagen FROM Proyecto p INNER JOIN Imagen i ON i.Proyecto_idProyecto = p.idProyecto where idProyecto = :id");
+			$sentencia = $this->_db->prepare("SELECT i.idImagen, i.rutaImagen, i.tituloImagen FROM Proyecto p INNER JOIN Imagen i ON i.Proyecto_idProyecto = p.idProyecto WHERE idProyecto = :id");
 			$sentencia->bindParam(':id', $idProyecto);
 
 			$sentencia->execute();
