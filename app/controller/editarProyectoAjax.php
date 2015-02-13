@@ -64,7 +64,22 @@
         }
         if(!$error){ 
             $projectModel = new ProjectModel();
+            $proyectoActual = $projectModel->view_db_project($idProyecto);
             $consulta = $projectModel->update_db_project($nombreProyecto, $descripcionProyecto, $fechaProyecto, $idProyecto);
+            if($proyectoActual['nombreProyecto'] != $nombreProyecto){
+                require_once ("imagenModel.php");
+                $rutaAntiguaProyecto = "../../images/proyectos/".$proyectoActual['nombreProyecto']."/";
+                $rutaNuevaProyecto = "../../images/proyectos/".$nombreProyecto."/";
+                rename($rutaAntiguaProyecto, $rutaNuevaProyecto); // renombro el directorio del proyecto
+                $imagenModel = new ImagenModel();
+                $imagenesProyecto = $imagenModel->view_images_db_project($idProyecto);
+                $tamañoNombre = 24+strlen($proyectoActual['nombreProyecto']); // capturo el tamaño para extraer el nombre de la imagen solamente
+                foreach ($imagenesProyecto as $fila) {
+                    $nombreImagen = substr($fila['rutaImagen'], $tamañoNombre); // extraigo el nombre de la imagen
+                    $nuevaRutaImagen = $rutaNuevaProyecto.$nombreImagen; // creo la nueva ruta de la imagen
+                    $imagenModel->update_db_path_image($nuevaRutaImagen, $fila['idImagen']); // actualizo la ruta de la imagen segun el nuevo nombre del proyecto
+                }
+            }
             if($consulta){
                 $mensajes[] = get_success_edit_project(); // obtengo el mensaje de que todo ha salido bien.
             }

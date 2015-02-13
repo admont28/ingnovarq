@@ -172,6 +172,13 @@
 			return null;
 		}
 
+		function update_db_path_image($rutaImagen, $idImagen){
+			$sentencia = $this->_db->prepare("UPDATE Imagen SET rutaImagen = :rutaImagen WHERE idImagen = :idImagen");
+			$sentencia->bindParam(":rutaImagen", $rutaImagen);
+			$sentencia->bindParam(":idImagen", $idImagen);
+			return $sentencia->execute();
+		}
+
 
 	}
 ?> 
