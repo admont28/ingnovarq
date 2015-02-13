@@ -50,7 +50,7 @@
 								    <div class="form-group">
 								        <label for="inputName" class="control-label col-xs-2">Fecha:</label>
 								         <div class="col-xs-10">
-								         	<input type="text" type="text" id="fecha" class="form-control" placeholder="dd/mm/aaaa" data-date-language="es">
+								         	<input type="text" type="text" id="fecha" class="form-control" placeholder="dd/mm/aaaa">
 								         	<div class="col-xs-10 error-text" id="e_fecha_proyecto"></div>
 								         </div>
 								    </div>	

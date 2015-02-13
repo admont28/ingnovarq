@@ -277,7 +277,7 @@ $(document).ready(function() {
 
     // Datapicker para las fechas en general.
     $('#fecha').datepicker({
-      format: "yyyy-mm-dd",
+      format: "dd/mm/yyyy",
       todayBtn: "linked",
       clearBtn: true,
       todayHighlight: true
@@ -405,29 +405,5 @@ $(document).ready(function() {
       if (!error)          
          uploadObj.startUpload();
    });
-
-  $('#btn-editar-projecto-ajax').click(function(){
-
-      var url = "../controller/editarProyectoAjax"; // El script a dónde se realizará la petición.
-      var datos = {
-                    idProyecto: $("#idProyecto").val(),
-                    nombreProyecto: $("#nombreProyecto").val(),
-                    descripcionProyecto: $("#descripcionProyecto").val(),
-                    fecha: $("#fecha").val()
-                  }
-      $.ajax({
-           type: "POST",
-           url: url,
-           data: datos, // Adjuntar los campos del formulario enviado.
-           success: function(data)
-           {
-               $("#e_nombre_proyecto").html('');
-               $("#e_descripcion_proyecto").html('');
-               $("#e_fecha_proyecto").html('');
-               $("#mensaje").html(data); // Mostrar la respuestas del script PHP.
-           }
-        });
-        return false; // Evitar ejecutar el submit del formulario.   
-  });
 
 });

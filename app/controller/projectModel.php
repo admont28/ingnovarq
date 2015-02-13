@@ -26,14 +26,13 @@
 		 */
 		function insert_db_project($nombre, $descripcion, $fecha, $usuario){
 
-
 			//Creación de una consulta insertandole parametros para agregar proyectos
 			$sentencia = $this->_db->prepare("INSERT INTO Proyecto (nombreProyecto, descripcionProyecto, fechaCreacionProyecto, Usuario_idUsuario) VALUES (:nombre, :descripcion, :fecha, :usuario)");
 			$sentencia->bindParam(':nombre', $nombre);
 			$sentencia->bindParam(':descripcion', $descripcion);
 			$sentencia->bindParam(':fecha', $fecha);
 			$sentencia->bindParam(':usuario', $usuario);
-			echo $fecha;
+
 
 			//Ejecución de la consulta
 			$sentencia->execute();
@@ -42,17 +41,17 @@
 		/*
 		 * Función para actualizar un proyecto en la base de datos
 		 */
-		function update_db_project($nombre, $descripcion, $fecha, $idProyecto){
+		function update_db_project($nombre, $descripcion, $fecha, $usuario){
 
 			//Creación de una consulta insertandole parametros para actualizar proyectos
-			$sentencia = $this->_db->prepare("UPDATE Proyecto SET nombreProyecto = :nombre, descripcionProyecto = :descripcion, fechaCreacionProyecto = :fecha WHERE idProyecto = :id");
+			$sentencia = $this->_db->prepare("UPDATE Proyecto SET nombreProyecto = :nombre, descripcionProyecto = :descripcion, fechaCreacionProyecto = :fecha, Usuario_idUsuario = :usuario");
 			$sentencia->bindParam(':nombre', $nombre);
 			$sentencia->bindParam(':descripcion', $descripcion);
 			$sentencia->bindParam(':fecha', $fecha);
-			$sentencia->bindParam(':id', $idProyecto);
+			$sentencia->bindParam(':usuario', $usuario);
 
 			//Ejecución de la consulta
-			return $sentencia->execute();
+			$sentencia->execute();
 		}
 
 		/*
