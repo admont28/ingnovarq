@@ -13,11 +13,13 @@
 	<body id="body" onLoad="cargador()">
 		<div class="con" id="con">
 			<div class="container" id="main">
-				<?php 
-					getHeader();
-					getNav();
-				?>
+				
+					<?php 
+						getHeader();
+						getNav();
+					?>
 			</div>
+			
 			<div class="row">
 				<div id="slider-content" class="col-xs-12 col-sm-12 col-md-12">			
 					<canvas id="lienzo" width="1280" height="535" > 				
@@ -50,6 +52,7 @@
 					</div>
 				</div>		
 			</div>
+
 			<div class="contenido">
 				<div class="row">
 					<div class="col-xs-12 col-sm-8 col-md-8">

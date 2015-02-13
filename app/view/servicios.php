@@ -8,16 +8,20 @@
 	$servicioModel = new ServiceModel();
 	$servicios = $servicioModel->view_all_db_services();
 ?>
+
 	<body id="body">
 		<div class="con" id="con">
 			<div class="container" id="main">
-				<?php 
-					getHeader();
-					getNav();
-				?>
+				
+					<?php 
+						getHeader();
+						getNav();
+					?>
 			</div>
+
 			<div class="contenido">
-				<div>
+				<div class="">
+            
 		            <div id="ib-top" class="ib-top">
 		                <h1>Nuestros Servicios <span>Ingnovarq S.A.S</span></h1>
 		            </div>

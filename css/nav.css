@@ -60,7 +60,7 @@ nav a#pull {
 /*Styles for screen 992px and lower*/
 @media screen and (max-width: 992px){
 	.con{
-		margin-bottom: 493px;
+		margin-bottom: 483px;
 	}
 
 	.logo-footer{
@@ -102,7 +102,7 @@ nav a#pull {
 	}
 
 	.con{
-		margin-bottom: 490px;
+		margin-bottom: 460px;
 	}
 
 	.logo-footer{
@@ -140,7 +140,7 @@ nav a#pull {
 	}
 
 	.con{
-		margin-bottom: 420px;
+		margin-bottom: 400px;
 	}
 
 }
@@ -180,7 +180,7 @@ nav a#pull {
 	}
 
 	.con{
-		margin-bottom: 440px;
+		margin-bottom: 400px;
 	}
 
 	nav { 
@@ -266,6 +266,13 @@ nav a#pull {
 
 }	
 
+/*Styles for screen 498px and lower*/
+@media only screen and (max-width : 498px) {
+
+	.con{
+		margin-bottom: 430px;
+	}
+}
 
 /*Styles for screen 480px and lower*/
 @media only screen and (max-width : 480px) {
@@ -276,7 +283,7 @@ nav a#pull {
 	}
 
 	.con{
-		margin-bottom: 480px;
+		margin-bottom: 450px;
 	}
 
 	nav {
@@ -290,10 +297,6 @@ nav a#pull {
 	.logo{
 		width: 100%;
 	}
-
-	#horario-fin-semana{
-		display: none;
-	}
 	
 }
 
@@ -303,13 +306,5 @@ nav a#pull {
 		display: block;
 		float: none;
 		width: 100%;
-	}
-
-	.con{
-		margin-bottom: 500px;
-	}
-
-	.logo-footer{
-		display: none;
 	}
 }

@@ -24,14 +24,13 @@
 		/*
 		 * Función para insertar imagenes de un proyecto
 		 */
-			function insert_images_project($ruta, $titulo, $idProyecto){
+		function insert_images_project($ruta, $titulo, $idProyecto){
 
-			$sentencia = $this->_db->prepare("INSERT INTO Imagen (rutaImagen, tituloImagen, sliderImagen, Proyecto_idProyecto) VALUES (:ruta, :titulo, false, :idProyecto)");
+			$sentencia = $this->_db->prepare("INSERT INTO Imgane (rutaImagen, tituloImagen, sliderImagen, Proyecto_idProyecto) VALUES (:ruta, :titulo, false, :idProyecto)");
 			$sentencia->bindParam(':ruta', $ruta);
-			$sentencia->bindParam(':titulo', $titulo);
+			$sentencia->bindParam(':tituloImagen', $titulo);
 			$sentencia->bindParam(':idProyecto', $idProyecto);
 			//Ejecución de la consulta
-			
 			$sentencia->execute();
 			$response = array();
 			while ($fila = $sentencia->fetch()) {

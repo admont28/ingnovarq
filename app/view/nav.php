@@ -92,6 +92,11 @@
 					}?>">Inicio</a>
 				</li>
 				<li class="cuadrado" >
+					<a href="agregarServicio" id="<?php if(strstr($_SERVER['REQUEST_URI'], 'agregarServicio')){
+						echo 'seleccionado';
+					}?>">Crear servicio</a>
+				</li>
+				<li class="cuadrado" >
 					<a href="agregarProyecto" id="<?php if(strstr($_SERVER['REQUEST_URI'], 'agregarProyecto')){
 						echo 'seleccionado';
 					}?>">Crear proyecto</a>

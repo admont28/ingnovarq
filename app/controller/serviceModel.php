@@ -109,7 +109,7 @@
 		function view_db_img_service($idServicio){
 
 			//creación de una consulta para recuperar las imagenes de los servicio
-			$sentencia = $this->_db->prepare("SELECT i.idImagen, i.rutaImagen, i.tituloImagen FROM Servicio s INNER JOIN Imagen i ON i.Servicio_idServicio = s.idServicio WHERE idServicio = :id");
+			$sentencia = $this->_db->prepare("SELECT i.idImagen, i.rutaImagen, i.tituloImagen FROM Servicio s INNER JOIN Imagen i ON i.Servicio_idServicio = s.idServicio where idServicio = :id");
 			$sentencia->bindParam(':id', $idServicio);
 
 			$sentencia->execute();
@@ -120,24 +120,7 @@
 			}
 
 			return $response;
-		}
 
-		/*
-		 * Función para obtener el ultimo servicio insertado
-		 */
-		function view_db_last_service(){
-
-			$sentencia = $this->_db->prepare("SELECT * FROM Servicio ORDER BY idServicio DESC LIMIT 1");
-			$sentencia->execute();
-
-			$response= array();
-			while ($fila = $sentencia->fetch()) {
-				$response[] = $fila;
-			}
-			if(sizeof($response) != 0){
-				return $response[0];
-			}
-			return null;
 		}
 	}
 ?>

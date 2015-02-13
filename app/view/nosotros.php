@@ -5,19 +5,23 @@
 	include_once ("footer.php"); 
 	require_once "../controller/empresaModel.php";
 	getImportsUp();
+
 	$empresa = new EmpresaModel();
 	$mision = $empresa->get_mision();
 	$vision = $empresa->get_vision();
 	$filosofia = $empresa->get_filosofia();
 ?>
+
 	<body id="body">
 		<div class="con" id="con">
 			<div class="container" id="main">
-				<?php 
-					getHeader();
-					getNav();
-				?>
+				
+					<?php 
+						getHeader();
+						getNav();
+					?>
 			</div>
+
 			<div class="contenido">
 				<div class="row">
 					<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">

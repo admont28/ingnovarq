@@ -16,19 +16,25 @@
 
         if($existente != null){ // si existe lo elimino y notifico
             $imagenesProyecto = $projectModel->view_db_img_project($idProyecto); // consulto las imagenes asociadas al proyecto
+
             // Recorro todas las imagenes para eliminarlas tanto de la bd como de la carpeta donde se encuentren.
             foreach ($imagenesProyecto as $fila) {
                 if(file_exists($fila['rutaImagen'])){ //Verifico si existe la imagen
-                    if(unlink($fila['rutaImagen']))  // elimino la imagen
+                    if(unlink($fila['rutaImagen'])) {  // elimino la imagen
                         $imagenModel->delete_db_image_project($idProyecto,$fila['idImagen']); // elimino de la bd la imagen
+                    }
+                    else{
+
+                    }
                 }
             }
+
             $resultado = $projectModel->delete_db_project($idProyecto);
             if($resultado){
-                rmdir("../../images/proyectos/".$existente['nombreProyecto']);
                 $mensaje =  get_success_delete_project($existente['nombreProyecto']); // envio el mensaje alojado en notificaciones
             }
         }
     }
+
 echo $mensaje;
 ?>

@@ -59,7 +59,7 @@
 									<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
 									<strong>Lunes a Viernes:</strong> 8:00am a 12:00pm y 2:00pm a 6:00pm
 								</li>
-								<li id="horario-fin-semana">
+								<li>
 									<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
 									<strong>Sábados, Domingos y Festivos:</strong>
 									<a class="color-a" href="mailto:ventas@ingnovarq.com.co">ventas@ingnovarq.com.co</a>
@@ -79,10 +79,6 @@
 						<img src="../../images/logo.jpg" class="img-responsive">
 					</div>	
 				</div>
-				<div class="col-md-9 col-xs-12">
-					Designed by: Andrés Montoya & Sebastian Tabera.
-				</div>
-				
 			</div>
 		</footer>
 
