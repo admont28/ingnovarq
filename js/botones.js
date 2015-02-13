@@ -456,7 +456,6 @@ $(document).ready(function() {
    });
 
   $('#btn-editar-projecto-ajax').click(function(){
-
       var url = "../controller/editarProyectoAjax"; // El script a dónde se realizará la petición.
       var datos = {
                     idProyecto: $("#idProyecto").val(),
@@ -467,13 +466,16 @@ $(document).ready(function() {
       $.ajax({
            type: "POST",
            url: url,
+           dataType: 'json',
            data: datos, // Adjuntar los campos del formulario enviado.
            success: function(data)
            {
-               $("#e_nombre_proyecto").html('');
-               $("#e_descripcion_proyecto").html('');
-               $("#e_fecha_proyecto").html('');
-               $("#mensaje").html(data); // Mostrar la respuestas del script PHP.
+                $("#e_nombre_proyecto").html('');
+                $("#e_descripcion_proyecto").html('');
+                $("#e_fecha_proyecto").html('');
+                for (var i = 0; i < data.length; i++) {
+                    $("#mensaje").html(data[i]); // Mostrar la respuestas del script PHP.
+                };
            }
         });
         return false; // Evitar ejecutar el submit del formulario.   

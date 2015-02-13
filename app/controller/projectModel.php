@@ -26,14 +26,13 @@
 		 */
 		function insert_db_project($nombre, $descripcion, $fecha, $usuario){
 
-
 			//Creación de una consulta insertandole parametros para agregar proyectos
 			$sentencia = $this->_db->prepare("INSERT INTO Proyecto (nombreProyecto, descripcionProyecto, fechaCreacionProyecto, Usuario_idUsuario) VALUES (:nombre, :descripcion, :fecha, :usuario)");
 			$sentencia->bindParam(':nombre', $nombre);
 			$sentencia->bindParam(':descripcion', $descripcion);
 			$sentencia->bindParam(':fecha', $fecha);
 			$sentencia->bindParam(':usuario', $usuario);
-			echo $fecha;
+
 
 			//Ejecución de la consulta
 			$sentencia->execute();
