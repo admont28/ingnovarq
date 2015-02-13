@@ -52,7 +52,7 @@
                                 title: 'Acción Exitosa',
                                 text: 'Se ha agregado al usuario con éxito. <br> Si desea agregar un nuevo usuario presione el botón Agregar.',
                                 type: 'success',
-                                
+                                hide: false,
                                 animation: 'show',
                                 confirm: {
                                     confirm: true,
@@ -160,7 +160,33 @@
         return $mensaje;
     }
 
-    function get_script_edit_user(){
+       function get_script_edit_project(){
+        $mensaje = "<script type='text/javascript'>
+                        $('.open').click(function(){
+                            $('#e_nombre_proyecto').html(''); // limpio los campos de los errores.
+                            $('#e_descripcion_proyecto').html('');
+                            var idProyecto = $(this).data('id');
+                            var parametros = {
+                                'idProyecto' : idProyecto,
+                            };
+                            var url = '../controller/editarProyectoAjax'; // El script a dónde se realizará la petición.
+                            $.ajax({
+                               type: 'POST',
+                               url: url,
+                               data: parametros, // Adjuntar los campos a enviar
+                               success: function(data)
+                               {
+                                   $('#mensaje').html(data); // Mostrar la respuestas del script PHP.
+
+                               }
+                            });
+                        });
+                    </script>";
+        return $mensaje;
+
+    }
+
+      function get_script_edit_user(){
         $mensaje = "<script type='text/javascript'>
                         $('.open').click(function(){
                             $('#e_nombre').html(''); // limpio los campos de los errores.
@@ -180,12 +206,49 @@
                                success: function(data)
                                {
                                    $('#mensaje').html(data); // Mostrar la respuestas del script PHP.
+                                   console.log(data);
                                }
                             });
                         });
                     </script>";
         return $mensaje;
     }
+
+    function get_error_edit_project(){
+        $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción No Exitosa :(',
+                                text: 'No se ha podido editar el proyecto con éxito, porfavor recarga la página e inténtalo de nuevo.',
+                                type: 'error',
+                                delay: 6000,
+                                animation: 'show',
+                            });
+                        });
+                    </script>";
+        return $mensaje;
+    }
+
+    function get_success_edit_project(){
+        $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción Exitosa',
+                                text: 'El proyecto se ha editado con exito.<br>La página será recargada en 5 segundos.',
+                                type: 'success',
+                                delay: 6500,
+                                animation: 'show',
+                            });
+                        });
+
+                    setTimeout(function(){
+                        location.reload();
+                    }, 5000);
+                </script>";
+        return $mensaje;
+    }
+
+  
 
     function get_success_edit_user($cedula){
         $mensaje = "<script type='text/javascript'>
@@ -198,7 +261,6 @@
                                 animation: 'show',
                             });
                         });
-
                     setTimeout(function(){
                         location.reload();
                     }, 7000);
@@ -617,7 +679,6 @@
                                 animation: 'show',
                             });
                         });
-
                     setTimeout(function(){
                         location.reload();
                     }, 7000);
@@ -648,6 +709,7 @@
                                 text: 'La imagen: ".$nombreArchivo." ha sido agregada con éxito.<br>Si desea agregar una nueva imagen presione el botón Agregar.',
                                 type: 'success',
                                 animation: 'show',
+                                hide: false,
                                 confirm: {
                                     confirm: true,
                                     buttons: [{
@@ -682,7 +744,6 @@
                                 animation: 'show',
                             });
                         });
-                        
                     </script>";
         return $mensaje;
     }
@@ -725,9 +786,10 @@
                         $(function(){
                             new PNotify({
                                 title: 'Acción Exitosa',
-                                text: 'El cliente: ".$nombreCliente." ha sido agregado con éxito.<br>Si desea agregar un nuev cliente presione el botón Agregar.',
+                                text: 'El cliente: ".$nombreCliente." ha sido agregado con éxito.<br>Si desea agregar un nuevo cliente presione el botón Agregar.',
                                 type: 'success',
                                 animation: 'show',
+                                hide: false,
                                 confirm: {
                                     confirm: true,
                                     buttons: [{
@@ -762,7 +824,85 @@
                                 animation: 'show',
                             });
                         });
-                        
+                    </script>";
+        return $mensaje;
+    }
+
+    function get_success_insert_project($nombreProyecto){
+       $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción Exitosa',
+                                text: 'El proyecto: ".$nombreProyecto." ha sido agregado con éxito.<br>Si desea agregar un nuevo proyecto presione el botón Agregar.',
+                                type: 'success',
+                                animation: 'show',
+                                hide: false,
+                                confirm: {
+                                    confirm: true,
+                                    buttons: [{
+                                            text: 'Agregar',
+                                            addClass: 'btn btn-success',
+                                            click: function(notice) {
+                                                notice.remove();
+                                                document.location='agregarProyecto';
+                                            }
+                                        }, {
+                                            text: 'Volver',
+                                            click: function(notice) {
+                                                notice.remove();
+                                                document.location='perfil';
+                                            }
+                                        }]
+                                }   
+                            });
+                        });
+                    </script>";
+        return $mensaje;
+    }
+
+    function get_success_insert_service($nombreServicio){
+       $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción Exitosa',
+                                text: 'El servicio: ".$nombreServicio." ha sido agregado con éxito.<br>Si desea agregar un nuevo servicio presione el botón Agregar.',
+                                type: 'success',
+                                animation: 'show',
+                                hide: false,
+                                confirm: {
+                                    confirm: true,
+                                    buttons: [{
+                                            text: 'Agregar',
+                                            addClass: 'btn btn-success',
+                                            click: function(notice) {
+                                                notice.remove();
+                                                document.location='agregarServicio';
+                                            }
+                                        }, {
+                                            text: 'Volver',
+                                            click: function(notice) {
+                                                notice.remove();
+                                                document.location='perfil';
+                                            }
+                                        }]
+                                }   
+                            });
+                        });
+                    </script>";
+        return $mensaje;
+    }
+
+    function get_error_insert_image($fileName){
+        $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción No Exitosa :(',
+                                text: 'No se ha podido agregar la imagen: ".$fileName." con éxito, por favor revisa todos los datos e inténtelo de nuevo.',
+                                type: 'error',
+                                delay: 6000,
+                                animation: 'show',
+                            });
+                        });
                     </script>";
         return $mensaje;
     }

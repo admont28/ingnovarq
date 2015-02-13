@@ -26,13 +26,14 @@
 		 */
 		function insert_db_project($nombre, $descripcion, $fecha, $usuario){
 
+
 			//Creación de una consulta insertandole parametros para agregar proyectos
 			$sentencia = $this->_db->prepare("INSERT INTO Proyecto (nombreProyecto, descripcionProyecto, fechaCreacionProyecto, Usuario_idUsuario) VALUES (:nombre, :descripcion, :fecha, :usuario)");
 			$sentencia->bindParam(':nombre', $nombre);
 			$sentencia->bindParam(':descripcion', $descripcion);
 			$sentencia->bindParam(':fecha', $fecha);
 			$sentencia->bindParam(':usuario', $usuario);
-
+			echo $fecha;
 
 			//Ejecución de la consulta
 			$sentencia->execute();
@@ -41,17 +42,17 @@
 		/*
 		 * Función para actualizar un proyecto en la base de datos
 		 */
-		function update_db_project($nombre, $descripcion, $fecha, $usuario){
+		function update_db_project($nombre, $descripcion, $fecha, $idProyecto){
 
 			//Creación de una consulta insertandole parametros para actualizar proyectos
-			$sentencia = $this->_db->prepare("UPDATE Proyecto SET nombreProyecto = :nombre, descripcionProyecto = :descripcion, fechaCreacionProyecto = :fecha, Usuario_idUsuario = :usuario");
+			$sentencia = $this->_db->prepare("UPDATE Proyecto SET nombreProyecto = :nombre, descripcionProyecto = :descripcion, fechaCreacionProyecto = :fecha WHERE idProyecto = :id");
 			$sentencia->bindParam(':nombre', $nombre);
 			$sentencia->bindParam(':descripcion', $descripcion);
 			$sentencia->bindParam(':fecha', $fecha);
-			$sentencia->bindParam(':usuario', $usuario);
+			$sentencia->bindParam(':id', $idProyecto);
 
 			//Ejecución de la consulta
-			$sentencia->execute();
+			return $sentencia->execute();
 		}
 
 		/*
@@ -110,7 +111,7 @@
 		function view_db_img_project($idProyecto){
 
 			//creación de una consulta para recuperar las imagenes de los proyectos
-			$sentencia = $this->_db->prepare("SELECT i.idImagen, i.rutaImagen, i.tituloImagen FROM Proyecto p INNER JOIN Imagen i ON i.Proyecto_idProyecto = p.idProyecto where idProyecto = :id");
+			$sentencia = $this->_db->prepare("SELECT i.idImagen, i.rutaImagen, i.tituloImagen FROM Proyecto p INNER JOIN Imagen i ON i.Proyecto_idProyecto = p.idProyecto WHERE idProyecto = :id");
 			$sentencia->bindParam(':id', $idProyecto);
 
 			$sentencia->execute();

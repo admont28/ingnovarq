@@ -8,19 +8,14 @@
 	$proyectoModel = new ProjectModel();
 	$proyectos = $proyectoModel->view_all_db_projects();
 ?>
-
 	<body id="body">
 		<div class="con" id="con">
 			<div class="container" id="main">
-				
-					<?php 
-						getHeader();
-						getNav();
-					?>
-			</div>
-			
-			
-
+				<?php 
+					getHeader();
+					getNav();
+				?>
+			</div>			
 			<div class="contenido">
 				<div class="row">
 					<?php 
@@ -33,7 +28,6 @@
 								<div class="mask">
 								<h2><?php echo $fila['nombreProyecto']?></h2>
 								<p><?php echo $fila['descripcionProyecto']?></p>
-								
 						<?php
 							$contador = 1;
 							foreach ($imagenes as $columna) {
@@ -48,7 +42,6 @@
 							}
 						}
 						?>
-					
 					<div class="view view-third col-xs-12 col-sm-4 col-md-4">
 	                    <img src="../../images/reserva.png" class="img-responsive" />
 	                    <div class="mask">
@@ -84,8 +77,6 @@
 	                        <a href="#" class="info">Ver imágenes</a>
 	                    </div>
 	                </div>
-	                
-					
 				</div>            	
 			</div>
 		</div>
