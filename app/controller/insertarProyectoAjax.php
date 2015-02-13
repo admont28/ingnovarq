@@ -28,8 +28,8 @@
         else if(strlen($descripcionProyecto) < 5){
             $mensaje = "<script>document.getElementById('e_descripcion_proyecto').innerHTML='El m&iacute;nimo permitido son 5 caracteres';</script>";
         }
-        else if(strlen($descripcionProyecto) > 140){
-            $mensaje = "<script>document.getElementById('e_descripcion_proyecto').innerHTML='El m&aacute;ximo permitido son 140 caracteres';</script>";
+        else if(strlen($descripcionProyecto) > 65535){
+            $mensaje = "<script>document.getElementById('e_descripcion_proyecto').innerHTML='El m&aacute;ximo permitido son 65535 caracteres';</script>";
         }
         else if ($fechaProyecto == ''){
             $mensaje = "<script>document.getElementById('e_fecha_proyecto').innerHTML='El campo Fecha es requerido';</script>";

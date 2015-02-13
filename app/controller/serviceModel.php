@@ -41,17 +41,17 @@
 		/*
 		 * Función para actualizar un servicio en la base de datos
 		 */
-		function update_db_service($nombre, $descripcion, $fecha, $usuario){
+		function update_db_service($nombre, $descripcion, $fecha, $idServicio){
 
 			//Creación de una consulta insertandole parametros para actualizar servicios
-			$sentencia = $this->_db->prepare("UPDATE Servicio SET nombreServicio = :nombre, descripcionServicio = :descripcion, fechaCreacionServicio = :fecha, Usuario_idUsuario = :usuario");
+			$sentencia = $this->_db->prepare("UPDATE Servicio SET nombreServicio = :nombre, descripcionServicio = :descripcion, fechaCreacionServicio = :fecha WHERE idServicio = :idServicio");
 			$sentencia->bindParam(':nombre', $nombre);
 			$sentencia->bindParam(':descripcion', $descripcion);
 			$sentencia->bindParam(':fecha', $fecha);
-			$sentencia->bindParam(':usuario', $usuario);
+			$sentencia->bindParam(':idServicio', $idServicio);
 
 			//Ejecución de la consulta
-			$sentencia->execute();
+			return $sentencia->execute();
 		}
 
 		/*

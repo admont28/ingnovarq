@@ -11,28 +11,31 @@
         $fechaServicio=$_POST['fechaServicio'];
          
         if ($nombreServicio == '' ){
-            $mensaje = "<script>document.getElementById('e_nombre_servicio').innerHTML='El campo nombre es requerido';</script>";
+            $mensaje = "<script>document.getElementById('e_nombre_servicio').innerHTML='El campo nombre es requerido.';</script>";
         }
         else if(!preg_match('/^[0-9a-záéóóúàèìòùäëïöüñ\s]+$/i', $nombreServicio)){
-            $mensaje = "<script>document.getElementById('e_nombre_servicio').innerHTML='Error, s&oacute;lo se permiten letras, n&uacute;meros y acentos latinos';</script>";
+            $mensaje = "<script>document.getElementById('e_nombre_servicio').innerHTML='Error, s&oacute;lo se permiten letras, n&uacute;meros y acentos latinos.';</script>";
         }
         else if(strlen($nombreServicio) < 3){
-            $mensaje = "<script>document.getElementById('e_nombre_servicio').innerHTML='El m&iacute;nimo permitido son 3 caracteres';</script>";
+            $mensaje = "<script>document.getElementById('e_nombre_servicio').innerHTML='El m&iacute;nimo permitido son 3 caracteres.';</script>";
         }
         else if(strlen($nombreServicio) > 45){
-            $mensaje = "<script>document.getElementById('e_nombre_servicio').innerHTML='El m&aacute;ximo permitido son 45 caracteres';</script>";
+            $mensaje = "<script>document.getElementById('e_nombre_servicio').innerHTML='El m&aacute;ximo permitido son 45 caracteres.';</script>";
         }
         else if ($descripcionServicio == null || $descripcionServicio == '' ){
-            $mensaje = "<script>document.getElementById('e_descripcion_proyecto').innerHTML='El campo Descripción es requerido';</script>";
+            $mensaje = "<script>document.getElementById('e_descripcion_servicio').innerHTML='El campo descripci&oacute;n es requerido.';</script>";
         }
         else if(strlen($descripcionServicio) < 5){
-            $mensaje = "<script>document.getElementById('e_descripcion_proyecto').innerHTML='El m&iacute;nimo permitido son 5 caracteres';</script>";
+            $mensaje = "<script>document.getElementById('e_descripcion_servicio').innerHTML='El m&iacute;nimo permitido son 5 caracteres.';</script>";
         }
-        else if(strlen($descripcionServicio) > 140){
-            $mensaje = "<script>document.getElementById('e_descripcion_proyecto').innerHTML='El m&aacute;ximo permitido son 140 caracteres';</script>";
+        else if(strlen($descripcionServicio) > 65535){
+            $mensaje = "<script>document.getElementById('e_descripcion_servicio').innerHTML='El m&aacute;ximo permitido son 65535 caracteres.';</script>";
         }
         else if ($fechaServicio == ''){
-            $mensaje = "<script>document.getElementById('e_fecha_proyecto').innerHTML='El campo Fecha es requerido';</script>";
+            $mensaje = "<script>document.getElementById('e_fecha_servicio').innerHTML='El campo Fecha es requerido.';</script>";
+        }
+        else if(!preg_match('/^\d{4}-\d{2}-\d{2}$/', $fechaServicio)){
+            $mensaje = "<script>document.getElementById('e_fecha_proyecto').innerHTML='El campo fecha no cumple con el formato solicitado.';</script>";
         }
         else{ // Validaciones correctas.
             //Conectar a la base de datos y realizar la consulta para guardar el registro

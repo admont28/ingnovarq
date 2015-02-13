@@ -63,7 +63,7 @@
 											<?php echo $fila['fechaCreacionServicio']; ?>
 										</td>
 										<td>
-											<a href="#sinAccion" class="open" data-toggle="modal" data-target="#myModal" data-id="" title="Editar servicio">
+											<a href="#sinAccion" class="open" data-toggle="modal" data-target="#editService" data-id="<?php echo $fila['idServicio'] ?>" title="Editar servicio">
 												<div><img style="width: 50px;" class="img-responsive" src="../../images/administrador/edit.png"/></div>
 											</a>	
 										</td>	
@@ -80,12 +80,64 @@
 							</table>
 							<?php
 								echo get_confirm_delete_service(); // imprimo el script para eliminar servicios
+								echo get_script_edit_service(); // imprimo el script para editar servicios
 							?>
 							<div id="mensaje"></div>
 						</div>	
 					</div>
 				</div>
 			</div>
+			<!-- Ventana Modal para la edidicón de servicios -->
+			<div class="modal fade" id="editService" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h3 class="modal-title" id="myModalLabel">Editar Proyecto</h3> 
+			      </div>
+
+			      <div class="modal-body">
+			    	<div id="mensaje"></div>
+			      	<form class="form-horizontal" id="form-editar-proyecto-ajax" method="POST">
+			      		 <input type="hidden" name="idServicio" id="idServicio" readonly="readonly">
+					     <div class="form-group">
+					         <label for="nombreServicio" class="control-label col-md-2 col-xs-4">Nombre:</label>
+					         <div class="col-md-10 col-xs-8">
+					            <input type="text" id="nombreServicio" name="nombreServicio" class="form-control"/>
+					         	<div class="col-xs-9 error-text" id="e_nombre_servicio"></div>
+					         </div>
+					     </div>
+						  <div class="form-group">
+					         <label for="descripcionServicio" class="control-label col-md-2 col-xs-4">Descripción:</label>
+					         <div class="col-md-10 col-xs-8">
+					            <textarea id="descripcionServicio" name="descripcionServicio" class="form-control" rows="10"></textarea>
+					         	<div class="col-xs-10 error-text" id="e_descripcion_servicio"></div>
+					         </div>
+					     </div>
+					     <div class="form-group">
+						        <label for="inputName" class="control-label col-md-2 col-xs-4">Fecha:</label>
+						         <div class="col-md-10 col-xs-8">
+						         	<input type="text" id="fecha" class="form-control" placeholder="aaaa-mm-dd" readonly="readonly" data-date-language="es">
+						         	<div class="col-xs-10 error-text" id="e_fecha_servicio"></div>
+						         </div>
+						  </div>	
+					     <div class="form-group">
+					        <div class="col-md-offset-2 col-md-10 col-xs-offset-4 col-xs-9">							         
+					         	<button type="submit" id="btn-editar-servicio-ajax" class="btn btn-success">
+					            	<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Guardar Cambios
+					            </button>
+					        </div>
+					     </div>
+					</form>   	 
+			      </div>
+
+			      <div class="modal-footer">
+			        <button type="button" id="cerrar" class="btn btn-default" data-dismiss="modal">Cerrar</button>   
+			      </div>
+			    </div>
+			  </div>
+			</div> <!-- /- Cierro la ventana para la edición de servicios-->
 		</div> <!-- cierro el container principal-->
 		<?php
 			getFooter(); 

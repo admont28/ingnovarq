@@ -143,7 +143,7 @@
 			return $response;
 		}
 
-		function view_image_db_service($idServicio){
+		function view_images_db_service($idServicio){
 
 			$sentencia = $this->_db->prepare("SELECT * FROM Imagen WHERE Servicio_idServicio = :idServicio");
 			$sentencia->bindParam('idServicio', $idServicio);

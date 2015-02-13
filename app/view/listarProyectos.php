@@ -90,7 +90,7 @@
 							</div>
 						</div>
 					</div>
-						<!-- Ventana Modal para la misión empresarial -->
+					<!-- Ventana Modal para la edición de proyectos -->
 					<div class="modal fade" id="editProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					  <div class="modal-dialog">
 					    <div class="modal-content">
@@ -140,7 +140,7 @@
 					      </div>
 					    </div>
 					  </div>
-					</div> <!-- /- Cierro la ventana Modal para la misión empresarial-->
+					</div> <!-- /- Cierro la ventana modal para la edición de proyectos-->
 				</div> <!-- cierro el container principal-->
 				<?php
 					getFooter(); 

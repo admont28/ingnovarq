@@ -50,8 +50,8 @@
             $mensajes[] = "<script>document.getElementById('e_descripcion_proyecto').innerHTML='El m&iacute;nimo permitido son 5 caracteres';</script>";
             $error = true;
         }
-        else if(strlen($descripcionProyecto) > 140){
-            $mensajes[] = "<script>document.getElementById('e_descripcion_proyecto').innerHTML='El m&aacute;ximo permitido son 140 caracteres';</script>";
+        else if(strlen($descripcionProyecto) > 65535){
+            $mensajes[] = "<script>document.getElementById('e_descripcion_proyecto').innerHTML='El m&aacute;ximo permitido son 65535 caracteres';</script>";
             $error = true;
         }
         if($fechaProyecto == null || $fechaProyecto == ''){
@@ -80,9 +80,8 @@
                     $imagenModel->update_db_path_image($nuevaRutaImagen, $fila['idImagen']); // actualizo la ruta de la imagen segun el nuevo nombre del proyecto
                 }
             }
-            if($consulta){
+            if($consulta)
                 $mensajes[] = get_success_edit_project(); // obtengo el mensaje de que todo ha salido bien.
-            }
             else
                 $mensajes[] = get_error_edit_project(); // mensaje de error
         }

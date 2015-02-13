@@ -481,4 +481,30 @@ $(document).ready(function() {
         return false; // Evitar ejecutar el submit del formulario.   
   });
 
+    $('#btn-editar-servicio-ajax').click(function(){
+        var url = "../controller/editarServicioAjax"; // El script a dónde se realizará la petición.
+        var datos = {
+                    idServicio: $("#idServicio").val(),
+                    nombreServicio: $("#nombreServicio").val(),
+                    descripcionServicio: $("#descripcionServicio").val(),
+                    fecha: $("#fecha").val()
+                  }
+        $.ajax({
+           type: "POST",
+           url: url,
+           dataType: 'json',
+           data: datos, // Adjuntar los campos del formulario enviado.
+           success: function(data)
+           {
+                $("#e_nombre_servicio").html('');
+                $("#e_descripcion_servicio").html('');
+                $("#e_fecha_servicio").html('');
+                for (var i = 0; i < data.length; i++) {
+                    $("#mensaje").html(data[i]); // Mostrar la respuestas del script PHP.
+                };
+           }
+        });
+        return false; // Evitar ejecutar el submit del formulario.   
+  });
+
 });
