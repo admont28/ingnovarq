@@ -160,7 +160,33 @@
         return $mensaje;
     }
 
-    function get_script_edit_user(){
+       function get_script_edit_project(){
+        $mensaje = "<script type='text/javascript'>
+                        $('.open').click(function(){
+                            $('#e_nombre_proyecto').html(''); // limpio los campos de los errores.
+                            $('#e_descripcion_proyecto').html('');
+                            var idProyecto = $(this).data('id');
+                            var parametros = {
+                                'idProyecto' : idProyecto,
+                            };
+                            var url = '../controller/editarProyectoAjax'; // El script a dónde se realizará la petición.
+                            $.ajax({
+                               type: 'POST',
+                               url: url,
+                               data: parametros, // Adjuntar los campos a enviar
+                               success: function(data)
+                               {
+                                   $('#mensaje').html(data); // Mostrar la respuestas del script PHP.
+
+                               }
+                            });
+                        });
+                    </script>";
+        return $mensaje;
+
+    }
+
+      function get_script_edit_user(){
         $mensaje = "<script type='text/javascript'>
                         $('.open').click(function(){
                             $('#e_nombre').html(''); // limpio los campos de los errores.
@@ -180,12 +206,49 @@
                                success: function(data)
                                {
                                    $('#mensaje').html(data); // Mostrar la respuestas del script PHP.
+                                   console.log(data);
                                }
                             });
                         });
                     </script>";
         return $mensaje;
     }
+
+    function get_error_edit_project(){
+        $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción No Exitosa :(',
+                                text: 'No se ha podido editar el proyecto con éxito, porfavor recarga la página e inténtalo de nuevo.',
+                                type: 'error',
+                                delay: 6000,
+                                animation: 'show',
+                            });
+                        });
+                    </script>";
+        return $mensaje;
+    }
+
+    function get_success_edit_project(){
+        $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción Exitosa',
+                                text: 'El proyecto se ha editado con exito.<br>La página será recargada en 5 segundos.',
+                                type: 'success',
+                                delay: 6500,
+                                animation: 'show',
+                            });
+                        });
+
+                    setTimeout(function(){
+                        location.reload();
+                    }, 5000);
+                </script>";
+        return $mensaje;
+    }
+
+  
 
     function get_success_edit_user($cedula){
         $mensaje = "<script type='text/javascript'>
