@@ -277,6 +277,84 @@ $(document).ready(function() {
      });
    }
 
+   $('.open2').click(function(){
+      var id = $(this).data('id');
+      $('#idServicio2').val(id);
+      var data= { idServicio: id };
+      $.ajax({
+          type: "POST",
+          url: "../controller/cargarImagenesServicio",
+          dataType: "json",
+          data: data,
+          success: function(data) 
+          {
+              cargar(data.rutaServicio);
+          }
+      });
+   });  
+
+   function cargar(rutaServicio){
+    var upload = $("#cargarImagenesServicio").uploadFile({
+        url: "../controller/cargarImagenesServicio",
+        multiple:true,
+        maxFileCount:30,
+        maxFileSize: 5145728,
+        allowedTypes: "png,jpg,jpeg", // extensiones permitidas
+        fileName: "myfile", //nombre del archivo a enviar por $_Files
+        showProgress: true, //mostrar barra de progreso
+        showPreview: true, //mostrar previsualización de las imagenes a cargar
+        autoSubmit: true, //deshabilitar el envio del archivo automaticamente, para poder ser enviado se utiliza la función startUpload()
+        showStatusAfterSuccess: true, //mostrar estado despues de haber cargado correctamente las imagenes
+        maxFileCountErrorStr: "Acción no permitida, el número máximo de archivos a subir es: ", //string que aparece al momento de tener un error del número máximo de archivos
+        dragDropStr: "<span><b> Arrastra &amp; Suelta los Archivos</b></span>", //string que aparece al momento de tener un error de arrastrar y soltar varios archivos cuando la opción multiple está en false
+        sizeErrorStr: "Acción no permitida, el tamaño máximo del archivo es: ", //string que aparece cuando los archivos superan el tamaño máximo permitido
+        extErrorStr: "Acción no permitida, las extensiones válidas son: ", //string que aparece cuando existe un error en las extensiones de los archivos a cargar
+        cancelStr: "Cancelar", //string del botón cancelar
+        uploadButtonClass:"btn btn-info", //clase del botón de carga, se definió una clase de bootstrap
+        uploadFolder: ""+rutaServicio+"/",
+        onLoad:function(obj)
+        {
+            var data= {
+              rutaServicio: rutaServicio,
+            };
+            $.ajax({
+                cache: false,
+                type: "POST",
+                url: "../controller/cargarImagenesServicio",
+                dataType: "json",
+                data: data,
+                success: function(data) 
+                {
+                    for(var i=0;i<data.length;i++)
+                    {
+                        obj.createProgress(data[i]);
+                    }
+                }
+            });
+        },
+        dynamicFormData:function()
+        {
+            var id = $("#idServicio2").val(); //capturo el id de la imagen cargado en el input oculto
+            // los datos que se van a enviar
+            var data = { idServicio: id, cargar : 'cargar' };
+            return data; //debo retornar data para poder que se envien junto con las imagenes.
+        },
+        deleteCallback: function(data,pd)
+        {
+            for(var i=0;i<data.length;i++)
+            {
+                $.post("delete.php",{op:"delete",name:data[i]},
+                function(resp, textStatus, jqXHR)
+                {
+                    //Show Message  
+                    alert("File Deleted");      
+                });
+             }      
+            pd.statusbar.hide(); //You choice to hide/not.
+        }
+      });
+   }
+
     // Datapicker para las fechas en general.
     $('#fecha').datepicker({
       format: "yyyy-mm-dd",
@@ -293,7 +371,6 @@ $(document).ready(function() {
         else{
             $('.ajax-file-upload-preview').show();
         }
-
     });
 
     // al dar clic en guardar cambios al momento de editar una imagen del slider
@@ -506,5 +583,4 @@ $(document).ready(function() {
         });
         return false; // Evitar ejecutar el submit del formulario.   
   });
-
 });

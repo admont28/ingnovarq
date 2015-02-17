@@ -39,6 +39,7 @@
 									<th>Descripción</th>
 									<th>Creado Por</th>
 									<th>Fecha de Creación</th>
+									<th>Agregar Imágenes</th>
 									<th>Editar</th>
 									<th>Eliminar</th>
 								</thead>
@@ -61,6 +62,11 @@
 										</td>
 										<td>
 											<?php echo $fila['fechaCreacionServicio']; ?>
+										</td>
+										<td>
+											<a href="#sinAccion" class="open2" data-toggle="modal" data-target="#addImageService" data-id="<?php echo $fila['idServicio'] ?>" title="Agregar imágenes al servicio">
+												<div><img style="width: 50px;" class="img-responsive" src="../../images/administrador/slider.png"/></div>
+											</a>	
 										</td>
 										<td>
 											<a href="#sinAccion" class="open" data-toggle="modal" data-target="#editService" data-id="<?php echo $fila['idServicio'] ?>" title="Editar servicio">
@@ -138,6 +144,45 @@
 			    </div>
 			  </div>
 			</div> <!-- /- Cierro la ventana para la edición de servicios-->
+
+			<!-- Ventana Modal para agregar imágenes a servicios -->
+			<div class="modal fade" id="addImageService" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h3 class="modal-title" id="myModalLabel">Agregar imágenes a servicio</h3> 
+			      </div>
+
+			      <div class="modal-body">
+			    	<div id="mensaje"></div>
+			      	<form class="form-horizontal" id="form-editar-proyecto-ajax" method="POST">
+			      		<input type="hidden" name="idServicio2" id="idServicio2" readonly="readonly">
+					    <label class="control-label col-md-2 col-xs-3">Imágenes:</label>
+			         	<div class="col-md-10 col-xs-9" id="cargador">
+			            	<div id="cargarImagenesServicio">Cargar imágenes</div>
+			            	<div class="col-xs-9 error-text" id="e_imagen_servicio"></div> 
+			         	</div>
+					    <div class="form-group">
+					        <div class="col-md-offset-2 col-md-10 col-xs-offset-4 col-xs-9">							         
+					         	<button type="submit" id="btn-agregar-imagenes-servicio-ajax" class="btn btn-success">
+					            	<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Guardar Cambios
+					            </button>
+					            <label>
+					            	<input type="checkbox" id="previsualizacion"> Ocultar Previsualización
+					            </label>
+					        </div>
+					    </div>
+					</form>   	 
+			      </div>
+
+			      <div class="modal-footer">
+			        <button type="button" id="cerrar" class="btn btn-default" data-dismiss="modal">Cerrar</button>   
+			      </div>
+			    </div>
+			  </div>
+			</div> <!-- /- Cierro la ventana modal agregar imágenes a servicios-->
 		</div> <!-- cierro el container principal-->
 		<?php
 			getFooter(); 

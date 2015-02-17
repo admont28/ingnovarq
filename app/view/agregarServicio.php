@@ -54,9 +54,9 @@
 								        </div>
 								    </div>	
 								    <div class="form-group">
-							     		<label class="control-label col-xs-3">Imagen:</label>
+							     		<label class="control-label col-xs-3">Imágenes:</label>
 							         	<div class="col-xs-9" id="cargador">
-							            	<div id="fileuploader">Cargar imagen</div>
+							            	<div id="fileuploader">Cargar imágenes</div>
 							            	<div class="col-xs-9 error-text" id="e_imagen_servicio"></div> 
 							         	</div>
 							     	</div> 							     
