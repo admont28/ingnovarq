@@ -275,6 +275,27 @@ $(document).ready(function() {
            return data;
          }
      });
+   }else if($('#btn-agregar-imagenes-proyecto-ajax').length){
+      uploadObj.update({
+         url: "../controller/agregarImagenesProyecto",
+         multiple:true,
+         maxFileCount:30,
+         maxFileSize: 5145728,
+         dynamicFormData:function(){
+          var idProyectoimagen = $('#idProyectoImg').val();
+
+          //los datos que se van a enviar
+          var data = {
+            idProyectoImag : idProyectoimagen //id del proyecto
+          };
+          console.log(data);
+          return data;
+         },
+         onSelect:function(files,data,xhr){},   
+         onCancel:function(files,pd){},
+         onSuccess:function(files,data,xhr,pd){},
+         afterUploadAll:function(obj){},
+      });
    }
 
     // Datapicker para las fechas en general.
@@ -494,8 +515,7 @@ $(document).ready(function() {
            url: url,
            dataType: 'json',
            data: datos, // Adjuntar los campos del formulario enviado.
-           success: function(data)
-           {
+           success: function(data){
                 $("#e_nombre_servicio").html('');
                 $("#e_descripcion_servicio").html('');
                 $("#e_fecha_servicio").html('');
@@ -506,5 +526,30 @@ $(document).ready(function() {
         });
         return false; // Evitar ejecutar el submit del formulario.   
   });
+
+  $('#btn-agregar-imagenes-proyecto-ajax').click(function(){ 
+        var idProyectoimagen = $('#idProyectoImg').val();
+        var data = {
+            idProyectoImag : idProyectoimagen //nombre del Proyecto
+         };                
+         $.ajax({
+            type: "POST",
+            url: "../controller/agregarImagenesProyecto",
+            dataType: 'json',
+            data: data, // Adjuntar los campos del formulario enviado.
+            success: function(data)
+            {     console.log("llego y no se que pasa");
+                  if(data.estado == "fail"){
+                     uploadObj.stopUpload();
+                  }
+                  else if(data.estado == "success"){
+                     uploadObj.startUpload();
+                  }
+                  $("#mensaje").html(data.mensaje);
+            }
+          });
+         return false; // Evitar ejecutar el submit del formulario.    
+        
+   });
 
 });

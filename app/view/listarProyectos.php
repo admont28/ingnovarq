@@ -43,6 +43,8 @@
 											<th>Creado Por</th>
 											<th>Fecha de Creación</th>
 											<th>Editar</th>
+											<th>AgregarImg</th>
+											<th>EliminarImg</th>
 											<th>Eliminar</th>
 										</thead>
 										<tbody>
@@ -69,6 +71,16 @@
 													<a href="#sinAccion" class="open" data-toggle="modal" data-target="#editProject" data-id="<?php echo $fila['idProyecto'] ?>" title="Editar proyecto">
 														<div><img style="width: 50px;" class="img-responsive" src="../../images/administrador/edit.png"/></div>
 													</a>	
+												</td>
+												<td>
+													<a href="#sinAccion" class="abrir" data-toggle="modal" data-target="#subirImagenesProyecto" data-id="<?php echo $fila['idProyecto'] ?>" title="Subir Imagenes Proyecto">
+														<div><img style="width: 50px;" class="img-responsive" src="../../images/administrador/slider.png"/></div>
+													</a>	
+												</td>
+												<td>
+													<a href="#sinAccion" class="open" data-toggle="modal" data-target="#eliminarImagenesProyecto" data-id="<?php echo $fila['idProyecto'] ?>" title="Eliminar Imagenes Proyecto">
+														<div><img style="width: 50px;" class="img-responsive" src="../../images/administrador/slider.png"/></div>
+													</a>	
 												</td>	
 												<td>
 													<a href="#sinAccion" onclick="eliminarProyecto(<?php echo $fila['idProyecto'] ?>, '<?php echo $fila['nombreProyecto'] ?>');">
@@ -84,6 +96,8 @@
 									<?php
 										echo get_confirm_delete_project(); // imprimo el script para eliminar proyectos
 										echo get_script_edit_project();
+										echo get_script_edit_images_project();
+
 									?>
 									<div id="mensaje"></div>
 								</div>	
@@ -141,6 +155,95 @@
 					    </div>
 					  </div>
 					</div> <!-- /- Cierro la ventana modal para la edición de proyectos-->
+					<!-- Ventana Modal para subir Imagenes a un proyecto proyectos -->
+					<div class="modal fade" id="subirImagenesProyecto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h3 class="modal-title" id="myModalLabel">Agregar Imagenes al Proyecto</h3> 
+					      </div>
+
+					      <div class="modal-body">
+					    	<div id="mensaje"></div>
+					    	<input type="hidden" name="idProyectoImg" id="idProyectoImg" readonly="readonly">
+					      	<div class="form-group">
+						     	 <label class="control-label col-xs-3">Imagenes:</label>
+						         <div class="col-xs-9" id="cargador">
+						            <div id="fileuploader">Cargar imagen</div>
+						            <div class="col-xs-9 error-text" id="e_imagenes_proyecto"></div> 
+						         </div>
+					     	</div> 							     
+						    <div class="form-group">
+						        <div class="col-xs-offset-3 col-xs-9">
+						            <div id="btn-agregar-imagenes-proyecto-ajax" class="btn btn-success">
+						            	<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Agregar Imagenes al Proyecto
+						            </div> 
+						            <label>
+						            	<input type="checkbox" id="previsualizacion"> Ocultar Previsualización
+						            </label>
+						        </div>
+					     	</div>   	 
+					      </div>
+
+					      <div class="modal-footer">
+					        <button type="button" id="cerrar" class="btn btn-default" data-dismiss="modal">Cerrar</button>   
+					      </div>
+					    </div>
+					  </div>
+					</div> <!-- /- Cierro la ventana modal subir imagenes a proyectos -->
+					<!-- Ventana Modal para eliminar imagenes de proyectos -->
+					<div class="modal fade" id="editProject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h3 class="modal-title" id="myModalLabel">Eliminar Imagenes del Proyecto</h3> 
+					      </div>
+
+					      <div class="modal-body">
+					    	<div id="mensaje"></div>
+					      	<form class="form-horizontal" id="form-editar-proyecto-ajax" method="POST">
+					      		 <input type="hidden" name="idProyecto" id="idProyecto" readonly="readonly">
+							     <div class="form-group">
+							         <label for="nombreProyecto" class="control-label col-md-2 col-xs-4">Nombre:</label>
+							         <div class="col-md-10 col-xs-8">
+							            <input type="text" id="nombreProyecto" name="nombreProyecto" class="form-control"/>
+							         	<div class="col-xs-9 error-text" id="e_nombre_proyecto"></div>
+							         </div>
+							     </div>
+								  <div class="form-group">
+							         <label for="descripcionProyecto" class="control-label col-md-2 col-xs-4">Descripción:</label>
+							         <div class="col-md-10 col-xs-8">
+							            <textarea id="descripcionProyecto" name="descripcionProyecto" class="form-control" rows="10"></textarea>
+							         	<div class="col-xs-10 error-text" id="e_descripcion_proyecto"></div>
+							         </div>
+							     </div>
+							     <div class="form-group">
+								        <label for="inputName" class="control-label col-md-2 col-xs-4">Fecha:</label>
+								         <div class="col-md-10 col-xs-8">
+								         	<input type="text" id="fecha" class="form-control" placeholder="aaaa-mm-dd" readonly="readonly" data-date-language="es">
+								         	<div class="col-xs-10 error-text" id="e_fecha_proyecto"></div>
+								         </div>
+								  </div>	
+							     <div class="form-group">
+							        <div class="col-md-offset-2 col-md-10 col-xs-offset-4 col-xs-9">							         
+							         	<button type="submit" id="btn-editar-projecto-ajax" class="btn btn-success">
+							            	<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Guardar Cambios
+							            </button>
+							        </div>
+							     </div>
+							</form>   	 
+					      </div>
+
+					      <div class="modal-footer">
+					        <button type="button" id="cerrar" class="btn btn-default" data-dismiss="modal">Cerrar</button>   
+					      </div>
+					    </div>
+					  </div>
+					</div> <!-- /- Cierro la ventana modal para eliminar imagenes de proyectos-->
 				</div> <!-- cierro el container principal-->
 				<?php
 					getFooter(); 
