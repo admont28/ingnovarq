@@ -93,36 +93,36 @@
 
 		}
 
-		function delete_db_image_project($idProyecto, $idImagen){
+		function delete_db_image_project($idProyecto, $rutaImagen){
 
 			//Creación de una consulta insertandole parametros para eliminar
-			$sentencia = $this->_db->prepare("DELETE FROM Imagen WHERE Proyecto_idProyecto = :idProyecto AND idImagen = :idImagen");
+			$sentencia = $this->_db->prepare("DELETE FROM Imagen WHERE Proyecto_idProyecto = :idProyecto AND rutaImagen = :rutaImagen");
 			$sentencia->bindParam(':idProyecto', $idProyecto);
-			$sentencia->bindParam(':idImagen', $idImagen);
+			$sentencia->bindParam(':rutaImagen', $rutaImagen);
 
 			//Ejecución de la consulta
 			$sentencia->execute();
 
 		}
 
-		function delete_db_image_service($idServicio, $idImagen){
+		function delete_db_image_service($idServicio, $rutaImagen){
 
 			//Creación de una consulta insertandole parametros para eliminar
-			$sentencia = $this->_db->prepare("DELETE FROM Imagen WHERE Servicio_idServicio = :idServicio AND idImagen = :idImagen");
+			$sentencia = $this->_db->prepare("DELETE FROM Imagen WHERE Servicio_idServicio = :idServicio AND rutaImagen = :rutaImagen");
 			$sentencia->bindParam(':idServicio', $idServicio);
-			$sentencia->bindParam(':idImagen', $idImagen);
+			$sentencia->bindParam(':rutaImagen', $rutaImagen);
 
 			//Ejecución de la consulta
 			$sentencia->execute();
 
 		}
 
-		function delete_db_image_client($idCliente, $idImagen){
+		function delete_db_image_client($idCliente, $rutaImagen){
 
 			//Creación de una consulta insertandole parametros para eliminar
-			$sentencia = $this->_db->prepare("DELETE FROM Imagen WHERE Cliente_idCliente = :idCliente AND idImagen = :idImagen");
+			$sentencia = $this->_db->prepare("DELETE FROM Imagen WHERE Cliente_idCliente = :idCliente AND rutaImagen = :rutaImagen");
 			$sentencia->bindParam(':idCliente', $idCliente);
-			$sentencia->bindParam(':idImagen', $idImagen);
+			$sentencia->bindParam(':rutaImagen', $rutaImagen);
 
 			//Ejecución de la consulta
 			return $sentencia->execute();

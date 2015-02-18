@@ -33,8 +33,28 @@
 		die();
     }
     else if(isset($_FILES) && isset($_POST['idServicio'], $_POST['cargar'])){
-    	print_r($_POST);
-    	print_r($_FILES);
+    	require_once ("serviceModel.php");
+        require_once ("imagenModel.php");
+        $serviceModel = new ServiceModel();
+        $idServicio = $_POST['idServicio'];        
+        $consulta = $serviceModel->view_db_service($idServicio);
+        if($consulta != null){
+        	$imagenModel = new ImagenModel(); 
+        	$ruta = "../../images/servicios/".$consulta['nombreServicio']."/";
+        	if(is_dir($ruta)){
+	            $fileName = $_FILES["myfile"]["name"];
+	            if (move_uploaded_file($_FILES["myfile"]["tmp_name"],$ruta.$fileName)){
+	                $respuesta = $imagenModel->insert_images_service($ruta.$fileName, $fileName, $idServicio);
+	                echo $respuesta;
+	                die();
+	            }
+	            else{
+	                $mensaje = get_error_insert_image($fileName);
+	                echo $mensaje;
+	                die();
+	            }
+        	}
+        }
     }
 
 

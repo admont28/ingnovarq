@@ -44,7 +44,6 @@
 											<th>Fecha de Creación</th>
 											<th>Editar</th>
 											<th>AgregarImg</th>
-											<th>EliminarImg</th>
 											<th>Eliminar</th>
 										</thead>
 										<tbody>
@@ -76,12 +75,7 @@
 													<a href="#sinAccion" class="abrir" data-toggle="modal" data-target="#subirImagenesProyecto" data-id="<?php echo $fila['idProyecto'] ?>" title="Subir Imagenes Proyecto">
 														<div><img style="width: 50px;" class="img-responsive" src="../../images/administrador/slider.png"/></div>
 													</a>	
-												</td>
-												<td>
-													<a href="#sinAccion" class="open" data-toggle="modal" data-target="#eliminarImagenesProyecto" data-id="<?php echo $fila['idProyecto'] ?>" title="Eliminar Imagenes Proyecto">
-														<div><img style="width: 50px;" class="img-responsive" src="../../images/administrador/slider.png"/></div>
-													</a>	
-												</td>	
+												</td>													
 												<td>
 													<a href="#sinAccion" onclick="eliminarProyecto(<?php echo $fila['idProyecto'] ?>, '<?php echo $fila['nombreProyecto'] ?>');">
 														<div><img style="width: 50px;" class="img-responsive" src="../../images/administrador/delete.png" title="Eliminar proyecto"/></div>
@@ -96,7 +90,6 @@
 									<?php
 										echo get_confirm_delete_project(); // imprimo el script para eliminar proyectos
 										echo get_script_edit_project();
-										echo get_script_edit_images_project();
 
 									?>
 									<div id="mensaje"></div>
@@ -171,7 +164,7 @@
 					      	<div class="form-group">
 						     	 <label class="control-label col-xs-3">Imagenes:</label>
 						         <div class="col-xs-9" id="cargador">
-						            <div id="fileuploader">Cargar imagen</div>
+						            <div id="agregarImagenesProyecto">Cargar imagen</div>
 						            <div class="col-xs-9 error-text" id="e_imagenes_proyecto"></div> 
 						         </div>
 					     	</div> 							     

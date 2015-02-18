@@ -963,29 +963,6 @@
                 </script>";
         return $mensaje;
     }
-    function get_script_edit_images_project(){
-         $mensaje = "<script type='text/javascript'>
-                        $('.abrir').click(function(){
-                            $('#e_imagenes_proyecto').html(''); // limpio los campos de los errores. 
-                            var idProyecto = $(this).data('id');
-                            var parametros = {
-                                'idProyecto' : idProyecto,
-                            };
-                            var url = '../controller/agregarImagenesProyecto'; // El script a dónde se realizará la petición.
-
-                            $.ajax({
-                               type: 'POST',
-                               url: url,
-                               data: parametros, // Adjuntar los campos a enviar
-                               success: function(data)
-                               {
-                                   $('#mensaje').html(data); // Mostrar la respuestas del script PHP.
-                               }
-                            });
-                        });
-                    </script>";
-        return $mensaje;
-        
-    }
+    
 
 ?>
