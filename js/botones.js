@@ -405,7 +405,9 @@ $(document).ready(function() {
         fileName: "myfile", //nombre del archivo a enviar por $_Files
         showProgress: true, //mostrar barra de progreso
         showPreview: true, //mostrar previsualización de las imagenes a cargar
-        autoSubmit: true, //deshabilitar el envio del archivo automaticamente, para poder ser enviado se utiliza la función startUpload()
+        autoSubmit: true, //habilitar el envio del archivo automaticamente, para poder ser enviado se utiliza la función startUpload()
+        showDelete: true, //habitiliar la opción de eliminar una imagen cuando sea cargada.
+        showDone: false, //desahbilitar la opción de done cuando se cargue una imagen
         showStatusAfterSuccess: true, //mostrar estado despues de haber cargado correctamente las imagenes
         maxFileCountErrorStr: "Acción no permitida, el número máximo de archivos a subir es: ", //string que aparece al momento de tener un error del número máximo de archivos
         dragDropStr: "<span><b> Arrastra &amp; Suelta los Archivos</b></span>", //string que aparece al momento de tener un error de arrastrar y soltar varios archivos cuando la opción multiple está en false
@@ -420,7 +422,7 @@ $(document).ready(function() {
               rutaServicio: rutaServicio,
             };
             $.ajax({
-                cache: false,
+                cache: true,
                 type: "POST",
                 url: "../controller/cargarImagenesServicio",
                 dataType: "json",
@@ -438,20 +440,20 @@ $(document).ready(function() {
         {
             var id = $("#idServicio2").val(); //capturo el id de la imagen cargado en el input oculto
             // los datos que se van a enviar
-            console.log(id);
             var data = { idServicio: id, cargar : 'cargar' };
             return data; //debo retornar data para poder que se envien junto con las imagenes.
         },
         deleteCallback: function(data,pd)
         {
             var idServicio1 = $("#idServicio2").val();
+            
             for(var i=0;i<data.length;i++)
             {
+                console.log("datos del arreglo "+data[i]);
                 $.post("../controller/eliminarImagenesServicio",{op:"delete",name:data[i], idServicio: idServicio1},
                 function(resp, textStatus, jqXHR)
                 {
-                    //Show Message  
-                    alert("File Deleted");      
+                    $('#mensaje').html(resp);
                 });
              }      
             pd.statusbar.hide(); //You choice to hide/not.
