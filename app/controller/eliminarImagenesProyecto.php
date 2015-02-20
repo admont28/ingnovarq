@@ -1,7 +1,7 @@
 <?php
 session_start();
     if(!isset($_SESSION['idUsuario'],$_SESSION['nombreUsuario'], $_SESSION['apellidoUsuario'], $_SESSION['superAdminUsuario']) || $_SESSION['superAdminUsuario'] == 0){
-            print_r($_SESSION);
+            header('location: error');
     }
     if(isset($_POST["op"]) && $_POST["op"] == "delete" && isset($_POST['name']) && isset($_POST['idProyecto'])){
 	    require_once ("projectModel.php");

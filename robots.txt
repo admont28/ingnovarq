@@ -1,0 +1,11 @@
+#Archivo de configuracion de robots.txt
+#cualquier agente de usuario
+User-Agent: *
+# restricción al directorio js para los robots
+Disallow:/js/
+# restricción al directorio /app/controller para los robots
+Disallow:/app/controller/
+# restricción el archivo administrador.php
+Disallow:/app/view/administrador.php
+# los robots tienen que esperar 60 segundos entre cada acceso.
+Crawl-delay: 60 

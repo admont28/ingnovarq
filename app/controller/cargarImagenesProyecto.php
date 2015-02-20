@@ -1,12 +1,9 @@
 <?php
     session_start();
     if(!isset($_POST["ajax"], $_SESSION['idUsuario'],$_SESSION['nombreUsuario'], $_SESSION['apellidoUsuario'], $_SESSION['superAdminUsuario']) || $_SESSION['superAdminUsuario'] == 0){
-            print_r($_SESSION);
-            
+            header('location: error');
     }
-
     $mensaje = null;
-
     $nombreProyecto = htmlspecialchars($_POST["nombreProyecto"]);
     $descripcionProyecto = htmlspecialchars($_POST["descripcionProyecto"]);
     $fechaProyecto=$_POST['fecha_proyecto'];

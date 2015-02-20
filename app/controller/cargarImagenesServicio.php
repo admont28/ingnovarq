@@ -1,7 +1,7 @@
 <?php
 	session_start();
     if(!isset($_SESSION['idUsuario'],$_SESSION['nombreUsuario'], $_SESSION['apellidoUsuario'], $_SESSION['superAdminUsuario']) || $_SESSION['superAdminUsuario'] == 0){
-            print_r($_SESSION);
+            header('location: error');
     }
     if(sizeof($_POST) == 1 && isset($_POST['idServicio'])){
 	    require_once ("serviceModel.php");
@@ -45,7 +45,7 @@
 	            $fileName = $_FILES["myfile"]["name"];
 	            if (move_uploaded_file($_FILES["myfile"]["tmp_name"],$ruta.$fileName)){
 	                $respuesta = $imagenModel->insert_images_service($ruta.$fileName, $fileName, $idServicio);
-	                echo $respuesta;
+	                echo $fileName;
 	                die();
 	            }
 	            else{

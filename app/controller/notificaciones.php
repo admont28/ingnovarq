@@ -983,8 +983,8 @@
         $mensaje = "<script type='text/javascript'>
                         $(function(){
                             new PNotify({
-                                title: 'Acción Exitosa',
-                                text: 'No se ha podido eliminar la imagen'".$nombreImagen."',
+                                title: 'Acción No Exitosa',
+                                text: 'No se ha podido eliminar la imagen".$nombreImagen."',
                                 type: 'success',
                                 delay: 6500,
                                 animation: 'show',

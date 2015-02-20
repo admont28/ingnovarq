@@ -298,7 +298,7 @@ $(document).ready(function() {
       });
    }
 
-   $('.open2').click(function(){
+   $('.openModalServicio').click(function(){
       var id = $(this).data('id');
       $('#idServicio2').val(id);
       var data= { idServicio: id };
@@ -309,12 +309,12 @@ $(document).ready(function() {
           data: data,
           success: function(data) 
           {
-              cargar(data.rutaServicio);
+              cargarImagenesServicio(data.rutaServicio);
           }
       });
    }); 
 
-   $('.abrir').click(function(){
+   $('.openModalProyectos').click(function(){
       var id = $(this).data('id');
       $('#idProyectoImg').val(id);
       var data= { idProyecto: id };
@@ -325,12 +325,17 @@ $(document).ready(function() {
           data: data,
           success: function(data) 
           {
-              cargar2(data.rutaProyecto);
+              cargarImagenesProyecto(data.rutaProyecto);
           }
       });
    }); 
 
-   function cargar2(rutaProyecto){
+   function cargarImagenesProyecto(rutaProyecto){
+    // Elimino los div si antes habían sido construidos.
+    $("#cargarImagenesServicio").remove();
+    $(".ajax-file-upload-statusbar").remove();
+    $(".ajax-upload-dragdrop").remove();
+    // vuelvo a colocar el div para cargar las imágenes
     var upload = $("#agregarImagenesProyecto").uploadFile({
         url: "../controller/agregarImagenesProyecto",
         multiple:true,
@@ -395,7 +400,13 @@ $(document).ready(function() {
       });
    }
 
-   function cargar(rutaServicio){
+   function cargarImagenesServicio(rutaServicio){
+    // Elimino los div si antes habían sido construidos.
+    $("#cargarImagenesServicio").remove();
+    $(".ajax-file-upload-statusbar").remove();
+    $(".ajax-upload-dragdrop").remove();
+    // vuelvo a colocar el div para cargar las imágenes
+    $("#cargador").append("<div id='cargarImagenesServicio'>Cargar imágenes</div>");
     var upload = $("#cargarImagenesServicio").uploadFile({
         url: "../controller/cargarImagenesServicio",
         multiple:true,
@@ -446,16 +457,20 @@ $(document).ready(function() {
         deleteCallback: function(data,pd)
         {
             var idServicio1 = $("#idServicio2").val();
-            
-            for(var i=0;i<data.length;i++)
+            var nombreArchivo = "";
+            if(typeof(data) == "string"){
+              for (var i = 1; i < data.length; i++) {
+                nombreArchivo += data[i];
+              }
+            }
+            else
+              nombreArchivo = data[0];
+            $.post("../controller/eliminarImagenesServicio",{op:"delete",name:nombreArchivo, idServicio: idServicio1},
+            function(resp, textStatus, jqXHR)
             {
-                console.log("datos del arreglo "+data[i]);
-                $.post("../controller/eliminarImagenesServicio",{op:"delete",name:data[i], idServicio: idServicio1},
-                function(resp, textStatus, jqXHR)
-                {
-                    $('#mensaje').html(resp);
-                });
-             }      
+                $('#mensaje').html(resp);
+            });
+                   
             pd.statusbar.hide(); //You choice to hide/not.
         }
       });

@@ -64,7 +64,7 @@
 											<?php echo $fila['fechaCreacionServicio']; ?>
 										</td>
 										<td>
-											<a href="#sinAccion" class="open2" data-toggle="modal" data-target="#addImageService" data-id="<?php echo $fila['idServicio'] ?>" title="Agregar imágenes al servicio">
+											<a href="#sinAccion" class="openModalServicio" data-toggle="modal" data-target="#addImageService" data-id="<?php echo $fila['idServicio'] ?>" title="Agregar imágenes al servicio">
 												<div><img style="width: 50px;" class="img-responsive" src="../../images/administrador/slider.png"/></div>
 											</a>	
 										</td>

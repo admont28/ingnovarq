@@ -67,15 +67,15 @@
 													<?php echo $fila['fechaCreacionProyecto']; ?>
 												</td>
 												<td>
+													<a href="#sinAccion" class="openModalProyectos" data-toggle="modal" data-target="#subirImagenesProyecto" data-id="<?php echo $fila['idProyecto'] ?>" title="Subir Imagenes Proyecto">
+														<div><img style="width: 50px;" class="img-responsive" src="../../images/administrador/slider.png"/></div>
+													</a>	
+												</td>
+												<td>
 													<a href="#sinAccion" class="open" data-toggle="modal" data-target="#editProject" data-id="<?php echo $fila['idProyecto'] ?>" title="Editar proyecto">
 														<div><img style="width: 50px;" class="img-responsive" src="../../images/administrador/edit.png"/></div>
 													</a>	
 												</td>
-												<td>
-													<a href="#sinAccion" class="abrir" data-toggle="modal" data-target="#subirImagenesProyecto" data-id="<?php echo $fila['idProyecto'] ?>" title="Subir Imagenes Proyecto">
-														<div><img style="width: 50px;" class="img-responsive" src="../../images/administrador/slider.png"/></div>
-													</a>	
-												</td>													
 												<td>
 													<a href="#sinAccion" onclick="eliminarProyecto(<?php echo $fila['idProyecto'] ?>, '<?php echo $fila['nombreProyecto'] ?>');">
 														<div><img style="width: 50px;" class="img-responsive" src="../../images/administrador/delete.png" title="Eliminar proyecto"/></div>
