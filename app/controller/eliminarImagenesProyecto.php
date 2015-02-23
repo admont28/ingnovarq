@@ -6,6 +6,7 @@ session_start();
     if(isset($_POST["op"]) && $_POST["op"] == "delete" && isset($_POST['name']) && isset($_POST['idProyecto'])){
 	    require_once ("projectModel.php");
 		require_once ("imagenModel.php");
+		require_once ("notificaciones.php");
 		$projectModel = new ProjectModel();
 		$imagenModel = new ImagenModel();
 		$idProyecto = $_POST['idProyecto'];

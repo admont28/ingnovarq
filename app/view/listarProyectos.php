@@ -42,8 +42,8 @@
 											<th>Descripción</th>
 											<th>Creado Por</th>
 											<th>Fecha de Creación</th>
-											<th>Editar</th>
 											<th>AgregarImg</th>
+											<th>Editar</th>
 											<th>Eliminar</th>
 										</thead>
 										<tbody>

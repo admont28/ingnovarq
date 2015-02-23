@@ -18,7 +18,7 @@
             $imagenCliente = $imagenModel->view_image_db_client($idCliente);
             if(file_exists($imagenCliente['rutaImagen'])){ //Verifico si existe la imagen
                 if(unlink($imagenCliente['rutaImagen'])) { // elimino la imagen
-                    $imagenModel->delete_db_image_client($idCliente,$imagenCliente['idImagen']);
+                    $imagenModel->delete_db_image_client($idCliente,$imagenCliente['rutaImagen']);
                 }
             }
             $resultado = $clientModel->delete_db_client($idCliente);

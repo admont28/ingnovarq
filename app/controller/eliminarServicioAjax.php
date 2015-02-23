@@ -20,7 +20,7 @@
             foreach ($imagenesServicio as $fila) {
                 if(file_exists($fila['rutaImagen'])){ //Verifico si existe la imagen
                     if(unlink($fila['rutaImagen'])) // elimino la imagen
-                        $imagenModel->delete_db_image_service($idServicio,$fila['idImagen']); // elimino de la bd la imagen
+                        $imagenModel->delete_db_image_service($idServicio,$fila['rutaImagen']); // elimino de la bd la imagen
                 }
             }
             $resultado = $serviceModel->delete_db_service($idServicio);

@@ -86,7 +86,7 @@
 
 			//Creación de una consulta insertandole parametros para eliminar
 			$sentencia = $this->_db->prepare("DELETE FROM Imagen WHERE Proyecto_idProyecto = :idproyecto");
-			$sentencia->bindParam(':idProyecto', $idSProyecto);
+			$sentencia->bindParam(':idProyecto', $idProyecto);
 
 			//Ejecución de la consulta
 			return $sentencia->execute();
@@ -94,14 +94,15 @@
 		}
 
 		function delete_db_image_project($idProyecto, $rutaImagen){
-
+			
 			//Creación de una consulta insertandole parametros para eliminar
 			$sentencia = $this->_db->prepare("DELETE FROM Imagen WHERE Proyecto_idProyecto = :idProyecto AND rutaImagen = :rutaImagen");
 			$sentencia->bindParam(':idProyecto', $idProyecto);
 			$sentencia->bindParam(':rutaImagen', $rutaImagen);
 
 			//Ejecución de la consulta
-			$sentencia->execute();
+			$result=$sentencia->execute();
+			
 
 		}
 

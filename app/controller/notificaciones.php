@@ -979,6 +979,21 @@
         return $mensaje;
     }
 
+     function get_success_delete_image_project($nombreImagen){
+        $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción Exitosa',
+                                text: 'La imagen ".$nombreImagen." ha sido eliminada con éxito',
+                                type: 'success',
+                                delay: 6500,
+                                animation: 'show',
+                            });
+                        });
+                </script>";
+        return $mensaje;
+    }
+
     function get_error_delete_image_service($nombreImagen){
         $mensaje = "<script type='text/javascript'>
                         $(function(){

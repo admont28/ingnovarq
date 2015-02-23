@@ -64,7 +64,8 @@
 			$sentencia->bindParam(':idProyecto', $idProyecto);
 
 			//Ejecución de la consulta
-			return $sentencia->execute();
+			$result = $sentencia->execute();
+			return $result;
 
 		}
 

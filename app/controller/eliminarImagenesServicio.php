@@ -9,6 +9,7 @@ session_start();
 		require_once ("notificaciones.php");
 		$serviceModel = new ServiceModel();
 		$imagenModel = new ImagenModel();
+		$
 		$idServicio = htmlspecialchars($_POST['idServicio']);
 	    $servicio = $serviceModel->view_db_service($idServicio);
 		$directorioDeGuardado = "../../images/servicios/".$servicio['nombreServicio']."/";
