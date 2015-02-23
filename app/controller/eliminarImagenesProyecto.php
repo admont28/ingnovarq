@@ -17,10 +17,11 @@ session_start();
 			$filePath = $output_dir. $fileName;
 			echo $filePath;
 			if (file_exists($filePath)) 
-			{
-				echo $filePath;
+			{				
 				$imagenModel->delete_db_image_project($idProyecto, $filePath);
 		        unlink($filePath);
+		        echo get_success_delete_image_project($fileName);
+	        	die();
 		    }
 			echo "Deleted File ".$fileName."<br>";
 	}

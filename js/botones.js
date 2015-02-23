@@ -386,16 +386,22 @@ $(document).ready(function() {
         deleteCallback: function(data,pd)
         {
             var idProyecto1 = $("#idProyectoImg").val();
-            for(var i=0;i<data.length;i++)
+            var nombreArchivo = "";
+            if(typeof(data) == "string"){
+              for (var i = 1; i < data.length; i++) {
+                nombreArchivo += data[i];
+              }
+            }
+            else
+              nombreArchivo = data[0];
+            $.post("../controller/eliminarImagenesProyecto",{op:"delete",name:nombreArchivo, idProyecto: idProyecto1},
+            function(resp, textStatus, jqXHR)
             {
-                $.post("../controller/eliminarImagenesProyecto",{op:"delete",name:data[i], idProyecto: idProyecto1},
-                function(resp, textStatus, jqXHR)
-                {
-                    //Show Message  
-                    alert("File Deleted");      
-                });
-             }      
+                $('#mensaje').html(resp);
+            });
+                   
             pd.statusbar.hide(); //You choice to hide/not.
+           
         }
       });
    }
