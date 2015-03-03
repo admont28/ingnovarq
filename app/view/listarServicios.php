@@ -158,7 +158,7 @@
 			      <div class="modal-body">
 			      	<form class="form-horizontal" id="form-editar-proyecto-ajax" method="POST">
 			      		<input type="hidden" name="idServicio2" id="idServicio2" readonly="readonly">
-			      		<p class="col-xs-12 text-danger">Nota: los cambios que realicen en esta sección son guardados automáticamente, por favor tener cuidado con dichos cambios.</p>
+			      		<p class="col-xs-12 text-danger">Nota: los cambios que realicen en esta sección son guardados automáticamente, por favor tener cuidado con dichos cambios.<br>Antes de cargar cualquier imagen verifique que no exista una imagen con el mismo nombre.</p>
 					    <div class="form-group">
 					        <div class="col-md-offset-2 col-md-10 col-xs-offset-4 col-xs-9">							         
 					            <label>

@@ -55,11 +55,16 @@
 								         </div>
 								    </div>	
 								    <div class="form-group">
+								    	<label class="col-xs-6 col-xs-offset-3">
+								           	<input type="checkbox" id="previsualizacion"> Ocultar Previsualización
+								        </label>
+								    </div>
+								    <div class="form-group">
 							     	 <label class="control-label col-xs-3">Imagen:</label>
 							         <div class="col-xs-9" id="cargador">
 							            <div id="fileuploader">Cargar imagen</div>
 							            <div class="col-xs-12 error-text" id="e_imagen_proyecto"></div>
-							            <p class="col-xs-12 text-info">Nota: Cada proyecto debe tener almenos 1 imagen, para agregar más imágenes al proyecto debe editarlo una vez creado.</p> 
+							            <p class="col-xs-12 text-info">Nota: Cada proyecto debe tener almenos 1 imagen, para agregar más imágenes al proyecto debe editarlo una vez creado.<br>Antes de cargar cualquier imagen verifique que no haya cargado una imagen con el mismo nombre.</p> 
 							         </div>
 							     	</div> 							     
 								    <div class="form-group">
@@ -67,9 +72,6 @@
 								            <div id="btn-agregar-proyecto-ajax" class="btn btn-success">
 								            	<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Crear Proyecto
 								            </div> 
-								            <label>
-								            	<input type="checkbox" id="previsualizacion"> Ocultar Previsualización
-								            </label>
 								        </div>
 							     	</div>
 								</div>

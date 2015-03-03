@@ -54,10 +54,17 @@
 								        </div>
 								    </div>	
 								    <div class="form-group">
+								    	<label class="col-xs-6 col-xs-offset-3">
+								           	<input type="checkbox" id="previsualizacion"> Ocultar Previsualización
+								        </label>
+								    </div>
+								    <div class="form-group">
+								    	
 							     		<label class="control-label col-xs-3">Imágenes:</label>
 							         	<div class="col-xs-9" id="cargador">
 							            	<div id="fileuploader">Cargar imágenes</div>
 							            	<div class="col-xs-12 error-text" id="e_imagen_servicio"></div> 
+							            	<p class="col-xs-12 text-info">Nota: Cada servicio debe tener almenos 1 imagen, para agregar más imágenes al servicio debe editarlo una vez creado.<br>Antes de cargar cualquier imagen verifique que no haya cargado una imagen con el mismo nombre.</p> 
 							         	</div>
 							     	</div> 							     
 								    <div class="form-group">
@@ -65,9 +72,6 @@
 								            <div id="btn-agregar-servicio-ajax" class="btn btn-success">
 								            	<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Crear Servicio
 								            </div> 
-								            <label>
-								            	<input type="checkbox" id="previsualizacion"> Ocultar Previsualización
-								            </label>
 								        </div>
 							     	</div>
 								</div>
