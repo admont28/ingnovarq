@@ -36,28 +36,28 @@
 								         <label class="control-label col-xs-3">Nombre:</label>
 								         <div class="col-xs-9">
 								            <input type="name" id="nombreServicio" name="nombreServicio" class="form-control" placeholder="Nombre">
-								         	<div class="col-xs-9 error-text" id="e_nombre_servicio"></div>
+								         	<div class="col-xs-12 error-text" id="e_nombre_servicio"></div>
 								         </div>
 								    </div>
 								    <div class="form-group">
 								        <label class="control-label col-xs-3">Descripción:</label>
 								        <div class="col-xs-9">
 								            <textarea id="descripcionServicio" name="descripcionServicio" class="form-control" placeholder="Descripción del Servicio" rows="7"></textarea>
-								        	<div class="col-xs-9 error-text" id="e_descripcion_servicio"></div> 
+								        	<div class="col-xs-12 error-text" id="e_descripcion_servicio"></div> 
 								        </div>
 								    </div>
 								    <div class="form-group">
 								        <label class="control-label col-xs-3">Fecha:</label>
 								        <div class="col-xs-9">
 								            <input type="text" type="text" id="fecha" class="form-control" placeholder="aaaa-mm-dd" data-date-language="es" readonly="readonly">
-								         	<div class="col-xs-9 error-text" id="e_fecha_servicio"></div>
+								         	<div class="col-xs-12 error-text" id="e_fecha_servicio"></div>
 								        </div>
 								    </div>	
 								    <div class="form-group">
 							     		<label class="control-label col-xs-3">Imágenes:</label>
 							         	<div class="col-xs-9" id="cargador">
 							            	<div id="fileuploader">Cargar imágenes</div>
-							            	<div class="col-xs-9 error-text" id="e_imagen_servicio"></div> 
+							            	<div class="col-xs-12 error-text" id="e_imagen_servicio"></div> 
 							         	</div>
 							     	</div> 							     
 								    <div class="form-group">

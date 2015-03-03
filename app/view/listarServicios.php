@@ -105,7 +105,7 @@
 
 			      <div class="modal-body">
 			    	<div id="mensaje"></div>
-			      	<form class="form-horizontal" id="form-editar-proyecto-ajax" method="POST">
+			      	<form class="form-horizontal" id="form-editar-servicio-ajax" method="POST">
 			      		 <input type="hidden" name="idServicio" id="idServicio" readonly="readonly">
 					     <div class="form-group">
 					         <label for="nombreServicio" class="control-label col-md-2 col-xs-4">Nombre:</label>
@@ -159,20 +159,19 @@
 			      	<form class="form-horizontal" id="form-editar-proyecto-ajax" method="POST">
 			      		<input type="hidden" name="idServicio2" id="idServicio2" readonly="readonly">
 			      		<p class="col-xs-12 text-danger">Nota: los cambios que realicen en esta sección son guardados automáticamente, por favor tener cuidado con dichos cambios.</p>
-					    <label class="control-label col-md-2 col-xs-3">Imágenes:</label>
-			         	<div class="col-md-10 col-xs-9" id="cargador">
-			            	<div id="cargarImagenesServicio">Cargar imágenes</div>
-			            	<div class="col-xs-9 error-text" id="e_imagen_servicio"></div> 
-			         	</div>
 					    <div class="form-group">
 					        <div class="col-md-offset-2 col-md-10 col-xs-offset-4 col-xs-9">							         
-					         	<!--<button type="submit" id="btn-agregar-imagenes-servicio-ajax" class="btn btn-success">
-					            	<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Guardar Cambios
-					            </button> -->
 					            <label>
 					            	<input type="checkbox" id="previsualizacion"> Ocultar Previsualización
 					            </label>
 					        </div>
+					    </div>
+					    <div class="form-group">
+						    <label class="control-label col-md-2 col-xs-3">Imágenes:</label>
+				         	<div class="col-md-10 col-xs-9" id="cargador">
+				            	<div id="cargarImagenesServicio">Cargar imágenes</div>
+				            	<div class="col-xs-9 error-text" id="e_imagen_servicio"></div> 
+				         	</div>
 					    </div>
 					</form>   	 
 			      </div>

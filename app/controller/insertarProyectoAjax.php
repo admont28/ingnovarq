@@ -13,7 +13,7 @@
         if ($nombreProyecto == '' ){
             $mensaje = "<script>document.getElementById('e_nombre_proyecto').innerHTML='El campo nombre es requerido';</script>";
         }
-        else if(!preg_match('/^[0-9a-záéóóúàèìòùäëïöüñ\s]+$/i', $nombreProyecto)){
+        else if(!preg_match('/^[0-9a-záéíóúÁÉÍÓÚàèìòùäëïöüñ\s]+$/i', $nombreProyecto)){
             $mensaje = "<script>document.getElementById('e_nombre_proyecto').innerHTML='Error, s&oacute;lo se permiten letras, n&uacute;meros y acentos latinos';</script>";
         }
         else if(strlen($nombreProyecto) < 3){
@@ -33,6 +33,9 @@
         }
         else if ($fechaProyecto == ''){
             $mensaje = "<script>document.getElementById('e_fecha_proyecto').innerHTML='El campo Fecha es requerido';</script>";
+        }
+        else if(!preg_match('/^\d{4}-\d{2}-\d{2}$/', $fechaProyecto)){
+            $mensaje = "<script>document.getElementById('e_fecha_proyecto').innerHTML='El campo fecha no cumple con el formato solicitado.';</script>";
         }
         else{ // Validaciones correctas.
             //Conectar a la base de datos y realizar la consulta para guardar el registro
@@ -63,9 +66,8 @@
         $ruta =  "../../images/proyectos/".$ultimoProyecto['nombreProyecto']."/"; // ruta donde se almacenarán las imagenes del proyecto
         if(is_dir($ruta)){
             $fileName = $_FILES["myfile"]["name"];
-            if (move_uploaded_file($_FILES["myfile"]["tmp_name"],$ruta.$fileName)){
-                $respuesta = $imagenModel->insert_images_project($ruta.$fileName, $fileName, $idProyecto);
-                echo $respuesta;
+            if (move_uploaded_file($_FILES["myfile"]["tmp_name"], $ruta.$fileName)){
+                $imagenModel->insert_images_project($ruta.$fileName, $fileName, $idProyecto);
                 die();
             }
             else{

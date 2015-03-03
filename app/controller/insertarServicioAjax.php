@@ -13,7 +13,7 @@
         if ($nombreServicio == '' ){
             $mensaje = "<script>document.getElementById('e_nombre_servicio').innerHTML='El campo nombre es requerido.';</script>";
         }
-        else if(!preg_match('/^[0-9a-záéóóúàèìòùäëïöüñ\s]+$/i', $nombreServicio)){
+        else if(!preg_match('/^[0-9a-záéíóúÁÉÍÓÚàèìòùäëïöüñ\s]+$/i', $nombreServicio)){
             $mensaje = "<script>document.getElementById('e_nombre_servicio').innerHTML='Error, s&oacute;lo se permiten letras, n&uacute;meros y acentos latinos.';</script>";
         }
         else if(strlen($nombreServicio) < 3){
@@ -35,7 +35,7 @@
             $mensaje = "<script>document.getElementById('e_fecha_servicio').innerHTML='El campo Fecha es requerido.';</script>";
         }
         else if(!preg_match('/^\d{4}-\d{2}-\d{2}$/', $fechaServicio)){
-            $mensaje = "<script>document.getElementById('e_fecha_proyecto').innerHTML='El campo fecha no cumple con el formato solicitado.';</script>";
+            $mensaje = "<script>document.getElementById('e_fecha_servicio').innerHTML='El campo fecha no cumple con el formato solicitado.';</script>";
         }
         else{ // Validaciones correctas.
             //Conectar a la base de datos y realizar la consulta para guardar el registro
@@ -63,19 +63,18 @@
         $serviceModel = new ServiceModel();
         $ultimoServicio = $serviceModel->view_db_last_service(); 
         $idServicio = $ultimoServicio['idServicio'];
-        $nombreServicio = $ultimoServicio['nombreServicio'];
         $ruta =  "../../images/servicios/".$ultimoServicio['nombreServicio']."/"; // ruta donde se almacenarán las imagenes del servicio
         if(is_dir($ruta)){
-                $fileName = $_FILES["myfile"]["name"];
-                if (move_uploaded_file($_FILES["myfile"]["tmp_name"],$ruta.$fileName)){
-                    $imagenModel->insert_images_service($ruta.$fileName, $fileName, $idServicio);
-                    die();
-                }
-                else{
-                    $mensaje = get_error_insert_image($fileName);
-                    echo $mensaje;
-                    die();
-                }
+            $fileName = $_FILES["myfile"]["name"];
+            if (move_uploaded_file($_FILES["myfile"]["tmp_name"],$ruta.$fileName)){
+                $imagenModel->insert_images_service($ruta.$fileName, $fileName, $idServicio);
+                die();
+            }
+            else{
+                $mensaje = get_error_insert_image($fileName);
+                echo $mensaje;
+                die();
+            }
         }
     }
 $respuesta = array('mensaje' => $mensaje, 'estado' => 'fail');

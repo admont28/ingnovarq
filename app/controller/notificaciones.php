@@ -775,8 +775,22 @@
                                 animation: 'show',
                                 hide: false,
                                 confirm: {
-                                    confirm: true
-                                }   
+                                    confirm: true,
+                                    buttons: [{
+                                            text: 'Agregar',
+                                            addClass: 'btn btn-success',
+                                            click: function(notice) {
+                                                notice.remove();
+                                                document.location='agregarServicio';
+                                            }
+                                        }, {
+                                            text: 'Volver',
+                                            click: function(notice) {
+                                                notice.remove();
+                                                document.location='perfil';
+                                            }
+                                        }]
+                                } 
                             });
                         });
                     </script>";
@@ -994,7 +1008,7 @@
         return $mensaje;
     }
 
-    function get_error_delete_image_service($nombreImagen){
+    function get_error_delete_image_service_or_project($nombreImagen){
         $mensaje = "<script type='text/javascript'>
                         $(function(){
                             new PNotify({

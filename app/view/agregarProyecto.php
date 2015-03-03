@@ -37,28 +37,29 @@
 								         <label for="inputName" class="control-label col-xs-3">Nombre:</label>
 								         <div class="col-xs-9">
 								            <input type="name" id="nombreProyecto" name="nombreProyecto" class="form-control" placeholder="Nombre">
-								         	<div class="col-xs-9 error-text" id="e_nombre_proyecto"></div>
+								         	<div class="col-xs-12 error-text" id="e_nombre_proyecto"></div>
 								         </div>
 								    </div>
 									    <div class="form-group">
 								        <label for="inputName" class="control-label col-xs-3">Descripción:</label>
 								        <div class="col-xs-9">
 								        	<textarea id="descripcionProyecto" name="descripcionProyecto" class="form-control" placeholder="Descripción del Proyecto" rows="7"></textarea>
-								        	<div class="col-xs-9 error-text" id="e_descripcion_proyecto"></div> 
+								        	<div class="col-xs-12 error-text" id="e_descripcion_proyecto"></div> 
 								        </div>
 								    </div>
 								    <div class="form-group">
 								        <label for="inputName" class="control-label col-xs-3">Fecha:</label>
 								         <div class="col-xs-9">
 								         	<input type="text" id="fecha" class="form-control" placeholder="aaaa-mm-dd" data-date-language="es" readonly="readonly">
-								         	<div class="col-xs-9 error-text" id="e_fecha_proyecto"></div>
+								         	<div class="col-xs-12 error-text" id="e_fecha_proyecto"></div>
 								         </div>
 								    </div>	
 								    <div class="form-group">
 							     	 <label class="control-label col-xs-3">Imagen:</label>
 							         <div class="col-xs-9" id="cargador">
 							            <div id="fileuploader">Cargar imagen</div>
-							            <div class="col-xs-9 error-text" id="e_imagen_proyecto"></div> 
+							            <div class="col-xs-12 error-text" id="e_imagen_proyecto"></div>
+							            <p class="col-xs-12 text-info">Nota: Cada proyecto debe tener almenos 1 imagen, para agregar más imágenes al proyecto debe editarlo una vez creado.</p> 
 							         </div>
 							     	</div> 							     
 								    <div class="form-group">

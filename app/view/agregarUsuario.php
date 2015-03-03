@@ -38,35 +38,35 @@
 								         <label for="inputName" class="control-label col-xs-4">Nombre:</label>
 								         <div class="col-xs-8">
 								            <input type="name" id="nombre" name="nombre" class="form-control" placeholder="Nombre">
-								         	<div class="col-xs-8 error-text" id="e_nombre"></div>
+								         	<div class="col-xs-12 error-text" id="e_nombre"></div>
 								         </div>
 								     </div>
  								     <div class="form-group">
 								        <label for="inputName" class="control-label col-xs-4">Apellido:</label>
 								        <div class="col-xs-8">
 								            <input type="name" id="apellido" name="apellido" class="form-control" placeholder="Apellido">
-								        	<div class="col-xs-8 error-text" id="e_apellido"></div> 
+								        	<div class="col-xs-12 error-text" id="e_apellido"></div> 
 								        </div>
 								     </div>
 								     <div class="form-group">
 								        <label for="inputName" class="control-label col-xs-4">Cédula:</label>
 								        <div class="col-xs-8">
 								            <input type="text" id="cedula" name="cedula" class="form-control" placeholder="Cédula" >
-								        	<div class="col-xs-8 error-text" id="e_cedula"></div>
+								        	<div class="col-xs-12 error-text" id="e_cedula"></div>
 								        </div>
 								     </div>
 								     <div class="form-group">
 								        <label for="inputPassword" class="control-label col-xs-4">Contraseña:</label>
 								        <div class="col-xs-8">
 								            <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña">
-								        	<div class="col-xs-8 error-text" id="e_password"></div>
+								        	<div class="col-xs-12 error-text" id="e_password"></div>
 								        </div>
 								     </div>
 								     <div class="form-group">
 								        <label for="inputPassword" class="control-label col-xs-4">Repetir Contraseña:</label>
 								        <div class="col-xs-8">
 								            <input type="password" id="repetir_password" name="repetir_password" class="form-control" placeholder="Repetir Contraseña" >
-								        	<div class="col-xs-8 error-text" id="e_repetir_password"></div>
+								        	<div class="col-xs-12 error-text" id="e_repetir_password"></div>
 								        </div>
 								     </div>
 								     <div class="form-group">

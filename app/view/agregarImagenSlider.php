@@ -37,14 +37,15 @@
 								         <label for="inputName" class="control-label col-xs-3">Titulo:</label>
 								         <div class="col-xs-9">
 								            <input type="name" id="tituloImagen" name="tituloImagen" class="form-control" placeholder="Titulo">
-								            <div class="col-xs-9 error-text" id="e_titulo_slider"></div>
+								            <div class="col-xs-12 error-text" id="e_titulo_slider"></div>
 								         </div>
 								     </div>
 								     <div class="form-group">
 								     	 <label class="control-label col-xs-3">Imagen:</label>
 								         <div class="col-xs-9" id="cargador">
 								            <div id="fileuploader">Cargar imagen</div>
-								            <div class="col-xs-9 error-text" id="e_imagen_slider"></div>
+								            <div class="col-xs-12 error-text" id="e_imagen_slider"></div>
+								            <p class="col-xs-12 text-info">Nota: Antes de subir la imagen verifique que no haya subido una imagen anteriormente con el mismo nombre.</p>
 								         </div>
 								     </div>    
 								     <div class="form-group">

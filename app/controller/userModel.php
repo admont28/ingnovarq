@@ -98,7 +98,7 @@
 		function view_db_user($cedula){
 
 			//Creación de una consulta insertandole parametros para obtener un usuario en especifico
-			$sentencia = $this->_db->prepare("SELECT * FROM Usuario where cedulaUsuario = :cedula");
+			$sentencia = $this->_db->prepare("SELECT * FROM Usuario WHERE cedulaUsuario = :cedula");
 			$sentencia->bindParam(':cedula', $cedula);
 
 			$sentencia->execute();

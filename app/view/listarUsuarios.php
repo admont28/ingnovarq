@@ -77,16 +77,26 @@
 												} else{
 												?>
 												<td>
-												<div><img style="width: 50px;" class="img-responsive" src="../../images/administrador/cancel.png" title="No puede efectuar acciones"/></div>
+													<div><img style="width: 50px;" class="img-responsive" src="../../images/administrador/cancel.png" title="No puede efectuar acciones"/></div>
 												</td>
-												<?php } ?>
-												<td >
-													<a href="#sinAccion" onclick="eliminarUsuario(<?php echo $fila['cedulaUsuario'] ?>);">
-														<div><img style="width: 50px;" class="img-responsive" src="../../images/administrador/delete.png" title="Eliminar usuario"/></div>
-													</a>
-													
-												</td>
-											<?php
+												<?php } 
+												if ($fila['cedulaUsuario'] != $_SESSION['idUsuario']) {
+													?>
+													<td >
+														<a href="#sinAccion" onclick="eliminarUsuario(<?php echo $fila['cedulaUsuario'] ?>);">
+															<div><img style="width: 50px;" class="img-responsive" src="../../images/administrador/delete.png" title="Eliminar usuario"/></div>
+														</a>
+													</td>
+													<?php
+												}
+												else
+												{
+													?>
+													<td>
+														<div><img style="width: 50px;" class="img-responsive" src="../../images/administrador/cancel.png" title="No puede efectuar acciones"/></div>
+													</td>
+													<?php
+												}
 											}
 											else{
 												?>

@@ -34,25 +34,6 @@ $(document).ready(function() {
         return false; // Evitar ejecutar el submit del formulario.
 	});
 
-    $('#btn-producto-ajax').click(function(){
-      var url = "../controller/cargarImagenesProyecto"; // El script a dónde se realizará la petición.
-      $.ajax({
-           type: "POST",
-           url: url,
-           data: $("#form-proyecto-ajax").serialize(), // Adjuntar los campos del formulario enviado.
-           
-           success: function(data)
-           {
-               $("#e_nombre_proyecto").html('');
-               $("#e_descripcion_proyecto").html('');
-               $("#e_fecha_proyecto").html('');
-               $("#e_imagen_proyecto").html('');
-               $("#mensaje").html(data); // Mostrar la respuestas del script PHP.
-           }
-        });
-        return false; // Evitar ejecutar el submit del formulario.
-  });
-
      $('#btn-editar-usuario-ajax').click(function(){
         var url = "../controller/editarUsuarioAjax"; // El script a dónde se realizará la petición.
           $.ajax({
@@ -158,6 +139,7 @@ $(document).ready(function() {
         fileName: "myfile", //nombre del archivo a enviar por $_Files
         showDelete: false, //ocultar botón eliminar
         showDone: false, //ocultar botón de Hecho
+        showAbort: false, //ocultar el botón de abortar.
         showProgress: true, //mostrar barra de progreso
         showPreview: true, //mostrar previsualización de las imagenes a cargar
         autoSubmit: false, //deshabilitar el envio del archivo automaticamente, para poder ser enviado se utiliza la función startUpload()
@@ -169,6 +151,7 @@ $(document).ready(function() {
         sizeErrorStr: "Acción no permitida, el tamaño máximo del archivo es: ", //string que aparece cuando los archivos superan el tamaño máximo permitido
         extErrorStr: "Acción no permitida, las extensiones válidas son: ", //string que aparece cuando existe un error en las extensiones de los archivos a cargar
         cancelStr: "Cancelar", //string del botón cancelar
+        abortStr: "Abortar", //string del boton abortar
         uploadButtonClass:"btn btn-info", //clase del botón de carga, se definió una clase de bootstrap
         //Datos del formulario dinámico, estos son los datos que se envian además de las imagenes, se recuperan con
         // $_POST['ID_ESPECIFICADO']
@@ -189,17 +172,17 @@ $(document).ready(function() {
             setTimeout(
              function(){
                   if($('.ajax-file-upload-error').is(':visible')){
-                    $("#contenedor-upload-file").show();
+                    $("#contenedor-upload-file").show('slow');
                   }
                   else{
-                    $("#contenedor-upload-file").hide();
+                    $("#contenedor-upload-file").hide('slow');
                     $('#e_imagen').text("");
                   }
              }, 300);
         },
         onCancel:function(files,pd) //función que se llama después de dar clic en cancelar una imagen
         {
-            $("#contenedor-upload-file").show(); //muestro de nuevo la funcionalidad de cargar imagenes.
+            $("#contenedor-upload-file").show('slow'); //muestro de nuevo la funcionalidad de cargar imagenes.
         },
         onSuccess:function(files,data,xhr,pd)
         {
@@ -242,8 +225,8 @@ $(document).ready(function() {
          url: "../controller/insertarProyectoAjax",
          multiple:true,
          maxFileCount:30,
-         maxFileSize: 5145728,
-         onSelect:function(files,data,xhr){},   
+         maxFileSize: 5145728, 
+         onSelect:function(files,data,xhr){},
          onCancel:function(files,pd){},
          onSuccess:function(files,data,xhr,pd){},
          afterUploadAll:function(obj){},
@@ -254,7 +237,7 @@ $(document).ready(function() {
          multiple:true,
          maxFileCount:30,
          maxFileSize: 5145728,
-         onSelect:function(files,data,xhr){},   
+         onSelect:function(files,data,xhr){},
          onCancel:function(files,pd){},
          onSuccess:function(files,data,xhr,pd){},
          afterUploadAll:function(obj){},
@@ -275,27 +258,6 @@ $(document).ready(function() {
            return data;
          }
      });
-   }else if($('#btn-agregar-imagenes-proyecto-ajax').length){
-      uploadObj.update({
-         url: "../controller/agregarImagenesProyecto",
-         multiple:true,
-         maxFileCount:30,
-         maxFileSize: 5145728,
-         dynamicFormData:function(){
-          var idProyectoimagen = $('#idProyectoImg').val();
-
-          //los datos que se van a enviar
-          var data = {
-            idProyectoImag : idProyectoimagen //id del proyecto
-          };
-          console.log(data);
-          return data;
-         },
-         onSelect:function(files,data,xhr){},   
-         onCancel:function(files,pd){},
-         onSuccess:function(files,data,xhr,pd){},
-         afterUploadAll:function(obj){},
-      });
    }
 
    $('.openModalServicio').click(function(){
@@ -309,41 +271,44 @@ $(document).ready(function() {
           data: data,
           success: function(data) 
           {
-              cargarImagenesServicio(data.rutaServicio);
+              cargarImagenesServicio(data.rutaServicio, id);
           }
       });
    }); 
 
    $('.openModalProyectos').click(function(){
       var id = $(this).data('id');
-      $('#idProyectoImg').val(id);
+      $('#idProyecto2').val(id);
       var data= { idProyecto: id };
       $.ajax({
           type: "POST",
-          url: "../controller/agregarImagenesProyecto",
+          url: "../controller/cargarImagenesProyecto",
           dataType: "json",
           data: data,
           success: function(data) 
           {
-              cargarImagenesProyecto(data.rutaProyecto);
+              cargarImagenesProyecto(data.rutaProyecto, id);
           }
       });
    }); 
 
-   function cargarImagenesProyecto(rutaProyecto){
+   function cargarImagenesProyecto(rutaProyecto, idProyecto){
     // Elimino los div si antes habían sido construidos.
     $("#cargarImagenesServicio").remove();
     $(".ajax-file-upload-statusbar").remove();
     $(".ajax-upload-dragdrop").remove();
+    //rutaProyecto = decodeURIComponent(escape(rutaProyecto));
     // vuelvo a colocar el div para cargar las imágenes
-    var upload = $("#agregarImagenesProyecto").uploadFile({
-        url: "../controller/agregarImagenesProyecto",
+    var upload = $("#cargarImagenesProyecto").uploadFile({
+        url: "../controller/cargarImagenesProyecto",
         multiple:true,
         maxFileCount:30,
         maxFileSize: 5145728,
         allowedTypes: "png,jpg,jpeg", // extensiones permitidas
         fileName: "myfile", //nombre del archivo a enviar por $_Files
         showProgress: true, //mostrar barra de progreso
+        showAbort: false, //ocultar el botón abort
+        showDone: false, //ocultar el botón done
         showPreview: true, //mostrar previsualización de las imagenes a cargar
         autoSubmit: true, //deshabilitar el envio del archivo automaticamente, para poder ser enviado se utiliza la función startUpload()
         showStatusAfterSuccess: true, //mostrar estado despues de haber cargado correctamente las imagenes
@@ -352,22 +317,23 @@ $(document).ready(function() {
         sizeErrorStr: "Acción no permitida, el tamaño máximo del archivo es: ", //string que aparece cuando los archivos superan el tamaño máximo permitido
         extErrorStr: "Acción no permitida, las extensiones válidas son: ", //string que aparece cuando existe un error en las extensiones de los archivos a cargar
         cancelStr: "Cancelar", //string del botón cancelar
+        deletelStr: "Eliminar", //string del botón eliminar
         uploadButtonClass:"btn btn-info", //clase del botón de carga, se definió una clase de bootstrap
         uploadFolder: ""+rutaProyecto+"/",
         onLoad:function(obj)
         {
             var data= {
-              rutaProyecto: rutaProyecto,
+              idProyecto : idProyecto,
+              getUrls: "getUrls"
             };
             $.ajax({
                 cache: false,
                 type: "POST",
-                url: "../controller/agregarImagenesProyecto",
+                url: "../controller/cargarImagenesProyecto",
                 dataType: "json",
                 data: data,
                 success: function(data) 
                 { 
-                    console.log(data);
                     for(var i=0;i<data.length;i++)
                     {
                         obj.createProgress(data[i]);
@@ -377,7 +343,7 @@ $(document).ready(function() {
         },
         dynamicFormData:function()
         {
-            var id = $("#idProyectoImg").val(); //capturo el id de la imagen cargado en el input oculto
+            var id = $("#idProyecto2").val(); //capturo el id de la imagen cargado en el input oculto
             // los datos que se van a enviar
             console.log(id);
             var data = { idProyecto: id, cargar : 'cargar' };
@@ -385,7 +351,7 @@ $(document).ready(function() {
         },
         deleteCallback: function(data,pd)
         {
-            var idProyecto1 = $("#idProyectoImg").val();
+            var idProyecto1 = $("#idProyecto2").val();
             var nombreArchivo = "";
             if(typeof(data) == "string"){
               for (var i = 1; i < data.length; i++) {
@@ -406,7 +372,7 @@ $(document).ready(function() {
       });
    }
 
-   function cargarImagenesServicio(rutaServicio){
+   function cargarImagenesServicio(rutaServicio, idServicio){
     // Elimino los div si antes habían sido construidos.
     $("#cargarImagenesServicio").remove();
     $(".ajax-file-upload-statusbar").remove();
@@ -424,19 +390,22 @@ $(document).ready(function() {
         showPreview: true, //mostrar previsualización de las imagenes a cargar
         autoSubmit: true, //habilitar el envio del archivo automaticamente, para poder ser enviado se utiliza la función startUpload()
         showDelete: true, //habitiliar la opción de eliminar una imagen cuando sea cargada.
-        showDone: false, //desahbilitar la opción de done cuando se cargue una imagen
+        showAbort: false, //ocultar el botón abort
+        showDone: false, //ocultar el botón done
         showStatusAfterSuccess: true, //mostrar estado despues de haber cargado correctamente las imagenes
         maxFileCountErrorStr: "Acción no permitida, el número máximo de archivos a subir es: ", //string que aparece al momento de tener un error del número máximo de archivos
         dragDropStr: "<span><b> Arrastra &amp; Suelta los Archivos</b></span>", //string que aparece al momento de tener un error de arrastrar y soltar varios archivos cuando la opción multiple está en false
         sizeErrorStr: "Acción no permitida, el tamaño máximo del archivo es: ", //string que aparece cuando los archivos superan el tamaño máximo permitido
         extErrorStr: "Acción no permitida, las extensiones válidas son: ", //string que aparece cuando existe un error en las extensiones de los archivos a cargar
         cancelStr: "Cancelar", //string del botón cancelar
+        deletelStr: "Eliminar",
         uploadButtonClass:"btn btn-info", //clase del botón de carga, se definió una clase de bootstrap
         uploadFolder: ""+rutaServicio+"/",
         onLoad:function(obj)
         {
             var data= {
-              rutaServicio: rutaServicio,
+              idServicio : idServicio,
+              getUrls: "getUrls"
             };
             $.ajax({
                 cache: true,
@@ -493,10 +462,10 @@ $(document).ready(function() {
     // oculto o muestro las imagenes que esten cargadas.
     $('#previsualizacion').click(function(){
       if ($(this).is(':checked')) {
-            $('.ajax-file-upload-preview').hide();
+            $('.ajax-file-upload-preview').hide('slow');
         }
         else{
-            $('.ajax-file-upload-preview').show();
+            $('.ajax-file-upload-preview').show('slow');
         }
     });
 
@@ -534,15 +503,19 @@ $(document).ready(function() {
       $('#e_imagen_slider').text("");
       var nombre =  $("#tituloImagen").val(); //capturo el nombre del cliente cargado en el input.
       if(nombre  == ''){
-         $('#e_titulo_slider').text("El titulo de la imagen del slider es obligatorio.");
-         error = true;
+        $('#e_titulo_slider').text("El titulo de la imagen del slider es obligatorio.");
+        error = true;
+      }
+      else if(nombre.length > 80){
+        $('#e_titulo_slider').text("El titulo de la imagen no puede superar los 80 caracteres.");
+        error = true;
       }
       if ($("#contenedor-upload-file").is(":visible")) {
-         $('#e_imagen_slider').text("La imagen del slider es obligatoria.");
-         error = true;
+        $('#e_imagen_slider').text("La imagen del slider es obligatoria.");
+        error = true;
       }
       if(!error)
-         uploadObj.startUpload();
+        uploadObj.startUpload();
    });
 
    // al dar clic en agregar cliente ajax ejecuto el plugin uploadFile.
@@ -554,6 +527,10 @@ $(document).ready(function() {
       if(nombre  == ''){
          $('#e_nombre').text("El nombre del cliente es obligatorio.");
          error = true;
+      }
+      else if(nombre.length > 45){
+        $('#e_nombre').text("El nombre del cliente no puede superar los 45 caracteres.");
+        error = true;
       }
       if ($("#contenedor-upload-file").is(":visible")) {
          $('#e_imagen_cliente').text("La imagen del cliente es obligatoria.");

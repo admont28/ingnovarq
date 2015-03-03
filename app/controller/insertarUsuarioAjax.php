@@ -14,7 +14,7 @@
     if ($nombre == null || $nombre == '' ){
         $mensaje = "<script>document.getElementById('e_nombre').innerHTML='El campo nombre es requerido';</script>";
     }
-    else if(!preg_match('/^[a-záéóóúàèìòùäëïöüñ\s]+$/i', $nombre)){
+    else if(!preg_match('/^[a-záéíóúÁÉÍÓÚàèìòùäëïöüñ\s]+$/i', $nombre)){
         $mensaje = "<script>document.getElementById('e_nombre').innerHTML='Error, s&oacute;lo se permiten letras';</script>";
     }
     else if(strlen($nombre) < 3){
@@ -26,7 +26,7 @@
     else if ($apellido == null || $apellido == '' ){
         $mensaje = "<script>document.getElementById('e_apellido').innerHTML='El campo apellido es requerido';</script>";
     }
-    else if(!preg_match('/^[a-záéóóúàèìòùäëïöüñ\s]+$/i', $apellido)){
+    else if(!preg_match('/^[a-záéíóúÁÉÍÓÚàèìòùäëïöüñ\s]+$/i', $apellido)){
         $mensaje = "<script>document.getElementById('e_apellido').innerHTML='Error, s&oacute;lo se permiten letras';</script>";
     }
     else if(strlen($apellido) < 3){
@@ -72,8 +72,12 @@
         $respuesta = $userModel->view_db_user($cedula);
         //Finalmente, si no existe un usuairo en la bd registrado, se ingresará, de lo contrario lanzará un error.
         if($respuesta == null ){
-            $userModel->insert_db_user($cedula, $nombre, $apellido, $password, $tipoUsuario); // Inserto en la bd
-            $mensaje = get_success_insert_user(); // envio el mensaje 
+            echo $cedula;
+            $respuesta = $userModel->insert_db_user($cedula, $nombre, $apellido, $password, $tipoUsuario); // Inserto en la bd
+            if($respuesta == true) 
+                $mensaje = get_success_insert_user(); // envio el mensaje 
+            else
+                $mensaje = get_error_insert_user();
         }
         else{
             $mensaje = get_error_insert_user();

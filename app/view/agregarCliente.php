@@ -37,14 +37,15 @@
 								         <label for="name" class="control-label col-xs-3">Nombre:</label>
 								         <div class="col-xs-9">
 								            <input type="name" id="nombreCliente" name="nombreCliente" class="form-control" placeholder="Nombre">
-								         	<div class="col-xs-9 error-text" id="e_nombre"></div>
+								         	<div class="col-xs-12 error-text" id="e_nombre"></div>
 								         </div>
 								     </div>
 								     <div class="form-group">
 								     	 <label class="control-label col-xs-3">Imagen:</label>
 								         <div class="col-xs-9" id="cargador">
 								            <div id="fileuploader">Cargar imagen</div>
-								            <div class="col-xs-9 error-text" id="e_imagen_cliente"></div>
+								            <div class="col-xs-12 error-text" id="e_imagen_cliente"></div>
+								            <p class="col-xs-12 text-info">Nota: Antes de subir la imagen verifique que no haya subido una imagen anteriormente con el mismo nombre.</p>
 								         </div>
 								     </div>    
 								     <div class="form-group">
