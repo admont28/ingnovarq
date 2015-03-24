@@ -28,7 +28,7 @@
 								<p class="lead text-success">Se ha detectado una sesión activa. </p>
 								
 								<p class="lead">
-									Para iniciar sesión con otro usuario porfavor cierre está sesión, de lo contrario, no podrá tener 2 sesiones activas.
+									Para iniciar sesión con otro usuario porfavor cierre ésta sesión, de lo contrario, no podrá tener 2 sesiones activas.
 								</p>
 								<p class="lead">
 									Puede dirigirse a administrar el sitio web de Ingnovarq S.A.S.

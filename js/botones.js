@@ -194,7 +194,7 @@ $(document).ready(function() {
         },
         onError: function(files,status,errMsg,pd)
         {
-            alert("Surgio error");
+            alert("Surgio un error");
             alert(files);
             alert(status);
             alert(errMsg);
@@ -254,6 +254,24 @@ $(document).ready(function() {
            // los datos que se van a enviar
            var data = {
              nombreCliente: nombre //nombre del cliente
+           };
+           return data;
+         }
+     });
+   }else if($('#btn-editar-cliente-ajax').length){
+      // Si existe este botón, el usuario estará editando un cliente
+     // Ejecutar si existe el elemento
+     uploadObj.update({
+         url: "../controller/editarClienteAjax",
+         maxFileSize: 2097152, // 2MB escritos en bytes
+         dynamicFormData:function()
+         {
+           var nombre =  $("#nombreCliente").val(); //capturo el nombre del cliente cargado en el input.
+           var id = $("#idCliente").val();
+           // los datos que se van a enviar
+           var data = {
+             nombreCliente: nombre, //nombre del cliente
+             idCliente: id
            };
            return data;
          }
@@ -468,6 +486,32 @@ $(document).ready(function() {
             $('.ajax-file-upload-preview').show('slow');
         }
     });
+
+    // al dar clic en guardar cambios al momento de editar un cliente
+    // ejecuto el plugin uploadFile.
+   $('#btn-editar-cliente-ajax').click(function(){  
+      if($('#contenedor-upload-file').is(':visible')){ // si solo cambia el nombre y no carga ninguna imagen.
+         var url = "../controller/editarClienteAjax"; // El script a dónde se realizará la petición.
+         var id = $("#idCliente").val(); //capturo el id del cliente cargado en el input oculto
+         var nombre =  $("#nombreCliente").val(); //capturo el nombre cargado en el input.
+         // los datos que se van a enviar
+         var data = {
+           idCliente: id, //id del cliente
+           nombreCliente: nombre //nombre del cliente
+         };
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data, // Adjuntar los campos del formulario enviado.
+            success: function(data)
+            {
+                 $("#mensaje").html(data); // Mostrar la respuestas del script PHP.
+            }
+          });
+         return false; // Evitar ejecutar el submit del formulario.
+      }else
+         uploadObj.startUpload(); // si carga imagenes y modifica el nombre.
+   });
 
     // al dar clic en guardar cambios al momento de editar una imagen del slider
     // ejecuto el plugin uploadFile.

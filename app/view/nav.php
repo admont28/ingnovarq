@@ -44,7 +44,7 @@
 				<li class="cuadrado">
 					<a href="perfil" id="<?php if(strstr($_SERVER['REQUEST_URI'], 'perfil')){
 						echo 'seleccionado';
-					}?>">Inicio</a>
+					}?>">Perfil</a>
 				</li>
 				<li class="cuadrado">
 					<a href="agregarUsuario" id="<?php if(strstr($_SERVER['REQUEST_URI'], 'agregarUsuario')){
@@ -89,7 +89,7 @@
 				<li class="cuadrado">
 					<a href="perfil" id="<?php if(strstr($_SERVER['REQUEST_URI'], 'perfil')){
 						echo 'seleccionado';
-					}?>">Inicio</a>
+					}?>">Perfil</a>
 				</li>
 				<li class="cuadrado" >
 					<a href="agregarProyecto" id="<?php if(strstr($_SERVER['REQUEST_URI'], 'agregarProyecto')){

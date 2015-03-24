@@ -1023,5 +1023,59 @@
         return $mensaje;
     }
     
+    function get_script_edit_client(){
+        $mensaje = "<script type='text/javascript'>
+                        $('.open').click(function(){
+                            var id = $(this).data('id');
+                            var parametros = {
+                                'idCliente' : id,
+                            };
+                            var url = '../controller/editarClienteAjax'; // El script a dónde se realizará la petición.
+                            $.ajax({
+                               type: 'POST',
+                               url: url,
+                               data: parametros, // Adjuntar los campos a enviar
+                               success: function(data)
+                               {
+                                   $('#mensaje').html(data); // Mostrar la respuestas del script PHP.
+                               }
+                            });
+                        });
+                    </script>";
+        return $mensaje;
+    }
+
+    function get_error_edit_client(){
+        $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción No Exitosa :(',
+                                text: 'No se ha podido editar al cliente con éxito, porfavor recarga la página e inténtalo de nuevo.',
+                                type: 'error',
+                                delay: 6000,
+                                animation: 'show',
+                            });
+                        });
+                    </script>";
+        return $mensaje;
+    }
+
+    function get_success_edit_client(){
+        $mensaje = "<script type='text/javascript'>
+                        $(function(){
+                            new PNotify({
+                                title: 'Acción Exitosa',
+                                text: 'El cliente se ha editado con éxito.<br>La página será recargada en 7 segundos.',
+                                type: 'success',
+                                delay: 6500,
+                                animation: 'show',
+                            });
+                        });
+                    setTimeout(function(){
+                        location.reload();
+                    }, 7000);
+                </script>";
+        return $mensaje;
+    }
 
 ?>
