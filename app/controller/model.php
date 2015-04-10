@@ -27,5 +27,9 @@
 			    echo 'Falló la conexión: ' . $e->getMessage();
 			}
 		}
+
+		public function cerrar_conexion(){
+			$this->_db = null;
+		}
 	}
 ?>

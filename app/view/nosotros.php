@@ -20,7 +20,7 @@
 			</div>
 			<div class="contenido">
 				<div class="row">
-					<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+					<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1" id="mision">
 						<div class="panel panel-default empresa">
 						  <div class="panel-heading">Nuestra Misión</div>
 						  <div class="panel-body">
@@ -35,7 +35,7 @@
 						  </div>
 						</div>
 					</div>
-					<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+					<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1" id="vision">
 						<div class="panel panel-default empresa">
 						  <div class="panel-heading">Nuestra Visión</div>
 						  <div class="panel-body">
@@ -52,7 +52,7 @@
 						  </div>
 						</div>
 					</div>
-					<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+					<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1" id="filosofia">
 						<div class="panel panel-default empresa">
 						  	<div class="panel-heading">Nuestra Filosofía</div>
 						  	<div class="panel-body">

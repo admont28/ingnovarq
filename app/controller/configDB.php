@@ -20,12 +20,13 @@
 	
 
 	/*
-	 * Configuración de las constantes globales para el servidor gratuito de hostinger
+	 * Configuración de las constantes globales para el servidor de hostinger
+	 * Subdominio de GearDevSoft.com
 	 */
 	define('DB_HOST', 'localhost');
-	define('DB_USER', 'u625836385_johan');
-	define('DB_PASS', 'lQL*t6Vcu;ThgJJ');
-	define('DB_NAME', 'u625836385_ingno');
+	define('DB_USER', 'u803155544_ingno');
+	define('DB_PASS', '123456789');
+	define('DB_NAME', 'u803155544_ingno');
 	define('DB_CHARSET', 'utf-8');
 	
 ?>

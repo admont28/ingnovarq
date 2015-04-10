@@ -80,7 +80,7 @@
         $mensaje = "<script>document.getElementById('e_password').innerHTML='El campo es requerido';</script>";
     }// el password ha de tener letras y números, o números y letras.
     else if(!preg_match('/^([a-z]+[0-9]+)|([0-9]+[a-z]+)/i', $password)){
-        $mensaje = "<script>document.getElementById('e_password').innerHTML='Obligatorio, letras y n&uacute;meros';</script>";
+        $mensaje = "<script>document.getElementById('e_password').innerHTML='Obligatorio, solo letras y n&uacute;meros';</script>";
     }
     else if(strlen($password) < 6){
         $mensaje = "<script>document.getElementById('e_password').innerHTML='El m&iacute;nimo permitido 6 caracteres';</script>";
@@ -89,7 +89,7 @@
         $mensaje = "<script>document.getElementById('e_password').innerHTML='El m&aacute;ximo permitido 100 caracteres';</script>";
     }
     else if ($repetir_password != $password){
-        $mensaje = "<script>document.getElementById('e_repetir_password').innerHTML='Los password no coinciden';</script>";
+        $mensaje = "<script>document.getElementById('e_repetir_password').innerHTML='Las contraseñas no coinciden';</script>";
     }
     else{
         //Conectar a la base de datos y realizar la consulta para guardar el registro

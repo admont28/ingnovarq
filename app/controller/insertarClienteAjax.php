@@ -16,8 +16,10 @@
             $clientModel = new ClientModel();
             $userModel = new UserModel();
             $usuario = $userModel->view_db_user($_SESSION['idUsuario']);
+            print_r($usuario);
             $nombreCliente = htmlspecialchars($_POST['nombreCliente'], ENT_NOQUOTES); //evito ataques XSS
             $resultado = $clientModel->insert_db_client($nombreCliente, $usuario['idUsuario']);
+            print_r($resultado);
             if($resultado){
                 echo "Inserto en bd el cliente";
                 $ultimoCliente = $clientModel->view_db_last_client();
@@ -35,6 +37,8 @@
                 }
             }
         }
+        else
+            echo "Existe";
     }
 echo $mensaje; 
 ?>

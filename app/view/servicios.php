@@ -17,33 +17,47 @@
 				?>
 			</div>
 			<div class="contenido">
-				<div>
-		            <div id="ib-top" class="ib-top">
-		                <h1>Nuestros Servicios <span>Ingnovarq S.A.S</span></h1>
-		            </div>
-		            <div id="ib-main-wrapper" class="ib-main-wrapper">
-		                <div class="ib-main">
-
-		                	<?php 
-		                		foreach ($servicios as $fila) {
-		                			?>
-		                			<a href="#" class="ib-content">                   
-			                        <div class="ib-teaser">
-			                            <h2> <?php echo $fila['nombreServicio'] ?> </h2>
-			                        </div>
-			                        <div class="ib-content-full">
-			                            <p class="color-p"> <?php echo $fila['descripcionServicio'] ?> </p>
-			                        </div>
-		                    </a>
-		                    <?php
-		                		}
-		                	?>
-							<div class="clr"></div>
-						</div><!-- ib-main -->
-		            </div><!-- ib-main-wrapper -->
-        		</div>
-				
-			</div>
+				<div class='row'>
+					<?php 
+						foreach ($servicios as $fila) {?>					
+					<div class="col-xs-12 col-sm-10 col-md-10 col-md-offset-1 col-sm-offset-1">
+						<div class="panel panel-default empresa mostrar-servicios ">
+							  <div class="panel-heading"><?php echo $fila['nombreServicio'];?></div>
+							  	<?php
+									$imagenes = $servicioModel->view_db_img_service($fila['idServicio']);
+								?>
+							  <div class="panel-body">
+							  	<div class="col-xs-12 col-sm-3 col-md-4">
+							  		<?php
+							  			$cont = 0;
+										foreach ($imagenes as $columna) {
+										if($cont == 0){
+									?>									
+								 	<a href="<?php echo $columna['rutaImagen'] ?>" class="info group4" title="<?php echo $columna['tituloImagen'] ?>"><img src="<?php echo $imagenes[0]['rutaImagen']?>" class="img-responsive" /></a>
+								 	<?php
+								 		$cont++;
+								 		}	
+								 		else{
+								 	?>	
+								 		<a href="<?php echo $columna['rutaImagen'] ?>" class="group4" title="<?php echo $columna['tituloImagen'] ?>"></a>
+									<?php
+											}
+										}
+									?>							 	
+								</div>
+							  	<div class="col-xs-12 col-sm-7 col-md-8">
+									<p class="text-justify"><?php
+										echo $fila['descripcionServicio'];
+									?></p>
+							  	</div>
+							  </div>
+						</div>		
+					</div>	
+					<?php				 		
+				 		}				 		
+				 	?>			
+				</div>	
+			</div>		
 		</div>
 		<?php
 			getFooter(); 

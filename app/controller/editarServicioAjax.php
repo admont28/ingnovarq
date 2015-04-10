@@ -11,12 +11,12 @@
         $consulta = $serviceModel->view_db_service($idServicio);
         if($consulta != null){
             $nombreServicio = $consulta['nombreServicio'];
-            $descripcionServicio = $consulta['descripcionServicio'];
+            $descripcionServicio = str_replace("<br />",'\n', $consulta['descripcionServicio']);
             $fechaServicio = $consulta['fechaCreacionServicio'];
             $mensaje = "<script> 
                             document.getElementById('nombreServicio').value='".$nombreServicio."';
                             document.getElementById('idServicio').value='".$idServicio."';
-                            document.getElementById('descripcionServicio').value='".$descripcionServicio."';  
+                            document.getElementById('descripcionServicio').value = '".$descripcionServicio."';  
                             document.getElementById('fecha').value='".$fechaServicio."';            
                         </script>";
             echo $mensaje;
@@ -27,7 +27,8 @@
         require_once ("notificaciones.php");
         $idServicio = htmlspecialchars($_POST['idServicio']);
         $nombreServicio = htmlspecialchars($_POST['nombreServicio']);
-        $descripcionServicio = htmlspecialchars($_POST['descripcionServicio']);
+        $descripcionServicio = htmlentities($_POST["descripcionServicio"], ENT_QUOTES, "UTF-8");
+        $descripcionServicio = str_replace(array("\r\n", "\r", "\n"), "<br />", $descripcionServicio);
         $fechaServicio = htmlspecialchars($_POST['fecha']);
         $error = false;
         if($nombreServicio == ''){

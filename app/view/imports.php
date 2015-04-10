@@ -118,7 +118,10 @@
 		<script type="text/javascript" src="../../js/jquery.easing.1.3.js"></script>
         <script type="text/javascript" src="../../js/appServicios.js"></script>
         <script type="text/javascript" src="../../js/dropzone.min.js"></script>
-       
+       	<!-- Inserta esta etiqueta en la sección "head" o justo antes de la etiqueta "body" de cierre. -->
+		<script src="https://apis.google.com/js/platform.js" async defer>
+		  {lang: 'es-419'}
+		</script>
         </body>
 		</html>
 		<?php

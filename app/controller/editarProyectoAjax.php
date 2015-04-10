@@ -11,7 +11,7 @@
         $consulta = $projectModel->view_db_project($idProyecto);
         if($consulta != null){
             $nombreProyecto = $consulta['nombreProyecto'];
-            $descripcionProyecto = $consulta['descripcionProyecto'];
+            $descripcionProyecto = str_replace("<br />",'\n', $consulta['descripcionProyecto']);
             $fechaProyecto = $consulta['fechaCreacionProyecto'];
             $mensaje = "<script> 
                             document.getElementById('nombreProyecto').value='".$nombreProyecto."';
@@ -27,7 +27,8 @@
         require_once ("notificaciones.php");
         $idProyecto = htmlspecialchars($_POST['idProyecto']);
         $nombreProyecto = htmlspecialchars($_POST['nombreProyecto']);
-        $descripcionProyecto = htmlspecialchars($_POST['descripcionProyecto']);
+        $descripcionProyecto = htmlentities($_POST["descripcionProyecto"], ENT_QUOTES, "UTF-8");
+        $descripcionProyecto = str_replace(array("\r\n", "\r", "\n"), "<br />", $descripcionProyecto);
         $fechaProyecto = htmlspecialchars($_POST['fecha']);
         $error = false;
         if($nombreProyecto == ''){

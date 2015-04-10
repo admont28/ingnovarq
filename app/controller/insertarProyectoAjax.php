@@ -7,7 +7,8 @@
     $mensaje =  "";
     if (sizeof($_POST) == 3 && isset($_POST['nombreProyecto'], $_POST['descripcionProyecto'], $_POST['fechaProyecto'])) {
         $nombreProyecto = htmlspecialchars($_POST["nombreProyecto"]);
-        $descripcionProyecto = htmlspecialchars($_POST["descripcionProyecto"]);
+        $descripcionProyecto = htmlentities($_POST["descripcionProyecto"], ENT_QUOTES, "UTF-8");
+        $descripcionProyecto = str_replace(array("\r\n", "\r", "\n"), "<br />", $descripcionProyecto);
         $fechaProyecto=$_POST['fechaProyecto'];
          
         if ($nombreProyecto == '' ){

@@ -34,14 +34,22 @@
 								if($contador == 1){?>
 								<a href="<?php echo $columna['rutaImagen'] ?>" class="info group4" title="<?php echo $columna['tituloImagen'] ?>">Ver imágenes</a>
 							<?php
+								$contador++;
 									}
 								else{?>
-								<a href="<?php echo $columna['rutaImagen'] ?>" class="group4" title="<?php echo $columna['tituloImagen'] ?>">Ver imágenes</a>
+								<a href="<?php echo $columna['rutaImagen'] ?>" class="group4" title="<?php echo $columna['tituloImagen'] ?>"></a>
 							<?php
 								}
 							}
+							?>
+								</div>
+							</div>
+							<?php
 						}
 						?>
+					</div>
+					
+						<!--
 					<div class="view view-third col-xs-12 col-sm-4 col-md-4">
 	                    <img src="../../images/reserva.png" class="img-responsive" />
 	                    <div class="mask">
@@ -76,7 +84,7 @@
 	                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
 	                        <a href="#" class="info">Ver imágenes</a>
 	                    </div>
-	                </div>
+	                </div>-->
 				</div>            	
 			</div>
 		</div>

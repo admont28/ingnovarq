@@ -121,6 +121,9 @@
 						  </div>
 						</div>
 		        	</div>
+		        	<div class="col-md-12 text-center">
+		        		<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3977.1957580155276!2d-75.65453699999999!3d4.558788!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e38f4e866c0aceb%3A0x50f45a0430b58847!2sINGNOVARQ+S.A.S!5e0!3m2!1ses!2s!4v1428092628404" width="1000" height="450" frameborder="0" style="border:0"></iframe>
+		        	</div>
 		    	</div>
 			</div>
 		</div>

@@ -7,7 +7,9 @@
     $mensaje =  "";
     if (sizeof($_POST) == 3 && isset($_POST['nombreServicio'], $_POST['descripcionServicio'], $_POST['fechaServicio'])) {
         $nombreServicio = htmlspecialchars($_POST["nombreServicio"]);
-        $descripcionServicio = htmlspecialchars($_POST["descripcionServicio"]);
+        //$descripcionServicio = htmlspecialchars($_POST["descripcionServicio"]);
+        $descripcionServicio = htmlentities($_POST["descripcionServicio"], ENT_QUOTES, "UTF-8");
+        $descripcionServicio = str_replace(array("\r\n", "\r", "\n"), "<br />", $descripcionServicio);
         $fechaServicio=$_POST['fechaServicio'];
          
         if ($nombreServicio == '' ){
