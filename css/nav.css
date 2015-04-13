@@ -275,6 +275,10 @@ nav a#pull {
 		margin: 0;
 	}
 
+	#con{
+		background-color: green;
+	}
+
 	.con{
 		margin-bottom: 480px;
 	}

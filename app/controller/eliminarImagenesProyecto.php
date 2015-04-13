@@ -1,6 +1,6 @@
 <?php
 	session_start();
-    if(!isset($_SESSION['idUsuario'],$_SESSION['nombreUsuario'], $_SESSION['apellidoUsuario'], $_SESSION['superAdminUsuario']) || $_SESSION['superAdminUsuario'] == 0){
+    if(!isset($_SESSION['idUsuario'],$_SESSION['nombreUsuario'], $_SESSION['apellidoUsuario'], $_SESSION['superAdminUsuario'])){
             header('location: error');
     }
     if(isset($_POST["op"], $_POST['name'], $_POST['idProyecto']) && $_POST["op"] == "delete" && !empty($_POST['name']) && !empty($_POST['idProyecto'])){

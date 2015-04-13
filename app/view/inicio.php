@@ -181,12 +181,14 @@
 						  		<?php
 						  		foreach ($clientes as $fila) {
 						  			?>
-						  			<div class="col-xs-12 col-sm-2 col-md-2">
-						  			<br>
-						  				<h3 class="text-center"><?php echo $fila['nombreCliente']?></h3>
-						  				<br>
-						  				<img class="img-responsive center-block" src="<?php echo $fila['rutaImagen'] ?>" alt="<?php echo $fila['nombreCliente'] ?>" title="<?php echo $fila['nombreCliente'] ?>">
-									</div>
+						  			<div class="col-xs-12 col-sm-3 col-md-3">
+						  				<div class="view view-third">
+											<img width="180px" height="140px" src="<?php echo $fila['rutaImagen']?>" class="img-responsive" />
+											<div class="mask">
+												<p><?php echo $fila['nombreCliente']?></p>
+											</div>
+										</div>
+						  			</div>
 									<?php
 						  		}
 								?>

@@ -31,6 +31,27 @@
                     if($resultado){
                         echo "inserto en bd la imagen";
                         move_uploaded_file($_FILES["myfile"]["tmp_name"], $fullPath); //muevo el archivo cargado
+                             // El archivo
+                            $nombre_Archivo = "".$fullPath."";
+                            // Obtener nuevas dimensiones
+                            list($ancho, $alto) = getimagesize($nombre_Archivo);
+                            $nuevo_ancho = 180;
+                            $nuevo_alto = 160;
+                            // redimensionar
+                            $imagen_p = imagecreatetruecolor($nuevo_ancho, $nuevo_alto);
+                            // Tipo de contenido
+                            if($_FILES['myfile']['type'] == 'image/jpeg'){
+                                header('Content-Type: image/jpeg');
+                                $imagen = imagecreatefromjpeg($nombre_Archivo);
+                                imagecopyresampled($imagen_p, $imagen, 0, 0, 0, 0, $nuevo_ancho, $nuevo_alto, $ancho, $alto);
+                                ImageJPEG($imagen_p,$nombre_Archivo,90);
+                            }
+                            else if($_FILES['myfile']['type'] == 'image/png'){
+                                header('Content-Type: image/png');
+                                $imagen = imagecreatefrompng($nombre_Archivo);
+                                imagecopyresampled($imagen_p, $imagen, 0, 0, 0, 0, $nuevo_ancho, $nuevo_alto, $ancho, $alto);
+                                Imagepng($imagen_p,$nombre_Archivo,0);
+                            }
                         $mensaje = get_success_insert_client($nombreCliente); // obtengo el mensaje de que todo ha salido bien.
                         echo "se supone que moví la imagen";
                     }

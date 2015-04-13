@@ -27,19 +27,19 @@
 									$imagenes = $servicioModel->view_db_img_service($fila['idServicio']);
 								?>
 							  <div class="panel-body">
-							  	<div class="col-xs-12 col-sm-3 col-md-4">
+							  	<div class="col-xs-12 col-sm-3 col-md-4" id="contenedor-imagenes">
 							  		<?php
 							  			$cont = 0;
 										foreach ($imagenes as $columna) {
 										if($cont == 0){
 									?>									
-								 	<a href="<?php echo $columna['rutaImagen'] ?>" class="info group4" title="<?php echo $columna['tituloImagen'] ?>"><img src="<?php echo $imagenes[0]['rutaImagen']?>" class="img-responsive" /></a>
+								 	<a href="<?php echo $imagenes[0]['rutaImagen'] ?>" id="<?php echo $fila['idServicio'] ?>" class="abrir <?php echo $fila['idServicio'] ?>" title="<?php echo $columna['tituloImagen'] ?>"><img src="<?php echo $imagenes[0]['rutaImagen']?>" class="img-responsive" /></a>
 								 	<?php
 								 		$cont++;
 								 		}	
 								 		else{
 								 	?>	
-								 		<a href="<?php echo $columna['rutaImagen'] ?>" class="group4" title="<?php echo $columna['tituloImagen'] ?>"></a>
+								 		<a href="<?php echo $columna['rutaImagen'] ?>" class="<?php echo $fila['idServicio'] ?>" title="<?php echo $columna['tituloImagen'] ?>"></a>
 									<?php
 											}
 										}

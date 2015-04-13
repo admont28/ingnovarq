@@ -119,10 +119,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
-					<?php 
-						if($_SESSION['superAdminUsuario'] == 1){
-					?>
+					</div>					
 					<div class="col-xs-12 col-sm-12 col-md-6">
 						<div class="panel panel-default administrador">
 							<div class="panel-heading col-xs-12 col-sm-12 col-md-12">
@@ -144,38 +141,6 @@
 								<div class="col-md-6 col-xs-6 col-sm-6">
 									<a href="listarServicios">
 										<img src="../../images/administrador/search.png" class="img-responsive">
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<?php } ?>
-					<div class="col-xs-12 col-sm-12 col-md-6">
-						<div class="panel panel-default administrador">
-							<div class="panel-heading col-xs-12 col-sm-12 col-md-12">
-								<div class="title-admin col-md-10 col-xs-12 col-sm-12">
-									<h2 style="color: white;">Gestión de Empresa</h2>
-								</div>
-								<div class="col-md-2 admin-img">
-									<a>
-										<img src="../../images/administrador/user.png" class="img-responsive">
-									</a>
-								</div>
-							</div>
-							<div class="panel-body col-xs-12 col-sm-12 col-md-12 color-content-admin">
-								<div class="col-md-4 col-xs-4 col-sm-4">
-									<a href="#sinAccion" data-toggle="modal" data-target="#mision" title="Misión Empresarial">
-										<div><img src="../../images/administrador/mision.png" class="img-responsive"></div>
-									</a>
-								</div>
-								<div class="col-md-4 col-xs-4 col-sm-4">
-									<a href="#sinAccion" data-toggle="modal" data-target="#vision" title="Visión Empresarial">
-										<div><img src="../../images/administrador/vision.png" class="img-responsive"></div>
-									</a>
-								</div>
-								<div class="col-md-4 col-xs-4 col-sm-4">
-									<a href="#sinAccion" data-toggle="modal" data-target="#filosofia" title="Filosofía Empresarial">
-										<div><img src="../../images/administrador/valores.png" class="img-responsive"></div>
 									</a>
 								</div>
 							</div>
@@ -207,8 +172,39 @@
 							</div>
 						</div>
 					</div>
+					<div class="col-xs-12 col-sm-12 col-md-6">
+						<div class="panel panel-default administrador">
+							<div class="panel-heading col-xs-12 col-sm-12 col-md-12">
+								<div class="title-admin col-md-10 col-xs-12 col-sm-12">
+									<h2 style="color: white;">Gestión de Empresa</h2>
+								</div>
+								<div class="col-md-2 admin-img">
+									<a>
+										<img src="../../images/administrador/user.png" class="img-responsive">
+									</a>
+								</div>
+							</div>
+							<div class="panel-body col-xs-12 col-sm-12 col-md-12 color-content-admin">
+								<div class="col-md-4 col-xs-4 col-sm-4">
+									<a href="#sinAccion" data-toggle="modal" data-target="#mision" title="Misión Empresarial">
+										<div><img src="../../images/administrador/mision.png" class="img-responsive"></div>
+									</a>
+								</div>
+								<div class="col-md-4 col-xs-4 col-sm-4">
+									<a href="#sinAccion" data-toggle="modal" data-target="#vision" title="Visión Empresarial">
+										<div><img src="../../images/administrador/vision.png" class="img-responsive"></div>
+									</a>
+								</div>
+								<div class="col-md-4 col-xs-4 col-sm-4">
+									<a href="#sinAccion" data-toggle="modal" data-target="#filosofia" title="Filosofía Empresarial">
+										<div><img src="../../images/administrador/valores.png" class="img-responsive"></div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-
+				
 				<?php 
 		         	$empresaModel = new EmpresaModel();
 		         	$mision = $empresaModel->get_mision();

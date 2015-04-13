@@ -731,5 +731,28 @@ $(document).ready(function() {
         return false; // Evitar ejecutar el submit del formulario.   
   });
 
+  $('.abrir').click(function(){
+    console.log("entre");
+    $('#contenedor-imagenes a').removeClass("group4");
+    var id = this.id;
+    // se añade la clase que permite ver las imagenes en el visor
+    $('.'+id).addClass("group4");
+    /*setTimeout(
+      function() {
+      abrir_visor();
+    }, 100);*/
+    abrir_visor();
+  });
+
+  
+  function abrir_visor(){
+    $(".group4").colorbox.remove();
+    $(".group4").colorbox({
+      rel:'group4',
+      slideshow: true,
+      width: '600px'
+    });
+  }
+            
   
 });

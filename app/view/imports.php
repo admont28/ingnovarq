@@ -39,15 +39,6 @@
 					<!-- CSS Files y JS para la galeria de imagenes de los proyectos -->
 					<link rel="stylesheet" type="text/css" href="../../css/colorbox.css"/>
 					<script type="text/javascript" src="../../js/jquery.colorbox.js"></script>
-					<script>
-						jQuery(document).ready(function($){
-								$(".group4").colorbox({
-									rel:'group4',
-									slideshow: true,
-									width: '600px'
-								});
-						});
-					</script>
 
 			        <!-- bxSlider CSS file -->
 			        <link rel="stylesheet" type="text/css" href="../../css/jquery.bxslider.css"/>
@@ -60,8 +51,6 @@
 					<!-- Script para slider -->
 					<script type="text/javascript" src="../../js/modernizr.custom.46884.js"></script>
 
-					<!-- CSS FILES para subir imagenes draggables-->
-					<link rel="stylesheet" type="text/css" href="../../css/dropzone.css" />
 
 					<!-- CSS Files y Script para el nav responsivo -->
 					<link rel="stylesheet" type='text/css' href="../../css/normalize.css">
@@ -69,8 +58,8 @@
 					<script type="text/javascript" src="../../js/navresponsive.js"></script>
 					
 					<!-- CSS Files y Script para el BoxesGrid -->
-					<link rel="stylesheet" type="text/css" href="../../css/styleServicios.css"/>					
-			        <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Oswald'/>					
+			        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Oswald"/>		
+			        <link rel="stylesheet" type="text/css" href="../../css/styleServicios.css"/>								
 					<script id="contentTmpl" type="text/x-jquery-tmpl">	
 						<div id="ib-content-preview" class="ib-content-preview">
 			                <div class="ib-teaser" style="display:none;">{{html teaser}}</div>
@@ -82,9 +71,7 @@
 					<!-- Script para capturar las acciones de los botones en formularios -->
 					<script type="text/javascript" src="../../js/botones.js" ></script>
 
-					<!-- CSS Files para la presentación de proyectos -->
-					<link rel="stylesheet" type="text/css" href="../../css/demoProyectos.css"/>
-			        <link rel="stylesheet" type="text/css" href="../../css/styleCommonProyectos.css"/>
+			        <link rel="stylesheet" type="text/css" href="../../css/styleClientes.css"/>
 			        <link rel="stylesheet" type="text/css" href="../../css/styleProyectos.css"/>
 				</head>
 		<?php
@@ -116,8 +103,8 @@
 		<script type="text/javascript" src="../../js/jquery.tmpl.min.js"></script>
         <script type="text/javascript" src="../../js/jquery.kinetic.js"></script>
 		<script type="text/javascript" src="../../js/jquery.easing.1.3.js"></script>
-        <script type="text/javascript" src="../../js/appServicios.js"></script>
-        <script type="text/javascript" src="../../js/dropzone.min.js"></script>
+        
+        
        	<!-- Inserta esta etiqueta en la sección "head" o justo antes de la etiqueta "body" de cierre. -->
 		<script src="https://apis.google.com/js/platform.js" async defer>
 		  {lang: 'es-419'}
